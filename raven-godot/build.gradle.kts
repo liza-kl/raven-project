@@ -4,11 +4,19 @@ plugins {
 
 repositories {
     mavenCentral()
+    maven(url = "https://releases.usethesource.io/maven/")
 }
 
-kotlin {
-    jvmToolchain(17)
+dependencies {
+    implementation(files("/Users/ekletsko/raven-project/raven-godot/src/main/resources/vallang-0.15.1-sources.jar"))
+  //  implementation(files("/Users/ekletsko/raven-project/raven-godot/src/main/resources/rascal-0.33.0-sources.jar"))
+    implementation(files("/Users/ekletsko/raven-project/raven-godot/src/main/resources/rascal-0.33.0.jar"))
+
 }
+kotlin {
+    jvmToolchain(11)
+}
+
 
 godot {
     // START: registration options
