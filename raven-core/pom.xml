@@ -36,6 +36,18 @@
         <artifactId>salix-core</artifactId>
         <version>0.2.3</version>
     </dependency>
+     <dependency>  
+        <groupId>io.usethesource</groupId>
+        <artifactId>vallang</artifactId>
+        <version>0.12.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sample</groupId>
+      <artifactId>sample</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+    <systemPath>/Users/ekletsko/raven-project/raven-godot/build/libs/raven-godot.jar</systemPath>
+</dependency>
   </dependencies>
 
   <build>
