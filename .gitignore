@@ -13,3 +13,7 @@ jre
 # DS Store
 .DS_Store
 **/target
+
+# Rascal Conf
+
+ApplicationConf.rsc
