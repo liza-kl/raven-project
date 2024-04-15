@@ -2,7 +2,6 @@ package cwi.masterthesis.raven.buttons;
 
 import cwi.masterthesis.raven.files.FileUtils;
 import godot.Button;
-import godot.Node;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
 import godot.global.GD;
@@ -10,6 +9,9 @@ import godot.global.GD;
 @RegisterClass
 
 public class UpdateSceneButton extends Button {
+
+
+
         @RegisterFunction
         public void _pressed() {
             System.out.println("Writing to file");
@@ -17,9 +19,6 @@ public class UpdateSceneButton extends Button {
             FileUtils.deleteFileContent();
             FileUtils.writeToFile("Create new UI " + System.currentTimeMillis());
             System.out.println("Written to file");
-            Button button = new Button();
-            Node parent = this.getParent();
-            parent.addChild(button);
         }
     }
 
