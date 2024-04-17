@@ -26,9 +26,9 @@ public str JSON_CONTENT_END = "}";
 
 void main() {
  // Creating a RavenNode using the ravenLabel constructor
-   //list[RavenNode] testNode = [ravenNode2D("root", [ravenLabel("ravenLabelID", "actualRavenLabel"), ravenButton("ravenButtonID", "ravenButtonText")])];
-    RavenNode testNode = ravenNode2D("root", []);
-        traverseTreeRecursively(testNode);
+   RavenNode testNode = ravenNode2D("root", [ravenLabel("ravenLabelID", "actualRavenLabel"), ravenButton("ravenButtonID", "ravenButtonText")]);
+  //  RavenNode testNode = ravenNode2D(ravenNode2D("root", []));
+    traverseTreeRecursively(testNode);
     
     str wholeJSONThingy = JSON_CONTENT_START + JSON_CONTENT + JSON_CONTENT_END;
     writeFile(JSON_TREE_FILE, wholeJSONThingy);
