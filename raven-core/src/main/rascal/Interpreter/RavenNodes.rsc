@@ -32,20 +32,21 @@ str rvn_print(RavenNode nodeName: ravenLabel(str nodeID, str text)) =
     '}  ";
 
 str rvn_print(RavenNode nodeName:ravenNode2D(str nodeID, list[RavenNode] children)) = 
-"\"id\": <rvn_print(nodeName.nodeID)>
-    <if(children!=[]){>,\"children\":<rvn_print(children)><}> 
-    ";
+    "\"id\": <rvn_print(nodeName.nodeID)><if(children!=[]){>,
+    '   \"children\":
+    '[<rvn_print(children)>
+    ']
+    '<}>";
 
 
 // JSON cant have duplicate keys, very sad.
-str rvn_print(list[RavenNode] children) 
-{  
-    return "[
-            <for(RavenNode child <- children){>
-                {<rvn_print(child)>}
-                <if(!(indexOf(children,child) == size(children) - 1)){>,<}>
-            <}>
-            ]";}
+str rvn_print(list[RavenNode] children) = "
+'<for(RavenNode child <- children){>
+'{
+'   <rvn_print(child)>}<if(!(indexOf(children,child) == size(children) - 1)){>,
+'<}>
+<}>
+            ";
 default str rvn_print(RavenNode ravenNode) { throw "you forgot a case <typeOf(ravenNode)>"; } 
 
 str rvn_print(RavenNode nodeName:ravenButton(str nodeID, str buttonText)) = 
