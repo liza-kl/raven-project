@@ -6,7 +6,6 @@ import String;
 import Main;
 import List;
 import Type;
-import util::UUID;
 
 // Rascal Tree -> JSON -> Feed into Java -> Create Custom Format to parse it better -> Create Scene in Godot 
 // Passing JSON tree as argument in makefile?
@@ -15,9 +14,11 @@ import util::UUID;
 // String template in rascal 
 // https://github.com/vrozen/Cascade/blob/main/TEL/src/lang/tel/Printer.rsc
 
+alias Attributes = list[value];
+
 public data RavenNode = 
             ravenNode2D(str nodeID, list[RavenNode] children)
-            | ravenButton(str nodeID,str label)
+            | ravenButton(str nodeID, str label, str callback)
             | ravenLabel(str nodeID, str text);
             
 
@@ -26,11 +27,11 @@ str rvn_print(int number) = "<number>";
 str rvn_print(str string) =  "\"<string>\"";
 str rvn_print(list[RavenNode] children: []) = "";
 str rvn_print(RavenNode nodeName: ravenLabel(str nodeID, str text)) =
-    "\"label-<rvn_print(uuidi())>\": {
+    "\"Label\": {
     '   \"id\": <rvn_print(nodeID)>,
     '   \"text\": <rvn_print(text)>
     '}  ";
-
+   
 str rvn_print(RavenNode nodeName:ravenNode2D(str nodeID, list[RavenNode] children)) = 
     "\"id\": <rvn_print(nodeName.nodeID)><if(children!=[]){>,
     '   \"children\":
@@ -49,10 +50,12 @@ str rvn_print(list[RavenNode] children) = "
             ";
 default str rvn_print(RavenNode ravenNode) { throw "you forgot a case <typeOf(ravenNode)>"; } 
 
-str rvn_print(RavenNode nodeName:ravenButton(str nodeID, str buttonText)) = 
-    "\"button-<rvn_print(uuidi())>\":
-    '   {\"id\": \"<nodeID>\",
-    '   \"text\": \"<buttonText>\"
+str rvn_print(RavenNode nodeName:ravenButton(str nodeID, str buttonText, str callback)) = 
+    "\"Button\":
+    '{
+    '   \"id\": \"<nodeID>\",
+    '   \"text\": \"<buttonText>\",
+    '   \"callback\": \"<callback>\"
     '}";
 
 RavenNode mapNodesToJSON(RavenNode tree) =  top-down-break visit(tree){      
