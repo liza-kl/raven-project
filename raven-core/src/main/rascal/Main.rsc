@@ -18,7 +18,13 @@ public str JSON_CONTENT = "";
 public str JSON_CONTENT_END = "}";
 
 void main() {
-   RavenNode testNode = ravenNode2D("root", [ravenLabel("ravenLabelID", "actualRavenLabel"), ravenButton("ravenButtonID", "ravenButtonText", "inc()")]);
+   RavenNode testNode = ravenNode2D(
+    "root",
+    [ravenLabel("label#1", "My Counter Application", 10,30),
+    ravenButton("button#1", "Decrement Button", "dec()", -100,20),
+    ravenButton("button#2", "Increment Button", "inc()", 100,20)],
+    true);
+
     main(testNode);
     str wholeJSONThingy = JSON_CONTENT_START + JSON_CONTENT + JSON_CONTENT_END;
     writeFile(JSON_TREE_FILE, wholeJSONThingy);

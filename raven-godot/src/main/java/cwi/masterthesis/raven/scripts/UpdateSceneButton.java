@@ -10,8 +10,10 @@ import godot.global.GD;
 
 public class UpdateSceneButton extends Button {
 
-
-
+        @RegisterFunction
+        public void _ready() {
+            System.out.println("the button is ready");
+        }
         @RegisterFunction
         public void _pressed() {
             System.out.println("Writing to file");

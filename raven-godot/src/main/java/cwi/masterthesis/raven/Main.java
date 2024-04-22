@@ -3,6 +3,7 @@ package cwi.masterthesis.raven;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import cwi.masterthesis.raven.files.FileUtils;
 import cwi.masterthesis.raven.interpreter.Interpreter;
 import cwi.masterthesis.raven.interpreter.mapper.RavenJSONTraverser;
 import cwi.masterthesis.raven.interpreter.nodes.RavenNode;
@@ -24,13 +25,15 @@ public class Main extends Node {
     public void _ready() {
         System.out.println("Started Application");
         String sceneTreePath = "/Users/ekletsko/raven-project/raven-core/src/main/rascal/tree.json";
+        FileUtils.createAProtocolFile();
         var interpreter = new Interpreter();
         RavenJSONTraverser traverser = getRavenJSONTraverser(sceneTreePath);
         List<RavenNode> elements = traverser.getSceneToBuild();
-
         for (var element : elements) {
            element.acceptVisitor(interpreter);
         }
+
+        FileUtils.writeToFile(String.valueOf(getTree().getRoot()));
     }
 
     private @NotNull RavenJSONTraverser getRavenJSONTraverser(String sceneTreePath) {

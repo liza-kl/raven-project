@@ -51,7 +51,7 @@ public class FileUtils {
     public static void writeToFile(String contentToWrite) {
 
         try {
-            FileWriter myWriter = new FileWriter(PROTOCOL_FILE);
+            FileWriter myWriter = new FileWriter("/Users/ekletsko/raven-project/raven-godot/protocol.txt");
             myWriter.write(contentToWrite);
             myWriter.close();
 

@@ -4,30 +4,36 @@
  
  {
     "Label": {
-      "id": "label#1",
-      "text": "My Counter Application",
-      "xPosition": 0,
-      "yPosition": -10
+       "id": "label#1",
+       "text": "My Counter Application",
+       "xPosition": 10,
+       "yPosition": 30
     }  },
  
  
  {
     "Button":
     {
-      "id": "button#1",
-      "text": "Increment Button",
-      "callback": "inc()",
-      "xPosition": -100,
-      "yPosition": 20
+       "id": "button#1",
+       "text": "Decrement Button",
+       "callback": "dec()",
+       "xPosition": "-100",
+       "yPosition": "20"
+    
     }},
-     {
+ 
+ 
+ {
     "Button":
     {
-      "id": "button#2",
-      "text": "Decrement Button",
-      "callback": "dec()",
-      "xPosition": 50,
-      "yPosition": 20
-    }}             
+       "id": "button#2",
+       "text": "Increment Button",
+       "callback": "inc()",
+       "xPosition": "100",
+       "yPosition": "20"
+    
+    }}
+ 
+             
 ]
 }
