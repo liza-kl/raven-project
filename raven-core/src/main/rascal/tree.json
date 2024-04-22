@@ -1,17 +1,22 @@
-{"id": "root"
-    ,"children":[
-            
-                {"label--67018501266014461168526739841097922176": {
-   "id": "ravenLabelID",
-   "text": "actualRavenLabel"
-}  }
-                ,
-            
-                {"button--66340916617823691812050577335666170662":
-   {"id": "ravenButtonID",
-   "text": "ravenButtonText"
-}}
-                
-            
-            ] 
-    }
+{"id": "root",
+   "children":
+[
+ 
+ {
+    "Label": {
+       "id": "ravenLabelID",
+       "text": "actualRavenLabel"
+    }  },
+ 
+ 
+ {
+    "Button":
+    {
+       "id": "ravenButtonID",
+       "text": "ravenButtonText",
+       "callback": "inc()"
+    }}
+ 
+             
+]
+}

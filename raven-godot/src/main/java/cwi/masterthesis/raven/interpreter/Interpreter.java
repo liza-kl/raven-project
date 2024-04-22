@@ -5,12 +5,14 @@ import cwi.masterthesis.raven.interpreter.nodes.RavenLabel;
 import cwi.masterthesis.raven.interpreter.nodes.RavenNode2D;
 import godot.Button;
 import godot.Label;
+import godot.Node;
+import godot.Node2D;
 import godot.core.Vector2;
 
 public class Interpreter implements Visitor {
 
-    public static void callInterpreter(String tree) {
-        System.out.println(tree);
+    public void addChildren(Node child, Node parentNode) {
+        parentNode.addChild(child);
     }
 
     @Override
@@ -19,6 +21,8 @@ public class Interpreter implements Visitor {
         var button = new Button();
         button.setText(ravenButton.getLabel());
         button.setPosition(new Vector2(ravenButton.getXCoordinate(), ravenButton.getYCoordinate()));
+
+        button.getChildren().forEach(child -> addChildren(button, child));
         ravenButton.getParentNode().addChild(button);
     }
 
@@ -34,8 +38,11 @@ public class Interpreter implements Visitor {
 
     @Override
     public void visitNode2D(RavenNode2D ravenNode2D) {
-
+        System.out.println("Creating Node2D");
+        var node2D = new Node2D();
+        node2D.getParent().addChild(node2D);
     }
+
 
 
 }

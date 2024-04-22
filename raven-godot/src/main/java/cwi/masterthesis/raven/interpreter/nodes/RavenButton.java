@@ -1,9 +1,10 @@
 package cwi.masterthesis.raven.interpreter.nodes;
 
 import cwi.masterthesis.raven.interpreter.Visitor;
+import godot.Button;
 import godot.Node;
 
-public class RavenButton implements RavenNode {
+public class RavenButton extends Button implements RavenNode {
     private Node parentNode;
     private String label;
     private int XCoordinate;

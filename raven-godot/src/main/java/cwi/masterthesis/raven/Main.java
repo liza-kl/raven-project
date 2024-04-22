@@ -1,9 +1,12 @@
 package cwi.masterthesis.raven;
 
-import cwi.masterthesis.raven.files.FileUtils;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import cwi.masterthesis.raven.interpreter.Interpreter;
-import cwi.masterthesis.raven.interpreter.nodes.RavenButton;
+import cwi.masterthesis.raven.interpreter.mapper.RavenJSONTraverser;
 import cwi.masterthesis.raven.interpreter.nodes.RavenLabel;
+import godot.FileAccess;
 import godot.Node;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
@@ -16,16 +19,40 @@ public class Main extends Node {
     @Override
     public void _ready() {
         System.out.println("Started Application");
-        var incButton = new RavenButton(getNode(new NodePath(".")), "+",10,2, "inc()");
-        var decButton = new RavenButton(getNode(new NodePath(".")), "-",15,2,"dec()");
+        String sceneTreePath = "/Users/ekletsko/raven-project/raven-core/src/main/rascal/tree.json";
 
-        var label = new RavenLabel(getNode(new NodePath(".")), "My Counter Application", 10,5);
+
+//        var decButton = new RavenButton(getNode(new NodePath(".")), "-", 15, 2, "dec()");
+
+        Node godotRootNode = getNode(new NodePath("."));
+        var label = new RavenLabel(godotRootNode, "My Counter Application", 10, 5);
         var interpreter = new Interpreter();
-        interpreter.visitButton(incButton);
-        interpreter.visitButton(decButton);
+       // interpreter.visitButton(incButton);
+        //interpreter.visitButton(decButton);
+       // interpreter.visitLabel(label);
+        String exampleRequest = FileAccess.Companion.getFileAsString(sceneTreePath);
 
-        interpreter.visitLabel(label);
-        FileUtils.createAProtocolFile();
+        RavenJSONTraverser traverser = new RavenJSONTraverser(exampleRequest, godotRootNode);
+
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode rootNode;
+        try {
+            rootNode = mapper.readTree(exampleRequest);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            traverser.traverse(rootNode,0);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+        var elements = traverser.getSceneToBuild();
+        for (var element : elements) {
+           element.acceptVisitor(interpreter);
+        }
+        //FileUtils.createAProtocolFile();
     }
 
 

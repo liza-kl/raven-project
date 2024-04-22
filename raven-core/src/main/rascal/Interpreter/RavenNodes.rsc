@@ -14,7 +14,6 @@ import Type;
 // String template in rascal 
 // https://github.com/vrozen/Cascade/blob/main/TEL/src/lang/tel/Printer.rsc
 
-alias Attributes = list[value];
 
 public data RavenNode = 
             ravenNode2D(str nodeID, list[RavenNode] children)

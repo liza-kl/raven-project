@@ -18,3 +18,4 @@ jre
 # Rascal Conf
 
 ApplicationConf.rsc
+.env

@@ -2,13 +2,6 @@
 
 [ext_resource type="Script" path="res://gdj/cwi/masterthesis/raven/Main.gdj" id="1_fkmjx"]
 
-[node name="Node2D" type="Node2D"]
+[node name="ROOT" type="Node2D"]
 position = Vector2(574, 322)
 script = ExtResource("1_fkmjx")
-
-[node name="Button" type="Button" parent="."]
-offset_left = -142.0
-offset_top = 69.0
-offset_right = 140.0
-offset_bottom = 185.0
-text = "A Button to trigger something"
