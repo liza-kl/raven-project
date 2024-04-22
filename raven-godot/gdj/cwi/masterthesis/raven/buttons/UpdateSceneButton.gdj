@@ -6,7 +6,7 @@ fqName = cwi.masterthesis.raven.scripts.UpdateSceneButton
 relativeSourcePath = src/main/java/cwi/masterthesis/raven/scripts/UpdateSceneButton.java
 baseType = Button
 supertypes = [
-	godot.Button,
+    godot.Button,
 	godot.BaseButton,
 	godot.Control,
 	godot.CanvasItem,
@@ -16,11 +16,11 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-	
+    
 ]
 properties = [
-	
+    
 ]
 functions = [
-	_pressed
+    _pressed
 ]

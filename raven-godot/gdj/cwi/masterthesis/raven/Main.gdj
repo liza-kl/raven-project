@@ -6,17 +6,17 @@ fqName = cwi.masterthesis.raven.Main
 relativeSourcePath = src/main/java/cwi/masterthesis/raven/Main.java
 baseType = Node
 supertypes = [
-	godot.Node,
+    godot.Node,
 	godot.Object,
 	godot.core.KtObject,
 	kotlin.Any
 ]
 signals = [
-	
+    
 ]
 properties = [
-	
+    
 ]
 functions = [
-	_ready
+    _ready
 ]

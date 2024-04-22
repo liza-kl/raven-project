@@ -5,34 +5,38 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import cwi.masterthesis.raven.interpreter.Interpreter;
 import cwi.masterthesis.raven.interpreter.mapper.RavenJSONTraverser;
-import cwi.masterthesis.raven.interpreter.nodes.RavenLabel;
+import cwi.masterthesis.raven.interpreter.nodes.RavenNode;
 import godot.FileAccess;
 import godot.Node;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
 import godot.core.NodePath;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 @RegisterClass
 public class Main extends Node {
+    public Node mainNode = getNode(new NodePath("."));
 
     @RegisterFunction
     @Override
     public void _ready() {
         System.out.println("Started Application");
         String sceneTreePath = "/Users/ekletsko/raven-project/raven-core/src/main/rascal/tree.json";
-
-
-//        var decButton = new RavenButton(getNode(new NodePath(".")), "-", 15, 2, "dec()");
-
-        Node godotRootNode = getNode(new NodePath("."));
-        var label = new RavenLabel(godotRootNode, "My Counter Application", 10, 5);
         var interpreter = new Interpreter();
-       // interpreter.visitButton(incButton);
-        //interpreter.visitButton(decButton);
-       // interpreter.visitLabel(label);
+        RavenJSONTraverser traverser = getRavenJSONTraverser(sceneTreePath);
+        List<RavenNode> elements = traverser.getSceneToBuild();
+
+        for (var element : elements) {
+           element.acceptVisitor(interpreter);
+        }
+    }
+
+    private @NotNull RavenJSONTraverser getRavenJSONTraverser(String sceneTreePath) {
         String exampleRequest = FileAccess.Companion.getFileAsString(sceneTreePath);
 
-        RavenJSONTraverser traverser = new RavenJSONTraverser(exampleRequest, godotRootNode);
+        RavenJSONTraverser traverser = new RavenJSONTraverser();
 
         ObjectMapper mapper = new ObjectMapper();
         JsonNode rootNode;
@@ -43,18 +47,12 @@ public class Main extends Node {
         }
 
         try {
-            traverser.traverse(rootNode,0);
+            traverser.traverse(rootNode, this.mainNode);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
-
-        var elements = traverser.getSceneToBuild();
-        for (var element : elements) {
-           element.acceptVisitor(interpreter);
-        }
-        //FileUtils.createAProtocolFile();
+        return traverser;
     }
-
 
 
 }

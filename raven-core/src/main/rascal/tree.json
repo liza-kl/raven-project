@@ -4,19 +4,30 @@
  
  {
     "Label": {
-       "id": "ravenLabelID",
-       "text": "actualRavenLabel"
+      "id": "label#1",
+      "text": "My Counter Application",
+      "xPosition": 0,
+      "yPosition": -10
     }  },
  
  
  {
     "Button":
     {
-       "id": "ravenButtonID",
-       "text": "ravenButtonText",
-       "callback": "inc()"
-    }}
- 
-             
+      "id": "button#1",
+      "text": "Increment Button",
+      "callback": "inc()",
+      "xPosition": -100,
+      "yPosition": 20
+    }},
+     {
+    "Button":
+    {
+      "id": "button#2",
+      "text": "Decrement Button",
+      "callback": "dec()",
+      "xPosition": 50,
+      "yPosition": 20
+    }}             
 ]
 }
