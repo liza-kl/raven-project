@@ -10,3 +10,5 @@ build
 # Ignore embedded jre
 jre
 .env
+
+hs_err_*.log
