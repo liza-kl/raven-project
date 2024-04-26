@@ -20,6 +20,7 @@ import java.util.List;
 public class Main extends Node {
     public Node mainNode = getNode(new NodePath("."));
 
+
     @RegisterFunction
     @Override
     public void _ready() {

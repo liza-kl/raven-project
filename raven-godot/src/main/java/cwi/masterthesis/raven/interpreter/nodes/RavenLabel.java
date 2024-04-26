@@ -1,10 +1,9 @@
 package cwi.masterthesis.raven.interpreter.nodes;
 
 import cwi.masterthesis.raven.interpreter.Visitor;
-import godot.Label;
 import godot.Node;
 
-public class RavenLabel extends Label implements RavenNode {
+public class RavenLabel implements RavenNode {
     private Node parentNode;
     private String label;
     private int XCoordinate;
