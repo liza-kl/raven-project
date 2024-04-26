@@ -1,0 +1,27 @@
+@startuml
+node Rascal as n1 {
+    component "Design Specification" as ds {
+
+    }
+    component "View Specification" as vs {
+
+        }
+    component "Change Listener" as listener
+
+    component "Generator" as gen
+
+}
+
+interface "Scene Tree as JSON" as json
+
+
+node Godot as godot
+
+json <.. godot :use
+ds ..> gen :use
+vs ..> gen :use
+gen --> json :produce
+godot --> listener: communicate changes
+listener --> gen :call on change
+
+@enduml

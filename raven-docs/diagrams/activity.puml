@@ -1,0 +1,32 @@
+@startuml
+
+"User" <<Language \n Engineer>>
+"Programmer" <<Programmer>>
+skinparam artifactsep 2
+
+package "Input" {
+artifact Style
+artifact View
+  [Style] -[hidden]-> [View]
+
+}
+
+[User] --> Input :specify
+frame "Raven" as R {
+  [A] -d-> [B]
+  [C] -r-> [B]
+  [Input] -d-> [Raven]
+
+}
+
+frame "Programming Environment" as PE {
+}
+
+frame "Godot Engine" as G {
+  [Interpreter] -[hidden]-> [Event Listener]
+  [Event Listener]
+}
+
+[R] -r-> [G]
+PE -[hidden]-> [G]
+@enduml
