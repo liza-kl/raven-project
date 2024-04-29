@@ -1,4 +1,4 @@
-package cwi.masterthesis.raven.application;
+package cwi.masterthesis.raven.application.client;
 
 import godot.Node;
 import godot.StreamPeerTCP;
@@ -7,31 +7,34 @@ import godot.annotation.RegisterFunction;
 import godot.annotation.RegisterSignal;
 import godot.core.Callable;
 import godot.core.StringNameUtils;
+import godot.core.VariantArray;
 import godot.signals.Signal;
 import godot.signals.SignalProvider;
 
 // Code adjusted from https://www.bytesnsprites.com/posts/2021/creating-a-tcp-client-in-godot/
 @RegisterClass
-public class Client extends Node {
-    private static Client client_instance = null;
+public class GodotClient extends Node implements Client{
+    private static GodotClient client_instance = null;
     private StreamPeerTCP streamPeerTCP;
-    private final int port;
-    private final String host;
+    private int port;
+    private String host;
     private StreamPeerTCP.Status status;
 
-    public Client() {
-        streamPeerTCP = new StreamPeerTCP();
-        port = 23000;
-        host = "0.0.0.0";
+    public GodotClient() {
+        super();
+    }
+
+    public GodotClient(String host, int port) {
+        this.streamPeerTCP = new StreamPeerTCP();
+        this.port = port;
+        this.host = host;
         status = StreamPeerTCP.Status.STATUS_NONE;
     }
 
-
-
-    public static synchronized Client getInstance()
+    public static synchronized GodotClient getInstance()
     {
         if (client_instance == null)
-            client_instance = new Client();
+            client_instance = new GodotClient("0.0.0.0",23000);
 
         return client_instance;
     }
@@ -93,7 +96,7 @@ public class Client extends Node {
     }
 
     @RegisterFunction
-    public void connectToHost() {
+    public void connect() {
         this.setStatus(StreamPeerTCP.Status.STATUS_NONE);
         try {
             System.out.println("Connecting to " + this.host + ":" + this.port);
@@ -102,6 +105,11 @@ public class Client extends Node {
             emitSignal(StringNameUtils.asStringName("stream_error"));
         }
         System.out.println("Current Connection Status" + this.streamPeerTCP.getStatus());
+    }
+
+    @Override
+    public void disconnect() {
+        // @TODO: Implement
     }
 
     @RegisterFunction
@@ -120,6 +128,60 @@ public class Client extends Node {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void virtualProcess() {
+        this.getStreamPeerTCP().poll();
+        var status = this.getStatus();
+        var newStatus = this.getStreamPeerTCP().getStatus();
+        if (newStatus != status) {
+            this.setStatus(newStatus);
+            switch(newStatus) {
+                case STATUS_NONE: {
+                    System.out.println("Disconnected from host");
+                    this.emitSignal(StringNameUtils.asStringName("stream_disconnected"));
+                    break;
+                }
+                case STATUS_CONNECTING: {
+                    System.out.println("Connecting to host");
+                    break;
+                }
+                case STATUS_CONNECTED: {
+                    System.out.println("Connected to host");
+                    this.emitSignal(StringNameUtils.asStringName("stream_connected"));
+                    break;
+                }
+                case STATUS_ERROR: {
+                    System.out.println("Error with Socket Stream");
+                    this.emitSignal(StringNameUtils.asStringName("stream_error"));
+                    break;
+                }
+            }
+        }
+        if (status == StreamPeerTCP.Status.STATUS_CONNECTED) {
+            var availableBytes = this.getStreamPeerTCP().getAvailableBytes();
+            if (availableBytes > 0) {
+                System.out.println("Available bytes: " + availableBytes);
+                VariantArray data  = this.getStreamPeerTCP().getPartialData(availableBytes);
+                try {
+                    data.get(0);
+                } catch (Exception e) {
+                    System.out.println("Error reading data from Stream: " + e.getMessage());
+                    this.emitSignal(StringNameUtils.asStringName("stream_error"));
+                }
+                this.emitSignal(StringNameUtils.asStringName("stream_data"), data.get(1));
+            }
+        }
+    }
+
+    @Override
+    public void virtualReady() {
+        this.getStreamPeerTCP().poll();
+        this.connectClientSignals();
+        this.setStatus(this.getStatus());
+        this.connect();
+
     }
 
 }

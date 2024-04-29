@@ -1,6 +1,6 @@
 package cwi.masterthesis.raven.scripts;
 
-import cwi.masterthesis.raven.application.Client;
+import cwi.masterthesis.raven.application.client.GodotClient;
 import godot.Button;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
@@ -25,7 +25,7 @@ public class ButtonSendMessage extends Button {
 //        }
 //        Client.getInstance().send(packed);
    //     NativeClient.getInstance("0.0.0.0", 23000).send("ping");
-        Client.getInstance().send("ping");
+        GodotClient.getInstance().send("ping");
     }
 }
 

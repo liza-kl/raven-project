@@ -24,7 +24,6 @@ public class ServerNoRascal {
                 System.out.println("Received from client: " + inputLine);
                 out.println("Server received: " + inputLine);
             }
-
             clientSocket.close();
         } catch (IOException e) {
             e.printStackTrace();
