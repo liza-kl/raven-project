@@ -14,7 +14,7 @@ public class FileUtils {
                 System.out.println("File already exists.");
             }
         } catch (IOException e) {
-            System.out.println("An error occurred while creating the file: " + e.getMessage());
+            System.out.println("An signalError occurred while creating the file: " + e.getMessage());
             return;
         }
     }
@@ -41,7 +41,7 @@ public class FileUtils {
             myReader.close();
         } catch (FileNotFoundException e) {
 
-            System.out.println("An error occurred.");
+            System.out.println("An signalError occurred.");
 
             e.printStackTrace();
         }
@@ -58,7 +58,7 @@ public class FileUtils {
             System.out.println("Successfully wrote to the file.");
 
         } catch (IOException e) {
-            System.out.println("An error occurred.");
+            System.out.println("An signalError occurred.");
             e.printStackTrace();
         }
     }

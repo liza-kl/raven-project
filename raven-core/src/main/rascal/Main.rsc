@@ -18,6 +18,10 @@ public str JSON_CONTENT = "";
 public str JSON_CONTENT_END = "}";
 
 void main() {
+   
+@javaClass{server.Server}
+public java void startServer(int port);
+
    RavenNode view =
     ravenNode2D(
     "root",
@@ -25,8 +29,8 @@ void main() {
         ravenButton("button#1", "Decrement Button", "dec()", -100,20),
         ravenButton("button#2", "Increment Button", "inc()", 100,20)],
     true);
-
-    main(view);
-    str wholeJSONThingy = JSON_CONTENT_START + JSON_CONTENT + JSON_CONTENT_END;
-    writeFile(JSON_TREE_FILE, wholeJSONThingy);
+    startServer(23000);
+    // main(view);
+    // str wholeJSONThingy = JSON_CONTENT_START + JSON_CONTENT + JSON_CONTENT_END;
+    // writeFile(JSON_TREE_FILE, wholeJSONThingy);
 }

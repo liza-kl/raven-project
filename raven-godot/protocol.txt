@@ -1,2 +1,1 @@
-Create new UI 1714125189505
-dec()
+root:<Window#26273120778>

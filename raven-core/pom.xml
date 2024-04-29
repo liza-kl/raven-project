@@ -49,6 +49,13 @@
       <scope>system</scope>
     <systemPath>/Users/ekletsko/raven-project/raven-godot/build/libs/raven-godot.jar</systemPath>
 </dependency>
+   <dependency>
+      <groupId>com.example</groupId>
+      <artifactId>example</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+    <systemPath>/Users/ekletsko/raven-project/raven-godot/build/libs/raven-godot.jar</systemPath>
+</dependency>
   <dependency>
       <groupId>main</groupId>
       <artifactId>sample</artifactId>
@@ -77,6 +84,13 @@
 
     <scope>system</scope>
     <systemPath>/Users/ekletsko/raven-project/raven-godot/jre-arm64/lib/jrt-fs.jar</systemPath>
+  </dependency>
+   <dependency>
+   <groupId>com.example</groupId>
+      <artifactId>raven-protocol</artifactId>
+            <version>1.0</version>
+    <scope>system</scope>
+    <systemPath>/Users/ekletsko/raven-project/raven-protocol/target/raven-protocol-1.0-SNAPSHOT.jar</systemPath>
   </dependency>
   </dependencies>
 

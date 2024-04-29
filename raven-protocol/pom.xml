@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cwi.masterthesis</groupId>
+    <artifactId>raven-protocol</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <repositories>
+        <repository>
+            <id>io.usethesource</id>
+            <name>io.usethesource</name>
+            <url>https://releases.usethesource.io/maven/</url>
+        </repository>
+    </repositories>
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>io.usethesource</groupId>
+            <artifactId>rascal</artifactId>
+            <version>0.33.0</version>
+            <scope>system</scope>
+            <systemPath>/Users/ekletsko/raven-project/raven-protocol/src/main/resources/rascal-0.33.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>io.usethesource</groupId>
+            <artifactId>vallang</artifactId>
+            <version>0.15.1</version>
+            <scope>system</scope>
+            <systemPath>/Users/ekletsko/raven-project/raven-protocol/src/main/resources/vallang-0.15.1-sources.jar</systemPath>
+        </dependency>
+    </dependencies>
+    <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <configuration>
+                <archive>
+                    <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+                </archive>
+            </configuration>
+        </plugin>
+    </plugins>
+    </build>
+
+</project>
