@@ -74,7 +74,8 @@ public class Main extends Node {
         client.getStreamPeerTCP().poll();
         client.connectClientSignals();
         client.setStatus(client.getStatus());
-        client.connectToHost();
+       client.connectToHost();
+
 
         Button clientButton = new Button();
         clientButton.setText("Send message");

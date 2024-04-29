@@ -5,6 +5,7 @@ import java.io.*;
 
 import io.usethesource.vallang.IInteger;
 import io.usethesource.vallang.IValueFactory;
+import io.usethesource.vallang.impl.persistent.ValueFactory;
 
 // Inspiration:: https://www.baeldung.com/a-guide-to-java-sockets
 public class Server {
@@ -27,8 +28,9 @@ public class Server {
         out = new PrintWriter(clientSocket.getOutputStream(), true);
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         String incom = in.readLine();
-        String response = incom.equals("ping") ? "pong" : "noPong" ;
-        out.println(response);
+       // String response = incom.equals("ping") ? "pong" : "noPong" ;
+        out.println(incom);
+        out.println("pong");
     }
 
     // Stop the server by closing the streams and the connection.

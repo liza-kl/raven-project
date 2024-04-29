@@ -6,12 +6,9 @@ import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
 import godot.annotation.RegisterSignal;
 import godot.core.Callable;
-import godot.core.PackedByteArray;
 import godot.core.StringNameUtils;
 import godot.signals.Signal;
 import godot.signals.SignalProvider;
-
-import java.util.stream.Stream;
 
 // Code adjusted from https://www.bytesnsprites.com/posts/2021/creating-a-tcp-client-in-godot/
 @RegisterClass
@@ -108,15 +105,15 @@ public class Client extends Node {
     }
 
     @RegisterFunction
-    public boolean send(PackedByteArray content) {
+    public boolean send(String content) {
         System.out.println("Sending data to " + this.host + ":" + this.port);
        if (this.streamPeerTCP.getStatus() != StreamPeerTCP.Status.STATUS_CONNECTED) {
            System.out.println("Error: Stream is not currently connected, data can't be sent");
            return false;
        }
         try {
-            this.streamPeerTCP.putUtf8String("ping");
-           // this.streamPeerTCP.putString("");
+            this.streamPeerTCP.putUtf8String(content + "\n");
+           //this.streamPeerTCP.putString(content);
 
         } catch (Exception e) {
             System.out.println("Error writing to stream: " + streamError);
@@ -124,7 +121,5 @@ public class Client extends Node {
         }
         return true;
     }
-
-
 
 }

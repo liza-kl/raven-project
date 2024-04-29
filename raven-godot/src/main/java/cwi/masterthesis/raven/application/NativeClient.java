@@ -1,64 +1,50 @@
-package cwi.masterthesis.raven.application;// A Java program for a Client
-import java.io.*;
-import java.net.*;
+package cwi.masterthesis.raven.application;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+// Code adjusted from https://www.bytesnsprites.com/posts/2021/creating-a-tcp-client-in-godot/
 public class NativeClient {
-    // initialize socket and input output streams
-    private Socket socket = null;
-    private DataInputStream input = null;
-    private DataOutputStream out = null;
+    private static NativeClient instance;
+    private Socket socket;
+    private PrintWriter out;
+    private BufferedReader in;
 
-    // constructor to put ip address and port
-    public NativeClient(String address, int port)
-    {
-        // establish a connection
+    private NativeClient(String serverIp, int serverPort) {
         try {
-            socket = new Socket(address, port);
-            System.out.println("Connected");
-
-            // takes input from terminal
-            input = new DataInputStream(System.in);
-
-            // sends output to the socket
-            out = new DataOutputStream(
-                    socket.getOutputStream());
+            socket = new Socket(serverIp, serverPort);
+            out = new PrintWriter(socket.getOutputStream(), true);
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        catch (UnknownHostException u) {
-            System.out.println(u);
-            return;
-        }
-        catch (IOException i) {
-            System.out.println(i);
-            return;
-        }
+    }
 
-        // string to read message from input
-        String line = "";
-
-        // keep reading until "Over" is input
-        while (!line.equals("Over")) {
-            try {
-                line = input.readLine();
-                out.writeUTF(line);
-            }
-            catch (IOException i) {
-                System.out.println(i);
-            }
+    public static NativeClient getInstance(String serverIp, int serverPort) {
+        if (instance == null) {
+            instance = new NativeClient(serverIp, serverPort);
         }
+        return instance;
+    }
 
-        // close the connection
+    public void send(String message) {
+        out.println(message);
         try {
-            input.close();
-            out.close();
+            System.out.println("Server response: " + in.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void close() {
+        try {
             socket.close();
-        }
-        catch (IOException i) {
-            System.out.println(i);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public static void connect()
-    {
-        NativeClient client = new NativeClient("127.0.0.1", 23000);
-    }
 }
