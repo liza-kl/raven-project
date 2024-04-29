@@ -20,25 +20,17 @@ public class Client extends Node {
     private StreamPeerTCP streamPeerTCP;
     private final int port;
     private final String host;
-    protected StreamPeerTCP.Status status = StreamPeerTCP.Status.STATUS_NONE;
-
-    public Client(String host, int port) {
-        this.streamPeerTCP = new StreamPeerTCP();
-        this.port = port;
-        this.host = host;
-    }
-
-    public Client(StreamPeerTCP streamPeerTCP) {
-        this.streamPeerTCP = streamPeerTCP;
-        this.port = 23000;
-        this.host = "0.0.0.0";
-    }
+    private StreamPeerTCP.Status status;
 
     public Client() {
-        this.streamPeerTCP = new StreamPeerTCP();
-        this.port = 23000;
-        this.host = "0.0.0.0";
+        streamPeerTCP = new StreamPeerTCP();
+        port = 23000;
+        host = "0.0.0.0";
+        status = StreamPeerTCP.Status.STATUS_NONE;
     }
+
+
+
     public static synchronized Client getInstance()
     {
         if (client_instance == null)
@@ -51,10 +43,12 @@ public class Client extends Node {
         return this.streamPeerTCP;
     }
     public StreamPeerTCP.Status getStatus() {
+        this.streamPeerTCP.poll();
         return this.status;
     }
 
     public void setStatus(StreamPeerTCP.Status status) {
+        this.streamPeerTCP.poll();
         this.status = status;
     }
 
@@ -83,6 +77,7 @@ public class Client extends Node {
     @RegisterFunction
     public void callbackConnected() {
         System.out.println("Client is successfully connected to server");
+        this.setStatus(StreamPeerTCP.Status.STATUS_CONNECTED);
     }
 
     @RegisterFunction
@@ -102,12 +97,11 @@ public class Client extends Node {
 
     @RegisterFunction
     public void connectToHost() {
-        System.out.println("Connecting to " + this.host + ":" + this.port);
         this.setStatus(StreamPeerTCP.Status.STATUS_NONE);
         try {
+            System.out.println("Connecting to " + this.host + ":" + this.port);
             this.streamPeerTCP.connectToHost(this.host, this.port);
         } catch (Exception e) {
-            e.printStackTrace();
             emitSignal(StringNameUtils.asStringName("stream_error"));
         }
         System.out.println("Current Connection Status" + this.streamPeerTCP.getStatus());
@@ -115,12 +109,14 @@ public class Client extends Node {
 
     @RegisterFunction
     public boolean send(PackedByteArray content) {
+        System.out.println("Sending data to " + this.host + ":" + this.port);
        if (this.streamPeerTCP.getStatus() != StreamPeerTCP.Status.STATUS_CONNECTED) {
            System.out.println("Error: Stream is not currently connected, data can't be sent");
            return false;
        }
         try {
-            this.streamPeerTCP.putData(content);
+            this.streamPeerTCP.putUtf8String("ping");
+           // this.streamPeerTCP.putString("");
 
         } catch (Exception e) {
             System.out.println("Error writing to stream: " + streamError);

@@ -4,35 +4,32 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import cwi.masterthesis.raven.application.Client;
-import cwi.masterthesis.raven.files.FileUtils;
-import cwi.masterthesis.raven.interpreter.Interpreter;
 import cwi.masterthesis.raven.interpreter.mapper.RavenJSONTraverser;
-import cwi.masterthesis.raven.interpreter.nodes.RavenNode;
+import godot.Button;
 import godot.FileAccess;
 import godot.Node;
 import godot.StreamPeerTCP;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
 import godot.core.NodePath;
-import godot.core.PackedByteArray;
 import godot.core.StringNameUtils;
 import godot.core.VariantArray;
+import godot.global.GD;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
 
 @RegisterClass
 public class Main extends Node {
     public Node mainNode = getNode(new NodePath("."));
-    Client client = new Client();
+    Client client = Client.getInstance();
 
     @RegisterFunction
     @Override
     public void _process(double delta) {
-        var status = this.client.getStatus();
-        var newStatus = this.client.getStreamPeerTCP().getStatus();
+        client.getStreamPeerTCP().poll();
+        var status = client.getStatus();
+        var newStatus = client.getStreamPeerTCP().getStatus();
         if (newStatus != status) {
-            this.client.setStatus(newStatus);
+            client.setStatus(newStatus);
             switch(newStatus) {
                 case STATUS_NONE: {
                     System.out.println("Disconnected from host");
@@ -74,29 +71,30 @@ public class Main extends Node {
     @RegisterFunction
     @Override
     public void _ready() {
+        client.getStreamPeerTCP().poll();
         client.connectClientSignals();
         client.setStatus(client.getStatus());
         client.connectToHost();
 
-        byte[] input = "ping".getBytes();
-        PackedByteArray packed = new PackedByteArray();
-        for (int i = 0; i < input.length; i++) {
-            packed.append(input[i]);
-        }
+        Button clientButton = new Button();
+        clientButton.setText("Send message");
+        clientButton.set(StringNameUtils.asStringName("height"), 100);
+        clientButton.set(StringNameUtils.asStringName("width"), 100);
 
-        if (client.getStatus() == StreamPeerTCP.Status.STATUS_CONNECTED) {
-            client.send(packed);
-        }
-        String sceneTreePath = "/Users/ekletsko/raven-project/raven-core/src/main/rascal/tree.json";
-        FileUtils.createAProtocolFile();
-        var interpreter = new Interpreter();
-        RavenJSONTraverser traverser = getRavenJSONTraverser(sceneTreePath);
-        List<RavenNode> elements = traverser.getSceneToBuild();
-        for (var element : elements) {
-           element.acceptVisitor(interpreter);
-        }
+        clientButton.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/ButtonSendMessage.gdj"));
 
-        FileUtils.writeToFile(String.valueOf(getTree().getRoot()));
+        mainNode.addChild(clientButton);
+
+//        String sceneTreePath = "/Users/ekletsko/raven-project/raven-core/src/main/rascal/tree.json";
+//        FileUtils.createAProtocolFile();
+//        var interpreter = new Interpreter();
+//        RavenJSONTraverser traverser = getRavenJSONTraverser(sceneTreePath);
+//        List<RavenNode> elements = traverser.getSceneToBuild();
+//        for (var element : elements) {
+//           element.acceptVisitor(interpreter);
+//        }
+//
+//        FileUtils.writeToFile(String.valueOf(getTree().getRoot()));
     }
 
     private @NotNull RavenJSONTraverser getRavenJSONTraverser(String sceneTreePath) {
