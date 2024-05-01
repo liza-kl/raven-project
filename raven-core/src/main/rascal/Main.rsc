@@ -1,12 +1,14 @@
 module Main
 import IO;
 import Location;
-import util::Benchmark;
 import util::ShellExec;
 import ApplicationConf;
 import Interpreter::RavenNodes;
-import lang::json::IO;
 import List;
+import IO;
+
+
+
 
 // https://stackoverflow.com/questions/70324375/changing-the-working-directory-when-using-the-exec-function-in-rascal
 void startGodotEngine() {
@@ -17,11 +19,17 @@ public str JSON_CONTENT_START = "{";
 public str JSON_CONTENT = "";
 public str JSON_CONTENT_END = "}";
 
-void main() {
-   
 @javaClass{server.Server}
-public java void startServer(int port);
+public java void startServer();
 
+@javaClass{server.Server}
+public java void send(str message);
+
+void printsomething() {
+    print("a print something");
+}
+
+void main() {
    RavenNode view =
     ravenNode2D(
     "root",
@@ -29,7 +37,7 @@ public java void startServer(int port);
         ravenButton("button#1", "Decrement Button", "dec()", -100,20),
         ravenButton("button#2", "Increment Button", "inc()", 100,20)],
     true);
-    startServer(23000);
+    startServer();
     // main(view);
     // str wholeJSONThingy = JSON_CONTENT_START + JSON_CONTENT + JSON_CONTENT_END;
     // writeFile(JSON_TREE_FILE, wholeJSONThingy);
