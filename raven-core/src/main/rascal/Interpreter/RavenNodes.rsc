@@ -14,7 +14,6 @@ import Type;
 // String template in rascal 
 // https://github.com/vrozen/Cascade/blob/main/TEL/src/lang/tel/Printer.rsc
 
-
 public data RavenNode = 
             ravenNode2D(str nodeID, list[RavenNode] children, bool root)
             |  ravenNode2D(str nodeID, list[RavenNode] children)
@@ -80,7 +79,7 @@ RavenNode mapNodesToJSON(RavenNode tree) =  top-down-break visit(tree){
     case RavenNode tree : JSON_CONTENT += rvn_print(tree);
 };
 
-void main(RavenNode tree) {
+public void genJSON(RavenNode tree) {
     mapNodesToJSON(tree);
     writeFile(JSON_TREE_FILE, JSON_CONTENT);
 }

@@ -98,7 +98,7 @@ public class GodotClient extends Node implements Client{
 
     @RegisterFunction
     public void connect() {
-        this.setStatus(StreamPeerTCP.Status.STATUS_NONE);
+       // this.setStatus(StreamPeerTCP.Status.STATUS_NONE);
         try {
             System.out.println("Connecting to " + this.host + ":" + this.port);
             this.streamPeerTCP.connectToHost(this.host, this.port);
@@ -116,10 +116,11 @@ public class GodotClient extends Node implements Client{
     @RegisterFunction
     public boolean send(String content) {
         System.out.println("Sending data to " + this.host + ":" + this.port);
-       if (this.streamPeerTCP.getStatus() != StreamPeerTCP.Status.STATUS_CONNECTED) {
-           System.out.println("Error: Stream is not currently connected, data can't be sent");
-           return false;
-       }
+        this.streamPeerTCP.poll();
+//       if (this.streamPeerTCP.getStatus() != StreamPeerTCP.Status.STATUS_CONNECTED) {
+//           System.out.println("Error: Stream is not currently connected, data can't be sent");
+//           return false;
+//       }
         try {
             this.streamPeerTCP.putUtf8String(content + "\n");
         } catch (Exception e) {
@@ -179,7 +180,6 @@ public class GodotClient extends Node implements Client{
         this.connectClientSignals();
         this.setStatus(this.getStatus());
         this.connect();
-
     }
 
 }

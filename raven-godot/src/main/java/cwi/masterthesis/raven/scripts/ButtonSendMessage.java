@@ -2,6 +2,7 @@ package cwi.masterthesis.raven.scripts;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import cwi.masterthesis.raven.application.client.GodotClient;
+import cwi.masterthesis.raven.application.client.NativeClient;
 import cwi.masterthesis.raven.interpreter.nodes.RavenButton;
 import godot.Node;
 import godot.annotation.RegisterClass;
@@ -43,8 +44,6 @@ public class ButtonSendMessage extends RavenButton {
         String sceneTreePath = "/Users/ekletsko/raven-project/raven-core/src/main/rascal/tree.json";
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonString = null;
-        System.out.println(button);
-        System.out.println("Client is successfully connected to server");
 
         try {
             File jsonFile = null;
@@ -59,18 +58,14 @@ public class ButtonSendMessage extends RavenButton {
             e.printStackTrace();
         }
 
-        GodotClient.getInstance().send(createMessage(
-                "Update of JSON",
-                jsonString,
-                // TODO: FIX
-                "#label1"));
+        NativeClient.getInstance("0.0.0.0",23000).send("Current Message");
     }
 
     @RegisterFunction
     public void _pressed() {
         System.out.println("Sending Content");
+        System.out.println(GodotClient.getInstance().getStatus());
         emitSignal(StringNameUtils.asStringName("button_send_message"), this);
-
     }
 }
 

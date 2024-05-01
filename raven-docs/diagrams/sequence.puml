@@ -1,17 +1,53 @@
 @startuml
-participant Participant as Foo
-actor       Actor       as Foo1
-boundary    Boundary    as Foo2
-control     Control     as Foo3
-entity      Entity      as Foo4
-database    Database    as Foo5
-collections Collections as Foo6
-queue       Queue       as Foo7
-Foo -> Foo1 : To actor
-Foo -> Foo2 : To boundary
-Foo -> Foo3 : To control
-Foo -> Foo4 : To entity
-Foo -> Foo5 : To database
-Foo -> Foo6 : To collections
-Foo -> Foo7: To queue
+autonumber "<b>[000]"
+actor       User        as user
+participant "Rascal" as rascal
+participant "(Java) \nServer" as server
+participant "Godot \n Interpreter" as godot
+participant "Godot \n Client" as client
+== UI Initialization ==
+
+user -> rascal : <<run(DSL Backend, \n View Specification, \n Design Specification)>>
+activate rascal
+rascal -> rascal: create JSON file
+alt#pink #white Successful JSON Generation
+    rascal -> server : <<start(jsonSpecification)>>
+    server --> rascal: OK
+    rascal -> godot : <<start(json)>>
+    activate godot
+    godot -> godot: <<generateSceneTree(json)>>
+    godot -> client: Create UI
+    deactivate godot
+    activate client
+else #pink Failure
+    rascal --> user : Throw error (Invalid JSON)
+end
+activate server
+server --> rascal: OK
+deactivate rascal
+deactivate server
+== Program State Alteration ==
+user -> client : <<click button>>
+alt #Gold #White Alter runtime state
+    client -> server : change detected \n (<<node information with callback>>)
+    server -> rascal:  call callback \n with params (Evaluator)
+    activate rascal
+    rascal -> rascal: Execute callback, \n alter json specification
+    rascal -> server : <<updateScene(json)>>
+    deactivate rascal
+    activate server
+    server -> godot : send json
+    activate godot
+    godot -> godot: <<generateSceneTree(json)>>
+    godot --> server: OK
+    server -> rascal: call designated callback
+    rascal --> server: send new json view
+    server --> godot: send new json
+
+    deactivate godot
+    deactivate server
+
+    godot -> client: updateScene
+== Runtime State Alteration ==
+
 @enduml

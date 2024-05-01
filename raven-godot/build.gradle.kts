@@ -12,6 +12,8 @@ dependencies {
     implementation(files("/Users/ekletsko/raven-project/raven-godot/src/main/resources/vallang-0.15.1-sources.jar"))
   //  implementation(files("/Users/ekletsko/raven-project/raven-godot/src/main/resources/rascal-0.33.0-sources.jar"))
     implementation(files("/Users/ekletsko/raven-project/raven-godot/src/main/resources/rascal-0.33.0.jar"))
+    implementation(files("/Users/ekletsko/raven-project/raven-protocol/target/raven-protocol-1.0-SNAPSHOT.jar"))
+
 
 }
 kotlin {
