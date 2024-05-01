@@ -26,11 +26,12 @@ public class Interpreter extends Node implements Visitor {
         Button button = (Button) buttonNode.getNode(new NodePath("."));
 
         assert button != null;
-        //button.setScript(GD.load("res://gdj/cwi/masterthesis/raven/buttons/UpdateSceneButton.gdj"));
         button.setText(ravenButton.getLabel());
         button.setPosition(new Vector2(ravenButton.getXCoordinate(), ravenButton.getYCoordinate()));
         System.out.println(button.getScript());
         button.getChildren().forEach(child -> addChildren(button, child));
+        button.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/ButtonSendMessage.gdj"));
+        button.set(StringNameUtils.asStringName("btn_id"), ravenButton.getNodeID());
         button.set(StringNameUtils.asStringName("btn_callback"), ravenButton.getCallback());
         ravenButton.getParentNode().addChild(button);
 

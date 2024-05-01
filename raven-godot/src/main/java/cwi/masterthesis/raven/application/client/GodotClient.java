@@ -6,6 +6,7 @@ import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
 import godot.annotation.RegisterSignal;
 import godot.core.Callable;
+import godot.core.PackedByteArray;
 import godot.core.StringNameUtils;
 import godot.core.VariantArray;
 import godot.signals.Signal;
@@ -86,8 +87,8 @@ public class GodotClient extends Node implements Client{
     }
 
     @RegisterFunction
-    public void callbackData() {
-        System.out.println("There is some data");
+    public void callbackData(PackedByteArray data) {
+        System.out.println("There is some data" + data.getStringFromUtf8());
     }
 
     @RegisterFunction
@@ -109,7 +110,7 @@ public class GodotClient extends Node implements Client{
 
     @Override
     public void disconnect() {
-        // @TODO: Implement
+        this.streamPeerTCP.disconnectFromHost();
     }
 
     @RegisterFunction
@@ -121,8 +122,6 @@ public class GodotClient extends Node implements Client{
        }
         try {
             this.streamPeerTCP.putUtf8String(content + "\n");
-           //this.streamPeerTCP.putString(content);
-
         } catch (Exception e) {
             System.out.println("Error writing to stream: " + streamError);
             return false;
@@ -162,7 +161,6 @@ public class GodotClient extends Node implements Client{
         if (status == StreamPeerTCP.Status.STATUS_CONNECTED) {
             var availableBytes = this.getStreamPeerTCP().getAvailableBytes();
             if (availableBytes > 0) {
-                System.out.println("Available bytes: " + availableBytes);
                 VariantArray data  = this.getStreamPeerTCP().getPartialData(availableBytes);
                 try {
                     data.get(0);

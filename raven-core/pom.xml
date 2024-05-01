@@ -9,6 +9,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <raven.protocol.path>/Users/ekletsko/raven-project/raven-protocol/target/raven-protocol-1.0-SNAPSHOT.jar</raven.protocol.path>
   </properties>
 
   <repositories>
@@ -36,73 +37,24 @@
         <artifactId>salix-core</artifactId>
         <version>0.2.3</version>
     </dependency>
-    
      <dependency>  
         <groupId>io.usethesource</groupId>
         <artifactId>vallang</artifactId>
         <version>0.12.0</version>
     </dependency>
     <dependency>
-      <groupId>com.sample</groupId>
-      <artifactId>sample</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-    <systemPath>/Users/ekletsko/raven-project/raven-godot/build/libs/raven-godot.jar</systemPath>
-</dependency>
-   <dependency>
-      <groupId>com.example</groupId>
-      <artifactId>example</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-    <systemPath>/Users/ekletsko/raven-project/raven-godot/build/libs/raven-godot.jar</systemPath>
-</dependency>
-  <dependency>
-      <groupId>main</groupId>
-      <artifactId>sample</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-    <systemPath>/Users/ekletsko/raven-project/raven-godot/build/libs/main.jar</systemPath>
-</dependency>
-  <dependency>
-      <groupId>godot-bootstrap</groupId>
-      <artifactId>sample</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-    <systemPath>/Users/ekletsko/raven-project/raven-godot/build/libs/godot-bootstrap.jar</systemPath>
-</dependency>
- <dependency>
-      <groupId>com.utopia-rise</groupId>
-      <artifactId>godot-library-debug</artifactId>
-      <version>0.8.2.-4.2.1.</version>
-      <scope>system</scope>
-    <systemPath>/Users/ekletsko/.gradle/caches/modules-2/files-2.1/com.utopia-rise/godot-library-debug/0.8.2-4.2.1/2daacfc137f1dcb4872602246e5c9b2dca26c1bf/godot-library-debug-0.8.2-4.2.1.jar
-</systemPath>
-</dependency>
-  <dependency>
-   <groupId>arm</groupId>
-      <artifactId>embedded</artifactId>      <version>1.0</version>
+       <groupId>com.example</groupId>
+    <artifactId>raven-protocol</artifactId>
+    <version>1.0</version>
+    <scope>system</scope>
+    <systemPath>${raven.protocol.path}</systemPath>
+    </dependency>
 
-    <scope>system</scope>
-    <systemPath>/Users/ekletsko/raven-project/raven-godot/jre-arm64/lib/jrt-fs.jar</systemPath>
-  </dependency>
-   <dependency>
-   <groupId>com.example</groupId>
-      <artifactId>raven-protocol</artifactId>
-            <version>1.0</version>
-    <scope>system</scope>
-    <systemPath>/Users/ekletsko/raven-project/raven-protocol/target/raven-protocol-1.0-SNAPSHOT.jar</systemPath>
-  </dependency>
   </dependencies>
 
   <build>
     <plugins>
     <!-- https://mvnrepository.com/artifact/org.jetbrains.kotlin.native/org.jetbrains.kotlin.native.gradle.plugin -->
-<plugin>
-    <groupId>org.jetbrains.kotlin.native</groupId>
-    <artifactId>org.jetbrains.kotlin.native.gradle.plugin</artifactId>
-    <version>1.3.41</version>
-</plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>

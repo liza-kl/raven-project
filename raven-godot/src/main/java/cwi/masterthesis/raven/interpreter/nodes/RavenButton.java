@@ -12,6 +12,7 @@ import godot.signals.SignalProvider;
 
 @RegisterClass
 public class RavenButton extends Button implements RavenNode {
+    private String nodeID;
     private Node parentNode;
     private String label;
     private int XCoordinate;
@@ -29,6 +30,10 @@ public class RavenButton extends Button implements RavenNode {
     @RegisterProperty
     public String btnCallback = "a dummy callback";
 
+    @Export
+    @RegisterProperty
+    public String btnId = "dummy id";
+
     @RegisterFunction
     public void connectAndTriggerSignal() {
         connect(
@@ -42,7 +47,6 @@ public class RavenButton extends Button implements RavenNode {
     public void signalCallback() {
         System.out.println("a signal was called!");
         FileUtils.deleteFileContent();
-        //FileUtils.writeToFile("Create new UI " + System.currentTimeMillis() + btnCallback);
         System.out.println("callback: " + btnCallback);
         System.out.println("Written to file");
 
@@ -53,7 +57,8 @@ public class RavenButton extends Button implements RavenNode {
     }
 
     // TODO make this somehow dynamic
-    public RavenButton(Node parentNode, String label, int XCoordinate, int YCoordinate, String callback) {
+    public RavenButton(String nodeID, Node parentNode, String label, int XCoordinate, int YCoordinate, String callback) {
+        this.nodeID = nodeID;
         this.parentNode = parentNode;
         this.label = label;
         this.XCoordinate = XCoordinate;
@@ -100,4 +105,7 @@ public class RavenButton extends Button implements RavenNode {
     }
 
 
+    public String getNodeID() {
+        return nodeID;
+    }
 }

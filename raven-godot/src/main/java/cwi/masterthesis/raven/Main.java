@@ -6,16 +6,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import cwi.masterthesis.raven.application.client.ClientFactory;
 import cwi.masterthesis.raven.application.client.GodotClient;
 import cwi.masterthesis.raven.application.client.StandardClientFactory;
+import cwi.masterthesis.raven.files.FileUtils;
+import cwi.masterthesis.raven.interpreter.Interpreter;
 import cwi.masterthesis.raven.interpreter.mapper.RavenJSONTraverser;
-import godot.Button;
+import cwi.masterthesis.raven.interpreter.nodes.RavenNode;
 import godot.FileAccess;
 import godot.Node;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
 import godot.core.NodePath;
-import godot.core.StringNameUtils;
-import godot.global.GD;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 @RegisterClass
 public class Main extends Node {
@@ -34,25 +36,23 @@ public class Main extends Node {
     @Override
     public void _ready() {
         client.virtualReady();
-        Button clientButton = new Button();
-        clientButton.setText("Send message");
-        clientButton.set(StringNameUtils.asStringName("height"), 100);
-        clientButton.set(StringNameUtils.asStringName("width"), 100);
+//        Button clientButton = new Button();
+//        clientButton.setText("Send message");
+//        clientButton.set(StringNameUtils.asStringName("height"), 100);
+//        clientButton.set(StringNameUtils.asStringName("width"), 100);
 
-        clientButton.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/ButtonSendMessage.gdj"));
+    //    clientButton.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/ButtonSendMessage.gdj"));
 
-        mainNode.addChild(clientButton);
+        String sceneTreePath = "/Users/ekletsko/raven-project/raven-core/src/main/rascal/tree.json";
+        FileUtils.createAProtocolFile();
+        var interpreter = new Interpreter();
+        RavenJSONTraverser traverser = getRavenJSONTraverser(sceneTreePath);
+        List<RavenNode> elements = traverser.getSceneToBuild();
+        for (var element : elements) {
+           element.acceptVisitor(interpreter);
+        }
 
-//        String sceneTreePath = "/Users/ekletsko/raven-project/raven-core/src/main/rascal/tree.json";
-//        FileUtils.createAProtocolFile();
-//        var interpreter = new Interpreter();
-//        RavenJSONTraverser traverser = getRavenJSONTraverser(sceneTreePath);
-//        List<RavenNode> elements = traverser.getSceneToBuild();
-//        for (var element : elements) {
-//           element.acceptVisitor(interpreter);
-//        }
-//
-//        FileUtils.writeToFile(String.valueOf(getTree().getRoot()));
+       // FileUtils.writeToFile(String.valueOf(getTree().getRoot()));
     }
 
     private @NotNull RavenJSONTraverser getRavenJSONTraverser(String sceneTreePath) {

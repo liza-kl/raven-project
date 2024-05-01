@@ -10,6 +10,7 @@ public class ButtonFactory implements RavenNodeFactory {
     @Override
     public RavenNode createRavenNode(Node mainRavenNode, Map<String, String> attrMap) {
         return new RavenButton(
+                attrMap.get("id"),
                 mainRavenNode,
                 attrMap.get("text"),
                 Integer.parseInt(attrMap.get("xPosition")),

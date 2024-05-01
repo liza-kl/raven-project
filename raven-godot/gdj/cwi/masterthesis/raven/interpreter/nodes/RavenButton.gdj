@@ -22,7 +22,8 @@ signals = [
 ]
 properties = [
     signal_emitted,
-	btn_callback
+	btn_callback,
+	btn_id
 ]
 functions = [
     _pressed,
