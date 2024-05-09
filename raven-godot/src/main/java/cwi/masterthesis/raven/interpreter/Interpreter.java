@@ -1,13 +1,13 @@
 package cwi.masterthesis.raven.interpreter;
 
-import cwi.masterthesis.raven.interpreter.nodes.RavenButton;
-import cwi.masterthesis.raven.interpreter.nodes.RavenLabel;
-import cwi.masterthesis.raven.interpreter.nodes.RavenNode2D;
+import cwi.masterthesis.raven.interpreter.nodes.*;
 import godot.*;
 import godot.core.NodePath;
 import godot.core.StringNameUtils;
 import godot.core.Vector2;
 import godot.global.GD;
+
+import java.util.Objects;
 
 public class Interpreter extends Node implements Visitor {
 
@@ -16,17 +16,19 @@ public class Interpreter extends Node implements Visitor {
     }
 
     @Override
-    public void visitButton(RavenButton ravenButton) {
+    public void visitButton(RavenButton ravenButton)  {
         System.out.println("Creating Button");
         PackedScene DefaultButtonLook = GD.load("res://scenes/DefaultButton.tscn");
         assert DefaultButtonLook != null;
-        var buttonNode = new RavenButton();
+        RavenButton buttonNode = new RavenButton();
 
         assert buttonNode != null;
         Button button = (Button) buttonNode.getNode(new NodePath("."));
 
         assert button != null;
         button.setText(ravenButton.getLabel());
+        button.setName(StringNameUtils.asStringName(ravenButton.getNodeID()));
+
         button.setPosition(new Vector2(ravenButton.getXCoordinate(), ravenButton.getYCoordinate()));
         System.out.println(button.getScript());
         button.getChildren().forEach(child -> addChildren(button, child));
@@ -40,8 +42,8 @@ public class Interpreter extends Node implements Visitor {
     @Override
     public void visitLabel(RavenLabel ravenLabel) {
         System.out.println("Creating Label");
-
-        var label = new Label();
+        Label label = new Label();
+        label.setName(StringNameUtils.asStringName(ravenLabel.getNodeID()));
         label.setText(ravenLabel.getLabel());
         label.setPosition(new Vector2(ravenLabel.getXCoordinate(), ravenLabel.getYCoordinate()));
         ravenLabel.getParentNode().addChild(label);
@@ -50,10 +52,24 @@ public class Interpreter extends Node implements Visitor {
     @Override
     public void visitNode2D(RavenNode2D ravenNode2D) {
         System.out.println("Creating Node2D");
-        var node2D = new Node2D();
-        node2D.getParent().addChild(node2D);
+        Node2D node2D = new Node2D();
+        node2D.setName(StringNameUtils.asStringName(ravenNode2D.getNodeID()));
+        Objects.requireNonNull(ravenNode2D.getParentNode()).addChild(node2D);
     }
 
+    @Override
+    public void visitGraphNode(RavenGraphNode ravenGraphNode) {
+        System.out.println("Creating GraphNode");
+        GraphNode graphNode = new GraphNode();
+        graphNode.setName(StringNameUtils.asStringName(ravenGraphNode.getNodeID()));
+        Objects.requireNonNull(ravenGraphNode.getParentNode()).addChild(graphNode);
+    }
 
-
+    @Override
+    public void visitGraphEditNode(RavenGraphEditNode ravenGraphEditNode) {
+        System.out.println("Creating GraphEditNode");
+        GraphEdit graphEditNode = new GraphEdit();
+        graphEditNode.setName(StringNameUtils.asStringName(ravenGraphEditNode.getNodeID()));
+        Objects.requireNonNull(ravenGraphEditNode.getParentNode()).addChild(graphEditNode);
+    }
 }
