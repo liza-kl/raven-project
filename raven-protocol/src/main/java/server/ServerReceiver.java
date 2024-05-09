@@ -13,6 +13,7 @@ class ServerReceiver implements ReceiveCallback {
     @Override
     public void onReceive(String element) {
         output.println(element.toUpperCase());
+        System.out.println(element);
         output.flush();
     }
 }

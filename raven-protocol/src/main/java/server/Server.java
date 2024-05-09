@@ -50,6 +50,27 @@ public class Server extends Thread {
         }
     }
 
+    public void send(IString message) throws IOException {
+        System.out.println("I am sending a message");
+        Socket socket = null;
+        String messageValue = message.toString();
+        try {
+            socket = new Socket("0.0.0.0", 23000);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        out.println(messageValue);
+        try {
+            socket.close();
+            // return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            // return false;
+        }
+    }
+
     @Override
     public void run() {
         Buffer sharedBuffer = new Buffer();
