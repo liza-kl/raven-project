@@ -2,20 +2,22 @@ package cwi.masterthesis.raven.interpreter.mapper;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import cwi.masterthesis.raven.interpreter.InterpreterUtils;
 import cwi.masterthesis.raven.interpreter.nodes.RavenNode;
 import godot.Node;
+import godot.core.NodePath;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-// Gluebit is the ugly part
-// interpreter can be built for other game engines
-// Design is more general
-public class RavenJSONTraverser extends Node {
+public final class RavenJSONTraverser extends Node {
 
-    List<RavenNode> sceneToBuild;
+    /**
+     *
+     */
+    private final List<RavenNode> sceneToBuild;
 
     public List<RavenNode> getSceneToBuild() {
         return sceneToBuild;
@@ -25,6 +27,14 @@ public class RavenJSONTraverser extends Node {
         this.sceneToBuild =  new ArrayList<>();
     }
 
+
+
+    /**
+     * @param node – The current node being examined from the JSON, e.g. a "Label"
+     * @param mainNode – This node should be replaced with a general parent node in the future, because otherwise it
+     * limits the building graph by attaching everything to only one main node.
+     * @throws JsonProcessingException
+     */
     public void traverse(JsonNode node, Node mainNode) throws JsonProcessingException {
         if (node.isArray()) {
             int amountOfChildren = node.size();
@@ -32,18 +42,22 @@ public class RavenJSONTraverser extends Node {
                 String nodeType = node.get(i).fieldNames().next();
                 HashMap<String, String> attrMap = getAttrMap(node, nodeType, i);
                 RavenNodeFactory factory = RavenNodeFactoryProvider.getFactory(nodeType);
-                sceneToBuild.add(factory.createRavenNode(mainNode, attrMap));
+                RavenNode childNode = factory.createRavenNode(mainNode, attrMap);
+                InterpreterUtils.invokeMethod(nodeType, childNode);
+                Node childNodePath = mainNode.getNode(new NodePath(attrMap.get("id"))); // Update current path
+                JsonNode childChildrenNode = node.get(i).findValue("children");
+                if (childChildrenNode != null && !childChildrenNode.isEmpty()) {
+                    traverse(childChildrenNode, childNodePath); // Pass the updated path
+                }
+
             }
         }
-
         if (node.isObject()) {
-            JsonNode childNode = node.get("children");
+            JsonNode childNode = node.findValue("children");
             if (!(childNode.isEmpty())) {
-                traverse(childNode,mainNode);
+                traverse(childNode, mainNode); // Pass the updated path
             }
         }
-
-
     }
 
     private static @NotNull HashMap<String, String> getAttrMap(JsonNode node, String nodeType, int index) {
@@ -57,4 +71,5 @@ public class RavenJSONTraverser extends Node {
         }
         return attrMap;
     }
+
 }

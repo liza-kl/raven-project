@@ -30,12 +30,6 @@ public java void stopServer();
 // public java void connect();
 
 @javaClass{server.Server}
-public java value getCurrentState();
-
-@javaClass{server.Server}
-public java value getBuffer();
-
-@javaClass{server.Server}
 public java void send(str message);
 
 
@@ -54,7 +48,10 @@ RavenNode getCurrentViewSpec() {
     "root",
     [ravenLabel("label#1", "My Counter Application", 10,30),
         ravenButton("button#1", "Decrement Button", "dec()", -100,20),
-        ravenButton("button#2", "Increment Button", "inc()", 100,20)],
+        ravenButton("button#2", "Increment Button", "inc()", 100,20),
+        ravenGraphEditNode("graphNodeEdit", 100, 30, [
+            ravenGraphNode("graphNode", 100, 40)]),
+        ravenNode2D("node2d2", [ravenLabel("label#2", "Another one bytes", 20, 50)])],
     true);
     return view;
 }
@@ -69,10 +66,7 @@ void tree() {
     writeFile(JSON_TREE_FILE, jsonString);
 }
 void main() {
-    tree();
-   // getInstance();
     startServer();
     startGodotEngine();
-    print(getCurrentState());
 }
 
