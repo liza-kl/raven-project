@@ -16,9 +16,11 @@ import Type;
 
 public data RavenNode = 
             ravenNode2D(str nodeID, list[RavenNode] children, bool root)
-            |  ravenNode2D(str nodeID, list[RavenNode] children)
+            | ravenNode2D(str nodeID, list[RavenNode] children)
             | ravenButton(str nodeID, str label, str callback, int xPosition, int yPosition)
-            | ravenLabel(str nodeID, str text, int xPosition, int yPosition);
+            | ravenLabel(str nodeID, str text, int xPosition, int yPosition)
+            | ravenGraphNode(str nodeID, int xPosition, int yPosition)
+            | ravenGraphEditNode(str nodeID, int xPosition, int yPosition, list[RavenNode] children );
             
 
 public str toString(x) = rvn_print(x);
@@ -72,8 +74,35 @@ str rvn_print(RavenNode nodeName:ravenButton(str nodeID,
     '   \"callback\": \"<callback>\",
     '   \"xPosition\": \"<xPosition>\",
     '   \"yPosition\": \"<yPosition>\"
-
     '}";
+
+
+str rvn_print(RavenNode nodeName:ravenGraphEditNode(str nodeID,
+                                                    int xPosition,
+                                                    int yPosition,
+                                                    list[RavenNode]  children)) =
+    "\"GraphEditNode\":
+    '{
+    '   \"id\": \"<nodeID>\",
+    '   \"xPosition\": \"<xPosition>\",
+    '   \"yPosition\": \"<yPosition>\",
+    <if(children!=[]){>
+    '   \"children\":
+    '[<rvn_print(children)>
+    ']
+    '<}> 
+    '}";
+
+str rvn_print(RavenNode nodeName:ravenGraphNode(str nodeID,
+                                                int xPosition,
+                                                int yPosition)) =
+    "\"GraphNode\":
+    '{
+    '   \"id\": \"<nodeID>\",
+    '   \"xPosition\": \"<xPosition>\",
+    '   \"yPosition\": \"<yPosition>\"
+    '}";
+
 
 RavenNode mapNodesToJSON(RavenNode tree) =  top-down-break visit(tree){      
     case RavenNode tree : JSON_CONTENT += rvn_print(tree);
