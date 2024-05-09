@@ -11,6 +11,8 @@ public class RavenNodeFactoryProvider {
         factoryMap.put("Label", LabelFactory::new);
         factoryMap.put("Button", ButtonFactory::new);
         factoryMap.put("Node2D", Node2DFactory::new);
+        factoryMap.put("GraphNode", GraphNodeFactory::new);
+        factoryMap.put("GraphEditNode", GraphEditNodeFactory::new);
     }
 
     public static RavenNodeFactory getFactory(String nodeType) {

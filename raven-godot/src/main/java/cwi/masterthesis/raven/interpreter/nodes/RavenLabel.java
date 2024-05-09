@@ -4,12 +4,14 @@ import cwi.masterthesis.raven.interpreter.Visitor;
 import godot.Node;
 
 public class RavenLabel implements RavenNode {
-    private Node parentNode;
-    private String label;
-    private int XCoordinate;
-    private int YCoordinate;
+    private final String nodeID;
+    private final Node parentNode;
+    private final String label;
+    private final int XCoordinate;
+    private final int YCoordinate;
 
-    public RavenLabel(Node parentNode, String label, int XCoordinate, int YCoordinate) {
+    public RavenLabel(String nodeID, Node parentNode, String label, int XCoordinate, int YCoordinate) {
+        this.nodeID = nodeID;
         this.parentNode = parentNode;
         this.label = label;
         this.XCoordinate = XCoordinate;
@@ -36,5 +38,9 @@ public class RavenLabel implements RavenNode {
 
     public Node getParentNode() {
         return parentNode;
+    }
+
+    public String getNodeID() {
+        return nodeID;
     }
 }

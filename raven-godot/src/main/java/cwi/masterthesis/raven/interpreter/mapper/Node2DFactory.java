@@ -9,7 +9,9 @@ import java.util.Map;
 public class Node2DFactory implements RavenNodeFactory{
     @Override
     public RavenNode createRavenNode(Node mainRavenNode, Map<String, String> attrMap) {
-        return new RavenNode2D(mainRavenNode);
+        return new RavenNode2D(
+                mainRavenNode,
+                attrMap.get("id"));
 
     }
 }

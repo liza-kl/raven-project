@@ -6,7 +6,7 @@ import godot.Node;
 import java.util.Map;
 
 public interface RavenNodeFactory {
-    RavenNode createRavenNode(Node mainRavenNode, Map<String, String> attrMap);
+    RavenNode createRavenNode(Node node, Map<String, String> attrMap);
 }
 
 
