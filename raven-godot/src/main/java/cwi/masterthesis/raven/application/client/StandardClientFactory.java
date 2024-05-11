@@ -9,9 +9,9 @@ public class StandardClientFactory implements ClientFactory  {
         if (Objects.equals(clientType, "godot")) {
             return new GodotClient("0.0.0.0", 23000);
         }
-        if (Objects.equals(clientType, "native")) {
-            return new NativeClient("0.0.0.0", 23000);
-        }
+//        if (Objects.equals(clientType, "native")) {
+//            return new NativeClient("0.0.0.0", 23000,);
+//        }
         throw new IllegalArgumentException("Unknown client type: " + clientType);
     }
 }

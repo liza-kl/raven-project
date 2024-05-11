@@ -1,9 +1,8 @@
 package cwi.masterthesis.raven.scripts;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import cwi.masterthesis.raven.application.client.GodotClient;
 import cwi.masterthesis.raven.application.client.NativeClient;
-import cwi.masterthesis.raven.interpreter.nodes.RavenButton;
+import godot.Button;
 import godot.Node;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
@@ -18,7 +17,7 @@ import java.io.IOException;
 
 @RegisterClass
 
-public class ButtonSendMessage extends RavenButton {
+public class ButtonSendMessage extends Button {
 
     @RegisterSignal
     public Signal buttonSendMessage = SignalProvider.signal(this, "button_send_message");
@@ -58,13 +57,12 @@ public class ButtonSendMessage extends RavenButton {
             e.printStackTrace();
         }
 
-        NativeClient.getInstance("0.0.0.0",23000).send("Current Message");
+        NativeClient.getInstance("0.0.0.0",23000, getTree().getRoot().getChild(0)).send("Current Message");
     }
 
     @RegisterFunction
     public void _pressed() {
         System.out.println("Sending Content");
-        System.out.println(GodotClient.getInstance().getStatus());
         emitSignal(StringNameUtils.asStringName("button_send_message"), this);
     }
 }

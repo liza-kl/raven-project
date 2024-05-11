@@ -1,5 +1,7 @@
 package cwi.masterthesis.raven.interpreter.mapper;
 
+import cwi.masterthesis.raven.interpreter.mapper.factory.*;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
@@ -13,6 +15,7 @@ public class RavenNodeFactoryProvider {
         factoryMap.put("Node2D", Node2DFactory::new);
         factoryMap.put("GraphNode", GraphNodeFactory::new);
         factoryMap.put("GraphEditNode", GraphEditNodeFactory::new);
+        factoryMap.put("Control", ControlFactory::new);
     }
 
     public static RavenNodeFactory getFactory(String nodeType) {

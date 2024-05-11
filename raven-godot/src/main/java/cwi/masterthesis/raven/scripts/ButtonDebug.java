@@ -1,6 +1,6 @@
 package cwi.masterthesis.raven.scripts;
 
-import cwi.masterthesis.raven.interpreter.nodes.RavenButton;
+import cwi.masterthesis.raven.interpreter.nodes.control.RavenButton;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
 

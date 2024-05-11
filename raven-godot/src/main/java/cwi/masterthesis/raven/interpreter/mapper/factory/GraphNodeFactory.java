@@ -1,6 +1,6 @@
-package cwi.masterthesis.raven.interpreter.mapper;
+package cwi.masterthesis.raven.interpreter.mapper.factory;
 
-import cwi.masterthesis.raven.interpreter.nodes.RavenGraphNode;
+import cwi.masterthesis.raven.interpreter.nodes.control.RavenGraphNode;
 import cwi.masterthesis.raven.interpreter.nodes.RavenNode;
 import godot.Node;
 

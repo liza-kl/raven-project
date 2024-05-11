@@ -12,12 +12,13 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+    main_update_scene
 ]
 properties = [
     
 ]
 functions = [
     _process,
-	_ready
+	_ready,
+	callback_update_scene
 ]

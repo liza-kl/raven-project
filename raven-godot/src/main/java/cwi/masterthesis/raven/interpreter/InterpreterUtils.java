@@ -27,7 +27,7 @@ public final class InterpreterUtils {
         return fieldValues;
     }
 
-    public static ArrayList<String> getFieldsOfClass(Object cls) throws ClassNotFoundException {
+    public static ArrayList<String> getFieldsOfClass(Object cls) {
         Field[] fieldList = cls.getClass().getDeclaredFields();
         ArrayList<String> fieldNames = new ArrayList<>();
         for (Field aFieldlist : fieldList) {
@@ -36,7 +36,7 @@ public final class InterpreterUtils {
         return fieldNames;
     }
 
-    public static List<Method> getSettersOfClass(Object cls) throws ClassNotFoundException {
+    public static List<Method> getSettersOfClass(Object cls) {
         List<Method> setters = new ArrayList<>();
         Method[] methods = cls.getClass().getDeclaredMethods();
         for (Method method : methods) {

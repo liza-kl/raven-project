@@ -1,19 +1,20 @@
-package cwi.masterthesis.raven.interpreter.mapper;
+package cwi.masterthesis.raven.interpreter.mapper.factory;
 
-import cwi.masterthesis.raven.interpreter.nodes.RavenLabel;
+import cwi.masterthesis.raven.interpreter.nodes.control.RavenButton;
 import cwi.masterthesis.raven.interpreter.nodes.RavenNode;
 import godot.Node;
 
 import java.util.Map;
 
-public class LabelFactory implements RavenNodeFactory {
+public class ButtonFactory implements RavenNodeFactory {
     @Override
     public RavenNode createRavenNode(Node mainRavenNode, Map<String, String> attrMap) {
-        return new RavenLabel(
+        return new RavenButton(
                 attrMap.get("id"),
                 mainRavenNode,
                 attrMap.get("text"),
                 Integer.parseInt(attrMap.get("xPosition")),
-                Integer.parseInt(attrMap.get("yPosition")));
+                Integer.parseInt(attrMap.get("yPosition")),
+                attrMap.get("callback"));
     }
 }

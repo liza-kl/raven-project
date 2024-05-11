@@ -17,6 +17,7 @@ import Type;
 public data RavenNode = 
             ravenNode2D(str nodeID, list[RavenNode] children, bool root)
             | ravenNode2D(str nodeID, list[RavenNode] children)
+            | ravenControlNode(str nodeID, list[RavenNode] children)
             | ravenButton(str nodeID, str label, str callback, int xPosition, int yPosition)
             | ravenLabel(str nodeID, str text, int xPosition, int yPosition)
             | ravenGraphNode(str nodeID, int xPosition, int yPosition)

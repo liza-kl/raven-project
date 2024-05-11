@@ -1,23 +1,23 @@
-package cwi.masterthesis.raven.interpreter.nodes;
+package cwi.masterthesis.raven.interpreter.nodes.control;
 
 import cwi.masterthesis.raven.interpreter.Visitor;
-import godot.GraphEdit;
+import cwi.masterthesis.raven.interpreter.nodes.RavenNode;
 import godot.Node;
 
-public class RavenGraphEditNode extends GraphEdit implements RavenNode {
+public class RavenGraphNode implements RavenNode {
 
-    private final String nodeID;
+
     private final Node parentNode;
+    private final String nodeID;
 
-    public RavenGraphEditNode(String nodeID, Node parentNode) {
-        this.nodeID = nodeID;
+    public RavenGraphNode(Node parentNode, String nodeID) {
         this.parentNode = parentNode;
+        this.nodeID = nodeID;
     }
 
     @Override
     public void acceptVisitor(Visitor visitor) {
-        visitor.visitGraphEditNode(this);
-
+        visitor.visitGraphNode(this);
     }
 
     public Node getParentNode() {
