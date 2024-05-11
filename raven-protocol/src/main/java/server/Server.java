@@ -99,10 +99,6 @@ public class Server extends Thread {
 
     }
 
-    public PrintWriter throw_() {
-        throw new RuntimeException("id is already set");
-    }
-
     private PrintWriter getGodotOut() {
         return this.godotOut;
     }
