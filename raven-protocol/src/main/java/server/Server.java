@@ -11,6 +11,9 @@ public class Server extends Thread {
     private final IValueFactory values;
     private ServerSocket serverSocket;
     private boolean isRunning = false;
+    private final Buffer sharedBuffer = new ConcurrentLinkedQueueBuffer();
+    private PrintWriter godotOut;
+
 
     public Server(IValueFactory values) {
         this.values = values;
@@ -20,22 +23,8 @@ public class Server extends Thread {
         instance = this;
     }
 
-    public static synchronized Server getInstance() {
-        if (instance == null) {
-            throw new IllegalStateException("Singleton instance has not been initialized");
-        }
-        return instance;
-    }
-
     public void setRunning(boolean running) {
         isRunning = running;
-    }
-
-    public static synchronized Server getInstance(IValueFactory values) {
-        if (instance == null) {
-            instance = new Server(values);
-        }
-        return instance;
     }
 
     public void startServer() {
@@ -50,43 +39,36 @@ public class Server extends Thread {
         }
     }
 
-    public void send(IString message) throws IOException {
+    public void send(IString message) throws IOException, InterruptedException {
         System.out.println("I am sending a message");
-        Socket socket = null;
-        String messageValue = message.toString();
+        String HOST = "0.0.0.0";
+        int PORT = 23000;
+
         try {
-            socket = new Socket("0.0.0.0", 23000);
+            Socket socket = null;
+            socket = new Socket(HOST, PORT);
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            out.println(message.toString());
+
         } catch (IOException e) {
             throw new RuntimeException(e);
-        }
-        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        out.println(messageValue);
-        try {
-            socket.close();
-            // return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-            // return false;
         }
     }
 
     @Override
     public void run() {
-        Buffer sharedBuffer = new Buffer();
-
         try {
             while (isRunning) {
                 Socket clientSocket = serverSocket.accept();
                 System.out.println("Client connected: " + clientSocket.getRemoteSocketAddress());
                 BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-                ServerReceiver receiverCallback = new ServerReceiver(out);
-                Thread sender = new Thread(new Sender(sharedBuffer, in));
-                Thread receiver = new Thread(new Receiver(sharedBuffer, receiverCallback));
+                this.setGodotOut(out);
+                ServerReceiver receiverCallback = new ServerReceiver(this.godotOut);
+                Thread sender = new Thread(new Sender(this.sharedBuffer, in));
+                Thread receiver = new Thread(new Receiver(this.sharedBuffer, receiverCallback));
                 sender.setName("Sender Thread of Server");
                 receiver.setName("Receiver Thread of Server");
-
                 sender.start();
                 receiver.start();
             }
@@ -110,5 +92,18 @@ public class Server extends Thread {
         IValueFactory values = ValueFactory.getInstance();
         Server server = new Server(values);
         server.startServer();
+    }
+
+    private void setGodotOut(PrintWriter godotOut) {
+        this.godotOut = (this.godotOut == null) ? godotOut : this.godotOut;
+
+    }
+
+    public PrintWriter throw_() {
+        throw new RuntimeException("id is already set");
+    }
+
+    private PrintWriter getGodotOut() {
+        return this.godotOut;
     }
 }

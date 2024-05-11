@@ -21,9 +21,6 @@ public str JSON_CONTENT_END = "}";
 public java void startServer();
 
 @javaClass{server.Server}
-public java void getInstance();
-
-@javaClass{server.Server}
 public java void stopServer();
 
 // @javaClass{server.Server}
