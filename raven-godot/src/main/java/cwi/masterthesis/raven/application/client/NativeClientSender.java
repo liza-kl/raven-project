@@ -1,5 +1,6 @@
 package cwi.masterthesis.raven.application.client;
 
+import godot.global.GD;
 import server.Buffer;
 
 import java.io.BufferedReader;
@@ -19,6 +20,7 @@ public class NativeClientSender implements Runnable {
     public void run() {
         try {
             String line;
+            GD.INSTANCE.print(reader);
             while ((line = reader.readLine()) != null) {
                 synchronized (buffer) {
                     buffer.produce(line);

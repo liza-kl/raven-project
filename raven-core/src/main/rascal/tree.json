@@ -2,13 +2,7 @@
    "children":
 [
  
- {
-    "Label": {
-       "id": "label#1",
-       "text": "My Counter Application",
-       "xPosition": 10,
-       "yPosition": 30
-    }  },
+ 
  
  
  {
@@ -17,7 +11,7 @@
        "id": "button#1",
        "text": "Decrement Button",
        "callback": "dec()",
-       "xPosition": "-100",
+       "xPosition": "200",
        "yPosition": "20"
     
     }},
@@ -29,7 +23,7 @@
        "id": "button#2",
        "text": "Increment Button",
        "callback": "inc()",
-       "xPosition": "100",
+       "xPosition": "300",
        "yPosition": "20"
     
     }}

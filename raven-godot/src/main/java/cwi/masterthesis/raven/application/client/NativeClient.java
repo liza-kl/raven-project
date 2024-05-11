@@ -3,10 +3,10 @@ package cwi.masterthesis.raven.application.client;
 
 import godot.Node;
 import godot.annotation.RegisterClass;
+import godot.global.GD;
 import server.Buffer;
 import server.ConcurrentLinkedQueueBuffer;
 import server.Receiver;
-import server.Sender;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,6 +17,7 @@ import java.net.Socket;
 @RegisterClass
 public class NativeClient extends Node implements Client {
     private static NativeClient instance;
+    private static Node mainNode;
     private Socket socket;
     private PrintWriter out;
     private BufferedReader in;
@@ -31,13 +32,16 @@ public class NativeClient extends Node implements Client {
             socket = new Socket(serverIp, serverPort);
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            NativeClientReceiver receiverCallback = new NativeClientReceiver(out);
-            Thread sender = new Thread(new Sender(sharedBuffer, in));
+            NativeClient.mainNode = mainNode;
+            NativeClientReceiver receiverCallback = new NativeClientReceiver(out, mainNode.getChild(0));
+            GD.INSTANCE.print("main Node in NativeClient" + mainNode);
+            Thread sender = new Thread(new NativeClientSender(sharedBuffer, in));
             sender.setName("Sender Thread of Godot");
             Thread receiver = new Thread(new Receiver(sharedBuffer, receiverCallback));
             sender.setName("Receiver Thread of Godot");
-
+            GD.INSTANCE.print("Starting Sender Thread");
             sender.start();
+            GD.INSTANCE.print("Starting Receiver Thread");
             receiver.start();
 
         } catch (IOException e) {

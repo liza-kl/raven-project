@@ -27,7 +27,12 @@ public class Main extends Node {
 
     @RegisterFunction
     public void callbackUpdateScene(String jsonSpec) {
-        traverseJSON(jsonSpec, this.mainNode.getChild(0));
+        var nodes = this.mainNode.getChild(0).getChildren();
+        for (var node : nodes) {
+            this.mainNode.getChild(0).removeChild(node);
+            node.queueFree();
+        }
+     traverseJSON(jsonSpec, this.mainNode.getChild(0));
     }
 
         ClientFactory clientFactory = new StandardClientFactory();
@@ -49,6 +54,7 @@ public class Main extends Node {
         client.virtualReady();
         String sceneTreePath = "/Users/ekletsko/raven-project/raven-core/src/main/rascal/tree.json";
         String exampleRequest = FileAccess.Companion.getFileAsString(sceneTreePath);
+        GD.INSTANCE.print(exampleRequest);
         traverseJSON(exampleRequest,  this.mainNode.getChild(0));
 
         connect(
@@ -56,7 +62,7 @@ public class Main extends Node {
                 new Callable(this, StringNameUtils.asStringName("callback_update_scene"))
         );
     }
-
+    @RegisterFunction
     public static void traverseJSON(String sceneTreeJSON, Node mainNode) {
         GD.INSTANCE.print("Traverse JSON is called");
         ObjectMapper mapper = new ObjectMapper();

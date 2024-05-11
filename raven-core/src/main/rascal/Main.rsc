@@ -62,6 +62,7 @@ void tree() {
     str jsonString = JSON_CONTENT_START + JSON_CONTENT + JSON_CONTENT_END;
     writeFile(JSON_TREE_FILE, jsonString);
 }
+
 void main() {
     startServer();
     startGodotEngine();

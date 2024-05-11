@@ -64,7 +64,7 @@ public class Server extends Thread {
                 BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
                 this.setGodotOut(out);
-                ServerReceiver receiverCallback = new ServerReceiver(this.godotOut);
+                ServerReceiver receiverCallback = new ServerReceiver(this.getGodotOut());
                 Thread sender = new Thread(new Sender(this.sharedBuffer, in));
                 Thread receiver = new Thread(new Receiver(this.sharedBuffer, receiverCallback));
                 sender.setName("Sender Thread of Server");

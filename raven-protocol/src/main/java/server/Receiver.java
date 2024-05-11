@@ -7,7 +7,6 @@ public class Receiver implements Runnable {
     public Receiver(Buffer buffer, ReceiveCallback callback) {
         this.buffer = buffer;
         this.callback = callback;
-
     }
 
     @Override
