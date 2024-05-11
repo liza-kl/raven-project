@@ -57,7 +57,8 @@ public class ButtonSendMessage extends Button {
             e.printStackTrace();
         }
 
-        NativeClient.getInstance("0.0.0.0",23000, getTree().getRoot().getChild(0)).send("Current Message");
+
+        NativeClient.getInstance("0.0.0.0",23000,getTree().getRoot().getChild(0)).send("Current Message");
     }
 
     @RegisterFunction

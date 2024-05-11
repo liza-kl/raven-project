@@ -6,7 +6,7 @@ fqName = cwi.masterthesis.raven.scripts.UpdateSceneButton
 relativeSourcePath = src/main/java/cwi/masterthesis/raven/scripts/UpdateSceneButton.java
 baseType = Button
 supertypes = [
-    cwi.masterthesis.raven.interpreter.nodes.RavenButton,
+    cwi.masterthesis.raven.interpreter.nodes.control.RavenButton,
 	godot.Button,
 	cwi.masterthesis.raven.interpreter.nodes.RavenNode,
 	godot.BaseButton,

@@ -4,6 +4,7 @@ package cwi.masterthesis.raven.application.client;
 import godot.Node;
 import godot.annotation.RegisterClass;
 import server.Buffer;
+import server.ConcurrentLinkedQueueBuffer;
 import server.Receiver;
 import server.Sender;
 
@@ -24,9 +25,9 @@ public class NativeClient extends Node implements Client {
         super();
     }
 
-    NativeClient(String serverIp, int serverPort) {
+    NativeClient(String serverIp, int serverPort, Node mainNode) {
         try {
-            Buffer sharedBuffer = new Buffer();
+            Buffer sharedBuffer = new ConcurrentLinkedQueueBuffer();
             socket = new Socket(serverIp, serverPort);
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -44,9 +45,9 @@ public class NativeClient extends Node implements Client {
         }
     }
 
-    public static synchronized NativeClient getInstance(String serverIp, int serverPort) {
+    public static synchronized NativeClient getInstance(String serverIp, int serverPort, Node mainNode) {
         if (instance == null) {
-            instance = new NativeClient(serverIp, serverPort);
+            instance = new NativeClient(serverIp, serverPort, mainNode);
         }
         return instance;
     }
