@@ -2,31 +2,73 @@
    "children":
 [
  
- 
+ {
+    "Label": {
+       "id": "label#1",
+       "text": "My Fancy 22222 Editor",
+       "xPosition": 10,
+       "yPosition": 30
+    }  },
  
  
  {
-    "Button":
+    "GridContainer":
     {
-       "id": "button#1",
-       "text": "Decrement Button",
-       "callback": "dec()",
+       "id": "grid#1",
+       "columns": "1",    
+       "vSeparation": "2",    
+       "hSeparation": "2",    
        "xPosition": "200",
-       "yPosition": "20"
-    
+       "yPosition": "200",
+        
+       "children":
+    [
+     
+     {
+        "Button":
+        {
+           "id": "button#1",
+           "text": "Decrement Button",
+           "callback": "addNode()",
+           "xPosition": "-100",
+           "yPosition": "20"
+        }},
+     
+     
+     {
+        "Button":
+        {
+           "id": "button#2",
+           "text": "Increment Button",
+           "callback": "inc()",
+           "xPosition": "100",
+           "yPosition": "20"
+        }}
+     
+                 
+    ]
+     
     }},
  
  
  {
-    "Button":
-    {
-       "id": "button#2",
-       "text": "Increment Button",
-       "callback": "inc()",
-       "xPosition": "300",
-       "yPosition": "20"
-    
-    }}
+    "Node2D": {
+    "id": "node2d2",
+       "children":
+    [
+     
+     {
+        "Label": {
+           "id": "label#2",
+           "text": "Another one bytes",
+           "xPosition": 20,
+           "yPosition": 50
+        }  }
+     
+                 
+    ]
+     
+    }  }
  
              
 ]

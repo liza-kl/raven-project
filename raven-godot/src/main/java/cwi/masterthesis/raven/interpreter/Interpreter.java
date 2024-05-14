@@ -94,11 +94,15 @@ public class Interpreter extends Node implements Visitor {
     }
 
     @Override
-    public void visitGrid(RavenGrid ravenGrid) {
+    public void visitGridContainer(RavenGridContainer ravenGridContainer) {
         System.out.println("Creating Grid");
         GridContainer gridContainer = new GridContainer();
-        gridContainer.setName(StringNameUtils.asStringName(ravenGrid.getNodeID()));
-        Objects.requireNonNull(ravenGrid.getParentNode()).addChild(gridContainer);
+        gridContainer.setName(StringNameUtils.asStringName(ravenGridContainer.getNodeID()));
+        gridContainer.setColumns(ravenGridContainer.getColumns());
+        gridContainer.setPosition(new Vector2(ravenGridContainer.getxPosition(), ravenGridContainer.getyPosition()));
+        gridContainer.set(StringNameUtils.asStringName("h_separation"), ravenGridContainer.gethSeparation());
+        gridContainer.set(StringNameUtils.asStringName("v_separation"), ravenGridContainer.getvSeparation());
+        Objects.requireNonNull(ravenGridContainer.getParentNode()).addChild(gridContainer);
     }
 
     @Override

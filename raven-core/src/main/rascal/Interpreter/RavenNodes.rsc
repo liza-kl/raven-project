@@ -19,9 +19,12 @@ public data RavenNode =
             | ravenNode2D(str nodeID, list[RavenNode] children)
             | ravenControlNode(str nodeID, list[RavenNode] children)
             | ravenButton(str nodeID, str label, str callback, int xPosition, int yPosition)
+            | ravenButton(str nodeID, str label, str callback)
             | ravenLabel(str nodeID, str text, int xPosition, int yPosition)
             | ravenGraphNode(str nodeID, int xPosition, int yPosition)
-            | ravenGraphEditNode(str nodeID, int xPosition, int yPosition, list[RavenNode] children );
+            | ravenGraphEditNode(str nodeID, int xPosition, int yPosition, list[RavenNode] children )
+            | ravenGrid(str nodeID, int columns)
+            | ravenGrid(str nodeID, int columns, int vSeparation, int hSeparation, int xPosition, int yPosition, list[RavenNode] children);
             
 
 public str toString(x) = rvn_print(x);
@@ -77,6 +80,17 @@ str rvn_print(RavenNode nodeName:ravenButton(str nodeID,
     '   \"yPosition\": \"<yPosition>\"
     '}";
 
+str rvn_print(RavenNode nodeName:ravenButton(str nodeID,
+                                            str buttonText,
+                                            str callback)) = 
+    "\"Button\":
+    '{
+    '   \"id\": \"<nodeID>\",
+    '   \"text\": \"<buttonText>\",
+    '   \"callback\": \"<callback>\"
+    '}";
+
+
 
 str rvn_print(RavenNode nodeName:ravenGraphEditNode(str nodeID,
                                                     int xPosition,
@@ -104,6 +118,27 @@ str rvn_print(RavenNode nodeName:ravenGraphNode(str nodeID,
     '   \"yPosition\": \"<yPosition>\"
     '}";
 
+str rvn_print(RavenNode nodeName:ravenGrid(str nodeID,
+                                            int columns,
+                                            int vSeparation,
+                                            int hSeparation,
+                                            int xPosition,
+                                            int yPosition,
+                                            list[RavenNode] children)) =
+ "\"GridContainer\":
+    '{
+    '   \"id\": \"<nodeID>\",
+    '   \"columns\": \"<columns>\",    
+    '   \"vSeparation\": \"<vSeparation>\",    
+    '   \"hSeparation\": \"<hSeparation>\",    
+    '   \"xPosition\": \"<xPosition>\",
+    '   \"yPosition\": \"<yPosition>\",
+    <if(children!=[]){>
+    '   \"children\":
+    '[<rvn_print(children)>
+    ']
+    '<}> 
+    '}";
 
 RavenNode mapNodesToJSON(RavenNode tree) =  top-down-break visit(tree){      
     case RavenNode tree : JSON_CONTENT += rvn_print(tree);

@@ -26,8 +26,10 @@ public java void stopServer();
 // @javaClass{server.Server}
 // public java void connect();
 
+
 @javaClass{server.Server}
 public java void send(str message);
+
 
 
 void rascalCallback(str message) {
@@ -35,6 +37,11 @@ void rascalCallback(str message) {
     print(message);
 }
 
+int model = 0;
+
+int getModel() {
+    return model;
+}
 void rascalCallback2() {
     print("printing rascal callback 2");
 }
@@ -43,11 +50,15 @@ RavenNode getCurrentViewSpec() {
     RavenNode view =
     ravenNode2D(
     "root",
-    [ravenLabel("label#1", "My Counter Application", 10,30),
-        ravenButton("button#1", "Decrement Button", "dec()", -100,20),
-        ravenButton("button#2", "Increment Button", "inc()", 100,20),
-        ravenGraphEditNode("graphNodeEdit", 100, 30, [
-            ravenGraphNode("graphNode", 100, 40)]),
+    [ravenLabel("label#1", "My Fancy Editor", 10,30),
+        ravenGrid("grid#1",
+        1,
+        2,
+        2, 200, 200,
+        [ravenButton("button#1", "Decrement Button", "addNode()"),
+        ravenButton("button#2", "Increment Button", "inc()")]),
+        // ravenGraphEditNode("graphNodeEdit", 100, 30, [
+        //     ravenGraphNode("graphNode", 100, 40)]),
         ravenNode2D("node2d2", [ravenLabel("label#2", "Another one bytes", 20, 50)])],
     true);
     return view;

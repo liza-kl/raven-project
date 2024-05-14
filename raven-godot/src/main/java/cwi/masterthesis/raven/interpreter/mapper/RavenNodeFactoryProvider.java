@@ -16,6 +16,7 @@ public class RavenNodeFactoryProvider {
         factoryMap.put("GraphNode", GraphNodeFactory::new);
         factoryMap.put("GraphEditNode", GraphEditNodeFactory::new);
         factoryMap.put("Control", ControlFactory::new);
+        factoryMap.put("GridContainer", GridFactory::new);
     }
 
     public static RavenNodeFactory getFactory(String nodeType) {

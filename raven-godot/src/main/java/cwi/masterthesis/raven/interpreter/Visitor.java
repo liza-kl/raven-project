@@ -12,6 +12,6 @@ public interface Visitor {
     void visitTextEditNode(RavenTextEdit ravenTextEditNode);
     void visitHBoxContainer(RavenHBoxContainer ravenHBoxContainer);
     void visitVBoxContainer(RavenVBoxContainer ravenVBoxContainer);
-    void visitGrid(RavenGrid ravenGrid);
+    void visitGridContainer(RavenGridContainer ravenGridContainer);
     void visitControl(RavenControl ravenControl);
 }
