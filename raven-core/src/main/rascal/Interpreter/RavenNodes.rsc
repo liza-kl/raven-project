@@ -6,7 +6,7 @@ import String;
 import Main;
 import List;
 import Type;
-
+import Map;
 // Rascal Tree -> JSON -> Feed into Java -> Create Custom Format to parse it better -> Create Scene in Godot 
 // Passing JSON tree as argument in makefile?
 // Partial functions and recursive connection, you can just use the cases and then recursively until
@@ -14,16 +14,21 @@ import Type;
 // String template in rascal 
 // https://github.com/vrozen/Cascade/blob/main/TEL/src/lang/tel/Printer.rsc
 
+
 public data RavenNode = 
             ravenNode2D(str nodeID, list[RavenNode] children, bool root)
             | ravenNode2D(str nodeID, list[RavenNode] children)
+            | ravenLabel(str nodeID, str text, int xPosition, int yPosition)
+            // Control Nodes 
             | ravenControlNode(str nodeID, list[RavenNode] children)
             | ravenButton(str nodeID, str label, str callback, int xPosition, int yPosition)
             | ravenButton(str nodeID, str label, str callback)
-            | ravenLabel(str nodeID, str text, int xPosition, int yPosition)
             | ravenGraphNode(str nodeID, int xPosition, int yPosition)
-            | ravenGraphEditNode(str nodeID, int xPosition, int yPosition, list[RavenNode] children )
-            | ravenGrid(str nodeID, int columns)
+            | ravenGraphEditNode(str nodeID, int xPosition, int yPosition, list[RavenNode] children)
+            | ravenTextEdit(str nodeID, str content, map[str, value]additionalSettings=())
+            | ravenTextEdit(str nodeID, str content, int xPosition, int yPosition)
+            // Visual Arrangement Options
+            | ravenGrid(str nodeID, int columns,list[RavenNode] children=[],  map[str, value]additionalSettings=())
             | ravenGrid(str nodeID, int columns, int vSeparation, int hSeparation, int xPosition, int yPosition, list[RavenNode] children);
             
 
@@ -31,6 +36,7 @@ public str toString(x) = rvn_print(x);
 str rvn_print(int number) = "<number>";
 str rvn_print(str string) =  "\"<string>\"";
 str rvn_print(list[RavenNode] children: []) = "";
+
 str rvn_print(RavenNode nodeName: ravenLabel(str nodeID, str text, int xPosition, int yPosition)) =
     "\"Label\": {
     '   \"id\": <rvn_print(nodeID)>,
@@ -63,7 +69,17 @@ str rvn_print(list[RavenNode] children) = "
 '   <rvn_print(child)>}<if(!(indexOf(children,child) == size(children) - 1)){>,
 '<}>
 <}>
-            ";
+";
+
+str rvn_print(map[str, value] additionalSettings) = "
+'   settings: {
+'       <for(str settingKey <- domain(additionalSettings)){ 
+        value val = additionalSettings[settingKey];>
+'       \"<settingKey>\" : \"<val>\"<if(settingKey != last( [elem | elem <- domain(additionalSettings)])){>,
+'<}>
+' }
+<}>          
+";
 default str rvn_print(RavenNode ravenNode) { throw "you forgot a case <typeOf(ravenNode)>"; } 
 
 str rvn_print(RavenNode nodeName:ravenButton(str nodeID,
@@ -80,6 +96,7 @@ str rvn_print(RavenNode nodeName:ravenButton(str nodeID,
     '   \"yPosition\": \"<yPosition>\"
     '}";
 
+/* TODO How to deal with the x y position if they are not set */
 str rvn_print(RavenNode nodeName:ravenButton(str nodeID,
                                             str buttonText,
                                             str callback)) = 
@@ -87,9 +104,10 @@ str rvn_print(RavenNode nodeName:ravenButton(str nodeID,
     '{
     '   \"id\": \"<nodeID>\",
     '   \"text\": \"<buttonText>\",
-    '   \"callback\": \"<callback>\"
+    '   \"callback\": \"<callback>\",
+    '   \"xPosition\": \"0\",
+    '   \"yPosition\": \"0\"
     '}";
-
 
 
 str rvn_print(RavenNode nodeName:ravenGraphEditNode(str nodeID,
@@ -139,6 +157,29 @@ str rvn_print(RavenNode nodeName:ravenGrid(str nodeID,
     ']
     '<}> 
     '}";
+
+str rvn_print(RavenNode nodeName:ravenTextEdit(str nodeID,
+                                               str text)) =
+    "\"TextEdit\":
+    '{
+    '   \"id\": \"<nodeID>\",
+    '   \"text\": \"<text>\",
+    '   \"xPosition\": \"0\"
+    '   \"yPosition\": \"0\"
+    '}";
+
+str rvn_print(RavenNode nodeName:ravenTextEdit(str nodeID,
+                                               str text,
+                                               int xPosition,
+                                               int yPosition)) =
+    "\"TextEdit\":
+    '{
+    '   \"id\": \"<nodeID>\",
+    '   \"text\": \"<text>\",
+    '   \"xPosition\": \"<xPosition>\"
+    '   \"yPosition\": \"<yPosition>\"
+    '}";
+
 
 RavenNode mapNodesToJSON(RavenNode tree) =  top-down-break visit(tree){      
     case RavenNode tree : JSON_CONTENT += rvn_print(tree);
