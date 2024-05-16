@@ -1,12 +1,12 @@
 module Interpreter::RavenNodes
-
+import Main;
 import IO;
 import ApplicationConf;
 import String;
-import Main;
 import List;
 import Type;
 import Map;
+import util::UUID;
 // Rascal Tree -> JSON -> Feed into Java -> Create Custom Format to parse it better -> Create Scene in Godot 
 // Passing JSON tree as argument in makefile?
 // Partial functions and recursive connection, you can just use the cases and then recursively until
@@ -25,10 +25,13 @@ public data RavenNode =
             | ravenButton(str nodeID, str label, str callback)
             | ravenGraphNode(str nodeID, int xPosition, int yPosition)
             | ravenGraphEditNode(str nodeID, int xPosition, int yPosition, list[RavenNode] children)
-            | ravenTextEdit(str nodeID, str content, map[str, value]additionalSettings=())
-            | ravenTextEdit(str nodeID, str content, int xPosition, int yPosition)
+            // TODO Is there a way to match this kind of things?
+            | ravenTextEdit(str content, str callback, str nodeID=toString(uuidi()), map[str, value]settings=())
+            | ravenTextEdit(str content,str callback, str nodeID)
+            | ravenTextEdit(str content,str callback, str nodeID,map[str, value]settings)
+            | ravenTextEdit(str content,str callback)
             // Visual Arrangement Options
-            | ravenGrid(str nodeID, int columns,list[RavenNode] children=[],  map[str, value]additionalSettings=())
+            | ravenGrid(str nodeID, int columns,list[RavenNode] children=[],  map[str, value]settings=())
             | ravenGrid(str nodeID, int columns, int vSeparation, int hSeparation, int xPosition, int yPosition, list[RavenNode] children);
             
 
@@ -71,11 +74,11 @@ str rvn_print(list[RavenNode] children) = "
 <}>
 ";
 
-str rvn_print(map[str, value] additionalSettings) = "
+str rvn_print(map[str, value] settings) = "
 '   settings: {
-'       <for(str settingKey <- domain(additionalSettings)){ 
-        value val = additionalSettings[settingKey];>
-'       \"<settingKey>\" : \"<val>\"<if(settingKey != last( [elem | elem <- domain(additionalSettings)])){>,
+'       <for(str settingKey <- domain(settings)){ 
+        value val = settings[settingKey];>
+'       \"<settingKey>\" : \"<val>\"<if(settingKey != last( [elem | elem <- domain(settings)])){>,
 '<}>
 ' }
 <}>          
@@ -158,28 +161,33 @@ str rvn_print(RavenNode nodeName:ravenGrid(str nodeID,
     '<}> 
     '}";
 
-str rvn_print(RavenNode nodeName:ravenTextEdit(str nodeID,
-                                               str text)) =
+str rvn_print(RavenNode nodeName:ravenTextEdit(str content, str callback)) =
+    "\"TextEdit\":
+    '{
+    '   \"id\": \"<uuidi()>\",
+    '   \"callback\": \"<callback>\",
+    '   \"text\": \"<content>\"
+    '}";
+
+str rvn_print(RavenNode nodeName:ravenTextEdit(str content, str nodeID)) =
     "\"TextEdit\":
     '{
     '   \"id\": \"<nodeID>\",
-    '   \"text\": \"<text>\",
-    '   \"xPosition\": \"0\"
-    '   \"yPosition\": \"0\"
+    '   \"text\": \"<content>\"
     '}";
 
-str rvn_print(RavenNode nodeName:ravenTextEdit(str nodeID,
-                                               str text,
-                                               int xPosition,
-                                               int yPosition)) =
+
+str rvn_print(RavenNode nodeName:ravenTextEdit(str content,
+                                                str nodeID,
+                                                str callback, 
+                                                map[str, value] settings)) =
     "\"TextEdit\":
     '{
     '   \"id\": \"<nodeID>\",
-    '   \"text\": \"<text>\",
-    '   \"xPosition\": \"<xPosition>\"
-    '   \"yPosition\": \"<yPosition>\"
+    '   \"text\": \"<content>\"<if(!isEmpty(nodeName.settings)){>,
+    '<rvn_print(nodeName.settings)>  
+    '<}>
     '}";
-
 
 RavenNode mapNodesToJSON(RavenNode tree) =  top-down-break visit(tree){      
     case RavenNode tree : JSON_CONTENT += rvn_print(tree);

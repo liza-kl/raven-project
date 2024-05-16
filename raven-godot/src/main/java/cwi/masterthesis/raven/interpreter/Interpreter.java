@@ -70,11 +70,15 @@ public class Interpreter extends Node implements Visitor {
     }
 
     @Override
-    public void visitTextEditNode(RavenTextEdit ravenTextEditNode) {
+    public void visitTextEdit(RavenTextEdit ravenTextEditNode) {
         System.out.println("Creating TextEdit Node");
-        TextEdit textEditNode = new TextEdit();
-        textEditNode.setName(StringNameUtils.asStringName(ravenTextEditNode.getNodeID()));
-        Objects.requireNonNull(ravenTextEditNode.getParentNode()).addChild(textEditNode);
+        ravenTextEditNode.setCustomMinimumSize(new Vector2(300,200));
+        ravenTextEditNode.setName(StringNameUtils.asStringName(ravenTextEditNode.getNodeID()));
+        ravenTextEditNode.setText(ravenTextEditNode.getTextContent());
+        ravenTextEditNode.set(StringNameUtils.asStringName("node_callback"), ravenTextEditNode.getCallback());
+        ravenTextEditNode.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/TextEditScript.gdj"));
+        Objects.requireNonNull(ravenTextEditNode.getParentNode()).addChild(ravenTextEditNode);
+        ravenTextEditNode.emitSignal(StringNameUtils.asStringName("text_init"), ravenTextEditNode.getCallback());
     }
 
     @Override
