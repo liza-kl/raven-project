@@ -3,15 +3,34 @@ package cwi.masterthesis.raven.interpreter.nodes.control;
 import cwi.masterthesis.raven.interpreter.Visitor;
 import cwi.masterthesis.raven.interpreter.nodes.RavenNode;
 import godot.Node;
+import godot.TextEdit;
+import godot.annotation.Export;
+import godot.annotation.RegisterClass;
+import godot.annotation.RegisterProperty;
 
-public class RavenTextEdit implements RavenNode {
-    private final String nodeID;
-    private final Node parentNode;
+@RegisterClass
+public class RavenTextEdit extends TextEdit implements RavenNode {
+    private String nodeID;
+    private Node parentNode;
+    private String text;
+    private String callback;
 
-    public RavenTextEdit(String nodeID, Node parentNode) {
+    @Export
+    @RegisterProperty
+    public String nodeCallback;
+
+    public RavenTextEdit(String nodeID, Node parentNode, String text, String callback) {
         this.nodeID = nodeID;
         this.parentNode = parentNode;
+        this.text = text;
+        this.callback = callback;
+        nodeCallback = callback;
     }
+
+    public RavenTextEdit() {
+        super();
+    }
+
 
     @Override
     public String getNodeID() {
@@ -25,6 +44,14 @@ public class RavenTextEdit implements RavenNode {
 
     @Override
     public void acceptVisitor(Visitor visitor) {
-        visitor.visitTextEditNode(this);
+        visitor.visitTextEdit(this);
+    }
+
+    public String getTextContent() {
+        return text;
+    }
+
+    public String getCallback() {
+        return callback;
     }
 }
