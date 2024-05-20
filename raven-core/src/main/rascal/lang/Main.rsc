@@ -8,13 +8,7 @@ import lang::sml::REPL;
 import lang::sml::PrettyPrinter;
 import lang::sml::Renderer;
 
-public Env ENVIRONMENT = (0: empty());
-
-Env initLanguage() {
-  return ENVIRONMENT;
-}
-
-int main(int testArgument=0) {
+void main() {
   Env env = ();
   env = eval(env, MachCreate(1));
   env = eval(env, MachSetName(1, "door"));
@@ -27,6 +21,5 @@ int main(int testArgument=0) {
   env = eval(env, TransCreate(5, 4, 2));
   env = eval(env, TransSetTrigger(5, "open"));
   str program = print(env, env[1]);
- // println(program);
-  return testArgument;
+  println(render(env));
 }

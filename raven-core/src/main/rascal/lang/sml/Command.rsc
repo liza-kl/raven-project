@@ -1,11 +1,10 @@
 module lang::sml::Command
 
 import lang::sml::AST;
-
 alias Env = map[UUID, AST];
 
 //Sequential Command Language
-data Command
+public data Command
   = MachCreate(UUID mid)                      //creates a machine
   | MachDelete(UUID mid)                      //deletes a machine
   | MachSetName(UUID mid, str name)           //renames a machine
@@ -25,4 +24,5 @@ data Command
   | StateInstanceIncrement(UUID siid)           //increments the state instance by opened
   | StateInstanceDelete(UUID siid)
   ;
+
 

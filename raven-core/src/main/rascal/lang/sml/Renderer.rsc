@@ -1,6 +1,6 @@
 module lang::sml::Renderer
 
-import lang::raven::Raven;
+import Interpreter::RavenNode;
 import lang::sml::AST;
 import lang::sml::Command;
 import Map;
@@ -12,35 +12,35 @@ UUID nextID(Env env) {
   return max(keys)+1;
 }
 
-public Raven render(Env env) = 
-  rvnTab("State Machine Language",
+public RavenNode render(Env env) = 
+  ravenTab("State Machine Language",
     [
-      rvnButton("Create Machine", "MachCreate(<nextID(env)>)")
+      ravenButton("Create Machine", "MachCreate(<nextID(env)>)")
     ]
   );
 
-public Raven render(Env env, AST m: machine(UUID id, str name, list[AST] es)) =
-  rvnTab("State Machine Language",
+public RavenNode render(Env env, AST m: machine(UUID id, str name, list[AST] es)) =
+  ravenTab("State Machine Language",
     [
-      rvnVertical
+      ravenVBox
       (
         [
-          rvnHorizontal
+          ravenHBox
           (
             [
-              rvnButton("-", "MachDelete(<id>)"),
-              rvnLabel("machine"),
-              rvnTextField(name, "MachSetName(<id>, %text)")
+              ravenButton("-", "MachDelete(<id>)"),
+              ravenLabel("machine"),
+              ravenTextEdit(name, "MachSetName(<id>, %text)")
             ]
           )
         ] +
         [ render(env, s) | AST s <- es] +
         [ 
-          rvnHorizontal
+          ravenHBox
           (
             [
-              rvnHorizontalSpace(40),
-              rvnButton("+", "StateCreate(<nextID(env)>,<id>)")
+              //  rvnHorizontalSpace(40), TODO leaving Horizontal space out for now
+              ravenButton("+", "StateCreate(<nextID(env)>,<id>)")
             ]
           )
         ]        
@@ -48,39 +48,39 @@ public Raven render(Env env, AST m: machine(UUID id, str name, list[AST] es)) =
     ]
   );
 
-public Raven render(Env env, AST s: state(UUID id, UUID mid, str name, list[AST] ts)) =
-  rvnVertical
+public RavenNode render(Env env, AST s: state(UUID id, UUID mid, str name, list[AST] ts)) =
+  ravenVBox
   (
     [
-      rvnHorizontal
+      ravenHBox
       (
         [
-          rvnHorizontalSpace(40),            
-          rvnButton("-", "StateDelete(<id>,<mid>)"),
-          rvnLabel("state"),
-          rvnTextField(name, "StateSetName(<id>, %text")
+         // TODO rvnHorizontalSpace(40), leaving Horizontal space out for now   
+          ravenButton("-", "StateDelete(<id>,<mid>)"),
+          ravenLabel("state"),
+          ravenTextEdit(name, "StateSetName(<id>, %text")
         ]
       )
     ] + 
     [ render(env, t) | AST t <- ts] +
     [ 
-      rvnHorizontal
+      ravenHBox
       (
         [
-          rvnHorizontalSpace(40),
-          rvnButton("+", "TransCreate(<nextID(env)>,<id>)")
+        // TODO rvnHorizontalSpace(40),  leaving Horizontal space out for now
+          ravenButton("+", "TransCreate(<nextID(env)>,<id>)")
         ]
       )
     ]
   );
 
-public Raven render(Env env, AST t: trans(UUID id, UUID src, str trigger, UUID tgt)) =
-  rvnHorizontal
+public RavenNode render(Env env, AST t: trans(UUID id, UUID src, str trigger, UUID tgt)) =
+  ravenHBox
   (
     [
-      rvnButton("-", "TransDelete(<id>)"),
-      rvnTextField(trigger, "TransSetTrigger(<id>, %text)"),
-      rvnLabel(" --\> "),
+      ravenButton("-", "TransDelete(<id>)"),
+      ravenTextEdit(trigger, "TransSetTrigger(<id>, %text)"),
+      ravenLabel(" --\> "),
       rvnOptionButton([name | state(_, _, name, _) <- env[1]]) 
       //FIXME: should be from the current machine these states are part of
     ]

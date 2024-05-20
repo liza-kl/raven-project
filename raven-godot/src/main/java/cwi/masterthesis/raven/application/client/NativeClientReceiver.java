@@ -24,21 +24,10 @@ public class NativeClientReceiver extends Node implements ReceiveCallback {
     @Override
     public void onReceive(String element) {
         GD.INSTANCE.print("New element received Client: " + element);
-      //
-        // TODO FIX THE JSON FORMATTING.
-       // mainNode.callDeferred(StringNameUtils.asStringName("callback_update_scene"), element);
-       // String cleanedElement = element.replaceAll("\\\\n", "\n").replaceAll("\\\\", "");
        var cleanedElement = element.substring(1, element.length() - 1);
        cleanedElement = cleanedElement.replaceAll("\\\\\"", "\"");
        cleanedElement = cleanedElement.replaceAll("\\\\n", "\n");
-
-
-
         mainNode.callDeferred(StringNameUtils.asStringName("emit_signal"),
                 StringNameUtils.asStringName("main_update_scene"), cleanedElement);
-        //mainNode.emitSignal(StringNameUtils.asStringName("main_update_scene"), element);
-       // mainNode.callDeferred(StringNameUtils.asStringName("emit_"), element);
-       // traverseJSON(element, mainNode);
-
     }
 }

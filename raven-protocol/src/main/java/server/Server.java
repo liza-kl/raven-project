@@ -6,6 +6,8 @@ import java.io.*;
 import io.usethesource.vallang.*;
 import io.usethesource.vallang.impl.persistent.ValueFactory;
 
+import static org.rascalmpl.values.ValueFactoryFactory.getValueFactory;
+
 public class Server extends Thread {
     private static Server instance;
     private final IValueFactory values;
@@ -39,6 +41,10 @@ public class Server extends Thread {
         }
     }
 
+    public static String currentState() {
+
+    }
+
     public void send(IString message) throws IOException, InterruptedException {
         System.out.println("I am sending a message");
         String HOST = "0.0.0.0";
@@ -64,7 +70,7 @@ public class Server extends Thread {
                 BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
                 this.setGodotOut(out);
-                ServerReceiver receiverCallback = new ServerReceiver(this.getGodotOut());
+                ServerReceiver receiverCallback = new ServerReceiver(this.getGodotOut(), getValueFactory());
                 Thread sender = new Thread(new Sender(this.sharedBuffer, in));
                 Thread receiver = new Thread(new Receiver(this.sharedBuffer, receiverCallback));
                 sender.setName("Sender Thread of Server");
@@ -76,6 +82,7 @@ public class Server extends Thread {
             e.printStackTrace();
         }
     }
+
 
     public void stopServer() {
         this.setRunning(false);
