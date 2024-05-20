@@ -1,5 +1,6 @@
-module Interpreter::RavenNodes
+module Interpreter::JSONMapper
 import Main;
+import Interpreter::RavenNode;
 import IO;
 import ApplicationConf;
 import String;
@@ -7,40 +8,21 @@ import List;
 import Type;
 import Map;
 import util::UUID;
-// Rascal Tree -> JSON -> Feed into Java -> Create Custom Format to parse it better -> Create Scene in Godot 
-// Passing JSON tree as argument in makefile?
-// Partial functions and recursive connection, you can just use the cases and then recursively until
-// you see the base case goes with children = [];
-// String template in rascal 
-// https://github.com/vrozen/Cascade/blob/main/TEL/src/lang/tel/Printer.rsc
-
-
-public data RavenNode = 
-            ravenNode2D(str nodeID, list[RavenNode] children, bool root)
-            | ravenNode2D(str nodeID, list[RavenNode] children)
-            | ravenLabel(str nodeID, str text, int xPosition, int yPosition)
-            // Control Nodes 
-            | ravenControlNode(str nodeID, list[RavenNode] children)
-            | ravenButton(str nodeID, str label, str callback, int xPosition, int yPosition)
-            | ravenButton(str nodeID, str label, str callback)
-            | ravenGraphNode(str nodeID, int xPosition, int yPosition)
-            | ravenGraphEditNode(str nodeID, int xPosition, int yPosition, list[RavenNode] children)
-            // TODO Is there a way to match this kind of things?
-            | ravenTextEdit(str content, str callback, str nodeID=toString(uuidi()), map[str, value]settings=())
-            | ravenTextEdit(str content,str callback, str nodeID)
-            | ravenTextEdit(str content,str callback, str nodeID,map[str, value]settings)
-            | ravenTextEdit(str content,str callback)
-            // Visual Arrangement Options
-            | ravenGrid(str nodeID, int columns,list[RavenNode] children=[],  map[str, value]settings=())
-            | ravenGrid(str nodeID, int columns, int vSeparation, int hSeparation, int xPosition, int yPosition, list[RavenNode] children);
-            
 
 public str toString(x) = rvn_print(x);
 str rvn_print(int number) = "<number>";
 str rvn_print(str string) =  "\"<string>\"";
 str rvn_print(list[RavenNode] children: []) = "";
 
-str rvn_print(RavenNode nodeName: ravenLabel(str nodeID, str text, int xPosition, int yPosition)) =
+// LABEL
+str rvn_print(RavenNode nodeName: ravenLabel( str text)) =
+    "\"Label\": {
+    '   \"id\": \"<uuidi()>\",
+    '   \"text\": <rvn_print(text)>
+    '}  ";
+   
+
+str rvn_print(RavenNode nodeName: ravenLabel(str nodeID , str text, int xPosition, int yPosition)) =
     "\"Label\": {
     '   \"id\": <rvn_print(nodeID)>,
     '   \"text\": <rvn_print(text)>,
@@ -54,6 +36,7 @@ str rvn_print(RavenNode nodeName:ravenNode2D(str nodeID, list[RavenNode] childre
     '[<rvn_print(children)>
     ']
     '<}>";
+
 
 str rvn_print(RavenNode nodeName:ravenNode2D(str nodeID, list[RavenNode] children)) = 
     "\"Node2D\": {
@@ -74,6 +57,14 @@ str rvn_print(list[RavenNode] children) = "
 <}>
 ";
 
+str rvn_print(list[str] options) = "
+'<for(str option <- options){>
+'{
+'   <rvn_print(option)>}<if(!(indexOf(options,option) == size(options) - 1)){>,
+'<}>
+<}>
+";
+
 str rvn_print(map[str, value] settings) = "
 '   settings: {
 '       <for(str settingKey <- domain(settings)){ 
@@ -85,6 +76,17 @@ str rvn_print(map[str, value] settings) = "
 ";
 default str rvn_print(RavenNode ravenNode) { throw "you forgot a case <typeOf(ravenNode)>"; } 
 
+// TEXTEDIT
+str rvn_print(RavenNode nodeName:ravenTextEdit(str content, str callback)) =
+    "\"TextEdit\":
+    '{
+    '   \"id\": \"<uuidi()>\",
+    '   \"callback\": \"<callback>\",
+    '   \"text\": \"<content>\"
+    '}";
+
+
+// BUTTONS 
 str rvn_print(RavenNode nodeName:ravenButton(str nodeID,
                                             str buttonText,
                                             str callback,
@@ -112,7 +114,19 @@ str rvn_print(RavenNode nodeName:ravenButton(str nodeID,
     '   \"yPosition\": \"0\"
     '}";
 
+str rvn_print(RavenNode nodeName:ravenButton(
+                                            str buttonText,
+                                            str callback)) = 
+    "\"Button\":
+    '{
+    '   \"id\": \"<uuidi()>\",
+    '   \"text\": \"<buttonText>\",
+    '   \"callback\": \"<callback>\",
+    '   \"xPosition\": \"0\",
+    '   \"yPosition\": \"0\"
+    '}";
 
+// BUTTONS 
 str rvn_print(RavenNode nodeName:ravenGraphEditNode(str nodeID,
                                                     int xPosition,
                                                     int yPosition,
@@ -161,34 +175,72 @@ str rvn_print(RavenNode nodeName:ravenGrid(str nodeID,
     '<}> 
     '}";
 
-str rvn_print(RavenNode nodeName:ravenTextEdit(str content, str callback)) =
-    "\"TextEdit\":
+
+// VBOXCONTAINER
+str rvn_print(RavenNode nodeName:ravenVBox (list[RavenNode] children)) =
+ "\"VBoxContainer\":
     '{
     '   \"id\": \"<uuidi()>\",
-    '   \"callback\": \"<callback>\",
-    '   \"text\": \"<content>\"
+    <if(children!=[]){>
+    '   \"children\":
+    '[<rvn_print(children)>
+    ']
+    '<}> 
     '}";
 
-str rvn_print(RavenNode nodeName:ravenTextEdit(str content, str nodeID)) =
-    "\"TextEdit\":
+
+// HBOXCONTAINER
+str rvn_print(RavenNode nodeName:ravenHBox (list[RavenNode] children)) =
+ "\"HBoxContainer\":
     '{
-    '   \"id\": \"<nodeID>\",
-    '   \"text\": \"<content>\"
+    '   \"id\": \"<uuidi()>\",
+    <if(children!=[]){>
+    '   \"children\":
+    '[<rvn_print(children)>
+    ']
+    '<}> 
     '}";
 
-
-str rvn_print(RavenNode nodeName:ravenTextEdit(str content,
-                                                str nodeID,
-                                                str callback, 
-                                                map[str, value] settings)) =
-    "\"TextEdit\":
+// TAB CONTAINER 
+str rvn_print(RavenNode nodeName:ravenTabContainer(list[RavenNode] children)) =
+ "\"TabContainer\":
     '{
-    '   \"id\": \"<nodeID>\",
-    '   \"text\": \"<content>\"<if(!isEmpty(nodeName.settings)){>,
-    '<rvn_print(nodeName.settings)>  
-    '<}>
+    '   \"id\": \"<uuidi()>\",
+    <if(children!=[]){>
+    '   \"children\":
+    '[<rvn_print(children)>
+    ']
+    '<}> 
     '}";
 
+// TABS 
+str rvn_print(RavenNode nodeName:ravenTab(str name, list[RavenNode] children)) =
+ "\"Tab\":
+    '{
+    '   \"id\": \"<uuidi()>\",
+    '   \"name\": \"<name>\",
+    <if(children!=[]){>
+    '   \"children\":
+    '[<rvn_print(children)>
+    ']
+    '<}> 
+    '}";
+
+
+// OPTION BUTTON
+str rvn_print(RavenNode nodeName:ravenOptionButton(list[str] options)) =
+ "\"OptionButton\":
+    '{
+    '   \"id\": \"<uuidi()>\",
+    <if(options!=[]){>
+    '   \"options\":
+    '[<rvn_print(options)>
+    ']
+    '<}> 
+    '}";
+
+
+// MISC Functions
 RavenNode mapNodesToJSON(RavenNode tree) =  top-down-break visit(tree){      
     case RavenNode tree : JSON_CONTENT += rvn_print(tree);
 };

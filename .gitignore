@@ -19,3 +19,4 @@ jre
 
 ApplicationConf.rsc
 .env
+*.gdj

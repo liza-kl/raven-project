@@ -5,18 +5,27 @@ import cwi.masterthesis.raven.interpreter.nodes.RavenNode;
 import godot.Node;
 
 public class RavenVBoxContainer implements RavenNode {
+    private final String nodeID;
+    private final Node parentNode;
+
+    public RavenVBoxContainer(String nodeID, Node parentNode) {
+        this.nodeID = nodeID;
+        this.parentNode = parentNode;
+    }
+
+
     @Override
     public String getNodeID() {
-        return "";
+        return nodeID;
     }
 
     @Override
     public Node getParentNode() {
-        return null;
+        return parentNode;
     }
 
     @Override
     public void acceptVisitor(Visitor visitor) {
-
+        visitor.visitVBoxContainer(this);
     }
 }

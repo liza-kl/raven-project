@@ -31,7 +31,6 @@ public class RascalClient implements Runnable {
 
     public void callMain() {
         this.evaluator.call(null, "Main", "main");
-
     }
 
     public void callRascal(String arg) {

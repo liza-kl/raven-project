@@ -1,75 +1,22 @@
-{"id": "root",
+{"Tab":
+{
+   "id": "-130209731687971572006062552074546526712",
+   "name": "State Machine Language",
+    
    "children":
 [
  
  {
-    "Label": {
-       "id": "label#1",
-       "text": "My Fancy 22222 Editor",
-       "xPosition": 10,
-       "yPosition": 30
-    }  },
- 
- 
- {
-    "GridContainer":
+    "Button":
     {
-       "id": "grid#1",
-       "columns": "1",    
-       "vSeparation": "2",    
-       "hSeparation": "2",    
-       "xPosition": "200",
-       "yPosition": "200",
-        
-       "children":
-    [
-     
-     {
-        "Button":
-        {
-           "id": "button#1",
-           "text": "Decrement Button",
-           "callback": "addNode()",
-           "xPosition": "-100",
-           "yPosition": "20"
-        }},
-     
-     
-     {
-        "Button":
-        {
-           "id": "button#2",
-           "text": "Increment Button",
-           "callback": "inc()",
-           "xPosition": "100",
-           "yPosition": "20"
-        }}
-     
-                 
-    ]
-     
-    }},
+       "id": "135110635545245758862540178529702015819",
+       "text": "Create Machine",
+       "callback": "MachCreate(3)",
+       "xPosition": "0",
+       "yPosition": "0"
+    }}
  
- 
- {
-    "Node2D": {
-    "id": "node2d2",
-       "children":
-    [
-     
-     {
-        "Label": {
-           "id": "label#2",
-           "text": "Another one bytes",
-           "xPosition": 20,
-           "yPosition": 50
-        }  }
-     
-                 
-    ]
-     
-    }  }
- 
-             
+
 ]
-}
+ 
+}}
