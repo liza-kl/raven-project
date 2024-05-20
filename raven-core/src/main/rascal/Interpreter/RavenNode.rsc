@@ -7,7 +7,7 @@ public data RavenNode =
             // Label
             | ravenLabel(str nodeID, str text, int xPosition, int yPosition)
             | ravenLabel(str text)
-            // Control Nodes 
+            // Control Nodes
             // Button
             | ravenButton(str label, str callback)
             | ravenButton(str nodeID, str label, str callback, int xPosition, int yPosition)
@@ -29,4 +29,6 @@ public data RavenNode =
             | ravenHBox( list[RavenNode] children) 
             | ravenVBox( list[RavenNode] children)
             | ravenTab(str name, list[RavenNode] children)
-            | ravenTabContainer(list[RavenNode] children);
+            | ravenTabContainer(list[RavenNode] children)
+            // Needed for transition of nodes 
+            | empty();

@@ -1,5 +1,6 @@
 module Helpers::Setup
 import ApplicationConf;
+import util::ShellExec;
 /** 
 * A module with helper functions for setting up for a new language
 **/

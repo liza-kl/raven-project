@@ -41,9 +41,6 @@ public class Server extends Thread {
         }
     }
 
-    public static String currentState() {
-
-    }
 
     public void send(IString message) throws IOException, InterruptedException {
         System.out.println("I am sending a message");
