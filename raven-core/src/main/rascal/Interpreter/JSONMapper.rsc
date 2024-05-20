@@ -14,6 +14,11 @@ str rvn_print(int number) = "<number>";
 str rvn_print(str string) =  "\"<string>\"";
 str rvn_print(list[RavenNode] children: []) = "";
 
+// EMPTY
+str rvn_print(RavenNode nodeName: empty()) =
+    "";
+   
+
 // LABEL
 str rvn_print(RavenNode nodeName: ravenLabel( str text)) =
     "\"Label\": {
@@ -214,8 +219,11 @@ str rvn_print(RavenNode nodeName:ravenTabContainer(list[RavenNode] children)) =
     '}";
 
 // TABS 
+// Replacing a Tab with a Node2D, because in Godot 4 you do not have a standalone
+// Tab Component anymore. Instead you fill in everything in a TabContainer and 
+// children are seen as tabs. Name is the default.
 str rvn_print(RavenNode nodeName:ravenTab(str name, list[RavenNode] children)) =
- "\"Tab\":
+ "\"HBoxContainer\":
     '{
     '   \"id\": \"<uuidi()>\",
     '   \"name\": \"<name>\",
@@ -241,12 +249,32 @@ str rvn_print(RavenNode nodeName:ravenOptionButton(list[str] options)) =
 
 
 // MISC Functions
-RavenNode mapNodesToJSON(RavenNode tree) =  top-down-break visit(tree){      
+RavenNode mapNodesToJSON(RavenNode tree) =  top-down-break visit(tree){
     case RavenNode tree : JSON_CONTENT += rvn_print(tree);
 };
 
+ RavenNode appendTabContainer(RavenNode tree) {
+    list[RavenNode] ravenTabList = [];
+    collectTabs = bottom-up visit(tree) {
+        case ravenTab(str name, list[RavenNode] children) => {
+            ravenTabList += ravenTab(name, children);
+            empty();}
+    };
+
+    // "Reasoning": if we encounter an empty node, which currently can only be 
+    // an already saved tab, replace it. The tab container becomes the root node 
+    // of the scene. 
+    RavenNode tabContainerTree = top-down-break visit(collectTabs) {
+        case empty() =>  { ravenTabContainer(ravenTabList); }
+    };
+    // Return the modified tree wrapped in a ravenTabContainer
+    return ravenNode2D("root", [tabContainerTree],true);
+}
+
 public void genJSON(RavenNode tree) {
-    mapNodesToJSON(tree);
+
+    RavenNode updatedTree = appendTabContainer(tree);
+    mapNodesToJSON(updatedTree);
     writeFile(JSON_TREE_FILE, JSON_CONTENT);
 }
 

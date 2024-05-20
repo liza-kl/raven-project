@@ -7,10 +7,12 @@ import godot.Node;
 public class RavenHBoxContainer implements RavenNode {
     private final String nodeID;
     private final Node parentNode;
+    private final String name;
 
-    public RavenHBoxContainer(String nodeID, Node parentNode) {
+    public RavenHBoxContainer(String nodeID, Node parentNode, String name) {
         this.nodeID = nodeID;
         this.parentNode = parentNode;
+        this.name = name;
     }
 
     @Override
@@ -26,5 +28,9 @@ public class RavenHBoxContainer implements RavenNode {
     @Override
     public void acceptVisitor(Visitor visitor) {
         visitor.visitHBoxContainer(this);
+    }
+
+    public String getName() {
+        return name;
     }
 }

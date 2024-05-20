@@ -28,7 +28,8 @@ public final class RavenJSONTraverser {
                 RavenNodeFactory factory = RavenNodeFactoryProvider.getFactory(nodeType);
                 RavenNode childNode = factory.createRavenNode(mainNode, attrMap);
                 InterpreterUtils.invokeMethod(nodeType, childNode);
-                Node childNodePath = mainNode.getNode(new NodePath(attrMap.get("id"))); // Update current path
+                var pathToCheck = attrMap.get("name") != null ? attrMap.get("name") :  attrMap.get("id");
+                Node childNodePath = mainNode.getNode(new NodePath(pathToCheck)) ; // Update current path
                 JsonNode childChildrenNode = node.get(i).findValue("children");
                 if (childChildrenNode != null && !childChildrenNode.isEmpty()) {
                     traverse(childChildrenNode, childNodePath); // Pass the updated path

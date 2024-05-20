@@ -27,11 +27,11 @@ public class Interpreter extends Node implements Visitor {
         button.setText(ravenButton.getLabel());
         button.setName(StringNameUtils.asStringName(ravenButton.getNodeID()));
         button.setPosition(new Vector2(ravenButton.getXCoordinate(), ravenButton.getYCoordinate()));
-        button.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/ButtonSendMessage.gdj"));
         button.set(StringNameUtils.asStringName("btn_id"), ravenButton.getNodeID());
         button.set(StringNameUtils.asStringName("btn_callback"), ravenButton.getCallback());
+        button.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/ButtonSendMessage.gdj"));
         ravenButton.getParentNode().addChild(button);
-
+        button.emitSignal(StringNameUtils.asStringName("button_init"), ravenButton.getCallback());
     }
 
     @Override
@@ -84,8 +84,10 @@ public class Interpreter extends Node implements Visitor {
     @Override
     public void visitHBoxContainer(RavenHBoxContainer ravenHBoxContainer) {
         System.out.println("Creating HBoxContainer");
-        HBoxContainer hBoxContainer = new HBoxContainer();
-        hBoxContainer.setName(StringNameUtils.asStringName(ravenHBoxContainer.getNodeID()));
+        // TODO in the end one could provide custom scenes? In a Configuration?
+        PackedScene DefaultTabContainer = GD.load("res://scenes/DefaultHBoxContainer.tscn");
+        HBoxContainer hBoxContainer = (HBoxContainer) DefaultTabContainer.instantiate();
+        hBoxContainer.setName(StringNameUtils.asStringName(ravenHBoxContainer.getName() == null ? ravenHBoxContainer.getNodeID() : ravenHBoxContainer.getName()));
         Objects.requireNonNull(ravenHBoxContainer.getParentNode()).addChild(hBoxContainer);
     }
 
@@ -93,6 +95,8 @@ public class Interpreter extends Node implements Visitor {
     public void visitVBoxContainer(RavenVBoxContainer ravenVBoxContainer) {
         System.out.println("Creating VBoxContainer");
         VBoxContainer vBoxContainer = new VBoxContainer();
+        vBoxContainer.setSizeFlagsHorizontal(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
+        vBoxContainer.setSizeFlagsVertical(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
         vBoxContainer.setName(StringNameUtils.asStringName(ravenVBoxContainer.getNodeID()));
         Objects.requireNonNull(ravenVBoxContainer.getParentNode()).addChild(vBoxContainer);
     }
@@ -115,5 +119,15 @@ public class Interpreter extends Node implements Visitor {
         Control control = new Control();
         control.setName(StringNameUtils.asStringName(ravenControl.getNodeID()));
         Objects.requireNonNull(ravenControl.getParentNode()).addChild(control);
+    }
+
+    @Override
+    public void visitTabContainer(RavenTabContainer ravenTabContainer) {
+        System.out.println("Creating TabContainer");
+        PackedScene DefaultTabContainer = GD.load("res://scenes/DefaultTabContainer.tscn");
+        TabContainer tabContainer = (TabContainer) DefaultTabContainer.instantiate();
+        tabContainer.setClipTabs(false);
+        tabContainer.setName(StringNameUtils.asStringName(ravenTabContainer.getNodeID()));
+        Objects.requireNonNull(ravenTabContainer.getParentNode()).addChild(tabContainer);
     }
 }
