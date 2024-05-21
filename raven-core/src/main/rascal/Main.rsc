@@ -9,6 +9,8 @@ import IO;
 import lang::sml::AST;
 import Interpreter::JSONMapper;
 import Helpers::Server;
+import Helpers::Setup;
+
 import util::Eval;
 import lang::sml::Command;
 import lang::sml::REPL;
@@ -100,10 +102,9 @@ void main() {
     }
     view = render(env);
     println(view);
+    startServer();
+    startGodotEngine();
     genTree();
-    // startServer();
-    // startGodotEngine();
-    // genTree();
-    // Helpers::Server::send(readFile(JSON_TREE_FILE));
+    Helpers::Server::send(readFile(JSON_TREE_FILE));
 }
 
