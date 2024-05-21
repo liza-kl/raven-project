@@ -5,7 +5,7 @@
  {
     "TabContainer":
     {
-       "id": "48623217649708777346438295436536368312",
+       "id": "76639842422445885946434409498954157251",
         
        "children":
     [
@@ -13,40 +13,20 @@
      {
         "HBoxContainer":
         {
-           "id": "160784494375304589718321674468866680926",
-           "name": "State Machine Language 1",  
-           "children":
-        [
-         
-         {
-            "Label":
-            {
-               "id": "-58047288885258547489634883312194782444",
-               "text": "Random Label",
-               "xPosition": "100",
-               "yPosition": "100"
-            }}
-         
-        
-        ]
-         
-        }},
-             {
-        "HBoxContainer":
-        {
-           "id": "160784494375304589718321674468866680925",
-           "name": "State Machine Language",  
+           "id": "-9881958940005619029035793873618363588",
+           "name": "State Machine Language",
+            
            "children":
         [
          
          {
             "Button":
             {
-               "id": "-58047288885258547489634883312194782443",
+               "id": "20242557027422896586530896824628171283",
                "text": "Create Machine",
                "callback": "MachCreate(3)",
-               "xPosition": "100",
-               "yPosition": "100"
+               "xPosition": "0",
+               "yPosition": "0"
             }}
          
         

@@ -16,13 +16,15 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    button_send_message
+    button_send_message,
+	button_init
 ]
 properties = [
-    
+    node_callback
 ]
 functions = [
     _pressed,
 	_ready,
+	callback_button_init,
 	callback_send_message
 ]
