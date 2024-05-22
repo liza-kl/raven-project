@@ -12,10 +12,8 @@ public class Receiver implements Runnable {
     @Override
     public void run() {
         try {
-            while (true) {
                 String element = buffer.consume();
                 callback.onReceive(element);
-            }
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

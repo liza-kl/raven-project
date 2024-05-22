@@ -19,10 +19,10 @@ public class Server extends Thread {
 
     public Server(IValueFactory values) {
         this.values = values;
-        if (instance != null) {
-            throw new IllegalStateException("Singleton instance already exists");
+        /* if (instance != null) {
+            throw new IllegalStateException("Instance already exists");
         }
-        instance = this;
+        instance = this; */
     }
 
     public void setRunning(boolean running) {
@@ -42,7 +42,7 @@ public class Server extends Thread {
     }
 
 
-    public void send(IString message) throws IOException, InterruptedException {
+    public void send(IString message){
         System.out.println("I am sending a message");
         String HOST = "0.0.0.0";
         int PORT = 23000;
