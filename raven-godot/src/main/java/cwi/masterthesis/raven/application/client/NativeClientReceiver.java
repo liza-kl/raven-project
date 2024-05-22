@@ -24,7 +24,7 @@ public class NativeClientReceiver extends Node implements ReceiveCallback {
     @Override
     public void onReceive(String element) {
         GD.INSTANCE.print("New element received Client: " + element);
-       var cleanedElement = element.substring(1, element.length() - 1);
+       var cleanedElement = element.substring(0, element.length() - 1);
        cleanedElement = cleanedElement.replaceAll("\\\\\"", "\"");
        cleanedElement = cleanedElement.replaceAll("\\\\n", "\n");
         mainNode.callDeferred(StringNameUtils.asStringName("emit_signal"),
