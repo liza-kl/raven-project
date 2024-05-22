@@ -47,8 +47,9 @@ public class ButtonSendMessage extends Button {
 
     @RegisterFunction
     public void callbackSendMessage(Node node) {
-        NativeClient.getInstance("0.0.0.0",23000,getTree().getRoot().getChild(0))
-                    .send((String) this.get(StringNameUtils.asStringName("node_callback")));
+        NativeClient.getInstance("0.0.0.0",23000,
+                        getTree().getRoot().getChild(0))
+                    .send("CALLBACK:" + (String) this.get(StringNameUtils.asStringName("node_callback")));
     }
 
     @RegisterFunction
