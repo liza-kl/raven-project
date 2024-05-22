@@ -7,7 +7,6 @@ import cwi.masterthesis.raven.application.client.ClientFactory;
 import cwi.masterthesis.raven.application.client.NativeClient;
 import cwi.masterthesis.raven.application.client.StandardClientFactory;
 import cwi.masterthesis.raven.interpreter.mapper.RavenJSONTraverser;
-import godot.FileAccess;
 import godot.Node;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
@@ -52,11 +51,10 @@ public class Main extends Node {
         this.client = NativeClient.getInstance("0.0.0.0", 23000, this.mainNode);
         GD.INSTANCE.print("main Node in Main Class" + this.mainNode);
         client.virtualReady();
-        String sceneTreePath = "/Users/ekletsko/raven-project/raven-core/src/main/rascal/tree.json";
-        String exampleRequest = FileAccess.Companion.getFileAsString(sceneTreePath);
-        GD.INSTANCE.print(exampleRequest);
-        traverseJSON(exampleRequest,  this.mainNode.getChild(0));
-
+//        String sceneTreePath = "/Users/ekletsko/raven-project/raven-core/src/main/rascal/tree.json";
+//        String exampleRequest = FileAccess.Companion.getFileAsString(sceneTreePath);
+//        GD.INSTANCE.print(exampleRequest);
+//        traverseJSON(exampleRequest,  this.mainNode.getChild(0))
         connect(
                 StringNameUtils.asStringName("main_update_scene"),
                 new Callable(this, StringNameUtils.asStringName("callback_update_scene"))
