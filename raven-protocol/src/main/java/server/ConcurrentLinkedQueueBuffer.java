@@ -3,22 +3,24 @@ package server;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class ConcurrentLinkedQueueBuffer implements Buffer {
-    private final ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<String>();
+    private final ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<>();
+
+    public ConcurrentLinkedQueueBuffer() {
+    }
 
     public void produce(String message) throws InterruptedException {
-        synchronized (queue) {
-            queue.add(message);
-            queue.notifyAll();
+        synchronized(this.queue) {
+            this.queue.add(message);
+            this.queue.notifyAll();
         }
     }
 
     public String consume() throws InterruptedException {
-        synchronized(queue) {
-            while (queue.isEmpty()) {
-                queue.wait();
+        synchronized(this.queue) {
+            while(this.queue.isEmpty()) {
+                this.queue.wait();
             }
-            return queue.poll();
+            return this.queue.poll();
         }
     }
-
 }
