@@ -12,7 +12,8 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    main_update_scene
+    main_update_scene,
+	main_init_general_theme
 ]
 properties = [
     
@@ -20,5 +21,6 @@ properties = [
 functions = [
     _process,
 	_ready,
+	callback_init_general_theme,
 	callback_update_scene
 ]

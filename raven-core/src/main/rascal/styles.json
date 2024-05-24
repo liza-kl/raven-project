@@ -1,0 +1,98 @@
+
+[
+{
+
+   "Button": 
+   [
+   {
+      "Color": 
+      {
+         "font_color": "CRIMSON",
+         "font_hover_color":  "LIGHT_SKY_BLUE",
+         "font_outline_color": "LIGHT_SKY_BLUE",
+         "font_pressed_color": "CRIMSON"
+      
+      
+      }
+     
+   },
+   {
+      "StyleboxFlat": {
+         "normal": {
+            "bg_color":"FIREBRICK" 
+         },
+            "hover": {
+            "bg_color":"LIGHT_SKY_BLUE" 
+         },
+            "pressed": {
+            "bg_color":"CRIMSON" 
+         }
+      }
+   },
+   {
+        "FontSize":{
+         "font_size":20 
+      }
+   }
+   
+   ]
+   
+   
+},
+
+{
+"Control":
+ [
+  
+   {
+      "StyleboxFlat": {
+         "normal": {
+            "bg_color":"FIREBRICK" 
+         },
+            "hover": {
+            "bg_color":"LIGHT_SKY_BLUE" 
+         },
+            "pressed": {
+            "bg_color":"CRIMSON" 
+         }
+      }
+   },
+   {
+        "FontSize":{
+         "font_size":20 
+      }
+   }
+   
+   ]
+},
+
+
+{
+   
+   "Label": 
+   
+   
+   [
+   {
+      
+      "Color": 
+      {
+         "font_color": "FIREBRICK",
+         "font_hover_color":  "CRIMSON",
+         "font_outline_color": "LIGHT_SKY_BLUE",
+         "font_pressed_color": "CRIMSON"
+      }
+    
+   },
+   {
+        "FontSize":{
+         "font_size": 50
+      }
+   }
+   
+   ]
+   
+   
+}
+
+]

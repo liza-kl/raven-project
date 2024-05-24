@@ -39,21 +39,29 @@ class ServerReceiver implements ReceiveCallback {
         }
 
         String messageType = parts[0].startsWith("\"") ? parts[0].substring(1) : parts[0];
-        System.out.println(messageType);
         String content = parts[1];
 
         /* This plainly sends a message to Godot to update the whole view.*/
         if (messageType.equals("VIEW_UPDATE")) {
             System.out.println("im here");
 
-            output.println(content);
+            output.println("VIEW_UPDATE:" + content);
+            output.flush();
+        }
+
+        else if (messageType.equals("THEME_INIT")) {
+            output.println("THEME_INIT:" + content);
             output.flush();
         }
 
         /* This tells the server to call a Rascal callback */
-        if (messageType.equals("CALLBACK")) {
+        else if (messageType.equals("CALLBACK")) {
             IString callback = this.values.string(content); // Also includes arguments
             this.evaluator.call(null, "Main", "rascalCallback", callback);
+        }
+
+        else {
+            System.out.println("Invalid message received: " + element);
         }
     }
 }
