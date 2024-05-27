@@ -8,11 +8,13 @@ import java.util.Map;
 
 public class HBoxContainerFactory implements RavenNodeFactory{
     @Override
-    public RavenNode createRavenNode(Node node, Map<String, String> attrMap) {
+    public RavenNode createRavenNode(Node node, Map attrMap) {
         return new RavenHBoxContainer(
-                attrMap.get("id"),
+                (String) attrMap.get("id"),
                 node,
-                attrMap.get("name")
+                (String) attrMap.get("name")
         );
     }
+
+
 }

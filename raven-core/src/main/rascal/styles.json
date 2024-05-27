@@ -46,15 +46,15 @@
   
    {
       "StyleboxFlat": {
-         "normal": {
-            "bg_color":"FIREBRICK" 
-         },
-            "hover": {
-            "bg_color":"LIGHT_SKY_BLUE" 
-         },
-            "pressed": {
-            "bg_color":"CRIMSON" 
-         }
+         // "normal": {
+         //    "bg_color":"FIREBRICK" 
+         // },
+         //    "hover": {
+         //    "bg_color":"LIGHT_SKY_BLUE" 
+         // },
+         //    "pressed": {
+         //    "bg_color":"CRIMSON" 
+         // }
       }
    },
    {
