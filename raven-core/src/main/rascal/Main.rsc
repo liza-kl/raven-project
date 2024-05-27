@@ -9,21 +9,23 @@ import Interpreter::JSONMapper;
 import Helpers::Server;
 import Helpers::Setup;
 
-import lang::sml::Command;
+ 
 import lang::sml::REPL;
 import lang::sml::PrettyPrinter;
 import lang::sml::Renderer;
 import util::Eval;
 
 extend lang::sml::Command;
-
 public str JSON_CONTENT_START = "{";
 public str JSON_CONTENT = "";
 public str JSON_CONTENT_END = "}";
 
 public Env env = (2:machine(2,"",[]));
 public str program =
-  "data Command = MachCreate(int mid);";
+  "alias UUID = int;
+  data Command = MachCreate(int mid)
+   | StateDelete(UUID sid);
+  ";
 
 void rascalCallback(str callback) {
     if(result(Command c) :=  util::Eval::eval(#Command, program + callback + ";"))  {
@@ -31,7 +33,6 @@ void rascalCallback(str callback) {
         updatedView = render(env);
         println(updatedView);
         genTree(updatedView); 
-        print(env);
         Helpers::Server::send("VIEW_UPDATE:" + readFile(JSON_TREE_FILE));
     }
     
@@ -54,6 +55,7 @@ void main() {
     startGodotEngine();
     startServer();
     genTree(view);
+    Helpers::Server::send("THEME_INIT:" + readFile(JSON_STYLING_FILE));
     Helpers::Server::send("VIEW_UPDATE:" + readFile(JSON_TREE_FILE));
 }
 

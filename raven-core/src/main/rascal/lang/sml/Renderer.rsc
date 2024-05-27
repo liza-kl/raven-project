@@ -81,7 +81,7 @@ public RavenNode render(Env env, AST t: trans(UUID id, UUID src, str trigger, UU
       ravenButton("-", "TransDelete(<id>)"),
       ravenTextEdit(trigger, "TransSetTrigger(<id>, %text)"),
       ravenLabel(" --\> "),
-      rvnOptionButton([name | state(_, _, name, _) <- env[1]]) 
+      ravenOptionButton([name | state(_, _, name, _) <- env[1]]) 
       //FIXME: should be from the current machine these states are part of
     ]
   );

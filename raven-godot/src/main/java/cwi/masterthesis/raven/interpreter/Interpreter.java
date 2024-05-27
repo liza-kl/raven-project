@@ -127,11 +127,23 @@ public class Interpreter extends Node implements Visitor {
     @Override
     public void visitTabContainer(RavenTabContainer ravenTabContainer) {
         System.out.println("Creating TabContainer");
+        // TODO everyone could just customize this I guess.
+
         PackedScene DefaultTabContainer = GD.load("res://scenes/DefaultTabContainer.tscn");
         TabContainer tabContainer = (TabContainer) DefaultTabContainer.instantiate();
         tabContainer.setTheme(Main.mainTheme);
         tabContainer.setClipTabs(false);
         tabContainer.setName(StringNameUtils.asStringName(ravenTabContainer.getNodeID()));
         Objects.requireNonNull(ravenTabContainer.getParentNode()).addChild(tabContainer);
+    }
+
+    @Override
+    public void visitOptionButton(RavenOptionButton ravenOptionButton) {
+        System.out.println("Creating OptionButton");
+        OptionButton optionButton = new OptionButton();
+        optionButton.setTheme(Main.mainTheme);
+        optionButton.setName(StringNameUtils.asStringName(ravenOptionButton.getNodeID()));
+        ravenOptionButton.getOptions().forEach(optionButton::addItem);
+        ravenOptionButton.getParentNode().addChild(optionButton);
     }
 }

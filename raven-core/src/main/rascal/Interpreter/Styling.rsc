@@ -111,3 +111,4 @@ public void main() {
         println(style_print(theme));
         writeFile(JSON_STYLING_FILE,style_print(theme));
 }
+
