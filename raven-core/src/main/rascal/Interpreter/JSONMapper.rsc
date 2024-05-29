@@ -23,7 +23,9 @@ str rvn_print(RavenNode nodeName: empty()) =
 str rvn_print(RavenNode nodeName: ravenLabel( str text)) =
     "\"Label\": {
     '   \"id\": \"<uuidi()>\",
-    '   \"text\": <rvn_print(text)>
+    '   \"text\": <rvn_print(text)>,
+    '   \"xPosition\": 0,
+    '   \"yPosition\": 0
     '}  ";
    
 
@@ -64,8 +66,8 @@ str rvn_print(list[RavenNode] children) = "
 
 str rvn_print(list[str] options) = "
 '<for(str option <- options){>
-'{
-'   <rvn_print(option)>}<if(!(indexOf(options,option) == size(options) - 1)){>,
+'
+'   <rvn_print(option)><if(!(indexOf(options,option) == size(options) - 1)){>,
 '<}>
 <}>
 ";
@@ -249,9 +251,15 @@ str rvn_print(RavenNode nodeName:ravenOptionButton(list[str] options)) =
 
 
 // MISC Functions
-RavenNode mapNodesToJSON(RavenNode tree) =  top-down-break visit(tree){
+RavenNode mapNodesToJSON(RavenNode tree)  {
+    println(tree);
+
+    top-down-break visit(tree){
     case RavenNode tree : JSON_CONTENT += rvn_print(tree);
-};
+}
+
+return tree;
+}
 
  RavenNode appendTabContainer(RavenNode tree) {
     list[RavenNode] ravenTabList = [];
@@ -273,8 +281,10 @@ RavenNode mapNodesToJSON(RavenNode tree) =  top-down-break visit(tree){
 
 public void genJSON(RavenNode tree) {
 
-    RavenNode updatedTree = appendTabContainer(tree);
-    mapNodesToJSON(updatedTree);
-    writeFile(JSON_TREE_FILE, JSON_CONTENT);
+    //RavenNode updatedTree = appendTabContainer(tree);
+    mapNodesToJSON(tree);
+
+    writeFile(JSON_TREE_FILE, JSON_CONTENT_START + JSON_CONTENT + JSON_CONTENT_END);
+    JSON_CONTENT = "";
 }
 

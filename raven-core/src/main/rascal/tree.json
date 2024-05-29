@@ -1,12 +1,11 @@
-{
-"id": "root",
+{"id": "root",
    "children":
 [
  
  {
     "TabContainer":
     {
-       "id": "69424311051688102677005366104320885527",
+       "id": "3894868613649639313895643531969390792",
         
        "children":
     [
@@ -14,7 +13,7 @@
      {
         "HBoxContainer":
         {
-           "id": "-150589311185887266709160339885307070331",
+           "id": "53572871923838046940806890033500496701",
            "name": "State Machine Language",
             
            "children":
@@ -23,28 +22,462 @@
          {
             "Button":
             {
-               "id": "24496303005112162314645816823428388852",
+               "id": "153266328654302151542530308738646608507",
                "text": "Create Machine",
-               "callback": "MachCreate(3)",
+               "callback": "MachCreate(1)",
                "xPosition": "0",
                "yPosition": "0"
-            }},
+            }}
          
+        
+        ]
+         
+        }},
+     
+     
+     {
+        "HBoxContainer":
+        {
+           "id": "-47748029885457120044141390296702517920",
+           "name": "State Machine Language",
+            
+           "children":
+        [
          
          {
-            "OptionButton":
+            "VBoxContainer":
             {
-               "id": "-44544474235419345327900956664018457007",
+               "id": "75107603149155642364672191675178914265",
                 
-               "options":
+               "children":
             [
              
+             {
+                "HBoxContainer":
+                {
+                   "id": "165367150294379317998711697663704523041",
+                    
+                   "children":
+                [
+                 
+                 {
+                    "Button":
+                    {
+                       "id": "106113975610507038424942616119378411990",
+                       "text": "-",
+                       "callback": "MachDelete(1)",
+                       "xPosition": "0",
+                       "yPosition": "0"
+                    }},
+                 
+                 
+                 {
+                    "Label": {
+                       "id": "-52954096542847481363693172478367387493",
+                       "text": "machine"
+                    }  },
+                 
+                 
+                 {
+                    "TextEdit":
+                    {
+                       "id": "-157379858439236837953635514784401596956",
+                       "callback": "MachSetName(1, %text)",
+                       "text": ""
+                    }}
+                 
+                
+                ]
+                 
+                }},
              
-                "Machine 1",
+             
+             {
+                "HBoxContainer":
+                {
+                   "id": "71644984746374398023367650311093003946",
+                    
+                   "children":
+                [
+                 
+                 {
+                    "Button":
+                    {
+                       "id": "-131230047562256998137442307020677823373",
+                       "text": "+",
+                       "callback": "StateCreate(2,1)",
+                       "xPosition": "0",
+                       "yPosition": "0"
+                    }}
+                 
+                
+                ]
+                 
+                }}
+             
+            
+            ]
+             
+            }}
+         
+        
+        ]
+         
+        }},
+     
+     
+     {
+        "HBoxContainer":
+        {
+           "id": "-161810117526238957045755050307482973322",
+           "name": "State Machine Language",
+            
+           "children":
+        [
+         
+         {
+            "VBoxContainer":
+            {
+               "id": "-94417507164051154670836735493817856227",
+                
+               "children":
+            [
+             
+             {
+                "HBoxContainer":
+                {
+                   "id": "-28273370201134184270110061864236109598",
+                    
+                   "children":
+                [
+                 
+                 {
+                    "Button":
+                    {
+                       "id": "96440903980418455749436069112974410265",
+                       "text": "-",
+                       "callback": "MachDelete(1)",
+                       "xPosition": "0",
+                       "yPosition": "0"
+                    }},
+                 
+                 
+                 {
+                    "Label": {
+                       "id": "120779582726283556404047758876865219908",
+                       "text": "machine"
+                    }  },
+                 
+                 
+                 {
+                    "TextEdit":
+                    {
+                       "id": "2935899027597933955873186178218402328",
+                       "callback": "MachSetName(1, %text)",
+                       "text": ""
+                    }}
+                 
+                
+                ]
+                 
+                }},
              
              
+             {
+                "HBoxContainer":
+                {
+                   "id": "155508732602790545899217424889882393290",
+                    
+                   "children":
+                [
+                 
+                 {
+                    "Button":
+                    {
+                       "id": "24008044753913008441514904430107768989",
+                       "text": "+",
+                       "callback": "StateCreate(2,1)",
+                       "xPosition": "0",
+                       "yPosition": "0"
+                    }}
+                 
+                
+                ]
+                 
+                }}
              
-                "Machine 2"
+            
+            ]
+             
+            }}
+         
+        
+        ]
+         
+        }},
+     
+     
+     {
+        "HBoxContainer":
+        {
+           "id": "7322978711649799717071796294899468041",
+           "name": "State Machine Language",
+            
+           "children":
+        [
+         
+         {
+            "VBoxContainer":
+            {
+               "id": "-106240069665061295814829150253880785583",
+                
+               "children":
+            [
+             
+             {
+                "HBoxContainer":
+                {
+                   "id": "136560424524212099065883063762100773209",
+                    
+                   "children":
+                [
+                 
+                 {
+                    "Button":
+                    {
+                       "id": "-82427930728805284159199814394050726950",
+                       "text": "-",
+                       "callback": "MachDelete(1)",
+                       "xPosition": "0",
+                       "yPosition": "0"
+                    }},
+                 
+                 
+                 {
+                    "Label": {
+                       "id": "-7761277724430625694179394245932646145",
+                       "text": "machine"
+                    }  },
+                 
+                 
+                 {
+                    "TextEdit":
+                    {
+                       "id": "-33154306499672233929629189177458873107",
+                       "callback": "MachSetName(1, %text)",
+                       "text": ""
+                    }}
+                 
+                
+                ]
+                 
+                }},
+             
+             
+             {
+                "HBoxContainer":
+                {
+                   "id": "45073850485557804917217275548973584604",
+                    
+                   "children":
+                [
+                 
+                 {
+                    "Button":
+                    {
+                       "id": "-65352235833790483419676052862484996615",
+                       "text": "+",
+                       "callback": "StateCreate(2,1)",
+                       "xPosition": "0",
+                       "yPosition": "0"
+                    }}
+                 
+                
+                ]
+                 
+                }}
+             
+            
+            ]
+             
+            }}
+         
+        
+        ]
+         
+        }},
+     
+     
+     {
+        "HBoxContainer":
+        {
+           "id": "-2500704645299135255136301242310922425",
+           "name": "State Machine Language",
+            
+           "children":
+        [
+         
+         {
+            "VBoxContainer":
+            {
+               "id": "119503367748430271502317358002774375851",
+                
+               "children":
+            [
+             
+             {
+                "HBoxContainer":
+                {
+                   "id": "158162527409908671755529399718340032848",
+                    
+                   "children":
+                [
+                 
+                 {
+                    "Button":
+                    {
+                       "id": "108090793335111554462700092302406334038",
+                       "text": "-",
+                       "callback": "MachDelete(1)",
+                       "xPosition": "0",
+                       "yPosition": "0"
+                    }},
+                 
+                 
+                 {
+                    "Label": {
+                       "id": "-155929490602324967161356575777148256696",
+                       "text": "machine"
+                    }  },
+                 
+                 
+                 {
+                    "TextEdit":
+                    {
+                       "id": "162066167363592879902395112338724677685",
+                       "callback": "MachSetName(1, %text)",
+                       "text": ""
+                    }}
+                 
+                
+                ]
+                 
+                }},
+             
+             
+             {
+                "HBoxContainer":
+                {
+                   "id": "-80401577614317213462536587331902826452",
+                    
+                   "children":
+                [
+                 
+                 {
+                    "Button":
+                    {
+                       "id": "130765134325138814352943388655959510406",
+                       "text": "+",
+                       "callback": "StateCreate(2,1)",
+                       "xPosition": "0",
+                       "yPosition": "0"
+                    }}
+                 
+                
+                ]
+                 
+                }}
+             
+            
+            ]
+             
+            }}
+         
+        
+        ]
+         
+        }},
+     
+     
+     {
+        "HBoxContainer":
+        {
+           "id": "-81926947828992243536365423241010954154",
+           "name": "State Machine Language",
+            
+           "children":
+        [
+         
+         {
+            "VBoxContainer":
+            {
+               "id": "-135821713861843425485312926764987302650",
+                
+               "children":
+            [
+             
+             {
+                "HBoxContainer":
+                {
+                   "id": "-39667933390956027227350231739392725665",
+                    
+                   "children":
+                [
+                 
+                 {
+                    "Button":
+                    {
+                       "id": "-120043697179782620037402335627970290272",
+                       "text": "-",
+                       "callback": "MachDelete(1)",
+                       "xPosition": "0",
+                       "yPosition": "0"
+                    }},
+                 
+                 
+                 {
+                    "Label": {
+                       "id": "73381624213323837927824803102661662547",
+                       "text": "machine"
+                    }  },
+                 
+                 
+                 {
+                    "TextEdit":
+                    {
+                       "id": "75661352717133593906280559064508511890",
+                       "callback": "MachSetName(1, %text)",
+                       "text": ""
+                    }}
+                 
+                
+                ]
+                 
+                }},
+             
+             
+             {
+                "HBoxContainer":
+                {
+                   "id": "99795502920132028025262320330921045685",
+                    
+                   "children":
+                [
+                 
+                 {
+                    "Button":
+                    {
+                       "id": "86089701150047383638092173922048444446",
+                       "text": "+",
+                       "callback": "StateCreate(2,1)",
+                       "xPosition": "0",
+                       "yPosition": "0"
+                    }}
+                 
+                
+                ]
+                 
+                }}
              
             
             ]
@@ -55,6 +488,7 @@
         ]
          
         }}
+     
      
     
     ]

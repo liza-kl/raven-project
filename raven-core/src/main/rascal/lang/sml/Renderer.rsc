@@ -1,10 +1,12 @@
 module lang::sml::Renderer
-
+import lang::sml::control::AST;
 import Interpreter::RavenNode;
 import lang::sml::AST;
 import lang::sml::Command;
 import Map;
+import Helpers::Utils;
 import Set;
+
 
 //note: this might acutally be correct.
 UUID nextID(Env env) {
@@ -16,11 +18,12 @@ public RavenNode render(Env env) =
   ravenTab("State Machine Language",
     [
       ravenButton("Create Machine", "MachCreate(<nextID(env)>)")
+      //ravenOptionButton(convertSetToList(domain(env)))
     ]
   );
 
-public RavenNode render(Env env, AST m: machine(UUID id, str name, list[AST] es)) =
-  ravenTab("State Machine Language",
+public RavenNode render(Env env, AST m: machine(UUID id, str name, list[AST] es), View view: tree()) =
+  ravenTab("State Machine Language<id>",
     [
       ravenVBox
       (
@@ -80,8 +83,8 @@ public RavenNode render(Env env, AST t: trans(UUID id, UUID src, str trigger, UU
     [
       ravenButton("-", "TransDelete(<id>)"),
       ravenTextEdit(trigger, "TransSetTrigger(<id>, %text)"),
-      ravenLabel(" --\> "),
-      ravenOptionButton([name | state(_, _, name, _) <- env[1]]) 
+      ravenLabel(" --\> ")
+     //ravenOptionButton([name | state(_, _, name, _) <- env[1]]) 
       //FIXME: should be from the current machine these states are part of
     ]
   );
