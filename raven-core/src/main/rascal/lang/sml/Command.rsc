@@ -1,7 +1,10 @@
 module lang::sml::Command
 
+import lang::sml::control::Command;
 import lang::sml::AST;
+
 alias Env = map[UUID, AST];
+alias VisualEnv = tuple[VisCommand, map[UUID, AST]];
 
 //Sequential Command Language
 public data Command

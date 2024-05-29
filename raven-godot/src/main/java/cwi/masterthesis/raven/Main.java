@@ -91,10 +91,6 @@ public class Main extends Node {
                 StringNameUtils.asStringName("main_init_general_theme"),
                 new Callable(this, StringNameUtils.asStringName("callback_init_general_theme"))
         );
-        connect(
-                StringNameUtils.asStringName("main_print_signal"),
-                new Callable(this, StringNameUtils.asStringName("callback_print"))
-        );
 //        String sceneTreePath = "/Users/ekletsko/raven-project/raven-core/src/main/rascal/styles.json";
 //        String exampleRequest = null;
 //        try {

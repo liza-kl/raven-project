@@ -2,9 +2,15 @@ module lang::sml::REPL
 
 import lang::sml::AST;
 import lang::sml::Command;
-
+import lang::sml::Renderer;
+import Helpers::Server;
+import Main;
+import Interpreter::RavenNode;
+import lang::sml::control::Command;
+import ApplicationConf;
+import IO;
 import Map;
-
+// How
 //This is a REPL interpreter for SML.
 //todo: add interpreter for machine instances (running machines)
 
@@ -16,6 +22,7 @@ Env eval(Env env, Command cmd: MachCreate(UUID mid)) {
   env[mid] = m;
   return env;
 }
+
 
 Env eval(Env env, Command cmd: MachSetName(UUID mid, ID name)) {
   //rename the machine in the environment

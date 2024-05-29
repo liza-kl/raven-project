@@ -24,9 +24,12 @@ class ServerReceiver implements ReceiveCallback {
         this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","", "/Users/ekletsko/raven-project/raven-protocol/src/main/resources/rascal-0.33.0.jar" ));
         this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","","/Users/ekletsko/raven-project/raven-core/src/main/rascal"));
         this.evaluator.doImport(null, "Main");
-     //   this.evaluator.doImport(null, "Helpers::Server");
+        this.evaluator.doImport(null, "lang::sml::control::REPL");
     }
 
+    public void importSomething(IString module) {
+        this.evaluator.doImport(null, String.valueOf(module));
+    }
     // Message format: [MESSAGE_TYPE]:[MESSAGE]
     // Code adjusted from https://reintech.io/blog/java-socket-programming-creating-custom-communication-protocols
     @Override
