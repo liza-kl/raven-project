@@ -1,4 +1,4 @@
-module lang::sml::Syntax
+module lang::sml::model::Syntax
 
 //note: for reference only, currently not used
 //to program SML, use the REPL instead
