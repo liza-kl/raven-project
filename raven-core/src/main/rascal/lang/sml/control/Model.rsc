@@ -1,6 +1,7 @@
-module lang::sml::control::AST
+module lang::sml::control::Model
 
-import lang::sml::AST;
+import lang::raven::Env;
+import lang::sml::model::Model;
 
 public data View = tree() | graph() | table();
 public alias BookKeeping = lrel[UUID,View];
