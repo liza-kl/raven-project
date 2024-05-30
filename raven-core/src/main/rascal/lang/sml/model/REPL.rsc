@@ -52,10 +52,30 @@ public /*side-effect*/ Env eval(Env env, Command cmd: MachAddState(UUID mid, UUI
     case mach(UUID mid, ID name, list[UUID] states, list[UUID] instances) =>
       mach(mid, name, states + [sid], instances)
   }
+
+  //post-migrate
+  Model m = getMach(env, mid); 
+  for(UUID miid <- m.instances) {
+    <env, siid> = env_getNextId(env);
+    env = eval(env, StateInstCreate(siid, sid, miid));
+    env = eval(env, MachInstAddStateInst(miid, sid, siid));
+    env = eval(env, MachInstInitialize(miid));
+  }
+
   return env;
 }
 
 public /*inverse side-effect*/ Env eval(Env env, Command cmd: MachRemoveState(UUID mid, UUID sid)) {
+  //pre-migrate
+  Model m = getMach(env, mid); 
+  for(UUID miid <- m.instances) {
+    Model mi = getMachInst(env, miid);
+    UUID siid = mi.sis[sid];
+    env = eval(env, MachInstRemoveStateInst(miid, sid, siid));
+    env = eval(env, StateInstDelete(siid, sid));
+    env = eval(env, MachInstInitialize(miid));
+  }
+  //remove the state
   env = visit(env) {
     case mach(UUID mid, ID name, list[UUID] states, list[UUID] instances) =>
       mach(mid, name, states - [sid], instances)
@@ -201,5 +221,3 @@ public /*invertible effect*/ Env eval(Env env, Command cmd: TransSetTrigger(UUID
   }
   return env;
 }
-
-

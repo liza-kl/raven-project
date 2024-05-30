@@ -4,6 +4,7 @@ import lang::sml::runtime::Command;
 import lang::sml::runtime::Model;
 import lang::sml::model::Model;
 import lang::sml::model::REPL;
+import lang::sml::model::Command;
 import lang::raven::Env;
 
 import Map;
@@ -14,6 +15,7 @@ public Env eval(Env env, Command cmd: MachInstCreate(UUID miid, UUID mid)) {
   env = env_store(env, miid, mi);
   //post migrate
   Model m = getMach(env, mid);
+  env = eval(env, MachAddMachInst(mid, miid));
   for(UUID sid <- m.states) {
     //Model s = getState(env, sid);
     <env, siid> = env_getNextId(env);
@@ -93,12 +95,14 @@ public Env eval(Env env, Command cmd: MachInstTrigger(UUID miid, ID trigger)) {
 
 public Env eval(Env env, Command cmd: MachInstSetCurState(UUID miid, UUID siid)) {
   Model mi = getMachInst(env, miid);
-  Model si = getStateInst(env, siid);
   env = visit(env) {
     case machInst(UUID id, UUID mid, _, map[UUID, UUID] sis) => machInst(id, mid, siid, sis)
   }
   //post migrate
-  env = eval(env, StateInstSetCount(siid, si.count+1));
+  if(siid != -1) {
+    Model si = getStateInst(env, siid);
+    env = eval(env, StateInstSetCount(siid, si.count+1));
+  }
   return env;
 }
 
@@ -120,8 +124,6 @@ public Env eval(Env env, Command cmd: StateInstSetCount(UUID siid, int count)) {
 public Env eval(Env env, Command cmd: StateInstDelete(UUID siid, UUID miid)) {
   Model si = getStateInst(env, siid);
   env = env_delete(env, siid);
-  //post migrate
-  env = eval(env, MachInstInitialize(miid));
   return env;
 }
 

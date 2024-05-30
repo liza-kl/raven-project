@@ -1,6 +1,4 @@
-module Interpreter::RavenNode
-
-
+module lang::raven::RavenNode
 
 public data RavenNode = 
             ravenNode2D(str nodeID, list[RavenNode] children, bool root)
