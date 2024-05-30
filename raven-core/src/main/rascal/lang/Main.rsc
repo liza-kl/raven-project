@@ -37,19 +37,28 @@ void main() {
   env = eval(env, TransCreate(tid2, sid2, sid1));
   env = eval(env, TransSetTrigger(tid2, "open"));
 
+  println(print(env, env[mid]));  //complete door machine
+
   <env, miid> = env_getNextId(env); 
   env = eval(env, MachInstCreate(miid, mid));
-
-  str program = print(env, env[mid]);
-  println(program);
-
-  str running = print(env, env[miid]);
-  println(running);
+  println(print(env, env[miid])); //running door machine
 
   env = eval(env, MachInstTrigger(miid, "close"));
+  println(print(env, env[miid])); //transition to closed
 
-  str running2 = print(env, env[miid]);
-  println(running2);
+  env = eval(env, StateDelete(sid2)); //delete the current state!
+
+  println(print(env, env[mid]));  //state and transitions cleaned up
+  println(print(env, env[miid])); //run-time state migrated
+
+  iprintln(env);
+
+  <env, sid3> = env_getNextId(env); 
+  env = eval(env, StateCreate(sid3, mid));
+  env = eval(env, StateSetName(sid3, "blabla"));
+
+  env = eval(env, MachDelete(mid)); //deletes everything
+  iprintln(env); //empty environment = all cleaned up!
 
   iprintln(render(env));
 }

@@ -10,11 +10,10 @@ import Helpers::Server;
 import Helpers::Setup;
 import util::Reflective;
 import Location;
-import lang::sml::REPL;
 import lang::sml::PrettyPrinter;
-import lang::sml::Renderer;
+import lang::sml::model::Renderer;
 import lang::sml::control::REPL;
-import lang::sml::Command;
+import lang::sml::model::Command;
 import ValueIO;
 
 public str JSON_CONTENT_START = "{";
