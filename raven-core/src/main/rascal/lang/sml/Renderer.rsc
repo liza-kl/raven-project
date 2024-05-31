@@ -23,7 +23,7 @@ public RavenNode render(Env env) =
   );
 
 public RavenNode render(Env env, AST m: machine(UUID id, str name, list[AST] es), View view: tree()) =
-  ravenTab("State Machine Language<id>",
+  ravenTab("Machine Editor <m.id>",
     [
       ravenVBox
       (
@@ -71,7 +71,7 @@ public RavenNode render(Env env, AST s: state(UUID id, UUID mid, str name, list[
       (
         [
         // TODO rvnHorizontalSpace(40),  leaving Horizontal space out for now
-          ravenButton("+", "TransCreate(<nextID(env)>,<id>)")
+          ravenButton("Trans Create +", "TransCreate(<nextID(env)>,<id>)")
         ]
       )
     ]
