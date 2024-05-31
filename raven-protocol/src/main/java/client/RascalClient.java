@@ -28,20 +28,12 @@ public class RascalClient implements Runnable {
         this.evaluator.doImport(null, "Main");
     }
 
-
-    public void callMain() {
-        this.evaluator.call(null, "Main", "main");
-    }
-
-    public void callRascal(String arg) {
+    public void callDispatcher(String arg) {
         System.out.println("this values"+this.values);
-        IString test = this.values.string(arg);
-        this.evaluator.call(null, "Main", "rascalCallback", test);
+        IString callback = this.values.string(arg);
+        this.evaluator.call(null, "Main", "dispatch", callback);
     }
 
-    public void callRascal2() {
-        this.evaluator.call(null, "Main", "rascalCallback2");
-    }
 
     // connect to server
     public void connect() {
