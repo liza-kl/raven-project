@@ -13,27 +13,21 @@ import Location;
 import lang::sml::REPL;
 import lang::sml::PrettyPrinter;
 import lang::sml::Renderer;
-import util::Eval;
 import lang::sml::control::REPL;
 import lang::sml::Command;
-
+import ValueIO;
 
 public str JSON_CONTENT_START = "{";
 public str JSON_CONTENT = "";
 public str JSON_CONTENT_END = "}";
 
-
-public str program =
-  "data Command = MachCreate(int mid);";
-
 /* TODO add different languages and prepend with languages VIEW_addTab, PROGRAM_updateEnv */ 
-void rascalCallback(str callback) {
+void dispatch(str callback) {
     //todo name collisions; 
-
-    importSomething("lang::sml::Command");
-    if(result(Command c) := util::Eval::eval(#Command, [program + callback + ";"]))  {
-        lang::sml::control::REPL::viewControl(c);
-    }
+    print("dispatching callback");
+   // if(result(Command c) := util::Eval::eval(#Command, [program + callback + ";"]))  {
+        lang::sml::control::REPL::viewControl(ValueIO::readTextValueString(#Command, callback));
+   // }
 
     
 }
@@ -47,16 +41,18 @@ void genTree(RavenNode view) {
 
 
 void main() {
+ // println(readTextValueString(#Command, "MachCreate(3)"));
     // Original string with quotes
     // TODO The ; is veeeeery important!
-    if(result(Command c) :=  util::Eval::eval(#Command, program))  {
-      ENV = lang::sml::REPL::eval(ENV, c);
-    }
-    RavenNode view = render(ENV);
-    startGodotEngine();
-    startServer();
-    genTree(view);
-    Helpers::Server::send("THEME_INIT:" + readFile(JSON_STYLING_FILE));
+    // if(result(Command c) :=  util::Eval::eval(#Command, program))  {
+    //   ENV = lang::sml::REPL::eval(ENV, c);
+    // }
+    // RavenNode view = render(ENV);
+    // startGodotEngine();
+    // startServer();
+    // genTree(view);
+    // Helpers::Server::send("THEME_INIT:" + readFile(JSON_STYLING_FILE));
+    genJSON(render(ENV));
     Helpers::Server::send("VIEW_UPDATE:" + readFile(JSON_TREE_FILE));
 }
 

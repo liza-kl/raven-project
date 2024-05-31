@@ -17,6 +17,7 @@ public class Server extends Thread {
     private PrintWriter godotOut;
 
 
+
     public Server(IValueFactory values) {
         this.values = values;
         /* if (instance != null) {
@@ -67,7 +68,7 @@ public class Server extends Thread {
                 BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
                 this.setGodotOut(out);
-                ServerReceiver receiverCallback = new ServerReceiver(this.getGodotOut(), getValueFactory());
+                ServerReceiver receiverCallback = ServerReceiver.getInstance(this.getGodotOut(), getValueFactory());
                 Thread sender = new Thread(new Sender(this.sharedBuffer, in));
                 Thread receiver = new Thread(new Receiver(this.sharedBuffer, receiverCallback));
                 sender.setName("Sender Thread of Server");
