@@ -29,4 +29,24 @@ public final class InterpreterUtils {
             e.printStackTrace();
         }
     }
+
+    public static String toCamelCase(String snakeCase, boolean inverted) {
+        StringBuilder result = new StringBuilder();
+        boolean capitalizeNext = inverted;
+
+        for (char c : snakeCase.toCharArray()) {
+            if (c == '_') {
+                capitalizeNext = true;
+            } else {
+                if (capitalizeNext) {
+                    result.append(Character.toUpperCase(c));
+                    capitalizeNext = false;
+                } else {
+                    result.append(c);
+                }
+            }
+        }
+
+        return result.toString();
+    }
 }
