@@ -54,7 +54,8 @@ public final class RavenJSONTraverser {
 
         while (attr.hasNext()) {
             String key = attr.next();
-            String value =  key == "styles" ? node.get(index).get(nodeType).get(key).toPrettyString(): node.get(index).get(nodeType).get(key).asText();
+            // TODO define map for values which need a pretty string
+            String value =  ((key == "styles") || (key == "options")) ? node.get(index).get(nodeType).get(key).toPrettyString(): node.get(index).get(nodeType).get(key).asText();
 
             attrMap.put(key, value);
         }

@@ -18,14 +18,28 @@ public class TextEditScript extends RavenTextEdit {
     public Signal textInit = SignalProvider.signal(this, "text_init");
 
     @RegisterFunction
-    public void callbackTextEdit() {
+    public void callbackTextChanged() {
+        String content = "\"" + this.getText() + "\"";
+
+        String callback = (String) this.get(StringNameUtils.asStringName("node_callback"));
+        assert callback != null;
+        // TODO Assuming callback has only one ^% parameter for now
+        // Rascal is accepting strings and then converting to custom types.
+        String alteredCallback = callback.replaceAll("%(\\w+)", content);
+        this.callbackTextEdit(alteredCallback);
+    }
+    @RegisterFunction
+    public void callbackTextEdit(String callback) {
         NativeClient.getInstance(
                 "0.0.0.0",
                 23000,
-                getTree().getRoot().getChild(0)).send((String) this.get(StringNameUtils.asStringName("node_callback")));
+                getTree().getRoot().getChild(0))
+                .send("CALLBACK: " + callback);
     }
+
     @RegisterFunction
     public void callbackTextInit(String callback) {
+
         this.set(StringNameUtils.asStringName("node_callback"),callback);
         this.notifyPropertyListChanged();
     }
@@ -35,8 +49,8 @@ public class TextEditScript extends RavenTextEdit {
     public void _ready() {
         System.out.println("TextEdit is connected to script");
         connect(
-                StringNameUtils.asStringName("text_send_message"),
-                new Callable(this, StringNameUtils.asStringName("callback_text_edit"))
+                StringNameUtils.asStringName("text_changed"),
+                new Callable(this, StringNameUtils.asStringName("callback_text_changed"))
         );
         connect(
                 StringNameUtils.asStringName("text_init"),
