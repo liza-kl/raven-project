@@ -12,7 +12,8 @@ public class HBoxContainerFactory implements RavenNodeFactory{
         return new RavenHBoxContainer(
                 (String) attrMap.get("id"),
                 node,
-                (String) attrMap.get("name")
+                (String) attrMap.get("name"),
+                (String) attrMap.get("styles")
         );
     }
 
