@@ -149,11 +149,6 @@ public class Main extends Node {
         }
     }
 
-    public static void setDefaultValues() {
-
-    }
-
-
     @RegisterFunction
     public static void traverseJSON(String sceneTreeJSON, Node mainNode) {
         GD.INSTANCE.print("Traverse JSON is called");

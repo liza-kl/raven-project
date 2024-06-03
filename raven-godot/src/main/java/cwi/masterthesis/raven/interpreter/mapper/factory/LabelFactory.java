@@ -13,6 +13,7 @@ public class LabelFactory implements RavenNodeFactory {
                 attrMap.get("id"),
                 mainRavenNode,
                 attrMap.get("text"),
+                attrMap.get("styles") == null ? null : attrMap.get("styles"),
                 Integer.parseInt(attrMap.get("xPosition")),
                 Integer.parseInt(attrMap.get("yPosition")));
     }

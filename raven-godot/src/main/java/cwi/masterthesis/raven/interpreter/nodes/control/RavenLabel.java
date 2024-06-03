@@ -10,13 +10,15 @@ public class RavenLabel implements RavenNode {
     private final String label;
     private final int XCoordinate;
     private final int YCoordinate;
+    private final String styles;
 
-    public RavenLabel(String nodeID, Node parentNode, String label, int XCoordinate, int YCoordinate) {
+    public RavenLabel(String nodeID, Node parentNode, String label, String styles, int XCoordinate, int YCoordinate) {
         this.nodeID = nodeID;
         this.parentNode = parentNode;
         this.label = label;
         this.XCoordinate = XCoordinate;
         this.YCoordinate = YCoordinate;
+        this.styles = styles;
     }
 
     @Override
@@ -43,5 +45,9 @@ public class RavenLabel implements RavenNode {
 
     public String getNodeID() {
         return nodeID;
+    }
+
+    public String getStyles() {
+        return styles;
     }
 }

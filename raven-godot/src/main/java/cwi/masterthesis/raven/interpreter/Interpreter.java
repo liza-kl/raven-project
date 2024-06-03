@@ -1,6 +1,14 @@
 package cwi.masterthesis.raven.interpreter;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import cwi.masterthesis.raven.Main;
+import cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.ColorOverrideStrategy;
+import cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.FontSizeOverrideStrategy;
+import cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.StyleBoxFlatOverrideStrategy;
+import cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.StylingStrategy;
 import cwi.masterthesis.raven.interpreter.nodes.RavenNode2D;
 import cwi.masterthesis.raven.interpreter.nodes.control.*;
 import godot.*;
@@ -8,9 +16,15 @@ import godot.core.StringNameUtils;
 import godot.core.Vector2;
 import godot.global.GD;
 
+import java.lang.Object;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Objects;
 
+import static cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.ColorStrategy.getColorByName;
+
 public class Interpreter extends Node implements Visitor {
+    private static StylingStrategy strategy;
 
     @Override
     public void visitButton(RavenButton ravenButton)  {
@@ -18,6 +32,8 @@ public class Interpreter extends Node implements Visitor {
       //  PackedScene DefaultButtonLook = GD.load("res://scenes/DefaultButton.tscn");
         Button button = new Button();
         button.setTheme(Main.mainTheme);
+
+
         button.setText(ravenButton.getLabel());
         button.setName(StringNameUtils.asStringName(ravenButton.getNodeID()));
         button.setPosition(new Vector2(ravenButton.getXCoordinate(), ravenButton.getYCoordinate()));
@@ -25,6 +41,14 @@ public class Interpreter extends Node implements Visitor {
         button.set(StringNameUtils.asStringName("btn_callback"), ravenButton.getCallback());
         button.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/ButtonSendMessage.gdj"));
         ravenButton.getParentNode().addChild(button);
+        if (ravenButton.getStyles() != null) {
+
+            try {
+                styleOverrideTraverser(ravenButton.getStyles(),button);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        }
         button.emitSignal(StringNameUtils.asStringName("button_init"), ravenButton.getCallback());
     }
 
@@ -33,10 +57,21 @@ public class Interpreter extends Node implements Visitor {
         System.out.println("Creating Label");
         Label label = new Label();
         label.setTheme(Main.mainTheme);
+
+
         label.setName(StringNameUtils.asStringName(ravenLabel.getNodeID()));
         label.setText(ravenLabel.getLabel());
         label.setPosition(new Vector2(ravenLabel.getXCoordinate(), ravenLabel.getYCoordinate()));
+
         ravenLabel.getParentNode().addChild(label);
+        if (ravenLabel.getStyles() != null) {
+
+            try {
+                styleOverrideTraverser(ravenLabel.getStyles(),label);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     @Override
@@ -140,10 +175,42 @@ public class Interpreter extends Node implements Visitor {
     @Override
     public void visitOptionButton(RavenOptionButton ravenOptionButton) {
         System.out.println("Creating OptionButton");
+
         OptionButton optionButton = new OptionButton();
         optionButton.setTheme(Main.mainTheme);
+
         optionButton.setName(StringNameUtils.asStringName(ravenOptionButton.getNodeID()));
         ravenOptionButton.getOptions().forEach(optionButton::addItem);
         ravenOptionButton.getParentNode().addChild(optionButton);
     }
+
+    public static void styleOverrideTraverser(String theme, Control node) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode elements = mapper.readTree(theme);
+        for (JsonNode elem : elements) {
+                String themeprop = elem.fieldNames().next();
+                JsonNode valueContent = elem.get(themeprop);
+
+                Iterator<Map.Entry<String, JsonNode>> fields = valueContent.fields();
+                while (fields.hasNext()) {
+                    Map.Entry<String, JsonNode> entry = fields.next();
+
+                    if (themeprop.equals("Color")) {
+                        strategy = new ColorOverrideStrategy(node, entry.getKey(),getColorByName(entry.getValue().asText()));
+                    }
+                    if (themeprop.equals("FontSize")) {
+                        strategy = new FontSizeOverrideStrategy(node, entry.getKey(),entry.getValue().asInt());
+                    }
+                    if (themeprop.equals("StyleboxFlat")) {
+                        Map<String, Object> result = mapper.convertValue(entry.getValue(), new TypeReference<>() {
+                        });
+                        strategy = new StyleBoxFlatOverrideStrategy(node, entry.getKey(), result);
+                    }
+                    strategy.applyStyling();
+
+                }
+            }
+        }
+
+
 }
