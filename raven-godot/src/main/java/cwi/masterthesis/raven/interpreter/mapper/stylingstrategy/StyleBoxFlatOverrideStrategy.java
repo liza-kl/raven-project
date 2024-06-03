@@ -2,10 +2,10 @@ package cwi.masterthesis.raven.interpreter.mapper.stylingstrategy;
 
 import godot.Control;
 import godot.StyleBox;
-import godot.StyleBoxFlat;
 import godot.core.Color;
 import godot.core.StringNameUtils;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 import java.util.Objects;
 
@@ -23,28 +23,40 @@ public class StyleBoxFlatOverrideStrategy implements StylingStrategy{
         this.values = values;
     }
 
-
     private Object parseValue(String entryKey, Object value) {
         if (entryKey.contains("color")) {
             return new Color(Objects.requireNonNull(getColorByName((String) value)));
         }
-        throw new IllegalArgumentException("No suitable converter found.");
+        return value;
     }
-    private StyleBox createStyleBox() {
-        StyleBox styleBox = new StyleBoxFlat();
+    private void createStyleBox(Control node, String stateToOverwrite) throws InvocationTargetException, IllegalAccessException {
+
+        StyleBox current = (StyleBox) node.getThemeStylebox(StringNameUtils.asStringName(stateToOverwrite)).duplicate();
+
         for (var entry : values.entrySet()) {
-            styleBox.set(StringNameUtils.asStringName(entry.getKey()),
-                    parseValue(entry.getKey(), entry.getValue()));
+            assert current != null;
+            try {
+            current.set(StringNameUtils.asStringName(entry.getKey()),
+                            parseValue(entry.getKey(), entry.getValue()));}
+            catch (Exception e) {
+                System.err.println("Could not set value for key " + entry.getKey());
+            }
         }
+    //    current.set(StringNameUtils.asStringName("bg_color"), new Color(Color.Companion.getCornflowerBlue()));
+        assert current != null;
+        node.addThemeStyleboxOverride(StringNameUtils.asStringName(stateToOverwrite),current);
 
         // you can add all those things here
         // https://docs.godotengine.org/en/stable/classes/class_styleboxflat.html
-        return styleBox;
     }
 
 
     @Override
     public void applyStyling() {
-        node.addThemeStyleboxOverride(StringNameUtils.asStringName(this.state), this.createStyleBox());
+        try {
+            this.createStyleBox(node, this.state);
+        } catch (InvocationTargetException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -8,11 +8,13 @@ public class RavenHBoxContainer implements RavenNode {
     private final String nodeID;
     private final Node parentNode;
     private final String name;
+    private final String styles;
 
-    public RavenHBoxContainer(String nodeID, Node parentNode, String name) {
+    public RavenHBoxContainer(String nodeID, Node parentNode, String name, String styles) {
         this.nodeID = nodeID;
         this.parentNode = parentNode;
         this.name = name;
+        this.styles = styles;
     }
 
     @Override
@@ -32,5 +34,9 @@ public class RavenHBoxContainer implements RavenNode {
 
     public String getName() {
         return name;
+    }
+
+    public String getStyles() {
+        return styles;
     }
 }
