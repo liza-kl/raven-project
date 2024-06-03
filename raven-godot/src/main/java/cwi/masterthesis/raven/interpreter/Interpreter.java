@@ -5,10 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import cwi.masterthesis.raven.Main;
-import cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.ColorOverrideStrategy;
-import cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.FontSizeOverrideStrategy;
-import cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.StyleBoxFlatOverrideStrategy;
-import cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.StylingStrategy;
+import cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.*;
 import cwi.masterthesis.raven.interpreter.nodes.RavenNode2D;
 import cwi.masterthesis.raven.interpreter.nodes.control.*;
 import godot.*;
@@ -118,11 +115,20 @@ public class Interpreter extends Node implements Visitor {
     public void visitHBoxContainer(RavenHBoxContainer ravenHBoxContainer) {
         System.out.println("Creating HBoxContainer");
         // TODO in the end one could provide custom scenes? In a Configuration?
-        PackedScene DefaultTabContainer = GD.load("res://scenes/DefaultHBoxContainer.tscn");
-        HBoxContainer hBoxContainer = (HBoxContainer) DefaultTabContainer.instantiate();
+       // PackedScene DefaultTabContainer = GD.load("res://scenes/DefaultHBoxContainer.tscn");
+       // HBoxContainer hBoxContainer = (HBoxContainer) DefaultTabContainer.instantiate();
+        HBoxContainer hBoxContainer = new HBoxContainer();
         hBoxContainer.setTheme(Main.mainTheme);
         hBoxContainer.setName(StringNameUtils.asStringName(ravenHBoxContainer.getName() == null ? ravenHBoxContainer.getNodeID() : ravenHBoxContainer.getName()));
         Objects.requireNonNull(ravenHBoxContainer.getParentNode()).addChild(hBoxContainer);
+        if (ravenHBoxContainer.getStyles() != null) {
+
+            try {
+                styleOverrideTraverser(ravenHBoxContainer.getStyles(),hBoxContainer);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     @Override
@@ -195,6 +201,9 @@ public class Interpreter extends Node implements Visitor {
                 while (fields.hasNext()) {
                     Map.Entry<String, JsonNode> entry = fields.next();
 
+                    if (themeprop.equals("Primitive")) {
+                        strategy = new PrimitiveOverrideStrategy(node, entry.getKey(),entry.getValue());
+                    }
                     if (themeprop.equals("Color")) {
                         strategy = new ColorOverrideStrategy(node, entry.getKey(),getColorByName(entry.getValue().asText()));
                     }
