@@ -6,9 +6,6 @@ module Helpers::Server
 * Rascal in charge.
 **/
 
-@javaClass{server.ServerReceiver}
-public java void importSomething(str module1);
-
 @javaClass{server.Server}
 public java void startServer();
 

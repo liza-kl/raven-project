@@ -19,16 +19,12 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    test_signal
+    
 ]
 properties = [
-    signal_emitted,
-	btn_callback,
-	btn_id
+    
 ]
 functions = [
     _pressed,
-	_ready,
-	connect_and_trigger_signal,
-	signal_callback
+	_ready
 ]
