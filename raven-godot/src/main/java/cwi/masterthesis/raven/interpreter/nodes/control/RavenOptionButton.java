@@ -5,19 +5,25 @@ import cwi.masterthesis.raven.interpreter.nodes.RavenNode;
 import godot.Node;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class RavenOptionButton implements RavenNode {
     private final Node parentNode;
     private final String nodeID;
-    private final ArrayList<String> options;
+    private final List<String> options;
 
-    private ArrayList<String> convertStringToList(String arr) {
-        String trimmedInput = arr.substring(1, arr.length() - 1);
-        String[] items = trimmedInput.split("\",\"");
+    private List<String> convertStringToList(String arr) {
+
+        String cleaned = arr.replaceAll("^\\[", "").replaceAll("]$", "");
+
+        // Split the string by ","
+        List<String> items = Arrays.asList(cleaned.split("\\s*,\\s*"));
+
         // Remove any remaining leading or trailing quotes from each item
-        ArrayList<String> arrayList = new ArrayList<>();
+        List<String> arrayList = new ArrayList<>();
         for (String item : items) {
-            arrayList.add(item.replaceAll("^\"|\"$", ""));
+            arrayList.add(item.replaceAll("[\"\\s]+", "").trim());
         }
         return arrayList;
     }
@@ -40,7 +46,7 @@ public class RavenOptionButton implements RavenNode {
 
     }
 
-    public ArrayList<String> getOptions() {
+    public List<String> getOptions() {
         return options;
     }
 
