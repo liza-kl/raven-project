@@ -59,7 +59,7 @@ str rvn_print(RavenNode nodeName:ravenNode2D(str nodeID, list[RavenNode] childre
 str rvn_print(list[RavenNode] children) = "
 '<for(RavenNode child <- children){>
 '{
-'   <rvn_print(child)>}<if(!(indexOf(children,child) == size(children) - 1)){>,
+'   <rvn_print(child)>}<if(!(indexOf(children,child) == size(children) - 1) && !(List::last(children) == child)){>,
 '<}>
 <}>
 ";

@@ -30,48 +30,73 @@ public void viewControl(Command incomingCallback: MachCreate(UUID mid)) {
     myBook += <mid, lang::sml::control::AST::tree()>;
     // First need to fire MachCreate and then the visual part <3
     ENV = lang::sml::REPL::eval(ENV, incomingCallback);
-        println("ENV");
-    println(ENV);
 //    list[View] neededViews = [v | <uuid, v> <- myBook, uuid == mid];
    // for (View view <- neededViews) {
 
     RavenNode rendered = render(ENV, machine(mid, toString(mid), []), tree());
-    println("rendered");
-    println(rendered);
     currentRavenNode = top-down-break visit(currentRavenNode) {
         case ravenTabContainer(list[RavenNode] r) => {
-        println("rrrr");
-        println(r);
         r[0] = render(ENV);
-
-        println("updated r");
-        println(        r + rendered);
-      
-        ravenTabContainer(        r + rendered);
+        ravenTabContainer(r + rendered);
        }
   
     };
    // }
-   println("current raevn node");
-   println(currentRavenNode);
    genJSON(currentRavenNode);
    Helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
-
+// TODO have to keep track of open views??
 public void viewControl(Command incomingCallback: MachDelete(UUID mid)) {
-    println("Calling MachDelete");
 
-    Helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+     ENV = lang::sml::REPL::eval(ENV, incomingCallback);
+//    list[View] neededViews = [v | <uuid, v> <- myBook, uuid == mid];
+   // for (View view <- neededViews) {
+println("current ENV");
+println(ENV);
+    currentRavenNode = top-down visit(currentRavenNode) {
+        case ravenTabContainer(list[RavenNode] r) => {
+        r[0] = render(ENV);
+        println("r");
+        println(r);
+        filtered = [ child | child <- r, !ravenTab("Machine Editor <mid>", _)  := child];
+        println("filtered");
+        println(filtered);
+      //  r::ravenTab("Machine Editor <mid>", _) : RavenNode::empty();
+        ravenTabContainer(filtered);
+       }
+         
+  
+    };
+   // }
+   genJSON(currentRavenNode);
+   Helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
-public void viewControl(Command incomingCallback:  MachSetName(UUID mid, ID name)) {
+public void viewControl(Command incomingCallback: MachSetName(UUID mid, ID name)) {
     println("Calling MachSetName");
+    ENV = lang::sml::REPL::eval(ENV, incomingCallback);
+    currentRavenNode = top-down-break visit(currentRavenNode) {
+        case ravenTab("Machine Editor <mid>", _) => {
+        render(ENV, ENV[mid], tree());
+       }}
+
+       
+    genJSON(currentRavenNode);
     Helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: StateCreate(UUID sid, UUID mid)) {
     println("Calling StateCreate");
+     ENV = lang::sml::REPL::eval(ENV, incomingCallback);
+    currentRavenNode = top-down-break visit(currentRavenNode) {
+        case ravenTab("Machine Editor <mid>", _) => {
+        render(ENV, ENV[mid], tree());
+       }}
+
+       
+    genJSON(currentRavenNode); 
+  
     Helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 

@@ -46,15 +46,19 @@
   
    {
       "StyleboxFlat": {
-         // "normal": {
-         //    "bg_color":"FIREBRICK" 
-         // },
-         //    "hover": {
-         //    "bg_color":"LIGHT_SKY_BLUE" 
-         // },
-         //    "pressed": {
-         //    "bg_color":"CRIMSON" 
-         // }
+         "normal": {
+            "bg_color":"CRIMSON",
+            "content_margin_bottom": 5,
+            "content_margin_top": 1,
+            "border_width_left": 5,
+            "border_width_top": 20
+         },
+            "hover": {
+            "bg_color":"CRIMSON" 
+         },
+            "pressed": {
+            "bg_color":"CRIMSON" 
+         }
       }
    },
    {
