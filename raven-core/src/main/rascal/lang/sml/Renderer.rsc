@@ -28,11 +28,11 @@ public RavenNode render(Env env, AST m: machine(UUID id, str name, list[AST] es)
       ravenVBox
       (
         [
-          ravenHBox
+          ravenVBox
           (
             [
-              ravenButton("-", "MachDelete(<id>)"),
-              ravenLabel("machine"),
+              ravenButton("Delete Machine", "MachDelete(<id>)"),
+              ravenLabel("Machine Name: <name>"),
               ravenTextEdit(name, "MachSetName(<id>, %text)")
             ]
           )
@@ -43,7 +43,7 @@ public RavenNode render(Env env, AST m: machine(UUID id, str name, list[AST] es)
           (
             [
               //  rvnHorizontalSpace(40), TODO leaving Horizontal space out for now
-              ravenButton("+", "StateCreate(<nextID(env)>,<id>)")
+              ravenButton("Add State +", "StateCreate(<nextID(env)>,<id>)")
             ]
           )
         ]        
