@@ -1,14 +1,11 @@
 module lang::sml::model::Renderer
 
 import lang::raven::RavenNode;
-import lang::raven::Env;
-
-
-import lang::sml::control::Model;
+import lang::raven::Environment;
 import lang::sml::model::Model;
 import lang::sml::model::REPL;
 import lang::sml::model::Command;
-
+import lang::raven::helpers::Utils;
 import Map;
 import Set;
 
@@ -22,12 +19,14 @@ UUID nextID(Env env) {
 public RavenNode render(Env env) = 
   ravenTab("State Machine Language",
     [
-      ravenButton("Create Machine", "MachCreate(<nextID(env)>)")
-      //ravenOptionButton(convertSetToList(domain(env)))
+      ravenButton("Create Machine", "MachCreate(<nextID(env)>)"),
+      ravenOptionButton(convertSetToList(domain(env))),
+      ravenOptionButton(["Tree", "Table"]),
+      ravenButton("Open Tab", "OpenMachine(%mid)")
     ]
   );
 
-public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] states, list[UUID] instances), View view: tree()) =
+public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] states, list[UUID] instances), PossibleView view: tree()) =
   ravenTab("State Machine Language <mid>: <name>",
     [
       ravenVBox
@@ -88,8 +87,8 @@ public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, 
     [
       ravenButton("-", "TransDelete(<id>)"),
       ravenTextEdit(trigger, "TransSetTrigger(<id>, %text)"),
-      ravenLabel(" --\> ")
-     //ravenOptionButton([name | state(_, _, name, _) <- env[1]]) 
+      ravenLabel(" --\> "),
+      ravenOptionButton([name | state(_, _, name, _,_,_,_) <- env[1]])
       //FIXME: should be from the current machine these states are part of
     ]
   );

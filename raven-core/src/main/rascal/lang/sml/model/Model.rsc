@@ -1,6 +1,6 @@
 module lang::sml::model::Model
 
-import lang::raven::Env;
+import lang::raven::Environment;
 alias ID = str;
 
 data Model

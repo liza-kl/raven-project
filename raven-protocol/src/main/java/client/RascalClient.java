@@ -25,15 +25,14 @@ public class RascalClient implements Runnable {
         this.evaluator.addRascalSearchPath(URIUtil.rootLocation("std"));
         this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","", "/Users/ekletsko/raven-project/raven-protocol/src/main/resources/rascal-0.33.0.jar" ));
         this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","","/Users/ekletsko/raven-project/raven-core/src/main/rascal"));
-        this.evaluator.doImport(null, "Main");
+        this.evaluator.doImport(null, "lang::raven::Core");
     }
 
     public void callDispatcher(String arg) {
         System.out.println("this values"+this.values);
         IString callback = this.values.string(arg);
-        this.evaluator.call(null, "Main", "dispatch", callback);
+        this.evaluator.call(null, "lang::raven::Core", "dispatch", callback);
     }
-
 
     // connect to server
     public void connect() {

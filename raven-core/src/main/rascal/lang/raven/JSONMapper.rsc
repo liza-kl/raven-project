@@ -1,13 +1,16 @@
 module lang::raven::JSONMapper
-
 import lang::raven::RavenNode;
-import lang::raven::Env;
 import IO;
 import ApplicationConf;
 import String;
 import List;
 import Type;
 import Map;
+import util::UUID;
+
+public str JSON_CONTENT_START = "{";
+public str JSON_CONTENT = "";
+public str JSON_CONTENT_END = "}";
 
 public str toString(x) = rvn_print(x);
 str rvn_print(int number) = "<number>";
@@ -59,7 +62,7 @@ str rvn_print(RavenNode nodeName:ravenNode2D(str nodeID, list[RavenNode] childre
 str rvn_print(list[RavenNode] children) = "
 '<for(RavenNode child <- children){>
 '{
-'   <rvn_print(child)>}<if(!(indexOf(children,child) == size(children) - 1)){>,
+'   <rvn_print(child)>}<if(!(indexOf(children,child) == size(children) - 1) && !(List::last(children) == child)){>,
 '<}>
 <}>
 ";
@@ -280,10 +283,8 @@ return tree;
 }
 
 public void genJSON(RavenNode tree) {
-
     //RavenNode updatedTree = appendTabContainer(tree);
     mapNodesToJSON(tree);
-
     writeFile(JSON_TREE_FILE, JSON_CONTENT_START + JSON_CONTENT + JSON_CONTENT_END);
     JSON_CONTENT = "";
 }

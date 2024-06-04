@@ -25,7 +25,7 @@ class ServerReceiver implements ReceiveCallback {
         this.evaluator.addRascalSearchPath(URIUtil.rootLocation("std"));
         this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","", "/Users/ekletsko/raven-project/raven-protocol/src/main/resources/rascal-0.33.0.jar" ));
         this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","","/Users/ekletsko/raven-project/raven-core/src/main/rascal"));
-        this.evaluator.doImport(null, "Main");
+        this.evaluator.doImport(null, "lang::raven::Core");
     }
 
     public static synchronized ServerReceiver getInstance(PrintWriter output,IValueFactory values) {
@@ -63,7 +63,7 @@ class ServerReceiver implements ReceiveCallback {
         /* This tells the server to call a Rascal callback */
         else if (messageType.equals("CALLBACK")) {
             IString callback = this.values.string(content); // Also includes arguments
-            this.evaluator.call(null, "Main", "dispatch", callback);
+            this.evaluator.call(null, "lang::raven::Core", "dispatch", callback);
         }
 
         else {

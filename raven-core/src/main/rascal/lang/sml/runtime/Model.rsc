@@ -1,6 +1,6 @@
 module lang::sml::runtime::Model
 
-import lang::raven::Env;
+import lang::raven::Environment; 
 
 data Model
   = machInst(UUID id,    //machine instance id

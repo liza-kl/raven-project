@@ -1,4 +1,4 @@
-module Helpers::Setup
+module lang::raven::helpers::Setup
 import ApplicationConf;
 import util::ShellExec;
 /** 

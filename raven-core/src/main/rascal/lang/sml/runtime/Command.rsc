@@ -1,6 +1,6 @@
 module lang::sml::runtime::Command
 
-import lang::raven::Env;
+import lang::raven::Environment;
 
 data Command
   = MachInstCreate(UUID miid, UUID mid)      //creates an instance of a machine (user action)

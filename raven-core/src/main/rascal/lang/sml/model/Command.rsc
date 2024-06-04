@@ -1,6 +1,6 @@
 module lang::sml::model::Command
 
-import lang::raven::Env;
+import lang::raven::Environment;
 
 //Sequential Command Language
 public data Command

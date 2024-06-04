@@ -5,7 +5,7 @@ import lang::sml::runtime::Model;
 import lang::sml::model::Model;
 import lang::sml::model::REPL;
 import lang::sml::model::Command;
-import lang::raven::Env;
+import lang::raven::Environment; 
 
 import Map;
 import Set;

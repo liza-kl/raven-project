@@ -2,7 +2,7 @@ module lang::sml::runtime::PrettyPrinter
 
 import lang::sml::model::Model;
 import lang::sml::runtime::Model;
-import lang::raven::Env;
+import lang::raven::Environment; 
 import Map;
 
 public str print(Env env, machInst(UUID miid, UUID mid, UUID cur,  map[UUID sid, UUID siid] sis)) =
