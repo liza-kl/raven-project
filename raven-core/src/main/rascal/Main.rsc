@@ -52,7 +52,7 @@ void main() {
     // startServer();
     // genTree(view);
     // Helpers::Server::send("THEME_INIT:" + readFile(JSON_STYLING_FILE));
-    genJSON(render(ENV));
+    genJSON(appendTabContainer(render(ENV)));
     Helpers::Server::send("VIEW_UPDATE:" + readFile(JSON_TREE_FILE));
 }
 
