@@ -1,4 +1,4 @@
-module Helpers::Server
+module lang::raven::helpers::Server
 
 /** 
 * A module for calling functions from the raven-protocol package in this project

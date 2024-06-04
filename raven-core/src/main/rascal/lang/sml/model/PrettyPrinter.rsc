@@ -1,7 +1,7 @@
 module lang::sml::model::PrettyPrinter
 
 import lang::sml::model::Model;
-import lang::raven::Env;
+import lang::raven::Environment;
 
 public str print(Env env, Model m: mach(UUID id, str name, list[UUID] states, list[UUID] instanes)) = 
   "machine <name>

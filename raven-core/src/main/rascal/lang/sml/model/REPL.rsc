@@ -1,6 +1,6 @@
 module lang::sml::model::REPL
 
-import lang::raven::Env;
+import lang::raven::Environment; 
 
 import lang::sml::model::Model;
 import lang::sml::model::Command;
@@ -10,7 +10,7 @@ import lang::sml::runtime::Command;
 import lang::sml::runtime::REPL;
 
 //import lang::sml::model::Renderer;
-//import Helpers::Server;
+//import lang::raven::helpers::Server;
 //import Main;
 //import Interpreter::RavenNode;
 //import lang::sml::control::Command;

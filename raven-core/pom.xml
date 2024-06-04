@@ -54,7 +54,6 @@
 
   <build>
     <plugins>
-    <!-- https://mvnrepository.com/artifact/org.jetbrains.kotlin.native/org.jetbrains.kotlin.native.gradle.plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>

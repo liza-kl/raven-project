@@ -1,7 +1,7 @@
 module lang::Main
 
 import IO;
-import lang::raven::Env;
+import lang::raven::Environment;w
 
 import lang::sml::model::Model;
 import lang::sml::model::Command;
@@ -14,8 +14,8 @@ import lang::sml::runtime::Command;
 import lang::sml::runtime::REPL;
 import lang::sml::runtime::PrettyPrinter;
 
+public Env env = (0: meta(0));
 void main() {
-  Env env = (0: meta(0));
 
   <env, mid> = env_getNextId(env);
   env = eval(env, MachCreate(mid));
