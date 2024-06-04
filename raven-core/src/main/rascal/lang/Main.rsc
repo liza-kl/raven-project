@@ -1,7 +1,7 @@
 module lang::Main
 
 import IO;
-import lang::raven::Environment;w
+import lang::raven::Environment;
 
 import lang::sml::model::Model;
 import lang::sml::model::Command;
