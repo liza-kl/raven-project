@@ -5,7 +5,7 @@ import java.io.*;
 
 import io.usethesource.vallang.*;
 import io.usethesource.vallang.impl.persistent.ValueFactory;
-
+import io.usethesource.vallang.IValueFactory;
 import static org.rascalmpl.values.ValueFactoryFactory.getValueFactory;
 
 public class Server extends Thread {

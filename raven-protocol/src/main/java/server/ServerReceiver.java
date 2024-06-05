@@ -6,7 +6,9 @@ import org.rascalmpl.interpreter.Evaluator;
 import org.rascalmpl.interpreter.env.GlobalEnvironment;
 import org.rascalmpl.interpreter.env.ModuleEnvironment;
 import org.rascalmpl.uri.URIUtil;
+import java.io.File;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 class ServerReceiver implements ReceiveCallback {
@@ -21,9 +23,11 @@ class ServerReceiver implements ReceiveCallback {
     ServerReceiver(PrintWriter output, IValueFactory values) {
         this.output = output;
         this.values = values;
+        String srcFolder = new File("src/main/resources/rascal-0.33.0.jar").getAbsolutePath();
+        String rascalProjectFolder = new File(".").getAbsolutePath().replace("raven-protocol/", "raven-core/src/main/rascal").replace(".", "");
         this.evaluator = new Evaluator(values, System.in, System.err, System.out, top, heap);
         this.evaluator.addRascalSearchPath(URIUtil.rootLocation("std"));
-        this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","", "/Users/ekletsko/raven-project/raven-protocol/src/main/resources/rascal-0.33.0.jar" ));
+        this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","", srcFolder ));
         this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","","/Users/ekletsko/raven-project/raven-core/src/main/rascal"));
         this.evaluator.doImport(null, "lang::raven::Core");
     }
