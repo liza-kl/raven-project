@@ -20,8 +20,8 @@ run.server:
 	java -jar ../raven-protocol/target/raven-protocol-1.0-SNAPSHOT.jar
 
 run:
-	tmux new-session -d -s raven-session -n "Java" "java -jar ../raven-protocol/target/raven-protocol-1.0-SNAPSHOT.jar" \; \
-		new-window -n "Godot" "$(godot)"
+	tmux new-session -d -s raven-session -n "Java" java -jar ../raven-protocol/target/raven-protocol-1.0-SNAPSHOT.jar \; \
+		new-window -n "Godot" $(godot)
 
 stop:
 	tmux send-keys -t raven-session C-c
