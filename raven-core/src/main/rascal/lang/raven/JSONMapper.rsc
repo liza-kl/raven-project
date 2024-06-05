@@ -26,20 +26,10 @@ str rvn_print(RavenNode nodeName: empty()) =
 str rvn_print(RavenNode nodeName: ravenLabel( str text)) =
     "\"Label\": {
     '   \"id\": \"<uuidi()>\",
-    '   \"text\": <rvn_print(text)>,
-    '   \"xPosition\": 0,
-    '   \"yPosition\": 0
+    '   \"text\": <rvn_print(text)>
     '}  ";
    
 
-str rvn_print(RavenNode nodeName: ravenLabel(str nodeID , str text, int xPosition, int yPosition)) =
-    "\"Label\": {
-    '   \"id\": <rvn_print(nodeID)>,
-    '   \"text\": <rvn_print(text)>,
-    '   \"xPosition\": <rvn_print(xPosition)>,
-    '   \"yPosition\": <rvn_print(yPosition)>
-    '}  ";
-   
 str rvn_print(RavenNode nodeName:ravenNode2D(str nodeID, list[RavenNode] children,true)) = 
     "\"id\": <rvn_print(nodeID)><if(children!=[]){>,
     '   \"children\":
@@ -99,16 +89,12 @@ str rvn_print(RavenNode nodeName:ravenTextEdit(str content, str callback)) =
 // BUTTONS 
 str rvn_print(RavenNode nodeName:ravenButton(str nodeID,
                                             str buttonText,
-                                            str callback,
-                                            int xPosition,
-                                            int yPosition)) = 
+                                            str callback)) = 
     "\"Button\":
     '{
     '   \"id\": \"<nodeID>\",
     '   \"text\": \"<buttonText>\",
-    '   \"callback\": \"<callback>\",
-    '   \"xPosition\": \"<xPosition>\",
-    '   \"yPosition\": \"<yPosition>\"
+    '   \"callback\": \"<callback>\"
     '}";
 
 /* TODO How to deal with the x y position if they are not set */
@@ -119,9 +105,7 @@ str rvn_print(RavenNode nodeName:ravenButton(str nodeID,
     '{
     '   \"id\": \"<nodeID>\",
     '   \"text\": \"<buttonText>\",
-    '   \"callback\": \"<callback>\",
-    '   \"xPosition\": \"0\",
-    '   \"yPosition\": \"0\"
+    '   \"callback\": \"<callback>\"
     '}";
 
 str rvn_print(RavenNode nodeName:ravenButton(
@@ -131,9 +115,7 @@ str rvn_print(RavenNode nodeName:ravenButton(
     '{
     '   \"id\": \"<uuidi()>\",
     '   \"text\": \"<buttonText>\",
-    '   \"callback\": \"<callback>\",
-    '   \"xPosition\": \"0\",
-    '   \"yPosition\": \"0\"
+    '   \"callback\": \"<callback>\"
     '}";
 
 // BUTTONS 
@@ -252,6 +234,18 @@ str rvn_print(RavenNode nodeName:ravenOptionButton(list[str] options)) =
     '<}> 
     '}";
 
+// OPTION BUTTON + CALLBACK 
+str rvn_print(RavenNode nodeName:ravenOptionButton(list[str] options, str callback)) =
+ "\"OptionButton\":
+    '{
+    '   \"id\": \"<uuidi()>\",
+    '   \"callback\": \"<callback>\" 
+    <if(options!=[]){>
+    '   \"options\":
+    '[<rvn_print(options)>
+    ']
+    '<}> 
+    '}";
 
 // MISC Functions
 RavenNode mapNodesToJSON(RavenNode tree)  {

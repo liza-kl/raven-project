@@ -13,8 +13,6 @@ public class ButtonFactory implements RavenNodeFactory {
                 attrMap.get("id"),
                 mainRavenNode,
                 attrMap.get("text"),
-                Integer.parseInt((String) attrMap.get("xPosition")),
-                Integer.parseInt((String) attrMap.get("yPosition")),
                 attrMap.get("callback"),
                 attrMap.get("styles") == null ? null : attrMap.get("styles"));
     }
