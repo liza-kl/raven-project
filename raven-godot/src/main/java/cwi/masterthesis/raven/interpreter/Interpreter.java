@@ -33,7 +33,6 @@ public class Interpreter extends Node implements Visitor {
 
         button.setText(ravenButton.getLabel());
         button.setName(StringNameUtils.asStringName(ravenButton.getNodeID()));
-        button.setPosition(new Vector2(ravenButton.getXCoordinate(), ravenButton.getYCoordinate()));
         button.set(StringNameUtils.asStringName("btn_id"), ravenButton.getNodeID());
         button.set(StringNameUtils.asStringName("btn_callback"), ravenButton.getCallback());
         button.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/ButtonSendMessage.gdj"));
@@ -58,8 +57,6 @@ public class Interpreter extends Node implements Visitor {
 
         label.setName(StringNameUtils.asStringName(ravenLabel.getNodeID()));
         label.setText(ravenLabel.getLabel());
-        label.setPosition(new Vector2(ravenLabel.getXCoordinate(), ravenLabel.getYCoordinate()));
-
         ravenLabel.getParentNode().addChild(label);
         if (ravenLabel.getStyles() != null) {
 
