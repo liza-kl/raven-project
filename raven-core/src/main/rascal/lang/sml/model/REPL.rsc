@@ -13,7 +13,7 @@ import lang::sml::runtime::REPL;
 //import lang::raven::helpers::Server;
 //import Main;
 //import Interpreter::RavenNode;
-//import lang::sml::control::Command;
+//import lang::sml::control::ViewCommand;
 //import ApplicationConf;
 //import IO;
 //import Map;
