@@ -1,7 +1,7 @@
 package cwi.masterthesis.raven.scripts;
 
 import cwi.masterthesis.raven.application.client.NativeClient;
-import godot.OptionButton;
+import cwi.masterthesis.raven.interpreter.nodes.control.RavenOptionButton;
 import godot.annotation.RegisterClass;
 import godot.annotation.RegisterFunction;
 import godot.annotation.RegisterSignal;
@@ -11,21 +11,36 @@ import godot.signals.Signal;
 import godot.signals.SignalProvider;
 
 @RegisterClass
-public class OptionButtonScript extends OptionButton {
+public class OptionButtonScript extends RavenOptionButton {
     @RegisterSignal
-    public Signal optionButtonSendMessage = SignalProvider.signal(this, "text_send_message");
+    public Signal itemSelected = SignalProvider.signal(this, "item_selected");
     @RegisterSignal
-    public Signal optionButtonInit = SignalProvider.signal(this, "text_init");
+    public Signal optionInit = SignalProvider.signal(this, "option_init");
 
     @RegisterFunction
-    public void callbackTextEdit() {
+    public void callbackOptionSelected(int num) {
+        String callback = (String) this.get(StringNameUtils.asStringName("node_callback"));
+
+        // TODO how to deal with numbers?
+        //String content = "\"" + this.getText() + "\"";
+        String content = this.getText();
+
+        assert callback != null;
+        // TODO Assuming callback has only one ^% parameter for now
+        // Rascal is accepting strings and then converting to custom types.
+        String alteredCallback = callback.replaceAll("%(\\w+)", content.replaceAll("\"",  ""));
+
+
         NativeClient.getInstance(
                 "0.0.0.0",
                 23000,
-                getTree().getRoot().getChild(0)).send((String) this.get(StringNameUtils.asStringName("node_callback")));
+                getTree().getRoot().getChild(0))
+                .send("CALLBACK:" + alteredCallback);
     }
+
     @RegisterFunction
-    public void callbackOptionButtonInit(String callback) {
+    public void callbackOptionInit(String callback) {
+        System.out.println("init is called, the callback is " + callback);
         this.set(StringNameUtils.asStringName("node_callback"),callback);
         this.notifyPropertyListChanged();
     }
@@ -33,14 +48,14 @@ public class OptionButtonScript extends OptionButton {
 
     @RegisterFunction
     public void _ready() {
-        System.out.println("TextEdit is connected to script");
+        System.out.println("OptionButton is connected to script");
         connect(
-                StringNameUtils.asStringName("text_send_message"),
-                new Callable(this, StringNameUtils.asStringName("callback_text_edit"))
+                StringNameUtils.asStringName("item_selected"),
+                new Callable(this, StringNameUtils.asStringName("callback_option_selected"))
         );
         connect(
-                StringNameUtils.asStringName("text_init"),
-                new Callable(this, StringNameUtils.asStringName("callback_text_init"))
+                StringNameUtils.asStringName("option_init"),
+                new Callable(this, StringNameUtils.asStringName("callback_option_init"))
         );
     }
 

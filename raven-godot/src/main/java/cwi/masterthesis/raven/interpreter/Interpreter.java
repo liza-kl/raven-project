@@ -107,6 +107,21 @@ public class Interpreter extends Node implements Visitor {
     }
 
     @Override
+    public void visitOptionButton(RavenOptionButton ravenOptionButton) {
+        System.out.println("Creating OptionButton");
+
+        ravenOptionButton.setTheme(Main.mainTheme);
+
+        ravenOptionButton.setName(StringNameUtils.asStringName(ravenOptionButton.getNodeID()));
+        ravenOptionButton.set(StringNameUtils.asStringName("node_callback"), ravenOptionButton.getCallback());
+        ravenOptionButton.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/OptionButtonScript.gdj"));
+        ravenOptionButton.getOptions().forEach(ravenOptionButton::addItem);
+        ravenOptionButton.getParentNode().addChild(ravenOptionButton);
+        ravenOptionButton.emitSignal(StringNameUtils.asStringName("option_init"), ravenOptionButton.getCallback());
+    }
+
+
+    @Override
     public void visitHBoxContainer(RavenHBoxContainer ravenHBoxContainer) {
         System.out.println("Creating HBoxContainer");
         // TODO in the end one could provide custom scenes? In a Configuration?
@@ -170,20 +185,10 @@ public class Interpreter extends Node implements Visitor {
         tabContainer.setTheme(Main.mainTheme);
         tabContainer.setClipTabs(false);
         tabContainer.setName(StringNameUtils.asStringName(ravenTabContainer.getNodeID()));
+
         Objects.requireNonNull(ravenTabContainer.getParentNode()).addChild(tabContainer);
     }
 
-    @Override
-    public void visitOptionButton(RavenOptionButton ravenOptionButton) {
-        System.out.println("Creating OptionButton");
-
-        OptionButton optionButton = new OptionButton();
-        optionButton.setTheme(Main.mainTheme);
-
-        optionButton.setName(StringNameUtils.asStringName(ravenOptionButton.getNodeID()));
-        ravenOptionButton.getOptions().forEach(optionButton::addItem);
-        ravenOptionButton.getParentNode().addChild(optionButton);
-    }
 
     public static void styleOverrideTraverser(String theme, Control node) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
