@@ -15,10 +15,12 @@ import lang::sml::model::Command;
 import lang::sml::model::REPL;
 import lang::sml::model::Model;
 import lang::sml::model::Renderer;
+import lang::Main;
 
 public void viewControl(Command incomingCallback: MachCreate(UUID mid)) {
     IO::println("Calling MachCreate");
-    
+    lang::Main::env = eval(env, MachCreate(mid));
+    lang::raven::JSONMapper::genJSON(appendTabContainer(render(env)));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
@@ -46,11 +48,6 @@ public void viewControl(Command incomingCallback: StateDelete(UUID sid)) {
     println("StateDelete(UUID sid)");
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
-
-// public void viewControl(Command incomingCallback: TransCreate(UUID tid, UUID src)) {
-//     println("TransCreate(UUID tid, UUID src)");
-//     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
-// }
 
 public void viewControl(Command incomingCallback: TransCreate(UUID tid, UUID src, UUID tgt)) {
     println("TransCreate(UUID tid, UUID src, UUID tgt))");

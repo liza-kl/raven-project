@@ -16,6 +16,31 @@ public str toString(x) = rvn_print(x);
 str rvn_print(int number) = "<number>";
 str rvn_print(str string) =  "\"<string>\"";
 str rvn_print(list[RavenNode] children: []) = "";
+str rvn_print(list[Setting] settings: []) = "";
+
+str rvn_print(list[Setting] settings) = 
+"\"styles\": [
+'<for(Setting child <- settings){>
+'{
+'   <rvn_print(child)>}<if(!(indexOf(settings,child) == size(settings) - 1) && !(List::last(settings) == child)){>,
+'<}>
+<}>
+    ']  ";
+
+str rvn_print(list[tuple[str property, value val]] styles) = "
+'<for(style <- styles){>
+'   \"<style.property>\": \"<style.val>\"<if(!(indexOf(styles,style) == size(styles) - 1) && !(List::last(styles) == style)){>,
+'<}>
+<}>
+"; 
+
+str rvn_print(Setting setting: setting(str property, list[tuple[str property, value val]] styles)) = 
+"\"<property>\": {
+    '   <rvn_print(styles)>
+    '}  ";
+
+
+
 
 // EMPTY
 str rvn_print(RavenNode nodeName: empty()) =
@@ -23,10 +48,22 @@ str rvn_print(RavenNode nodeName: empty()) =
    
 
 // LABEL
-str rvn_print(RavenNode nodeName: ravenLabel( str text)) =
+// TODO why error expected 1 arg but got two?
+str rvn_print(RavenNode nodeName: ravenLabel(str text)) =
     "\"Label\": {
     '   \"id\": \"<uuidi()>\",
     '   \"text\": <rvn_print(text)>
+    '   
+    '}  ";
+   
+// LABEL
+// TODO why error expected 1 arg but got two?
+str rvn_print(RavenNode nodeName: ravenLabel(str text, InlineStyleSetting styles)) =
+    "\"Label\": {
+    '   \"id\": \"<uuidi()>\",
+    '   \"text\": <rvn_print(text)>,
+    ' <rvn_print(styles)>
+    '   
     '}  ";
    
 
