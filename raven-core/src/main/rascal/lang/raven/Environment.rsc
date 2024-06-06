@@ -1,6 +1,6 @@
 module lang::raven::Environment
 import Map;
-
+import lang::sml::control::AST;
 
 alias RavenNodeAttributes = list[value]; 
 alias RavenNodeName = str;
@@ -17,9 +17,7 @@ alias Env = map[UUID id, node n];
 * Asks for a next id, checks in t
 */ 
 data MetaEnv = meta(int nextId);
-data PossibleView = tree();
-alias ViewTuple = lrel[UUID,PossibleView]; // UUID is machine ID?
-data ViewEnv = view(list[ViewTuple] openViews);
+alias ViewEnv = list[ViewTab];
 
 private int META_ID = 0;
 private int VIEW_ENV_ID = 1;
@@ -31,9 +29,9 @@ public tuple[Env, UUID] env_getNextId(Env env) {
   return <env, nextId>;
 }
 
-public list[ViewTuple] env_getOpenTabs(Env env) {
+public list[ViewTab] env_getOpenTabs(Env env) {
   ViewEnv viewEnv = env_retrieve(env, #ViewEnv, VIEW_ENV_ID);
-  return viewEnv.openViews;
+  return viewEnv;
 }
 
 public &T env_retrieve(Env env, type[&T] t, UUID id) {

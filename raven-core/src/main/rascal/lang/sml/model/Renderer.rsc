@@ -19,6 +19,7 @@ UUID nextID(Env env) {
 public RavenNode render(Env env) = 
   ravenTab("State Machine Language",
     [
+      ravenLabel("State Machines Everywhere!", [setting("Color", [<"font_color", "LAVENDAR">])]),
       ravenButton("Create Machine", "MachCreate(<nextID(env)>)"),
       ravenOptionButton(convertSetToList(domain(env))),
       ravenOptionButton(["Tree", "Table"]),
@@ -26,7 +27,7 @@ public RavenNode render(Env env) =
     ]
   );
 
-public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] states, list[UUID] instances), PossibleView view: tree()) =
+public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] states, list[UUID] instances), "tree") =
   ravenTab("State Machine Language <mid>: <name>",
     [
       ravenVBox

@@ -18,8 +18,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
 
-import static cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.ColorStrategy.getColorByName;
-
 public class Interpreter extends Node implements Visitor {
     private static StylingStrategy strategy;
 
@@ -202,7 +200,7 @@ public class Interpreter extends Node implements Visitor {
                         strategy = new PrimitiveOverrideStrategy(node, entry.getKey(),entry.getValue());
                     }
                     if (themeprop.equals("Color")) {
-                        strategy = new ColorOverrideStrategy(node, entry.getKey(),getColorByName(entry.getValue().asText()));
+                        strategy = new ColorOverrideStrategy(node, entry.getKey(),entry.getValue().asText());
                     }
                     if (themeprop.equals("FontSize")) {
                         strategy = new FontSizeOverrideStrategy(node, entry.getKey(),entry.getValue().asInt());

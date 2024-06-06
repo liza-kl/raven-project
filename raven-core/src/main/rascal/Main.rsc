@@ -12,14 +12,15 @@ import util::ShellExec;
 import IO;
 
 void main(/* Env env, RavenNode(Env env) renderFunction */) {
-  //RavenNode view = lang::sml::model::Renderer::render(lang::Main::env);
+  RavenNode view = lang::sml::model::Renderer::render(env);
+  genJSON(appendTabContainer(view));
   createProcess("make", workingDir=RAVEN_WORK_DIR, args = ["run"]);
 
   println("👋 Booted up, if you want to see the logs, please open up a terminal and 
   type in tmux a -t raven-session");
   println("🔥 To close everything, just type in stop()");
   // TODO block somehow until server is there.
-  init();
+ // init();
 }
 
 void init() {
