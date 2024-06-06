@@ -13,7 +13,8 @@ public class OptionButtonFactory implements RavenNodeFactory{
         return new RavenOptionButton(
                 node,
                 attrMap.get("id"),
-                attrMap.get("options"));
+                attrMap.get("options"),
+                attrMap.get("callback"));
 
     }
 

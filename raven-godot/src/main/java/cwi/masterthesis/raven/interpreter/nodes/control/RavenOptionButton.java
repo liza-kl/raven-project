@@ -3,16 +3,37 @@ package cwi.masterthesis.raven.interpreter.nodes.control;
 import cwi.masterthesis.raven.interpreter.Visitor;
 import cwi.masterthesis.raven.interpreter.nodes.RavenNode;
 import godot.Node;
+import godot.OptionButton;
+import godot.annotation.Export;
+import godot.annotation.RegisterClass;
+import godot.annotation.RegisterProperty;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class RavenOptionButton implements RavenNode {
-    private final Node parentNode;
-    private final String nodeID;
-    private final List<String> options;
+@RegisterClass
+public class RavenOptionButton extends OptionButton implements RavenNode {
+    private  Node parentNode;
+    private  String nodeID;
+    private  List<String> options;
+    private  String callback;
 
+    @Export
+    @RegisterProperty
+    public String nodeCallback;
+
+    public RavenOptionButton(Node parentNode, String nodeID, String options, String callback) {
+        this.parentNode = parentNode;
+        this.nodeID = nodeID;
+        this.options = convertStringToList(options);
+        this.callback = callback;
+        nodeCallback = callback;
+    }
+
+    public RavenOptionButton() {
+        super();
+    }
     private List<String> convertStringToList(String arr) {
 
         String cleaned = arr.replaceAll("^\\[", "").replaceAll("]$", "");
@@ -28,11 +49,6 @@ public class RavenOptionButton implements RavenNode {
         return arrayList;
     }
 
-    public RavenOptionButton(Node parentNode, String nodeID, String options) {
-        this.parentNode = parentNode;
-        this.nodeID = nodeID;
-        this.options = convertStringToList(options);
-    }
 
 
     @Override
@@ -56,4 +72,7 @@ public class RavenOptionButton implements RavenNode {
     }
 
 
+    public String getCallback() {
+        return callback;
+    }
 }

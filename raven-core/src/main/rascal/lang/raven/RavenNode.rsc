@@ -28,7 +28,8 @@ public data RavenNode =
             // Containers
             | ravenHBox( list[RavenNode] children) 
             | ravenVBox( list[RavenNode] children)
-            | ravenTab(str name, list[RavenNode] children)
+            | ravenTab(str nodeID, str name, list[RavenNode] children)
             | ravenTabContainer(list[RavenNode] children)
             // Needed for transition of nodes 
             | empty();
+

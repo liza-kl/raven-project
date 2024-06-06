@@ -1,9 +1,11 @@
 package cwi.masterthesis.raven;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import cwi.masterthesis.raven.application.client.ClientFactory;
 import cwi.masterthesis.raven.application.client.NativeClient;
@@ -115,7 +117,9 @@ public class Main extends Node {
     }
     @RegisterFunction
     public static void styleTraverser(String theme) throws JsonProcessingException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
-        ObjectMapper mapper = new ObjectMapper();
+        ObjectMapper mapper =  JsonMapper.builder()
+                .enable(JsonReadFeature.ALLOW_BACKSLASH_ESCAPING_ANY_CHARACTER)
+                .build();
         JsonNode elements = mapper.readTree(theme);
         for (JsonNode elem : elements) {
             String key = elem.fieldNames().next();
@@ -152,7 +156,9 @@ public class Main extends Node {
     @RegisterFunction
     public static void traverseJSON(String sceneTreeJSON, Node mainNode) {
         GD.INSTANCE.print("Traverse JSON is called");
-        ObjectMapper mapper = new ObjectMapper();
+        ObjectMapper mapper =  JsonMapper.builder()
+                .enable(JsonReadFeature.ALLOW_BACKSLASH_ESCAPING_ANY_CHARACTER)
+                .build();
         JsonNode rootNode;
         try {
             rootNode = mapper.readTree(sceneTreeJSON);

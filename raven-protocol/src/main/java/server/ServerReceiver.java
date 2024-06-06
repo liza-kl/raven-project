@@ -30,6 +30,8 @@ class ServerReceiver implements ReceiveCallback {
         this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","", srcFolder ));
         this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","","/Users/ekletsko/raven-project/raven-core/src/main/rascal"));
         this.evaluator.doImport(null, "lang::raven::Core");
+        this.evaluator.call(null, "lang::Main", "main");
+        this.evaluator.call(null, "lang::Main", "init");
     }
 
     public static synchronized ServerReceiver getInstance(PrintWriter output,IValueFactory values) {
