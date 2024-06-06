@@ -17,10 +17,10 @@ alias Env = map[UUID id, node n];
 * Asks for a next id, checks in t
 */ 
 data MetaEnv = meta(int nextId);
-alias ViewEnv = list[ViewTab];
 
+
+// Reserved Env within the Env?
 private int META_ID = 0;
-private int VIEW_ENV_ID = 1;
 
 public tuple[Env, UUID] env_getNextId(Env env) {
   MetaEnv me = env_retrieve(env, #MetaEnv, META_ID);
@@ -29,17 +29,13 @@ public tuple[Env, UUID] env_getNextId(Env env) {
   return <env, nextId>;
 }
 
-public list[ViewTab] env_getOpenTabs(Env env) {
-  ViewEnv viewEnv = env_retrieve(env, #ViewEnv, VIEW_ENV_ID);
-  return viewEnv;
-}
-
 public &T env_retrieve(Env env, type[&T] t, UUID id) {
   node n = env[id];
   if (&T r := n) return r;
   throw "Expected value of type <t>, found value <n>";
 }
 
+// Is it intended that 
 public Env env_store(Env env, UUID id, node n) {
   env[id] = n;
   return env;
