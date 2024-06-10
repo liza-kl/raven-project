@@ -79,7 +79,8 @@ public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] st
         //     ]
         //   )
         // ]        
-      )
+      ),
+    ravenVBox([]) // TODO will be fixed later with proper spacing.
     ]
   );
 
@@ -92,8 +93,9 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
         [
          // TODO rvnHorizontalSpace(40), leaving Horizontal space out for now   
          // TODO do we need the mid for the state??
-          ravenButton("Delete State", "StateDelete(<sid>)"),
-          ravenTextEdit(name, "StateSetName(<sid>, %text)")
+          ravenLabel("Edit State Name"),
+          ravenTextEdit(name, "StateSetName(<sid>, %text)"),
+          ravenButton("Delete State", "StateDelete(<sid>)")
         ]
       )
     ] + 
@@ -117,7 +119,7 @@ public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, 
       ravenButton("Delete Transition", "TransDelete(<id>)"),
       ravenTextEdit(trigger, "TransSetTrigger(<id>, %text)"),
       ravenLabel(" --\> "),
-      ravenOptionButton([name | elem <- env, state(_,_,name,_,_,_,_) := env[elem]])
+      ravenOptionButton([name | elem <- env, state(_,_,name,_,_,_,_) := env[elem]], "TransSetTarget(<id>, <tgt>)")
       //FIXME: should be from the current machine these states are part of
     ]
   );

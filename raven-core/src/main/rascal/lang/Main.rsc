@@ -48,6 +48,14 @@ UUID env_retrieveMIDfromSID(UUID sid2) {
   return [mid | elem <- env, state(sid,mid,_,_,_,_,_) := env[elem] && sid == sid2][0];
 }
 
+UUID env_retrieveMIDfromTID(UUID tid2) {
+  println("calling env_retrieveMIDfromTID");
+  // There can be only one machine per designated state.
+  // sid2 to avoid naming collisions.
+   return [env_retrieveMIDfromSID(src) | elem <- env, trans(tid, src,_, _) := env[elem] && tid == tid2][0];
+}
+
+
 void main() { 
 
   <env, mid> = env_getNextId(env);

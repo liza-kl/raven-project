@@ -90,6 +90,13 @@ public void viewControl(Command incomingCallback: StateDelete(UUID sid)) {
 public void viewControl(Command incomingCallback: TransCreate(UUID tid, UUID src, UUID tgt)) {
     println("TransCreate(UUID tid, UUID src, UUID tgt))");
     lang::Main::env = eval(env, TransCreate( tid,  src,  tgt));
+    // src is a state, so we can apply the same functions as before.
+
+    UUID mid = env_retrieveMIDfromSID(src);
+    list[int] vid = env_retrieveVIDfromMID(mid);
+    for (int v <- vid) {
+        lang::Main::env = eval(env,ViewTabSetMachine(v, mid));
+    }
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
@@ -97,6 +104,13 @@ public void viewControl(Command incomingCallback: TransCreate(UUID tid, UUID src
 public void viewControl(Command incomingCallback: TransCreateSource(UUID tid, UUID src)) {
     println("TransCreateSource(UUID tid, UUID src))");
     lang::Main::env = eval(env, TransCreateSource( tid,src));
+
+      UUID mid = env_retrieveMIDfromSID(src);
+    list[int] vid = env_retrieveVIDfromMID(mid);
+    for (int v <- vid) {
+        lang::Main::env = eval(env,ViewTabSetMachine(v, mid));
+    }
+
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
@@ -104,20 +118,38 @@ public void viewControl(Command incomingCallback: TransCreateSource(UUID tid, UU
 public void viewControl(Command incomingCallback: TransSetTarget(UUID tid, UUID tgt)) {
     println("TransCreate(UUID tid, UUID src, UUID tgt))");
     lang::Main::env = eval(env, TransSetTarget( tid,tgt));
+
+     // tgt is a state, so we can apply the same functions as before.
+
+    UUID mid = env_retrieveMIDfromSID(tgt);
+    list[int] vid = env_retrieveVIDfromMID(mid);
+    for (int v <- vid) {
+        lang::Main::env = eval(env,ViewTabSetMachine(v, mid));
+    }
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: TransSetTrigger(UUID tid, ID trigger)) {
-    println("TransCreate(UUID tid, UUID src, UUID tgt))");
+    println("TransSetTrigger(UUID tid, UUID src, UUID tgt))");
+    UUID mid = env_retrieveMIDfromTID(tid);
     lang::Main::env = eval(env, TransSetTrigger( tid,trigger));
+     list[int] vid = env_retrieveVIDfromMID(mid);
+    for (int v <- vid) {
+        lang::Main::env = eval(env,ViewTabSetMachine(v, mid));
+    }
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: TransDelete(UUID tid)) {
-    println("TransCreate(UUID tid, UUID src, UUID tgt))");
+    println("TransDelete(UUID tid)");
+    UUID mid = env_retrieveMIDfromTID(tid);
     lang::Main::env = eval(env, TransDelete(tid));
+    list[int] vid = env_retrieveVIDfromMID(mid);
+    for (int v <- vid) {
+        lang::Main::env = eval(env,ViewTabSetMachine(v, mid));
+    }
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
