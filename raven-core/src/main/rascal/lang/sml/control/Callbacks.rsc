@@ -24,6 +24,8 @@ import lang::sml::control::ViewCommand;
 public void viewControl(Command incomingCallback: MachCreate(UUID mid)) {
     IO::println("Calling MachCreate");
     lang::Main::env = eval(env, MachCreate(mid));
+
+    list[int] vid = env_retrieveVIDfromMID(mid);
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
@@ -52,7 +54,7 @@ public void viewControl(Command incomingCallback: StateCreate(UUID sid, UUID mid
     lang::Main::env = eval(env, StateCreate(sid,mid));
     list[int] vid = env_retrieveVIDfromMID(mid);
     for (int v <- vid) {
-        lang::Main::env == eval(env,ViewTabSetMachine(v, mid));
+        lang::Main::env = eval(env,ViewTabSetMachine(v, mid));
     }
 
     lang::raven::JSONMapper::genJSON(render(env));
@@ -62,13 +64,25 @@ public void viewControl(Command incomingCallback: StateCreate(UUID sid, UUID mid
 public void viewControl(Command incomingCallback: StateSetName(UUID sid, ID name)) {
     println("Calling StateSetName");
     lang::Main::env = eval(env, StateSetName(sid,name));
+
+    UUID mid = env_retrieveMIDfromSID(sid);
+    list[int] vid = env_retrieveVIDfromMID(mid);
+    for (int v <- vid) {
+        lang::Main::env = eval(env,ViewTabSetMachine(v, mid));
+    }
+
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: StateDelete(UUID sid)) {
     println("StateDelete(UUID sid)");
+    UUID mid = env_retrieveMIDfromSID(sid);
     lang::Main::env = eval(env, StateDelete(sid));
+    list[int] vid = env_retrieveVIDfromMID(mid);
+    for (int v <- vid) {
+        lang::Main::env = eval(env,ViewTabSetMachine(v, mid));
+    }
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }

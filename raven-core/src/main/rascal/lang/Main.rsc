@@ -40,6 +40,14 @@ list[UUID] env_retrieveVIDfromMID(UUID mid) {
     list[UUID] result = [view | view <- viewMID.mappings, viewMID.mappings[view] == mid];
     return result;
 }
+
+UUID env_retrieveMIDfromSID(UUID sid2) {
+  println("calling env_retrieveMIDfromSID");
+  // There can be only one machine per designated state.
+  // sid2 to avoid naming collisions.
+  return [mid | elem <- env, state(sid,mid,_,_,_,_,_) := env[elem] && sid == sid2][0];
+}
+
 void main() { 
 
   <env, mid> = env_getNextId(env);
