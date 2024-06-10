@@ -117,6 +117,14 @@ public class Interpreter extends Node implements Visitor {
         ravenOptionButton.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/OptionButtonScript.gdj"));
         ravenOptionButton.getOptions().forEach(ravenOptionButton::addItem);
         ravenOptionButton.getParentNode().addChild(ravenOptionButton);
+        if (ravenOptionButton.getStyles() != null) {
+
+            try {
+                styleOverrideTraverser(ravenOptionButton.getStyles(),ravenOptionButton);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        }
         ravenOptionButton.emitSignal(StringNameUtils.asStringName("option_init"), ravenOptionButton.getCallback());
     }
 
@@ -202,7 +210,7 @@ public class Interpreter extends Node implements Visitor {
                     Map.Entry<String, JsonNode> entry = fields.next();
 
                     if (themeprop.equals("Primitive")) {
-                        strategy = new PrimitiveOverrideStrategy(node, entry.getKey(),entry.getValue());
+                        strategy = new PrimitiveOverrideStrategy(node, entry.getKey(),entry.getValue().asText());
                     }
                     if (themeprop.equals("Color")) {
                         strategy = new ColorOverrideStrategy(node, entry.getKey(),entry.getValue().asText());

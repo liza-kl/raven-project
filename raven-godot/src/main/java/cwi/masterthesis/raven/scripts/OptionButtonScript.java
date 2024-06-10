@@ -17,6 +17,10 @@ public class OptionButtonScript extends RavenOptionButton {
     @RegisterSignal
     public Signal optionInit = SignalProvider.signal(this, "option_init");
 
+    public OptionButtonScript() {
+        super();
+    }
+
     @RegisterFunction
     public void callbackOptionSelected(int num) {
         String callback = (String) this.get(StringNameUtils.asStringName("node_callback"));
