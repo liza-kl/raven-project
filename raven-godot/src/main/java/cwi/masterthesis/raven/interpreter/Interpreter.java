@@ -96,7 +96,7 @@ public class Interpreter extends Node implements Visitor {
     @Override
     public void visitTextEdit(RavenTextEdit ravenTextEditNode) {
         System.out.println("Creating TextEdit Node");
-        ravenTextEditNode.setCustomMinimumSize(new Vector2(300,200));
+       ravenTextEditNode.setCustomMinimumSize(new Vector2(200,100));
         ravenTextEditNode.setTheme(Main.mainTheme);
         ravenTextEditNode.setName(StringNameUtils.asStringName(ravenTextEditNode.getNodeID()));
         ravenTextEditNode.setText(ravenTextEditNode.getTextContent());

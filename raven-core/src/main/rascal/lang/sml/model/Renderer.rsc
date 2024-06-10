@@ -36,7 +36,9 @@ public RavenNode render(Env env) =
       ]),
       ravenVBox([
       ravenLabel("Available Machines", [setting("Color", [<"font_color", "LAVENDER">])])
-      ] + [ ravenLabel(machine) | machine <- convertSetToList(domain(env))])
+      ] //+ [ ravenLabel(machine) | machine <- convertSetToList(domain(env))] 
+      + [ravenLabel(toString(mid)) | elem <- env, mach( mid, _, _, _) := env[elem]]
+      )
      // ravenOptionButton(convertSetToList(domain(env)), "InputCreate(%machID=selected)"),
     //  ravenOptionButton(["tree"], "InputCreate(%view=selected)"),
     ])]
@@ -92,7 +94,7 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
         [
          // TODO rvnHorizontalSpace(40), leaving Horizontal space out for now   
           ravenButton("Delete State", "StateDelete(<sid>,<mid>)"),
-          ravenTextEdit(name, "StateSetName(<sid>, %text")
+          ravenTextEdit(name, "StateSetName(<sid>, %text)")
         ]
       )
     ] + 
@@ -104,6 +106,7 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
         // TODO rvnHorizontalSpace(40),  leaving Horizontal space out for now
           ravenButton("Create Trans Source", "TransCreateSource(<nextID(env)>,<sid>)")
         ]
+          
       )
     ]
   );
@@ -115,7 +118,7 @@ public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, 
       ravenButton("Delete Transition", "TransDelete(<id>)"),
       ravenTextEdit(trigger, "TransSetTrigger(<id>, %text)"),
       ravenLabel(" --\> "),
-      ravenOptionButton([name | state(_, _, name, _,_,_,_) <- env[1]])
+      ravenOptionButton([name | elem <- env, state(_,_,name,_,_,_,_) := env[elem]])
       //FIXME: should be from the current machine these states are part of
     ]
   );

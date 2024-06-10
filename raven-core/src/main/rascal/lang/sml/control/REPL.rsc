@@ -22,7 +22,7 @@ public Env eval(Env env, Command cmd: ViewTabCreate(UUID vid)) {
             [
                 lang::raven::RavenNode::ravenButton("Delete Tab", "ViewTabDelete(<vid>)"),
                 lang::raven::RavenNode::ravenLabel("Select Machine"),
-                lang::raven::RavenNode::ravenOptionButton(convertSetToList(domain(env)),
+                lang::raven::RavenNode::ravenOptionButton( [toString(mid) | elem <- env, mach( mid, _, _, _) := env[elem]],
                 "ViewTabSetMachine(<vid>,%machine)") 
             ]
         )
@@ -34,7 +34,17 @@ public Env eval(Env env, Command cmd: ViewTabCreate(UUID vid)) {
 
 public Env eval(Env env, Command cmd: ViewTabDelete(UUID vid)) {
     lang::Main::ViewEnv viewEnv = env_retrieve(env, #lang::Main::ViewEnv, 1);
+    // Removing only the view part
     viewEnv.currentTabs = delete(viewEnv.currentTabs, vid);
+    // Removing the mapping part.
+    ViewMIDMap viewMID2 = env_retrieve(env, #ViewMIDMap, 3);
+
+    for (v <- viewMID2.mappings ) {
+       if(vid == v) {
+       viewMID2.mappings = delete(viewMID2.mappings, vid); 
+       }
+    }
+    env = env_store(env, 3, viewMID(viewMID2.mappings));
     env = env_store(env, 1, view(viewEnv.currentTabs));
     return env;
 }
@@ -57,8 +67,8 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
 
 
     RavenNode machineContent = render(env,machine,"tree"); 
-    viewEnv.currentTabs[vid].content[1] =viewEnv.currentTabs[vid].content[1] + [machineContent];  
-    viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"Tab <mid>",
+    //viewEnv.currentTabs[vid].content[1] = viewEnv.currentTabs[vid].content[1] + [machineContent];  
+    viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"Tab <vid>",
     [
         ravenVBox(
             [
@@ -66,7 +76,8 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
                 lang::raven::RavenNode::ravenButton("Delete Tab", "ViewTabDelete(<vid>)"),
                 lang::raven::RavenNode::ravenLabel("Current Machine: <mid>"),
                 lang::raven::RavenNode::ravenLabel("Select New Machine"),
-                lang::raven::RavenNode::ravenOptionButton(convertSetToList(domain(env)),
+                lang::raven::RavenNode::ravenOptionButton(
+                [toString(mid) | elem <- env, mach( mid, _, _, _) := env[elem]],
                 "ViewTabSetMachine(<vid>,%machine)"),
                 ravenLabel("Machine Name"),
                 ravenTextEdit(machine.name, "MachSetName(<mid>, %text)"),
