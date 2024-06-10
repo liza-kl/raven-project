@@ -55,6 +55,11 @@ UUID env_retrieveMIDfromTID(UUID tid2) {
    return [env_retrieveMIDfromSID(src) | elem <- env, trans(tid, src,_, _) := env[elem] && tid == tid2][0];
 }
 
+UUID env_retrieveSIDfromName(str name2) {
+  println("calling env_retrieveSIDfromName"); 
+  return [sid | elem <- env, state(sid,_,name,_,_,_,_) := env[elem] && name == name2][0];
+}
+
 
 void main() { 
 

@@ -94,13 +94,22 @@ str rvn_print(list[RavenNode] children) = "
 <}>
 ";
 
-str rvn_print(list[str] options) = "
-'<for(str option <- options){>
-'
-'   <rvn_print(option)><if(!(indexOf(options,option) == size(options) - 1)){>,
-'<}>
-<}>
-";
+/* 
+* Temporary solution, because prior to that of call by value 
+*  
+*/ 
+str rvn_print(list[str] options) {
+    str result = "";
+    list[str] curr = options;
+
+    while(size(headTail(curr)[1]) > 0) {
+        result += rvn_print(curr[0]);
+        result += ",";
+        curr = headTail(curr)[1];
+    };
+    result += rvn_print(headTail(curr)[0]);
+    return result; 
+}
 
 str rvn_print(map[str, value] settings) = "
 '   settings: {
@@ -239,6 +248,33 @@ str rvn_print(RavenNode nodeName:ravenTabContainer(list[RavenNode] children)) =
     ']
     '<}> 
     '}";
+
+str rvn_print(RavenNode nodeName:ravenTabContainer(list[RavenNode] children, list[Setting] settings)) =
+ "\"TabContainer\":
+    '{
+    '   \"id\": \"<uuidi()>\",
+    ' <rvn_print(settings)>
+    <if(children!=[]){>,
+    '   \"children\":
+    '[<rvn_print(children)>
+    ']
+    '<}> 
+    '}";
+
+
+str rvn_print(RavenNode nodeName:ravenTabContainer(list[RavenNode] children, str callback, list[Setting] settings)) =
+ "\"TabContainer\":
+    '{
+    '   \"id\": \"<uuidi()>\",
+    '   \"callback\": \"<callback>\",
+    ' <rvn_print(settings)>
+    <if(children!=[]){>,
+    '   \"children\":
+    '[<rvn_print(children)>
+    ']
+    '<}> 
+    '}";
+
 
 // TABS 
 // Replacing a Tab with a Node2D, because in Godot 4 you do not have a standalone
