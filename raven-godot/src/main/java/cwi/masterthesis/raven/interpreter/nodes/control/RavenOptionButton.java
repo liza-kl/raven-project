@@ -18,17 +18,20 @@ public class RavenOptionButton extends OptionButton implements RavenNode {
     private  String nodeID;
     private  List<String> options;
     private  String callback;
+    private  String styles;
+
 
     @Export
     @RegisterProperty
     public String nodeCallback;
 
-    public RavenOptionButton(Node parentNode, String nodeID, String options, String callback) {
+    public RavenOptionButton(Node parentNode, String nodeID, String options, String callback, String styles) {
         this.parentNode = parentNode;
         this.nodeID = nodeID;
         this.options = convertStringToList(options);
         this.callback = callback;
         nodeCallback = callback;
+        this.styles = styles;
     }
 
     public RavenOptionButton() {
@@ -77,5 +80,9 @@ public class RavenOptionButton extends OptionButton implements RavenNode {
 
     public String getCallback() {
         return callback;
+    }
+
+    public String getStyles() {
+        return styles;
     }
 }
