@@ -65,35 +65,31 @@ public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] st
           ravenHBox
           (
             [
-              ravenLabel("Machine Editor for <mid>"),
-              ravenButton("Delete Machine", "MachDelete(<mid>)"),
-              ravenLabel("Machine Name"),
-              ravenTextEdit(name, "MachSetName(<mid>, %text)")
+             
+              ravenLabel("Available States")
             ]
           )
         ] +
-        [ render(env, getState(env, sid)) | UUID sid <- states] +
-        [ 
-          ravenHBox
-          (
-            [
-              //  rvnHorizontalSpace(40), TODO leaving Horizontal space out for now
-              ravenButton("Create State", "StateCreate(<nextID(env)>, <mid>)")
-            ]
-          )
-        ]        
+        [ render(env, getState(env, sid), "tree") | UUID sid <- states] 
+        // + [ 
+        //   ravenHBox
+        //   (
+        //     [
+        //       ravenButton("Create State", "StateCreate(<nextID(env)>, <mid>)")
+        //     ]
+        //   )
+        // ]        
       )
     ]
   );
 
-public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, list[UUID] ti, list[UUID] to, int x, int y)) =
+public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, list[UUID] ti, list[UUID] to, int x, int y), "tree") =
   ravenVBox
   (
     [
       ravenHBox
       (
         [
-          ravenLabel("Available States"),
          // TODO rvnHorizontalSpace(40), leaving Horizontal space out for now   
           ravenButton("Delete State", "StateDelete(<sid>,<mid>)"),
           ravenTextEdit(name, "StateSetName(<sid>, %text")
@@ -106,17 +102,17 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
       (
         [
         // TODO rvnHorizontalSpace(40),  leaving Horizontal space out for now
-          ravenButton("+", "TransCreateSource(<nextID(env)>,<sid>)")
+          ravenButton("Create Trans Source", "TransCreateSource(<nextID(env)>,<sid>)")
         ]
       )
     ]
   );
-
+// TODO need to differentiate for different view types.
 public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, UUID tgt)) =
   ravenHBox
   (
     [
-      ravenButton("-", "TransDelete(<id>)"),
+      ravenButton("Delete Transition", "TransDelete(<id>)"),
       ravenTextEdit(trigger, "TransSetTrigger(<id>, %text)"),
       ravenLabel(" --\> "),
       ravenOptionButton([name | state(_, _, name, _,_,_,_) <- env[1]])
