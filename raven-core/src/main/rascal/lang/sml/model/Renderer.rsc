@@ -39,8 +39,6 @@ public RavenNode render(Env env) =
       ] //+ [ ravenLabel(machine) | machine <- convertSetToList(domain(env))] 
       + [ravenLabel(toString(mid)) | elem <- env, mach( mid, _, _, _) := env[elem]]
       )
-     // ravenOptionButton(convertSetToList(domain(env)), "InputCreate(%machID=selected)"),
-    //  ravenOptionButton(["tree"], "InputCreate(%view=selected)"),
     ])]
     +
     [
@@ -93,7 +91,8 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
       (
         [
          // TODO rvnHorizontalSpace(40), leaving Horizontal space out for now   
-          ravenButton("Delete State", "StateDelete(<sid>,<mid>)"),
+         // TODO do we need the mid for the state??
+          ravenButton("Delete State", "StateDelete(<sid>)"),
           ravenTextEdit(name, "StateSetName(<sid>, %text)")
         ]
       )
