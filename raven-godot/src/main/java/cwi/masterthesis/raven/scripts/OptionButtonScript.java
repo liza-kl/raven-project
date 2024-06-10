@@ -21,6 +21,24 @@ public class OptionButtonScript extends RavenOptionButton {
         super();
     }
 
+    private boolean canBeConverted(String input) {
+        try {
+            Integer.parseInt( input );
+            return true;
+        }
+        catch( NumberFormatException e ) {
+            return false;
+        }
+    }
+
+    // We only want to return the values as string if not convertable to numbers..
+    private String escapeString(String input) {
+        StringBuilder str = new StringBuilder();
+        str.append("\"");
+        str.append(input);
+        str.append("\"");
+        return str.toString();
+    }
     @RegisterFunction
     public void callbackOptionSelected(int num) {
         String callback = (String) this.get(StringNameUtils.asStringName("node_callback"));
@@ -32,8 +50,8 @@ public class OptionButtonScript extends RavenOptionButton {
         assert callback != null;
         // TODO Assuming callback has only one ^% parameter for now
         // Rascal is accepting strings and then converting to custom types.
-        String alteredCallback = callback.replaceAll("%(\\w+)", content.replaceAll("\"",  ""));
 
+        String alteredCallback = callback.replaceAll("%(\\w+)", canBeConverted(content) ?  content : escapeString(content));
 
         NativeClient.getInstance(
                 "0.0.0.0",
