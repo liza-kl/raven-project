@@ -209,7 +209,7 @@ str rvn_print(RavenNode nodeName:ravenGrid(str nodeID,
 str rvn_print(RavenNode nodeName:ravenVBox (list[RavenNode] children)) =
  "\"VBoxContainer\":
     '{
-    '   \"id\": \"<uuidi()>\",<if(children!=[]){>
+    '   \"id\": \"<uuidi()>\"<if(children!=[]){>,
     '   \"children\":
     '[<rvn_print(children)>
     ']
