@@ -25,7 +25,14 @@ public void viewControl(Command incomingCallback: MachCreate(UUID mid)) {
     IO::println("Calling MachCreate");
     lang::Main::env = eval(env, MachCreate(mid));
 
-    list[int] vid = env_retrieveVIDfromMID(mid);
+    list[int] machToUpdate = [mid2 | elem <- env, mach(mid2,_,_,_) := env[elem]];
+
+    for (machID <- machToUpdate) {
+        list[int] vid = env_retrieveVIDfromMID(machID);
+        for (int v <- vid) {
+        lang::Main::env = eval(env,ViewTabSetMachine(v, machID));
+        }
+    }
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
@@ -45,6 +52,11 @@ public void viewControl(Command incomingCallback: MachDelete(UUID mid)) {
 public void viewControl(Command incomingCallback: MachSetName(UUID mid, ID name)) {
     println("Calling MachSetName");
     lang::Main::env = eval(env, MachSetName(mid,name));
+    list[int] vid = env_retrieveVIDfromMID(mid);
+    for (int v <- vid) {
+        lang::Main::env = eval(env,ViewTabSetMachine(v, mid));
+    }
+
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
@@ -116,16 +128,23 @@ public void viewControl(Command incomingCallback: TransCreateSource(UUID tid, UU
 }
 
 public void viewControl(Command incomingCallback: TransSetTarget(UUID tid, UUID tgt)) {
-    println("TransCreate(UUID tid, UUID src, UUID tgt))");
+    println("TransSetTarget(UUID tid, UUID src, UUID tgt))");
     lang::Main::env = eval(env, TransSetTarget( tid,tgt));
 
      // tgt is a state, so we can apply the same functions as before.
 
-    UUID mid = env_retrieveMIDfromSID(tgt);
+    // UUID mid = env_retrieveMIDfromTID(tid);
+    // list[int] vid = env_retrieveVIDfromMID(mid);
+    // for (int v <- vid) {
+    //     lang::Main::env = eval(env,ViewTabSetMachine(v, mid));
+    // }
+
+      UUID mid = env_retrieveMIDfromSID(tgt);
     list[int] vid = env_retrieveVIDfromMID(mid);
     for (int v <- vid) {
         lang::Main::env = eval(env,ViewTabSetMachine(v, mid));
     }
+
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
@@ -152,6 +171,14 @@ public void viewControl(Command incomingCallback: TransDelete(UUID tid)) {
     }
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+}
+
+// TODO need to put this helper function somewhere else.
+public void viewControl(Command incomingCallback: InterTransSetTarget(UUID id, str targetStateName)) {
+    IO::println("Calling InterTransSetTarget(<id>, <targetStateName>)");
+    UUID tgt = lang::Main::env_retrieveSIDfromName(targetStateName);
+    IO::println("tgt is <tgt>");
+    viewControl(TransSetTarget(id,tgt)); 
 }
 
 public default void viewControl(Command incomingCallback) { 

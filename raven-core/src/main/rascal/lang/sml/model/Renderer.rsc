@@ -11,9 +11,10 @@ import Set;
 import lang::Main;
 import util::Math;
 import util::UUID;
+import List;
+import lang::Main;
 
 data Tab = tab(tuple[str name, list[RavenNode] content] content);
-
 //note: this might acutally be correct: NOTE = hacky
 UUID nextID(Env env) {
   set[UUID] keys = domain(env);
@@ -79,8 +80,8 @@ public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] st
         //     ]
         //   )
         // ]        
-      ),
-    ravenVBox([]) // TODO will be fixed later with proper spacing.
+      )
+   //  ravenVBox([]) TODO will be fixed later with proper spacing.
     ]
   );
 
@@ -112,16 +113,20 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
     ]
   );
 // TODO need to differentiate for different view types.
-public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, UUID tgt)) =
-  ravenHBox
+public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, UUID tgt)) {
+  UUID mid2 = lang::Main::env_retrieveMIDfromSID(src);
+  return ravenHBox
   (
     [
       ravenButton("Delete Transition", "TransDelete(<id>)"),
       ravenTextEdit(trigger, "TransSetTrigger(<id>, %text)"),
       ravenLabel(" --\> "),
-      ravenOptionButton([name | elem <- env, state(_,_,name,_,_,_,_) := env[elem]], "TransSetTarget(<id>, <tgt>)")
+      // TODO an adapter View Function?
+      ravenOptionButton([name | elem <- env, state(_,mid2,name,_,_,_,_) := env[elem]],   "InterTransSetTarget(<id>,%state)",
+      // Getting only the states available for that specific machine.
+      [setting("Primitive", [<"selected", "Int%<List::indexOf([sid | elem <- env, state(sid,mid2,name,_,_,_,_) := env[elem]],tgt)>">, <"allow_reselect", "Boolean%true">])])
       //FIXME: should be from the current machine these states are part of
     ]
-  );
+  ); }
 
 default RavenNode render(Env env) { throw "Cant find suitable render"; } 

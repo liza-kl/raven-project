@@ -11,7 +11,7 @@ import Map;
 import lang::sml::model::Renderer;
 import lang::sml::model::Model;
 import lang::raven::helpers::Utils;
-
+import List;
 
 public Env eval(Env env, Command cmd: ViewTabCreate(UUID vid)) {
     println("Evaluating ViewTabCreate");
@@ -23,7 +23,7 @@ public Env eval(Env env, Command cmd: ViewTabCreate(UUID vid)) {
                 lang::raven::RavenNode::ravenButton("Delete Tab", "ViewTabDelete(<vid>)"),
                 lang::raven::RavenNode::ravenLabel("Select Machine"),
                 lang::raven::RavenNode::ravenOptionButton( [toString(mid) | elem <- env, mach( mid, _, _, _) := env[elem]],
-                "ViewTabSetMachine(<vid>,%machine)") 
+                "ViewTabSetMachine(<vid>,%machine)",  [setting("Primitive", [<"selected", "Int%<-1>">])]) 
             ]
         )
 
@@ -77,8 +77,9 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
                 lang::raven::RavenNode::ravenLabel("Current Machine: <mid>"),
                 lang::raven::RavenNode::ravenLabel("Select New Machine"),
                 lang::raven::RavenNode::ravenOptionButton(
-                [toString(mid) | elem <- env, mach( mid, _, _, _) := env[elem]],
-                "ViewTabSetMachine(<vid>,%machine)"),
+                [toString(mid2) |  elem <- env, mach( mid2, _, _, _) := env[elem]],
+                "ViewTabSetMachine(<vid>,%machine)",
+                [setting("Primitive", [<"selected", "Int%<List::indexOf([mid2 | elem <- env,mach( mid2, _, _, _) := env[elem]],mid)>">])]),
                 ravenLabel("Machine Name"),
                 ravenTextEdit(machine.name, "MachSetName(<mid>, %text)"),
                 lang::raven::RavenNode::ravenButton("Delete Machine", "MachDelete(<mid>)"),
@@ -110,3 +111,4 @@ public list[value] eval(Env env, lang::sml::control::InputCommand::Command cmd: 
     println(inputEnv.stagedValues);
     return inputEnv.stagedValues;
 }
+

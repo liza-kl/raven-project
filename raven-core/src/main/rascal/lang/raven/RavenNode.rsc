@@ -25,6 +25,7 @@ public data RavenNode =
             // OptionButton
             | ravenOptionButton( list[str] options)
             | ravenOptionButton( list[str] options, str callback)
+            | ravenOptionButton( list[str] options, str callback, list[Setting] styles)
             // Containers
             | ravenHBox( list[RavenNode] children) 
             | ravenVBox( list[RavenNode] children)

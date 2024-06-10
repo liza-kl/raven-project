@@ -209,7 +209,7 @@ str rvn_print(RavenNode nodeName:ravenGrid(str nodeID,
 str rvn_print(RavenNode nodeName:ravenVBox (list[RavenNode] children)) =
  "\"VBoxContainer\":
     '{
-    '   \"id\": \"<uuidi()>\"<if(children!=[]){>,
+    '   \"id\": \"<uuidi()>\",<if(children!=[]){>
     '   \"children\":
     '[<rvn_print(children)>
     ']
@@ -272,12 +272,25 @@ str rvn_print(RavenNode nodeName:ravenOptionButton(list[str] options, str callba
  "\"OptionButton\":
     '{
     '   \"id\": \"<uuidi()>\",
+    '   \"callback\": \"<callback>\",
+    <if(options!=[]){>
+    '   \"options\":
+    '[<rvn_print(options)>
+    ']
+    '<}> 
+    '}";
+
+str rvn_print(RavenNode nodeName:ravenOptionButton(list[str] options, str callback, list[Setting] styles)) =
+ "\"OptionButton\":
+    '{
+    '   \"id\": \"<uuidi()>\",
     '   \"callback\": \"<callback>\"
     <if(options!=[]){>,
     '   \"options\":
     '[<rvn_print(options)>
     ']
-    '<}> 
+    '<}>,
+    <rvn_print(styles)> 
     '}";
 
 // MISC Functions
