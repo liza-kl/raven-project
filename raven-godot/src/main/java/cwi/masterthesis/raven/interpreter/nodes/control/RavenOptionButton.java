@@ -35,7 +35,10 @@ public class RavenOptionButton extends OptionButton implements RavenNode {
         super();
     }
     private List<String> convertStringToList(String arr) {
-
+        // If you do not have any options at all.
+        if (arr == null) {
+            return List.of();
+        }
         String cleaned = arr.replaceAll("^\\[", "").replaceAll("]$", "");
 
         // Split the string by ","

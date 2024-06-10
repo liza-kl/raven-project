@@ -209,8 +209,7 @@ str rvn_print(RavenNode nodeName:ravenGrid(str nodeID,
 str rvn_print(RavenNode nodeName:ravenVBox (list[RavenNode] children)) =
  "\"VBoxContainer\":
     '{
-    '   \"id\": \"<uuidi()>\",
-    <if(children!=[]){>
+    '   \"id\": \"<uuidi()>\",<if(children!=[]){>
     '   \"children\":
     '[<rvn_print(children)>
     ']
@@ -222,8 +221,7 @@ str rvn_print(RavenNode nodeName:ravenVBox (list[RavenNode] children)) =
 str rvn_print(RavenNode nodeName:ravenHBox (list[RavenNode] children)) =
  "\"HBoxContainer\":
     '{
-    '   \"id\": \"<uuidi()>\",
-    <if(children!=[]){>
+    '   \"id\": \"<uuidi()>\"<if(children!=[]){>,
     '   \"children\":
     '[<rvn_print(children)>
     ']
@@ -250,8 +248,7 @@ str rvn_print(RavenNode nodeName:ravenTab(str nodeID, str name, list[RavenNode] 
  "\"HBoxContainer\":
     '{
     '   \"id\": \"<nodeID>\",
-    '   \"name\": \"<name>\",
-    <if(children!=[]){>
+    '   \"name\": \"<name>\"<if(children!=[]){>,
     '   \"children\":
     '[<rvn_print(children)>
     ']
@@ -263,8 +260,7 @@ str rvn_print(RavenNode nodeName:ravenTab(str nodeID, str name, list[RavenNode] 
 str rvn_print(RavenNode nodeName:ravenOptionButton(list[str] options)) =
  "\"OptionButton\":
     '{
-    '   \"id\": \"<uuidi()>\",
-    <if(options!=[]){>
+    '   \"id\": \"<uuidi()>\"<if(options!=[]){>,
     '   \"options\":
     '[<rvn_print(options)>
     ']

@@ -35,7 +35,6 @@ public &T env_retrieve(Env env, type[&T] t, UUID id) {
   throw "Expected value of type <t>, found value <n>";
 }
 
-// Is it intended that 
 public Env env_store(Env env, UUID id, node n) {
   env[id] = n;
   return env;
