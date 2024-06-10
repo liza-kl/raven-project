@@ -21,6 +21,7 @@ public data Command
   | TransCreate(UUID tid, UUID src, UUID tgt) //creates a transition (coding action in graph-based editor)
   | TransCreateSource(UUID tid, UUID src)     //creates a transition without a target (coding action in tree-based editor)
   | TransSetTrigger(UUID tid, str trigger)    //sets the trigger of a transition (coding action)
+  | InterTransSetTarget(UUID tid, str name)
   | TransSetTarget(UUID tid, UUID tgt)        //sets the target of a transition (coding action in tree-based editor)
   | TransDelete(UUID tid)                     //deletes a transition (coding action)
   ;
