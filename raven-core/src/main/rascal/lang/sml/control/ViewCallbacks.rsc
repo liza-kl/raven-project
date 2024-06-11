@@ -38,6 +38,8 @@ public void viewControl(Command incomingCallback: ViewTabDelete(UUID vid)) {
 public void viewControl(Command incomingCallback: ViewTabSetType(UUID vid, str viewType)) {
     IO::println("Calling ViewTabSetType");
     lang::Main::env = lang::sml::control::REPL::eval(lang::Main::env, ViewTabSetType(vid, viewType));
+    println("current env in viewtabsettype");
+    println(env);
     genJSON(lang::sml::model::Renderer::render(env));   
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
