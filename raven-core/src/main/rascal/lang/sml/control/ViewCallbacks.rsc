@@ -12,8 +12,10 @@ import lang::sml::control::ViewCommand;
 import lang::sml::control::REPL;
 
 public void viewControl(Command incomingCallback: ViewTabCreate(UUID vid)) {
-    IO::println(" Calling ViewTabCreate");
+    IO::println("Calling ViewTabCreate");
     lang::Main::env = lang::sml::control::REPL::eval(lang::Main::env, ViewTabCreate(vid));
+    // Default are tree views.
+    lang::Main::env = lang::sml::control::REPL::eval(lang::Main::env, ViewTabSetType(vid, "tree"));
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
@@ -33,9 +35,9 @@ public void viewControl(Command incomingCallback: ViewTabDelete(UUID vid)) {
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
-public void viewControl(Command incomingCallback: ViewTabSetType(UUID vid)) {
+public void viewControl(Command incomingCallback: ViewTabSetType(UUID vid, str viewType)) {
     IO::println("Calling ViewTabSetType");
-    lang::Main::env = lang::sml::control::REPL::eval(lang::Main::env, ViewTabSetType(vid));
+    lang::Main::env = lang::sml::control::REPL::eval(lang::Main::env, ViewTabSetType(vid, viewType));
     genJSON(lang::sml::model::Renderer::render(env));   
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
@@ -43,7 +45,6 @@ public void viewControl(Command incomingCallback: ViewTabSetType(UUID vid)) {
 public void viewControl(Command incomingCallback: ViewTabSetMachine(UUID vid, UUID mid)) {
     IO::println("Calling ViewTabSetMachine");
     lang::Main::env = lang::sml::control::REPL::eval(lang::Main::env, ViewTabSetMachine(vid,mid));
-    IO::println("Re-Rendering Env");
     genJSON(lang::sml::model::Renderer::render(env));     
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }

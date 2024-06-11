@@ -11,7 +11,9 @@ public class TabContainerFactory implements RavenNodeFactory{
     public RavenNode createRavenNode(Node node, Map<String, String> attrMap) {
         return new RavenTabContainer(
                 node,
-                attrMap.get("id")
+                attrMap.get("id"),
+                attrMap.get("styles") == null ? null : attrMap.get("styles"),
+                attrMap.get("callback") == null ? null : attrMap.get("callback")
         );
     }
 }
