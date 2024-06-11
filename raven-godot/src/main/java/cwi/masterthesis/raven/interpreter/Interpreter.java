@@ -195,6 +195,14 @@ public class Interpreter extends Node implements Visitor {
         tabContainer.setName(StringNameUtils.asStringName(ravenTabContainer.getNodeID()));
 
         Objects.requireNonNull(ravenTabContainer.getParentNode()).addChild(tabContainer);
+        if (ravenTabContainer.getStyles() != null) {
+
+            try {
+                styleOverrideTraverser(ravenTabContainer.getStyles(),tabContainer);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
 

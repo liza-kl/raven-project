@@ -36,7 +36,7 @@ public RavenNode render(Env env) =
       ravenButton("Open New Tab", "ViewTabCreate(<uuidi()>)")
       ]),
       ravenVBox([
-      ravenLabel("Available Machines", [setting("Color", [<"font_color", "LAVENDER">])])
+      ravenLabel("Available Machines", [setting("Color", [<"font_color", "CRIMSON">])])
       ] //+ [ ravenLabel(machine) | machine <- convertSetToList(domain(env))] 
       + [ravenLabel(toString(mid)) | elem <- env, mach( mid, _, _, _) := env[elem]]
       )
@@ -44,7 +44,8 @@ public RavenNode render(Env env) =
     +
     [
       render(env, toString(tab[0]), tab[1]) | tab <- toList(env_retrieve(env, #ViewEnv, 1).currentTabs)
-    ] 
+    ],
+    [setting("Primitive", [<"current_tab", "Int%<env[4].tabIndex>">])]
     )
   ], true);
 
@@ -100,7 +101,7 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
         ]
       )
     ] + 
-    [ render(env, getTrans(env, tid)) | UUID tid <- to] +
+    [ render(env, getTrans(env, tid), "tree") | UUID tid <- to] +
     [ 
       ravenHBox
       (
@@ -113,7 +114,7 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
     ]
   );
 // TODO need to differentiate for different view types.
-public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, UUID tgt)) {
+public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, UUID tgt), "tree") {
   UUID mid2 = lang::Main::env_retrieveMIDfromSID(src);
   return ravenHBox
   (
@@ -128,5 +129,6 @@ public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, 
       //FIXME: should be from the current machine these states are part of
     ]
   ); }
+
 
 default RavenNode render(Env env) { throw "Cant find suitable render"; } 
