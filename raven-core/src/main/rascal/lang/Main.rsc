@@ -21,8 +21,15 @@ import Map;
 public data ViewEnv = view(map[int vid, Tab tab] currentTabs); // Except the initial screen I guess.
 public data InputEnv = input(list[value] stagedValues);
 public data ViewMIDMap = viewMID(map[int vid, int mid] mappings);
+public data CurrentTab = currentTab(int tabIndex);
+public data ViewTypeMap = vidType(map[int vid, str viewType] mappings);
 
-public Env env = (0: meta(5), 1: view(()), 2: input([]),3 : viewMID(()));
+public Env env = (0: meta(6),
+1: view(()),
+2: input([]),
+3 : viewMID(()),
+4: currentTab(0),
+5: vidType(()));
 
 list[Env] envClosure() {
 Env env = (0: meta(2), 1: view(()), 2: input([]));
@@ -59,7 +66,6 @@ UUID env_retrieveSIDfromName(str name2) {
   println("calling env_retrieveSIDfromName"); 
   return [sid | elem <- env, state(sid,_,name,_,_,_,_) := env[elem] && name == name2][0];
 }
-
 
 void main() { 
 
