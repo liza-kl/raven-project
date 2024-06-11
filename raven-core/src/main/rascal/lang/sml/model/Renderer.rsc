@@ -56,7 +56,9 @@ public RavenNode render(Env env,str tabID, Tab t: tab(tuple[str name, list[Raven
     t.content.content
   );
   
-  // TODO render this correctly somehow.
+
+// Render General Tab Content (Root) ? of Machine
+// In Tree 
 public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] states, list[UUID] instances), "tree") =
   ravenHBox(
    // toString(nextID(env)), "State Machine Language <mid>: <name>",
@@ -86,6 +88,12 @@ public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] st
     ]
   );
 
+// In Table View
+public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] states, list[UUID] instances), "table") =
+  ravenHBox([ravenLabel("Table Representation 🌺")]);
+
+
+
 public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, list[UUID] ti, list[UUID] to, int x, int y), "tree") =
   ravenVBox
   (
@@ -113,7 +121,6 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
       )
     ]
   );
-// TODO need to differentiate for different view types.
 public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, UUID tgt), "tree") {
   UUID mid2 = lang::Main::env_retrieveMIDfromSID(src);
   return ravenHBox

@@ -18,27 +18,33 @@ import Map;
 
 public Env eval(Env env, Command cmd: ViewTabCreate(UUID vid)) {
     println("Evaluating ViewTabCreate");
+    lang::Main::ViewTypeMap viewID2TabType = env_retrieve(env, #ViewTypeMap, 5);
     lang::Main::ViewEnv viewEnv = env_retrieve(env, #lang::Main::ViewEnv, 1);
+    // The Default view of a machine when rendered.
+    viewID2TabType.mappings[vid] = "tree"; 
+    env = env_store(env, 5, vidType(viewID2TabType.mappings));
+    // The Default Screen appearing when opening a new tab.
     viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"New Tab <vid>",
     [
         ravenVBox(
             [
                 lang::raven::RavenNode::ravenButton("Delete Tab", "ViewTabDelete(<vid>)"),
                 lang::raven::RavenNode::ravenLabel("Select Machine"),
-                lang::raven::RavenNode::ravenOptionButton( [toString(mid) | elem <- env, mach( mid, _, _, _) := env[elem]],
-                "ViewTabSetMachine(<vid>,%machine)",  [setting("Primitive", [<"selected", "Int%<-1>">])]) 
+                lang::raven::RavenNode::ravenOptionButton(
+                    [toString(mid) | elem <- env, mach( mid,_,_,_) := env[elem]],
+                    "ViewTabSetMachine(<vid>,%machine)",
+                    [setting("Primitive", [<"selected", "Int%<-1>">])]) 
             ]
         )
-
         ]>);
-    ViewTypeMap midVidMappings = env_retrieve(env, #ViewTypeMap, 5);
-    println("add viewtype");
-    midVidMappings.mappings[vid] = "tree"; // Default
-    env = env_store(env, 5, vidType(midVidMappings.mappings));
     env = env_store(env, 1, view(viewEnv.currentTabs));
     return env;
 }
 
+/* 
+* ViewTabDelete does not delete the machine definition per se
+* For that MachDelete needs to be called
+*/ 
 public Env eval(Env env, Command cmd: ViewTabDelete(UUID vid)) {
     lang::Main::ViewEnv viewEnv = env_retrieve(env, #lang::Main::ViewEnv, 1);
     // Removing only the view part
@@ -57,16 +63,18 @@ public Env eval(Env env, Command cmd: ViewTabDelete(UUID vid)) {
 }
 
 public Env eval(Env env, Command cmd: ViewTabSetType(UUID vid, str viewType)) {
+    // TODO: Fix the update / render if machine is already set.
+    IO::println("Evaluating ViewTabSetType");
     ViewTypeMap midVidMappings = env_retrieve(env, #ViewTypeMap, 5);
-    ViewMIDMap vidMip= env_retrieve(env, #ViewMIDMap, 3);
     midVidMappings.mappings[vid] = viewType; 
-    
+    env = env_store(env, 5, vidType(midVidMappings.mappings));
     /* Checking this case to determine if we set the default type for a new tab
     or if we already have a machine. */ 
-    if (vid in domain(vidMip.mappings)) {
-    env = env_store(env, 5, vidType(midVidMappings.mappings));
+
+    ViewMIDMap vidMid= env_retrieve(env, #ViewMIDMap, 3);
+    if (vid in domain(vidMid.mappings)) {
     int mid = env_retrieveMIDfromVID(vid);
-    lang::Main::env = eval(env,ViewTabSetMachine(vid, mid));
+    env = eval(env,ViewTabSetMachine(vid, mid));
     }
     return env;
 }
@@ -81,7 +89,12 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
     Tab retrievedView = currentTabs[vid];
     Model machine = lang::sml::model::Model::getMach(env,mid);
 
+    // The last param is retrieving the view --> either "tree" or "table"
+    println("type to be rendered");
+    println(vidType.mappings[vid]);
     RavenNode machineContent = render(env,machine,vidType.mappings[vid]); 
+    println("machine content ");
+    println(machineContent);
     viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"Tab <vid>",
     [
         ravenVBox(
@@ -105,8 +118,13 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
         )
 
         ] + [machineContent]>); 
+    println("current tab content");
+    println(viewEnv.currentTabs[vid]);
     env = env_store(env, 1, view(viewEnv.currentTabs));
     env = env_store(env, 3, viewMID(midVidMappings.mappings));
+
+    println("current env");
+    println(env); 
     return env;
 }
 
