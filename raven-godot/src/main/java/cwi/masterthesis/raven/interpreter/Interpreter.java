@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import cwi.masterthesis.raven.Main;
 import cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.*;
+import cwi.masterthesis.raven.interpreter.nodes.RavenNode;
 import cwi.masterthesis.raven.interpreter.nodes.RavenNode2D;
 import cwi.masterthesis.raven.interpreter.nodes.control.*;
 import godot.*;
@@ -18,9 +19,24 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
 
+// TODO: Some kind of builder to remove redundancy...
 public class Interpreter extends Node implements Visitor {
     private static StylingStrategy strategy;
 
+    private void initDefault() {
+        // TODO: Get classname from raven name and init it.
+    }
+
+    private void applyStyling(RavenNode ravenNode, Control appendedClass) {
+        if (ravenNode.getStyles() != null) {
+
+            try {
+                styleOverrideTraverser(ravenNode.getStyles(),appendedClass);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
     @Override
     public void visitButton(RavenButton ravenButton)  {
         System.out.println("Creating Button");
@@ -35,14 +51,7 @@ public class Interpreter extends Node implements Visitor {
         button.set(StringNameUtils.asStringName("btn_callback"), ravenButton.getCallback());
         button.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/ButtonSendMessage.gdj"));
         ravenButton.getParentNode().addChild(button);
-        if (ravenButton.getStyles() != null) {
-
-            try {
-                styleOverrideTraverser(ravenButton.getStyles(),button);
-            } catch (JsonProcessingException e) {
-                throw new RuntimeException(e);
-            }
-        }
+        applyStyling(ravenButton, button);
         button.emitSignal(StringNameUtils.asStringName("button_init"), ravenButton.getCallback());
     }
 
@@ -51,19 +60,10 @@ public class Interpreter extends Node implements Visitor {
         System.out.println("Creating Label");
         Label label = new Label();
         label.setTheme(Main.mainTheme);
-
-
         label.setName(StringNameUtils.asStringName(ravenLabel.getNodeID()));
         label.setText(ravenLabel.getLabel());
         ravenLabel.getParentNode().addChild(label);
-        if (ravenLabel.getStyles() != null) {
-
-            try {
-                styleOverrideTraverser(ravenLabel.getStyles(),label);
-            } catch (JsonProcessingException e) {
-                throw new RuntimeException(e);
-            }
-        }
+        applyStyling(ravenLabel, label);
     }
 
     @Override
@@ -109,25 +109,33 @@ public class Interpreter extends Node implements Visitor {
     @Override
     public void visitOptionButton(RavenOptionButton ravenOptionButton) {
         System.out.println("Creating OptionButton");
-
         ravenOptionButton.setTheme(Main.mainTheme);
-
         ravenOptionButton.setName(StringNameUtils.asStringName(ravenOptionButton.getNodeID()));
         ravenOptionButton.set(StringNameUtils.asStringName("node_callback"), ravenOptionButton.getCallback());
         ravenOptionButton.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/OptionButtonScript.gdj"));
         ravenOptionButton.getOptions().forEach(ravenOptionButton::addItem);
         ravenOptionButton.getParentNode().addChild(ravenOptionButton);
-        if (ravenOptionButton.getStyles() != null) {
-
-            try {
-                styleOverrideTraverser(ravenOptionButton.getStyles(),ravenOptionButton);
-            } catch (JsonProcessingException e) {
-                throw new RuntimeException(e);
-            }
-        }
+        applyStyling(ravenOptionButton, ravenOptionButton);
         ravenOptionButton.emitSignal(StringNameUtils.asStringName("option_init"), ravenOptionButton.getCallback());
     }
 
+    @Override
+    public void visitPanelContainer(RavenPanelContainer ravenPanelContainer) {
+        System.out.println("Creating PanelContainer");
+        PanelContainer panelContainer = new PanelContainer();
+        panelContainer.setTheme(Main.mainTheme);
+        panelContainer.setName(StringNameUtils.asStringName(ravenPanelContainer.getName() == null ? ravenPanelContainer.getNodeID() : ravenPanelContainer.getName()));
+        Objects.requireNonNull(ravenPanelContainer.getParentNode()).addChild(panelContainer);
+    }
+
+    @Override
+    public void visitScrollContainer(RavenScrollContainer ravenScrollContainer) {
+        System.out.println("Creating ScrollContainer");
+        ScrollContainer scrollContainer = new ScrollContainer();
+        scrollContainer.setTheme(Main.mainTheme);
+        scrollContainer.setName(StringNameUtils.asStringName(ravenScrollContainer.getName() == null ? ravenScrollContainer.getNodeID() : ravenScrollContainer.getName()));
+        Objects.requireNonNull(ravenScrollContainer.getParentNode()).addChild(scrollContainer);
+    }
 
     @Override
     public void visitHBoxContainer(RavenHBoxContainer ravenHBoxContainer) {
@@ -139,14 +147,7 @@ public class Interpreter extends Node implements Visitor {
         hBoxContainer.setTheme(Main.mainTheme);
         hBoxContainer.setName(StringNameUtils.asStringName(ravenHBoxContainer.getName() == null ? ravenHBoxContainer.getNodeID() : ravenHBoxContainer.getName()));
         Objects.requireNonNull(ravenHBoxContainer.getParentNode()).addChild(hBoxContainer);
-        if (ravenHBoxContainer.getStyles() != null) {
-
-            try {
-                styleOverrideTraverser(ravenHBoxContainer.getStyles(),hBoxContainer);
-            } catch (JsonProcessingException e) {
-                throw new RuntimeException(e);
-            }
-        }
+        applyStyling(ravenHBoxContainer, hBoxContainer);
     }
 
     @Override
@@ -216,7 +217,11 @@ public class Interpreter extends Node implements Visitor {
                 Iterator<Map.Entry<String, JsonNode>> fields = valueContent.fields();
                 while (fields.hasNext()) {
                     Map.Entry<String, JsonNode> entry = fields.next();
-
+                    // TODO: Some switch expression / mapping to increase traverse performance
+                    // TODO: Dummy values for now.
+                    if (themeprop.equals("Godot")) {
+                        strategy = new GodotOverrideStrategy(node, entry.getKey(), entry.getKey());
+                    }
                     if (themeprop.equals("Primitive")) {
                         strategy = new PrimitiveOverrideStrategy(node, entry.getKey(),entry.getValue().asText());
                     }

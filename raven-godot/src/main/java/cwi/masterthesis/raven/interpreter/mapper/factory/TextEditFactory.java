@@ -12,7 +12,9 @@ public class TextEditFactory implements RavenNodeFactory{
         return new RavenTextEdit(attrMap.get("id"),
                                 node,
                                 attrMap.get("text"),
-                                attrMap.get("callback"));
+                                attrMap.get("callback"),
+                                attrMap.get("styles") == null ? null : attrMap.get("styles")
+                );
     }
 
 }

@@ -1,6 +1,7 @@
 package cwi.masterthesis.raven;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.StreamReadFeature;
 import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -158,6 +159,7 @@ public class Main extends Node {
         GD.INSTANCE.print("Traverse JSON is called");
         ObjectMapper mapper =  JsonMapper.builder()
                 .enable(JsonReadFeature.ALLOW_BACKSLASH_ESCAPING_ANY_CHARACTER)
+                .disable(StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION)
                 .build();
         JsonNode rootNode;
         try {

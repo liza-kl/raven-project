@@ -16,6 +16,7 @@ import Set;
 import Map;
 
 
+// TODO Make more generic because of runtime stuff? 
 public Env eval(Env env, Command cmd: ViewTabCreate(UUID vid)) {
     println("Evaluating ViewTabCreate");
     lang::Main::ViewTypeMap viewID2TabType = env_retrieve(env, #ViewTypeMap, 5);
@@ -88,13 +89,7 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
     map[int, Tab] currentTabs = viewEnv.currentTabs; 
     Tab retrievedView = currentTabs[vid];
     Model machine = lang::sml::model::Model::getMach(env,mid);
-
-    // The last param is retrieving the view --> either "tree" or "table"
-    println("type to be rendered");
-    println(vidType.mappings[vid]);
     RavenNode machineContent = render(env,machine,vidType.mappings[vid]); 
-    println("machine content ");
-    println(machineContent);
     viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"Tab <vid>",
     [
         ravenVBox(
@@ -111,6 +106,7 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
                 ravenTextEdit(machine.name, "MachSetName(<mid>, %text)"),
                 lang::raven::RavenNode::ravenButton("Delete Machine", "MachDelete(<mid>)"),
                 lang::raven::RavenNode::ravenButton("Create State", "StateCreate(<nextID(env)>, <mid>)"),
+                lang::raven::RavenNode::ravenButton("Run Instance of this Machine", "MachInstCreate(<nextID(env)>,<mid>)"),
                 lang::raven::RavenNode::ravenOptionButton(["tree","table"],
                 "ViewTabSetType(<vid>,%type)",
                 [setting("Primitive", [<"selected", "Int%<List::indexOf(["tree","table"], vidType.mappings[vid])>">])])   
@@ -128,22 +124,5 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
     return env;
 }
 
-// INPUT REPL
-public Env eval(Env env, lang::sml::control::InputCommand::Command cmd: InputCreate(value input)) {
-    InputEnv inputEnv = env_retrieve(env, #InputEnv, 2);
-    inputEnv.stagedValues =  inputEnv.stagedValues + input;
-    return env;
-}
 
-public Env eval(Env env, lang::sml::control::InputCommand::Command cmd: InputClear()) {
-    InputEnv inputEnv = env_retrieve(env, #InputEnv, 2);
-    inputEnv.stagedValues = [];
-    return env;
-}
-
-public list[value] eval(Env env, lang::sml::control::InputCommand::Command cmd: InputRetrieve()) {
-    InputEnv inputEnv = env_retrieve(env, #InputEnv, 2);
-    println(inputEnv.stagedValues);
-    return inputEnv.stagedValues;
-}
 

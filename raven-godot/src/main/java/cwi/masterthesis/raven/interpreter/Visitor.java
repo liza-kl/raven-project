@@ -16,5 +16,7 @@ public interface Visitor {
     void visitControl(RavenControl ravenControl);
     void visitTabContainer(RavenTabContainer ravenTabContainer);
     void visitOptionButton(RavenOptionButton ravenOptionButton);
+    void visitPanelContainer(RavenPanelContainer ravenPanelContainer);
+    void visitScrollContainer(RavenScrollContainer ravenScrollContainer);
 
 }

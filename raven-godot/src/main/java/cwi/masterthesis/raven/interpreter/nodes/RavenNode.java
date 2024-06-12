@@ -7,4 +7,5 @@ public interface RavenNode {
     String getNodeID();
     Node getParentNode();
     void acceptVisitor(Visitor visitor);
+    String getStyles();
 }

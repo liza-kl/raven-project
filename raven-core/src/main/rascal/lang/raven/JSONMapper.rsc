@@ -7,10 +7,19 @@ import List;
 import Type;
 import Map;
 import util::UUID;
+import Node;
+
 public str JSON_CONTENT_START = "{";
 public str JSON_CONTENT = "";
 public str JSON_CONTENT_END = "}";
 
+/* 
+* This function is a helper function to help matching with keyword parameters 
+* https://www.rascal-mpl.org/docs/Rascal/Declarations/AlgebraicDataType/#examples
+*/ 
+public bool isKeywordArgDefined (RavenNode n, &T arg) {
+    return arg in getKeywordParameters(n);
+}
 public str toString(x) = rvn_print(x);
 str rvn_print(int number) = "<number>";
 str rvn_print(str string) =  "\"<string>\"";
@@ -342,6 +351,37 @@ str rvn_print(RavenNode nodeName:ravenOptionButton(list[str] options, str callba
     <rvn_print(styles)> 
     '}";
 
+// https://docs.godotengine.org/en/stable/classes/class_panelcontainer.html#class-panelcontainer
+str rvn_print(RavenNode nodeName:ravenPanelContainer(list[RavenNode] children)) =
+ "\"PanelContainer\":
+    '{
+    '   \"id\": \"<uuidi()>\"
+     <if(isKeywordArgDefined(nodeName, "settings")){>,
+    '<rvn_print(getKeywordParameters(nodeName)["settings"])>
+    '<}>
+    <if(children!=[]){>,
+    '   \"children\":
+    '[<rvn_print(children)>
+    ']
+    '<}> 
+    '}";
+
+// https://docs.godotengine.org/en/stable/classes/class_scrollcontainer.html#class-scrollcontainer
+str rvn_print(RavenNode nodeName:ravenScrollContainer(list[RavenNode] children)) =
+ "\"ScrollContainer\":
+    '{
+    '   \"id\": \"<uuidi()>\"
+     <if(isKeywordArgDefined(nodeName, "settings")){>,
+    '<rvn_print(getKeywordParameters(nodeName)["settings"])>
+    '<}>
+    <if(children!=[]){>,
+    '   \"children\":
+    '[<rvn_print(children)>
+    ']
+    '<}> 
+    '}";
+
+
 // MISC Functions
 RavenNode mapNodesToJSON(RavenNode tree)  {
     println(tree);
@@ -351,6 +391,7 @@ RavenNode mapNodesToJSON(RavenNode tree)  {
 
 return tree;
 }
+
 
 public void genJSON(RavenNode tree) {
     mapNodesToJSON(tree);

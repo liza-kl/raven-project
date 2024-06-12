@@ -13,8 +13,8 @@ public class HBoxContainerFactory implements RavenNodeFactory{
                 (String) attrMap.get("id"),
                 node,
                 (String) attrMap.get("name"),
-                (String) attrMap.get("styles")
-        );
+                (attrMap.get("styles") == null ? null : (String) attrMap.get("styles"))
+                );
     }
 
 
