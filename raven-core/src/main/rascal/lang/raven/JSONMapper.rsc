@@ -85,18 +85,31 @@ str rvn_print(RavenNode nodeName:ravenNode2D(str nodeID, list[RavenNode] childre
     '}  ";
    
 
-// JSON cant have duplicate keys, very sad.
-str rvn_print(list[RavenNode] children) = "
-'<for(RavenNode child <- children){>
-'{
-'   <rvn_print(child)>}<if((List::last(children) != child)){>,
-'<}>
-<}>
-";
+/* 
+* Temporary solution, because prior to that of call by value 
+* JSON cant have duplicate keys, very sad
+* TODO add generic print, with passing function as parameter.
+*/ 
+str rvn_print(list[RavenNode] children) {
+    str result = "";
+    list[RavenNode] curr = children;
+
+    while(size(headTail(curr)[1]) > 0) {
+        result += "{";
+        result += rvn_print(curr[0]);
+        result += "}";
+        result += ",";
+        curr = headTail(curr)[1];
+    };
+    result += "{";
+    result += rvn_print(headTail(curr)[0]);
+    result += "}";
+    return result; 
+}
+
 
 /* 
 * Temporary solution, because prior to that of call by value 
-*  
 */ 
 str rvn_print(list[str] options) {
     str result = "";
@@ -218,7 +231,7 @@ str rvn_print(RavenNode nodeName:ravenGrid(str nodeID,
 str rvn_print(RavenNode nodeName:ravenVBox (list[RavenNode] children)) =
  "\"VBoxContainer\":
     '{
-    '   \"id\": \"<uuidi()>\",<if(children!=[]){>
+    '   \"id\": \"<uuidi()>\"<if(children!=[]){>,
     '   \"children\":
     '[<rvn_print(children)>
     ']
