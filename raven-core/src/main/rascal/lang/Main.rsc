@@ -18,23 +18,21 @@ import lang::raven::JSONMapper;
 import lang::raven::helpers::Server;
 import ApplicationConf;
 import Map;
+
 public data ViewEnv = view(map[int vid, Tab tab] currentTabs); // Except the initial screen I guess.
-public data InputEnv = input(list[value] stagedValues);
-public data ViewMIDMap = viewMID(map[int vid, int mid] mappings);
-public data CurrentTab = currentTab(int tabIndex);
-public data ViewTypeMap = vidType(map[int vid, str viewType] mappings);
+public data InputEnv = input(list[value] stagedValues); // Possibly future feature to evaluate multiple inputs from UI 
+public data ViewMIDMap = viewMID(map[int vid, int mid] mappings); // Helper Environment to get assigned machine id from tab view id 
+public data CurrentTab = currentTab(int tabIndex); // Future Feature to prevent jumping on reload
+public data ViewTypeMap = vidType(map[int vid, str viewType] mappings); // Helper Environmen to get assigned view type from tab view id 
+public data CurrentPossibleTriggers = currentPossibleTriggers(map[int miid, list[str] possibleTriggers] mappings); // Helper Environment to render correct buttons for running instances
 
 public Env env = (0: meta(6),
 1: view(()),
 2: input([]),
 3 : viewMID(()),
 4: currentTab(0),
-5: vidType(()));
-
-list[Env] envClosure() {
-Env env = (0: meta(2), 1: view(()), 2: input([]));
-return [env];
-}
+5: vidType(()),
+6: currentPossibleTriggers(())); 
 
 UUID env_retrieveMIDfromVID(UUID vid) {
       map[int, int] viewMID = env_retrieve(env, #ViewMIDMap, 3).mappings;
