@@ -28,7 +28,7 @@ class ServerReceiver implements ReceiveCallback {
         this.evaluator = new Evaluator(values, System.in, System.err, System.out, top, heap);
         this.evaluator.addRascalSearchPath(URIUtil.rootLocation("std"));
         this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","", srcFolder ));
-        this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","","/Users/ekletsko/raven-project/raven-core/src/main/rascal"));
+        this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","",rascalProjectFolder));
         this.evaluator.doImport(null, "lang::raven::Core");
         this.evaluator.call(null, "lang::Main", "main");
         this.evaluator.call(null, "lang::Main", "init");
