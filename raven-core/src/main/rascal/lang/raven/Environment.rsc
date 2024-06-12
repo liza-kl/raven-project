@@ -24,7 +24,11 @@ private int META_ID = 0;
 
 public tuple[Env, UUID] env_getNextId(Env env) {
   MetaEnv me = env_retrieve(env, #MetaEnv, META_ID);
+  // TODO hackedy hackedy do.
   UUID nextId = me.nextId + 1;
+  while(nextId in domain(env)) {
+    nextId = nextId + 1;
+  }
   env = env_store(env, META_ID, meta(nextId));
   return <env, nextId>;
 }
