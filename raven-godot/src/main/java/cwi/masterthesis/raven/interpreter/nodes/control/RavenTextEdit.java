@@ -14,17 +14,19 @@ public class RavenTextEdit extends TextEdit implements RavenNode {
     private Node parentNode;
     private String text;
     private String callback;
+    private String styles;
 
     @Export
     @RegisterProperty
     public String nodeCallback;
 
-    public RavenTextEdit(String nodeID, Node parentNode, String text, String callback) {
+    public RavenTextEdit(String nodeID, Node parentNode, String text, String callback, String styles) {
         this.nodeID = nodeID;
         this.parentNode = parentNode;
         this.text = text;
         this.callback = callback;
         nodeCallback = callback;
+        this.styles = styles;
     }
 
     public RavenTextEdit() {
@@ -47,11 +49,16 @@ public class RavenTextEdit extends TextEdit implements RavenNode {
         visitor.visitTextEdit(this);
     }
 
+    @Override
+    public String getStyles() {
+        return this.styles;
+    }
+
     public String getTextContent() {
-        return text;
+        return this.text;
     }
 
     public String getCallback() {
-        return callback;
+        return this.callback;
     }
 }

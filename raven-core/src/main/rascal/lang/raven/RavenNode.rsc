@@ -33,6 +33,8 @@ public data RavenNode =
             | ravenTabContainer(list[RavenNode] children)
             | ravenTabContainer(list[RavenNode] children, list[Setting] settings)
             | ravenTabContainer(list[RavenNode] children, str callback, list[Setting] settings)
+            | ravenPanelContainer(list[RavenNode] children,list[Setting] settings = [])
+            | ravenScrollContainer(list[RavenNode] children,list[Setting] settings = [])
             // Needed for transition of nodes 
             | empty();
 

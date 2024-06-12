@@ -7,8 +7,6 @@ import org.rascalmpl.interpreter.env.GlobalEnvironment;
 import org.rascalmpl.interpreter.env.ModuleEnvironment;
 import org.rascalmpl.uri.URIUtil;
 import java.io.File;
-
-import java.io.IOException;
 import java.io.PrintWriter;
 
 class ServerReceiver implements ReceiveCallback {

@@ -28,4 +28,9 @@ public class RavenVBoxContainer implements RavenNode {
     public void acceptVisitor(Visitor visitor) {
         visitor.visitVBoxContainer(this);
     }
+
+    @Override
+    public String getStyles() {
+        return "";
+    }
 }

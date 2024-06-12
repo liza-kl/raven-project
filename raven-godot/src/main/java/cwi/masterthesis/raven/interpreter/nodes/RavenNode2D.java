@@ -17,6 +17,11 @@ public class RavenNode2D extends Node2D implements RavenNode {
         visitor.visitNode2D(this);
     }
 
+    @Override
+    public String getStyles() {
+        return "";
+    }
+
     public String getNodeID() {
         return nodeID;
     }

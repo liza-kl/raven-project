@@ -16,6 +16,7 @@ import lang::Main;
 
 extend lang::sml::model::TableRenderer;
 extend lang::sml::model::TreeRenderer; 
+extend lang::sml::runtime::RuntimeRenderer; 
 
 data Tab = tab(tuple[str name, list[RavenNode] content] content);
 //note: this might acutally be correct: NOTE = hacky

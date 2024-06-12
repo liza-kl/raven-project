@@ -20,6 +20,11 @@ public class RavenGraphEditNode implements RavenNode {
 
     }
 
+    @Override
+    public String getStyles() {
+        return "";
+    }
+
     public Node getParentNode() {
         return parentNode;
     }

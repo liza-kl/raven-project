@@ -4,15 +4,18 @@ import cwi.masterthesis.raven.interpreter.Visitor;
 import cwi.masterthesis.raven.interpreter.nodes.RavenNode;
 import godot.Node;
 
-public class RavenControl implements RavenNode {
+public class RavenScrollContainer implements RavenNode {
     private final String nodeID;
     private final Node parentNode;
+    private final String name;
+    private final String styles;
 
-    public RavenControl(String nodeID, Node parentNode) {
+    public RavenScrollContainer(String nodeID, Node parentNode, String name, String styles) {
         this.nodeID = nodeID;
         this.parentNode = parentNode;
+        this.name = name;
+        this.styles = styles;
     }
-
 
     @Override
     public String getNodeID() {
@@ -26,11 +29,14 @@ public class RavenControl implements RavenNode {
 
     @Override
     public void acceptVisitor(Visitor visitor) {
-        visitor.visitControl(this);
+        visitor.visitScrollContainer(this);
     }
 
-    @Override
+    public String getName() {
+        return name;
+    }
+
     public String getStyles() {
-        return "";
+        return styles;
     }
 }

@@ -55,6 +55,11 @@ public class RavenGridContainer implements RavenNode {
         visitor.visitGridContainer(this);
     }
 
+    @Override
+    public String getStyles() {
+        return "";
+    }
+
     public Integer getColumns() {
         return columns;
     }

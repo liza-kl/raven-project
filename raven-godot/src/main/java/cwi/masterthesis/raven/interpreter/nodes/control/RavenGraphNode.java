@@ -20,6 +20,11 @@ public class RavenGraphNode implements RavenNode {
         visitor.visitGraphNode(this);
     }
 
+    @Override
+    public String getStyles() {
+        return "";
+    }
+
     public Node getParentNode() {
         return parentNode;
     }

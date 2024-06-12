@@ -1,289 +1,486 @@
 {"id": "root",
    "children":
-[
- 
+[{"TabContainer":
  {
-    "TabContainer":
-    {
-       "id": "161066699699172757863330659875211121835",
+    "id": "-134772636779558255143312845285581624155",
+  "styles": [
+  
+  {
+     "Primitive": {
+        
+        
+           "current_tab": "Int%0"
+        
+     
+     }  }
+  
+  ]  
+     ,
+    "children":
+ [{"HBoxContainer":
+  {
+     "id": "15",
+     "name": "State Machine Language",
+     "children":
+  [{"VBoxContainer":
+   {
+      "id": "14677849928594591722161582025778302076",
+      "children":
+   [{"Label": {
+       "id": "-42849307269236255463112382201788010386",
+       "text": "State Machines Everywhere!",
      "styles": [
      
      {
-        "Primitive": {
+        "Color": {
            
            
-              "current_tab": "Int%0"
+              "font_color": "LAVENDER"
            
         
         }  }
      
      ]  
-        ,
-       "children":
-    [
-     
-     {
-        "HBoxContainer":
-        {
-           "id": "12",
-           "name": "State Machine Language",
-           "children":
-        [
-         
-         {
-            "VBoxContainer":
-            {
-               "id": "152160583505936031936966159973360211093",
-               "children":
-            [
-             
-             {
-                "Label": {
-                   "id": "43402055631283030596300761545808449345",
-                   "text": "State Machines Everywhere!",
-                 "styles": [
-                 
-                 {
-                    "Color": {
-                       
-                       
-                          "font_color": "LAVENDER"
-                       
-                    
-                    }  }
-                 
-                 ]  
-                   
-                }  },
-             
-             
-             {
-                "Button":
-                {
-                   "id": "165416340534844960692371531352066320870",
-                   "text": "Create New Machine",
-                   "callback": "MachCreate(12)"
-                }},
-             
-             
-             {
-                "Button":
-                {
-                   "id": "-146748863334193488290339343713029934674",
-                   "text": "Open New Tab",
-                   "callback": "ViewTabCreate(140516384708475010661719962650832004385)"
-                }}
-             
-            
-            ]
-             
-            }},
-         
-         
-         {
-            "VBoxContainer":
-            {
-               "id": "-152163797369989496377126656971775607806",
-               "children":
-            [
-             
-             {
-                "Label": {
-                   "id": "-79607010531534143575173908035454317353",
-                   "text": "Available Machines",
-                 "styles": [
-                 
-                 {
-                    "Color": {
-                       
-                       
-                          "font_color": "CRIMSON"
-                       
-                    
-                    }  }
-                 
-                 ]  
-                   
-                }  },
-             
-             
-             {
-                "Label": {
-                   "id": "-160366441819554717951944959438785196302",
-                   "text": "7"
-                   
-                }  }
-             
-            
-            ]
-             
-            }}
-         
-        
-        ]
-         
-        }},
-     
-     
-     {
-        "HBoxContainer":
-        {
-           "id": "27601593434941163052978212644972863383",
-           "name": "Tab 27601593434941163052978212644972863383",
-           "children":
-        [
-         
-         {
-            "VBoxContainer":
-            {
-               "id": "37122373678333480085103595081634554587",
-               "children":
-            [
-             
-             {
-                "Button":
-                {
-                   "id": "118895334835695918772660619388778539076",
-                   "text": "Delete Tab",
-                   "callback": "ViewTabDelete(27601593434941163052978212644972863383)"
-                }},
-             
-             
-             {
-                "Label": {
-                   "id": "128531909588564680995564531274664917192",
-                   "text": "Current Machine: 7"
-                   
-                }  },
-             
-             
-             {
-                "Label": {
-                   "id": "110184990463534839054963794653149735639",
-                   "text": "Select New Machine"
-                   
-                }  },
-             
-             
-             {
-                "OptionButton":
-                {
-                   "id": "-147999320059069492407473814339454213079",
-                   "callback": "ViewTabSetMachine(27601593434941163052978212644972863383,%machine)"
-                    ,
-                   "options":
-                ["7"
-                ]
-                ,
-                    "styles": [
-                
-                {
-                   "Primitive": {
-                      
-                      
-                         "selected": "Int%0"
-                      
-                   
-                   }  }
-                
-                ]   
-                }},
-             
-             
-             {
-                "Label": {
-                   "id": "143492744254073315720690150610071448962",
-                   "text": "Machine Name"
-                   
-                }  },
-             
-             
-             {
-                "TextEdit":
-                {
-                   "id": "-127344963621149829922012359291076710434",
-                   "callback": "MachSetName(7, %text)",
-                   "text": "door"
-                }},
-             
-             
-             {
-                "Button":
-                {
-                   "id": "-28028573537857710669659684847654966266",
-                   "text": "Delete Machine",
-                   "callback": "MachDelete(7)"
-                }},
-             
-             
-             {
-                "Button":
-                {
-                   "id": "-167362064887203678725905188408610154480",
-                   "text": "Create State",
-                   "callback": "StateCreate(12, 7)"
-                }},
-             
-             
-             {
-                "OptionButton":
-                {
-                   "id": "-51827769333774626171255410571915759233",
-                   "callback": "ViewTabSetType(27601593434941163052978212644972863383,%type)"
-                    ,
-                   "options":
-                ["tree","table"
-                ]
-                ,
-                    "styles": [
-                
-                {
-                   "Primitive": {
-                      
-                      
-                         "selected": "Int%1"
-                      
-                   
-                   }  }
-                
-                ]   
-                }}
-             
-            
-            ]
-             
-            }},
-         
-         
-         {
-            "HBoxContainer":
-            {
-               "id": "12598327135521742200854530190742392138",
-               "children":
-            [
-             
-             {
-                "Label": {
-                   "id": "-14469023519185133190207122792113309597",
-                   "text": "Table Representation 🌺"
-                   
-                }  }
-             
-            
-            ]
-             
-            }}
-         
-        
-        ]
-         
-        }}
-     
+       
+    }  },{"Button":
+    {
+       "id": "-143936761131928848122266647136490408309",
+       "text": "Create New Machine",
+       "callback": "MachCreate(15)"
+    }},{"Button":
+    {
+       "id": "-64117118653999822928562199378861539192",
+       "text": "Open New Tab",
+       "callback": "ViewTabCreate(-111474626118378096358798767748165091874)"
+    }}
+   ]
     
+   }},{"VBoxContainer":
+   {
+      "id": "150327878760579337319801314209528421273",
+      "children":
+   [{"Label": {
+       "id": "-73244739252681284902009896117507122746",
+       "text": "Available Machines",
+     "styles": [
+     
+     {
+        "Color": {
+           
+           
+              "font_color": "CRIMSON"
+           
+        
+        }  }
+     
+     ]  
+       
+    }  },{"Label": {
+       "id": "-10407430756838299958920691471539734163",
+       "text": "7"
+       
+    }  }
+   ]
+    
+   }}
+  ]
+   
+  }},{"HBoxContainer":
+  {
+     "id": "154217812142079735269775289024314221361",
+     "name": "Tab 154217812142079735269775289024314221361",
+     "children":
+  [{"VBoxContainer":
+   {
+      "id": "14343979371024757258521924076753346175",
+      "children":
+   [{"Button":
+    {
+       "id": "74129547305818143651641505499868156560",
+       "text": "Delete Tab",
+       "callback": "ViewTabDelete(154217812142079735269775289024314221361)"
+    }},{"Label": {
+       "id": "91401212681831936821666345453212266383",
+       "text": "Current Machine: 7"
+       
+    }  },{"Label": {
+       "id": "110808563029834523107628152962686427771",
+       "text": "Select New Machine"
+       
+    }  },{"OptionButton":
+    {
+       "id": "-168166615053950180510483172984488673816",
+       "callback": "ViewTabSetMachine(154217812142079735269775289024314221361,%machine)"
+        ,
+       "options":
+    ["7"
+    ]
+    ,
+        "styles": [
+    
+    {
+       "Primitive": {
+          
+          
+             "selected": "Int%0"
+          
+       
+       }  }
+    
+    ]   
+    }},{"Label": {
+       "id": "-18031595703843370443674697933140884582",
+       "text": "Machine Name"
+       
+    }  },{"TextEdit":
+    {
+       "id": "92348985892904063102542045414495471296",
+       "callback": "MachSetName(7, %text)",
+       "text": "door"
+    }},{"Button":
+    {
+       "id": "-69022425924855224359503136040821242649",
+       "text": "Delete Machine",
+       "callback": "MachDelete(7)"
+    }},{"Button":
+    {
+       "id": "-141048376597159743468500186457046827724",
+       "text": "Create State",
+       "callback": "StateCreate(12, 7)"
+    }},{"Button":
+    {
+       "id": "-151081930424927854034539985225648827344",
+       "text": "Run Instance of this Machine",
+       "callback": "MachInstCreate(12,7)"
+    }},{"OptionButton":
+    {
+       "id": "-152715930786296747621041983930954605975",
+       "callback": "ViewTabSetType(154217812142079735269775289024314221361,%type)"
+        ,
+       "options":
+    ["tree","table"
+    ]
+    ,
+        "styles": [
+    
+    {
+       "Primitive": {
+          
+          
+             "selected": "Int%0"
+          
+       
+       }  }
+    
+    ]   
+    }}
+   ]
+    
+   }},{"VBoxContainer":
+   {
+      "id": "35134706453410912537840026659864004117" 
+   }},{"HBoxContainer":
+   {
+      "id": "-27809197387963494236231667176858368514",
+      "children":
+   [{"VBoxContainer":
+    {
+       "id": "-159697612623320940681299173265922064078",
+       "children":
+    [{"HBoxContainer":
+     {
+        "id": "-102896557609375029868944847027701792808",
+        "children":
+     [{"Label": {
+         "id": "18757230242398430725982349524354165973",
+         "text": "Available States"
+         
+      }  }
+     ]
+      
+     }},{"VBoxContainer":
+     {
+        "id": "106254065386511788078122648451891025445",
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "28020362320597128411942771662104043107",
+         "children":
+      [{"Label": {
+          "id": "-151466058685819220574722353567997655",
+          "text": "Edit State Name"
+          
+       }  },{"TextEdit":
+       {
+          "id": "-41285473139738834406990082378984428001",
+          "callback": "StateSetName(8, %text)",
+          "text": "opened"
+       }},{"Button":
+       {
+          "id": "-57006359248367655979619896900829194834",
+          "text": "Delete State",
+          "callback": "StateDelete(8)"
+       }}
+      ]
+       
+      }},{"HBoxContainer":
+      {
+         "id": "-118624227511220038884258625246657739834",
+         "children":
+      [{"Button":
+       {
+          "id": "-24548741134703466761377420732387501261",
+          "text": "Delete Transition",
+          "callback": "TransDelete(10)"
+       }},{"TextEdit":
+       {
+          "id": "-83686819111961507637198332320266281545",
+          "callback": "TransSetTrigger(10, %text)",
+          "text": "close"
+       }},{"Label": {
+          "id": "-143026432512878020357571673569263645084",
+          "text": " --> "
+          
+       }  },{"OptionButton":
+       {
+          "id": "112206156109359050978982027244396145756",
+          "callback": "InterTransSetTarget(10,%state)"
+           ,
+          "options":
+       ["closed","opened"
+       ]
+       ,
+           "styles": [
+       
+       {
+          "Primitive": {
+             
+             
+                "selected": "Int%0",
+             
+             
+                "allow_reselect": "Boolean%true"
+             
+          
+          }  }
+       
+       ]   
+       }}
+      ]
+       
+      }},{"HBoxContainer":
+      {
+         "id": "-159821718363814688569569156413236181188",
+         "children":
+      [{"Button":
+       {
+          "id": "77758353737084137601224890661963423363",
+          "text": "Create Trans Source",
+          "callback": "TransCreateSource(12,8)"
+       }}
+      ]
+       
+      }}
+     ]
+      
+     }},{"VBoxContainer":
+     {
+        "id": "44462258474043402228931714961967905591",
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "17571041234159128877573296560952958039",
+         "children":
+      [{"Label": {
+          "id": "94542752871525888946812752892499796140",
+          "text": "Edit State Name"
+          
+       }  },{"TextEdit":
+       {
+          "id": "-26997211790726164599820937846964294840",
+          "callback": "StateSetName(9, %text)",
+          "text": "closed"
+       }},{"Button":
+       {
+          "id": "-99052533990025289062240335248865208962",
+          "text": "Delete State",
+          "callback": "StateDelete(9)"
+       }}
+      ]
+       
+      }},{"HBoxContainer":
+      {
+         "id": "-5771574770045370950583350569570494925",
+         "children":
+      [{"Button":
+       {
+          "id": "-66273692284416786637659948228798265541",
+          "text": "Delete Transition",
+          "callback": "TransDelete(11)"
+       }},{"TextEdit":
+       {
+          "id": "-131270866379418114192540611986282075352",
+          "callback": "TransSetTrigger(11, %text)",
+          "text": "open"
+       }},{"Label": {
+          "id": "-72879248300665569458205924150432332700",
+          "text": " --> "
+          
+       }  },{"OptionButton":
+       {
+          "id": "-105546683429236974752427212860409975228",
+          "callback": "InterTransSetTarget(11,%state)"
+           ,
+          "options":
+       ["closed","opened"
+       ]
+       ,
+           "styles": [
+       
+       {
+          "Primitive": {
+             
+             
+                "selected": "Int%1",
+             
+             
+                "allow_reselect": "Boolean%true"
+             
+          
+          }  }
+       
+       ]   
+       }}
+      ]
+       
+      }},{"HBoxContainer":
+      {
+         "id": "142109464850001592447773839673254992999",
+         "children":
+      [{"Button":
+       {
+          "id": "129645080929517668531329138276153075719",
+          "text": "Create Trans Source",
+          "callback": "TransCreateSource(12,9)"
+       }}
+      ]
+       
+      }}
+     ]
+      
+     }}
     ]
      
     }}
- 
-
+   ]
+    
+   }},{"VBoxContainer":
+   {
+      "id": "103747474673019867849527617365771361410" 
+   }}
+  ]
+   
+  }},{"HBoxContainer":
+  {
+     "id": "21105322251368769384971106175458256782",
+     "name": "Runtime-1 for 7",
+     "children":
+  [{"VBoxContainer":
+   {
+      "id": "-104386063038196986083112129625810743740",
+      "children":
+   [{"Label": {
+       "id": "-153202191911327895380447243848262133318",
+       "text": "Possible trigger, dependening on curr event"
+       
+    }  },{"Button":
+    {
+       "id": "57050664432028193783615766865703460659",
+       "text": "close",
+       "callback": "MachInstIntermTrigger(12,0)"
+    }},{"Button":
+    {
+       "id": "-11349975402659573774241157991140361900",
+       "text": "open",
+       "callback": "MachInstIntermTrigger(12,1)"
+    }},{"HBoxContainer":
+    {
+       "id": "114225154208108535064246429288106220419",
+       "children":
+    [{"Label": {
+        "id": "146134580927261614495687314653494927010",
+        "text": "|   "
+        
+     }  },{"Label": {
+        "id": "103035620961822969560573167243989318823",
+        "text": "    State   "
+        
+     }  },{"Label": {
+        "id": "-31320861531861458101945033404433897605",
+        "text": "|   Count   "
+        
+     }  },{"Label": {
+        "id": "-86745393463952596942099101231640566924",
+        "text": "|   Events  "
+        
+     }  }
+    ]
+     
+    }},{"HBoxContainer":
+    {
+       "id": "11302271047165012860782339409493903837",
+       "children":
+    [{"Label": {
+        "id": "-39998838094418778677753505521504373282",
+        "text": "*     |"
+        
+     }  },{"Label": {
+        "id": "25534774453690697100270842085150905821",
+        "text": "    opened"
+        
+     }  },{"Label": {
+        "id": "-63655202879657978551049323174018458992",
+        "text": "|   1"
+        
+     }  },{"Label": {
+        "id": "156111623915410654258507171902795142435",
+        "text": "|   [close]"
+        
+     }  }
+    ]
+     
+    }},{"HBoxContainer":
+    {
+       "id": "152260227386177159433421295693576627497",
+       "children":
+    [{"Label": {
+        "id": "90376034655494085892878146247013693427",
+        "text": ""
+        
+     }  },{"Label": {
+        "id": "97749481746103972924943891147638185458",
+        "text": "    closed"
+        
+     }  },{"Label": {
+        "id": "-135583277024858999649047851313820440933",
+        "text": "|   0"
+        
+     }  },{"Label": {
+        "id": "69581810584342655133780885720586544238",
+        "text": "|   [open]"
+        
+     }  }
+    ]
+     
+    }}
+   ]
+    
+   }}
+  ]
+   
+  }}
+ ]
+  
+ }}
 ]
 }

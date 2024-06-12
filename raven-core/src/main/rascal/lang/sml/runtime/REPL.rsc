@@ -6,7 +6,10 @@ import lang::sml::model::Model;
 import lang::sml::model::REPL;
 import lang::sml::model::Command;
 import lang::raven::Environment; 
-
+import lang::sml::runtime::RuntimeCallbacks;
+import lang::sml::runtime::RuntimeRenderer;
+import IO;
+import lang::Main;
 import Map;
 import Set;
 
@@ -74,6 +77,7 @@ public Env eval(Env env, Command cmd: MachInstInitialize(UUID miid)) {
 }
 
 public Env eval(Env env, Command cmd: MachInstTrigger(UUID miid, ID trigger)) {
+  println("eval MachInstTrigger");
   Model mi = getMachInst(env, miid);
   Model si = getStateInst(env, mi.cur);
   Model s = getState(env, si.sid);
@@ -89,7 +93,8 @@ public Env eval(Env env, Command cmd: MachInstTrigger(UUID miid, ID trigger)) {
       return env;
     }
   }
-  env = eval(env, MachInstQuiescence(miid));
+  // TODO: missing case!
+ // env = eval(env, MachInstQuiescence(miid));
   return env;
 }
 
@@ -124,6 +129,17 @@ public Env eval(Env env, Command cmd: StateInstSetCount(UUID siid, int count)) {
 public Env eval(Env env, Command cmd: StateInstDelete(UUID siid, UUID miid)) {
   Model si = getStateInst(env, siid);
   env = env_delete(env, siid);
+  return env;
+}
+
+public Env eval(Env env, Command cmd: MachInstIntermTrigger(UUID miid, int idx)) {
+  IO::println("evl machinst");
+  println("current mappings");
+  println(env_retrieve(env, #CurrentPossibleTriggers, 6).mappings);
+  println("current miid <miid><idx>");
+  ID trigger = env_retrieve(env, #CurrentPossibleTriggers, 6).mappings[miid][idx];
+  IO::println("evl machinsttrigger");
+  env = lang::sml::runtime::REPL::eval(env, MachInstTrigger( miid, trigger));
   return env;
 }
 
