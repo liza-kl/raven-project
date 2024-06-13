@@ -51,10 +51,12 @@ public RavenNode render(Env env, machInst(UUID miid, UUID mid, UUID cur,  map[UU
     ]+ [
         // The custom table, I guess
         ravenHBox([
-            ravenLabel("|   "),
-            ravenLabel("    State   "),
-            ravenLabel("|   Count   "),
-            ravenLabel("|   Events  ")
+            
+            ravenPanelContainer([ravenHBox([ravenLabel("")])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("State")])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("Count")])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("Events")])])
+        
         ])
     ]+ 
     [render(env, env[t], cur, miid) | t <- env, stateInst(siid,sid,count) := env[t]]);
@@ -62,9 +64,9 @@ public RavenNode render(Env env, machInst(UUID miid, UUID mid, UUID cur,  map[UU
 
 public RavenNode render(Env env, stateInst(UUID siid, UUID sid, int count), UUID cur, UUID miid) {
     return ravenHBox([
-            ravenLabel("<if(cur == siid){>*     |<}>"),
-            ravenLabel("    <env[sid].name>"),
-            ravenLabel("|   <count>"),
-            ravenLabel("|   <replaceAll(itoString([elem | elem <- getAllTrigger(env, sid,miid)]), "\"", "")>")
+            ravenPanelContainer([ravenHBox([ravenLabel("<if(cur == siid){>*<}>")])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("<env[sid].name>")])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("<count>")])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("<replaceAll(itoString([elem | elem <- getAllTrigger(env, sid,miid)]),"\"", "")>")])])
         ]);
 }
