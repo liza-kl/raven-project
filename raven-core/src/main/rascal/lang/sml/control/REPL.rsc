@@ -113,7 +113,7 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
             ]
         )
 
-        ] + ravenVBox([]) + [machineContent] + ravenVBox([])>); 
+        ]  + [machineContent]>); 
     println("current tab content");
     println(viewEnv.currentTabs[vid]);
     env = env_store(env, 1, view(viewEnv.currentTabs));

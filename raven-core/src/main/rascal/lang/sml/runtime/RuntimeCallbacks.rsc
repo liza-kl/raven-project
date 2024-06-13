@@ -6,7 +6,6 @@ import lang::sml::model::Model;
 import lang::raven::Environment;
 import lang::raven::RavenNode;
 import lang::sml::model::Renderer;
-import lang::sml::runtime::RuntimeRenderer;
 import IO;
 import lang::raven::JSONMapper;
 import lang::raven::helpers::Server;
@@ -16,6 +15,7 @@ import lang::Main;
 import lang::sml::control::ViewCommand;
 import lang::sml::control::ViewCallbacks;
 import util::UUID;
+import lang::sml::runtime::RuntimeRenderer;
 // IMP
 public void runtimeControl(Command incomingCallback: MachInstCreate(UUID miid, UUID mid)) {
     IO::println("Calling MachInstCreate");
