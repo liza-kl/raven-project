@@ -123,27 +123,38 @@ public class Interpreter extends Node implements Visitor {
     public void visitPanelContainer(RavenPanelContainer ravenPanelContainer) {
         System.out.println("Creating PanelContainer");
         PanelContainer panelContainer = new PanelContainer();
+        panelContainer.setSizeFlagsHorizontal(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
+        panelContainer.setSizeFlagsVertical(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
         panelContainer.setTheme(Main.mainTheme);
         panelContainer.setName(StringNameUtils.asStringName(ravenPanelContainer.getName() == null ? ravenPanelContainer.getNodeID() : ravenPanelContainer.getName()));
         Objects.requireNonNull(ravenPanelContainer.getParentNode()).addChild(panelContainer);
+        applyStyling(ravenPanelContainer, panelContainer);
+
     }
 
     @Override
     public void visitScrollContainer(RavenScrollContainer ravenScrollContainer) {
         System.out.println("Creating ScrollContainer");
-        ScrollContainer scrollContainer = new ScrollContainer();
+        PackedScene DefaultTabContainer = GD.load("res://scenes/DefaultScrollContainer.tscn");
+        ScrollContainer scrollContainer = (ScrollContainer) DefaultTabContainer.instantiate();
+        scrollContainer.setSizeFlagsHorizontal(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
+        scrollContainer.setSizeFlagsVertical(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
         scrollContainer.setTheme(Main.mainTheme);
         scrollContainer.setName(StringNameUtils.asStringName(ravenScrollContainer.getName() == null ? ravenScrollContainer.getNodeID() : ravenScrollContainer.getName()));
         Objects.requireNonNull(ravenScrollContainer.getParentNode()).addChild(scrollContainer);
+        scrollContainer.setSizeFlagsVertical(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
+        applyStyling(ravenScrollContainer, scrollContainer);
+
     }
 
     @Override
     public void visitHBoxContainer(RavenHBoxContainer ravenHBoxContainer) {
         System.out.println("Creating HBoxContainer");
         // TODO in the end one could provide custom scenes? In a Configuration?
-       // PackedScene DefaultTabContainer = GD.load("res://scenes/DefaultHBoxContainer.tscn");
-       // HBoxContainer hBoxContainer = (HBoxContainer) DefaultTabContainer.instantiate();
-        HBoxContainer hBoxContainer = new HBoxContainer();
+        PackedScene DefaultTabContainer = GD.load("res://scenes/DefaultHBoxContainer.tscn");
+        HBoxContainer hBoxContainer = (HBoxContainer) DefaultTabContainer.instantiate();
+        hBoxContainer.setSizeFlagsHorizontal(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
+        hBoxContainer.setSizeFlagsVertical(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
         hBoxContainer.setTheme(Main.mainTheme);
         hBoxContainer.setName(StringNameUtils.asStringName(ravenHBoxContainer.getName() == null ? ravenHBoxContainer.getNodeID() : ravenHBoxContainer.getName()));
         Objects.requireNonNull(ravenHBoxContainer.getParentNode()).addChild(hBoxContainer);
@@ -153,10 +164,11 @@ public class Interpreter extends Node implements Visitor {
     @Override
     public void visitVBoxContainer(RavenVBoxContainer ravenVBoxContainer) {
         System.out.println("Creating VBoxContainer");
-        VBoxContainer vBoxContainer = new VBoxContainer();
-        vBoxContainer.setTheme(Main.mainTheme);
+        PackedScene DefaultVBoxContainer = GD.load("res://scenes/DefaultVBoxContainer.tscn");
+        VBoxContainer vBoxContainer = (VBoxContainer) DefaultVBoxContainer.instantiate();
         vBoxContainer.setSizeFlagsHorizontal(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
         vBoxContainer.setSizeFlagsVertical(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
+        vBoxContainer.setTheme(Main.mainTheme);
         vBoxContainer.setName(StringNameUtils.asStringName(ravenVBoxContainer.getNodeID()));
         Objects.requireNonNull(ravenVBoxContainer.getParentNode()).addChild(vBoxContainer);
     }

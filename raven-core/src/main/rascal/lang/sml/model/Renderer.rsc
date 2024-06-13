@@ -21,14 +21,20 @@ extend lang::sml::runtime::RuntimeRenderer;
 data Tab = tab(tuple[str name, list[RavenNode] content] content);
 //note: this might acutally be correct: NOTE = hacky
 UUID nextID(Env env) {
-  set[UUID] keys = domain(env);
-  return max(keys)+1;
+
+  MetaEnv me = env_retrieve(env, #MetaEnv, 0);
+  // TODO hackedy hackedy do.
+  UUID nextId = me.nextId + 1;
+  while(nextId in domain(env)) {
+    nextId = nextId + 1;
+  }
+  env = env_store(env, 0, meta(nextId));
+  return nextId;
+
+ 
 }
 
-// UUID nextVid(lang::Main::ViewEnv view) {
-//   set[UUID] keys = domain(view.currentTabs);
-//   return max(keys)+1; 
-// }
+
 
 public RavenNode render(Env env) = 
  ravenNode2D("root", [ravenTabContainer([

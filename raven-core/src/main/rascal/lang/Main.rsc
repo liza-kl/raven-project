@@ -1,6 +1,7 @@
 module lang::Main
 
 import IO;
+import String;
 import lang::raven::Environment;
 import lang::raven::RavenNode;
 import lang::sml::model::Model;
@@ -24,15 +25,14 @@ public data InputEnv = input(list[value] stagedValues); // Possibly future featu
 public data ViewMIDMap = viewMID(map[int vid, int mid] mappings); // Helper Environment to get assigned machine id from tab view id 
 public data CurrentTab = currentTab(int tabIndex); // Future Feature to prevent jumping on reload
 public data ViewTypeMap = vidType(map[int vid, str viewType] mappings); // Helper Environmen to get assigned view type from tab view id 
-public data CurrentPossibleTriggers = currentPossibleTriggers(map[int miid, list[str] possibleTriggers] mappings); // Helper Environment to render correct buttons for running instances
 
-public Env env = (0: meta(6),
+public Env env = (0: meta(5),
 1: view(()),
 2: input([]),
 3 : viewMID(()),
 4: currentTab(0),
-5: vidType(()),
-6: currentPossibleTriggers(())); 
+5: vidType(()));
+
 
 UUID env_retrieveMIDfromVID(UUID vid) {
       map[int, int] viewMID = env_retrieve(env, #ViewMIDMap, 3).mappings;
@@ -112,9 +112,15 @@ void main() {
 
   RavenNode view = render(env);
   genJSON(view);
+
+ 
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(JSON_TREE_FILE));
+
+
+  //init();
 }
 
 void init() {
  // lang::raven::helpers::Server::send("THEME_INIT:" + readFile(JSON_STYLING_FILE));
-  lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(JSON_TREE_FILE));
+ // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(JSON_TREE_FILE));
 }

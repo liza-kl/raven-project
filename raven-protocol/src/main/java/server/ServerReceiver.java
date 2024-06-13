@@ -2,6 +2,7 @@ package server;
 
 import io.usethesource.vallang.IString;
 import io.usethesource.vallang.IValueFactory;
+import org.apache.commons.lang.StringUtils;
 import org.rascalmpl.interpreter.Evaluator;
 import org.rascalmpl.interpreter.env.GlobalEnvironment;
 import org.rascalmpl.interpreter.env.ModuleEnvironment;
@@ -45,13 +46,24 @@ class ServerReceiver implements ReceiveCallback {
     public void onReceive(String element) {
         System.out.println("Server received: " + element);
 
+        element = element.startsWith("\"") ?  element.substring(1, element.length() -1) : element;
+        element = element.endsWith("\"") ?  element.substring(0, element.length() -1) : element;
+
         String[] parts = element.split(":", 2);
         if (parts.length != 2) {
            throw new RuntimeException("Invalid message received: " + element);
         }
 
-        String messageType = parts[0].startsWith("\"") ? parts[0].substring(1) : parts[0];
-        String content = parts[1];
+        String messageType = parts[0];
+        System.out.println("Message type: " + messageType);
+        String content = parts[1]
+                .replaceAll("/\\S+|\\n/g\n", "")
+                .replaceAll("\r", "")
+                .replaceAll("\\\\\"", "\"")
+                // FIXME this is because of rascal's double escape, but there is a cleaner solution for sure.
+                .replaceAll("\\\\\\\"(.*?)\\\\\\\"", "\"$1\"")
+                .replaceAll("\\\\n", "");
+        System.out.println("cleaned type: " + content);
 
         /* This plainly sends a message to Godot to update the whole view.*/
         if (messageType.equals("VIEW_UPDATE")) {

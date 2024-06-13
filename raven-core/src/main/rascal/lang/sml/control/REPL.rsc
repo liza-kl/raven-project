@@ -4,6 +4,7 @@ import lang::sml::control::ViewCommand;
 import lang::sml::control::InputCommand;
 import lang::raven::Environment;
 import lang::raven::RavenNode;
+import lang::sml::runtime::RuntimeRenderer;
 import lang::Main;
 import IO;
 import util::Math;
@@ -11,6 +12,7 @@ import Map;
 import lang::sml::model::Renderer;
 import lang::sml::model::Model;
 import lang::raven::helpers::Utils;
+import lang::sml::runtime::Model;
 import List;
 import Set;
 import Map;
@@ -42,6 +44,30 @@ public Env eval(Env env, Command cmd: ViewTabCreate(UUID vid)) {
     return env;
 }
 
+public Env eval(Env env, Command cmd: ViewTabCreate(UUID vid)) {
+    println("Evaluating ViewTabCreate");
+    lang::Main::ViewTypeMap viewID2TabType = env_retrieve(env, #ViewTypeMap, 5);
+    lang::Main::ViewEnv viewEnv = env_retrieve(env, #lang::Main::ViewEnv, 1);
+    // The Default view of a machine when rendered.
+    viewID2TabType.mappings[vid] = "runtime-1"; 
+    env = env_store(env, 5, vidType(viewID2TabType.mappings));
+    // The Default Screen appearing when opening a new tab.
+    viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"New Tab <vid>",
+    [
+        ravenVBox(
+            [
+                lang::raven::RavenNode::ravenButton("Delete Tab", "ViewTabDelete(<vid>)"),
+                lang::raven::RavenNode::ravenLabel("Select Machine"),
+                lang::raven::RavenNode::ravenOptionButton(
+                    [toString(mid) | elem <- env, mach( mid,_,_,_) := env[elem]],
+                    "ViewTabSetMachine(<vid>,%machine)",
+                    [setting("Primitive", [<"selected", "Int%<-1>">])]) 
+            ]
+        )
+        ]>);
+    env = env_store(env, 1, view(viewEnv.currentTabs));
+    return env;
+}
 /* 
 * ViewTabDelete does not delete the machine definition per se
 * For that MachDelete needs to be called
@@ -87,7 +113,6 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
     midVidMappings.mappings[vid] = mid;
 
     map[int, Tab] currentTabs = viewEnv.currentTabs; 
-    Tab retrievedView = currentTabs[vid];
     Model machine = lang::sml::model::Model::getMach(env,mid);
     RavenNode machineContent = render(env,machine,vidType.mappings[vid]); 
     viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"Tab <vid>",
@@ -124,5 +149,23 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
     return env;
 }
 
+public Env eval(Env env, Command cmd: ViewTabSetMachineInstance(UUID vid, UUID miid)) {
+    println("Evaluating ViewTabSetMachineInstance(UUID vid, UUID miid)");
+    ViewEnv viewEnv = env_retrieve(env, #ViewEnv, 1);
+    ViewTypeMap vidType = env_retrieve(env, #ViewTypeMap, 5);
+    ViewMIDMap midVidMappings = env_retrieve(env, #ViewMIDMap, 3);
 
+    Model machineInstance = lang::sml::runtime::Model::getMachInst(env,miid);
+
+    midVidMappings.mappings[vid] = miid;
+    map[int, Tab] currentTabs = viewEnv.currentTabs;  
+
+    RavenNode machineContent = render(env,machineInstance, "runtime-1"); 
+    viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"RuntimeTab <vid>",
+    [ravenVBox([ravenButton("Delete Tab", "ViewTabDelete(<vid>)"),ravenButton("Kill Instance", "MachInstDelete")])] + 
+    [machineContent]>); 
+    env = env_store(env, 1, view(viewEnv.currentTabs));
+    env = env_store(env, 3, viewMID(midVidMappings.mappings));
+    return env;
+}
 

@@ -20,34 +20,44 @@ import lang::sml::runtime::RuntimeRenderer;
 public void runtimeControl(Command incomingCallback: MachInstCreate(UUID miid, UUID mid)) {
     IO::println("Calling MachInstCreate");
     env = eval(env, MachInstCreate(miid, mid));
-    UUID vid = uuidi();
-    lang::Main::ViewTypeMap viewID2TabType = env_retrieve(env, #ViewTypeMap, 5);
-    lang::Main::ViewEnv viewEnv = env_retrieve(env, #lang::Main::ViewEnv, 1);
+    ViewMIDMap viewMID2 = env_retrieve(env, #ViewMIDMap, 3);
+    vid2 = uuidi();
+    viewMID2.mappings[vid2] = miid;
+    env = env_store(env, 3, viewMID(viewMID2.mappings));
 
-    CurrentPossibleTriggers currentPossibleTriggersEnv = env_retrieve(env, #CurrentPossibleTriggers, 6);
+    
 
-    // TODO fix the mappings.   
-    currentPossibleTriggersEnv.mappings[miid] =  [trigger | t <- env, trans(_,sid,trigger,_) := env[t]];
+    list[int] machToUpdate = [miid2 | elem <- env, machInst(miid2,_,_,_) := env[elem]];
+    for (machID <- machToUpdate) {
+        list[int] vid = env_retrieveVIDfromMID(machID);
+        println("vids");
+        println(vid);
+        for (int v <- vid) {
+        lang::Main::env = eval(env,ViewTabSetMachineInstance(v, machID));
+        }
+    }
 
-    env = env_store(env, 6, currentPossibleTriggers(currentPossibleTriggersEnv.mappings));
+    // UUID vid = uuidi();
+    // ViewMIDMap viewMIDEnv = env_retrieve(env, #ViewMIDMap, 3);
+    // viewMIDEnv.mappings[vid] = miid;
+    // env = env_store(env, 3, viewMID(viewMIDEnv.mappings));
+    // lang::Main::ViewTypeMap viewID2TabType = env_retrieve(env, #ViewTypeMap, 5);
+    // lang::Main::ViewEnv viewEnv = env_retrieve(env, #lang::Main::ViewEnv, 1);
 
-    viewID2TabType.mappings[vid] = "runtime-1"; 
-    env = env_store(env, 5, vidType(viewID2TabType.mappings));
-    viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"Runtime-1 for <mid>",
-    [
-        lang::sml::runtime::RuntimeRenderer::render(env, env[miid], "runtime-1")
-        ]>);
-    env = env_store(env, 1, view(viewEnv.currentTabs));
-    lang::raven::JSONMapper::genJSON(render(env));
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
-}
+    // CurrentPossibleTriggers currentPossibleTriggersEnv = env_retrieve(env, #CurrentPossibleTriggers, 6);
+
+    // // TODO fix the mappings.   
+    // currentPossibleTriggersEnv.mappings[miid] =  [trigger | t <- env, trans(_,sid,trigger,_) := env[t]];
+
+    // env = env_store(env, 6, currentPossibleTriggers(currentPossibleTriggersEnv.mappings));
+
+    // viewID2TabType.mappings[vid] = "runtime-1"; 
+    // env = env_store(env, 5, vidType(viewID2TabType.mappings));
 
 
 
-// IMP
-public void runtimeControl(Command incomingCallback: MachInstIntermTrigger(UUID miid, int idx)) {
-    IO::println("Calling MachInstIntermTrigger");
-    env = lang::sml::runtime::REPL::eval(env, MachInstIntermTrigger(miid, idx));
+
+    // env = env_store(env, 1, view(viewEnv.currentTabs));
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
@@ -63,9 +73,17 @@ public void runtimeControl(Command incomingCallback: MachInstDelete(UUID miid, U
 }
 
 // IMP
-public void runtimeControl( Command incomingCallback: MachInstTrigger(UUID miid, str trigger)) {
+public void runtimeControl(Command incomingCallback: MachInstTrigger(UUID miid, str trigger)) {
     IO::println("Calling MachInstTrigger");
-    lang::Main::env = eval(env, MachInstTrigger(miid, trigger));
+    env = eval(env, MachInstTrigger(miid, trigger));
+
+    list[int] vid = env_retrieveVIDfromMID(miid);
+    for (int v <- vid) {
+    env = eval(env,ViewTabSetMachineInstance(v, miid));
+    }
+    println("current env");
+    println(env);
+
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }

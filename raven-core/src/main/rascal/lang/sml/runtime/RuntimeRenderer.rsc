@@ -25,48 +25,43 @@ import IO;
 // To create the possible trigger events, apply to machine or curr state I guess.
 list[str] getAllTrigger(Env env, UUID sid, UUID miid) {
     list[str] result = [trigger | t <- env, trans(_,sid,trigger,_) := env[t]];
-    println("result");
-    println(result);
-    CurrentPossibleTriggers currentPossibleTriggersEnv = env_retrieve(env, #CurrentPossibleTriggers, 6);
-    currentPossibleTriggersEnv.mappings[miid] = result;
-    env = env_store(env, 6, currentPossibleTriggers(currentPossibleTriggersEnv.mappings));
-    println("env after trigger");
-    println(env);
     return result;
 }
 
-int getDefiningState(Env env, UUID siid) {
+public int getDefiningState(Env env, UUID siid) {
     return [sid | t <- env,  stateInst(siid,sid,_) := env[t]][0];  
 }
 // The Renderer for a first runtime view ? 
 public RavenNode render(Env env, machInst(UUID miid, UUID mid, UUID cur,  map[UUID sid, UUID siid] sis), "runtime-1") {
-    map[int, list[str]] mappings = env_retrieve(env, #CurrentPossibleTriggers, 6).mappings;
+    
+
     return ravenVBox([
         ravenLabel("Possible trigger, dependening on curr event") 
     ] + [
         // TODO how to parse that correctly ...
         // Maybe define again a mapping in the env for possible values and their id?
-        ravenButton(elem, "MachInstIntermTrigger(<miid>,<indexOf(mappings[miid],elem)>)") |
-                    elem <- mappings[miid] 
+        ravenButton(elem, "MachInstTrigger(<miid>,\\\"<elem>\\\")") | elem <-getAllTrigger(env,getDefiningState(env, cur), miid) 
     ]+ [
         // The custom table, I guess
         ravenHBox([
             
-            ravenPanelContainer([ravenHBox([ravenLabel("")])]),
-            ravenPanelContainer([ravenHBox([ravenLabel("State")])]),
-            ravenPanelContainer([ravenHBox([ravenLabel("Count")])]),
-            ravenPanelContainer([ravenHBox([ravenLabel("Events")])])
-        
+            ravenPanelContainer([ravenHBox([ravenLabel("Current State",[setting("FontSize", [<"font_size", 50>])])])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("State", [setting("FontSize", [<"font_size", 50>])])])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("Count",[setting("FontSize", [<"font_size", 50>])])])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("Events", [setting("FontSize", [<"font_size", 50>])])])])
         ])
     ]+ 
     [render(env, env[t], cur, miid) | t <- env, stateInst(siid,sid,count) := env[t]]);
+
 }
 
 public RavenNode render(Env env, stateInst(UUID siid, UUID sid, int count), UUID cur, UUID miid) {
+    println("calling  render(Env env, stateInst(UUID siid, UUID sid, int count), UUID cur, UUID miid) ");
+
     return ravenHBox([
-            ravenPanelContainer([ravenHBox([ravenLabel("<if(cur == siid){>*<}>")])]),
-            ravenPanelContainer([ravenHBox([ravenLabel("<env[sid].name>")])]),
-            ravenPanelContainer([ravenHBox([ravenLabel("<count>")])]),
-            ravenPanelContainer([ravenHBox([ravenLabel("<replaceAll(itoString([elem | elem <- getAllTrigger(env, sid,miid)]),"\"", "")>")])])
+            ravenPanelContainer([ravenHBox([ravenLabel("<if(cur == siid){>*<}>",[setting("FontSize", [<"font_size", 50>])])])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("<env[sid].name>",[setting("FontSize", [<"font_size", 50>])])])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("<count>",[setting("FontSize", [<"font_size", 50>])])])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("<replaceAll(itoString([elem | elem <- getAllTrigger(env, sid,miid)]),"\"", "")>",[setting("FontSize", [<"font_size", 50>])])])])
         ]);
 }

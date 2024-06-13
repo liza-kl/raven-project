@@ -6,7 +6,6 @@ data Command
   = MachInstCreate(UUID miid, UUID mid)      //creates an instance of a machine (user action)
   | MachInstDelete(UUID miid, UUID mid)      //deletes a machine instance (user action)
   | MachInstTrigger(UUID miid, str trigger)  //triggers an event that can cause a transition (user action)
-  | MachInstIntermTrigger(UUID miid, int idx) 
   | MachInstInitialize(UUID miid)            //initializes a machine instance
   | MachInstSetCurState(UUID miid, UUID sid) //sets the current state
   | MachInstMissingCurState(UUID miid)       //exception during a transition

@@ -51,5 +51,12 @@ public void viewControl(Command incomingCallback: ViewTabSetMachine(UUID vid, UU
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
+public void viewControl(Command incomingCallback: ViewTabSetMachineInstance(UUID vid, UUID miid)) {
+    IO::println("Calling ViewTabSetMachineInstance");
+    lang::Main::env = lang::sml::control::REPL::eval(lang::Main::env, ViewTabSetMachineInstance(vid,miid));
+    genJSON(lang::sml::model::Renderer::render(env));     
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+}
+
 public default void viewControl(Command incomingCallback) { 
     throw "No Control function callback of type <Type::typeOf(incomingCallback)>"; } 

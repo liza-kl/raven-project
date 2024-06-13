@@ -30,23 +30,19 @@ public class NativeClientReceiver extends Node implements ReceiveCallback {
             throw new RuntimeException("Invalid message received: " + element);
         }
 
-        String messageType = parts[0].startsWith("\"") ? parts[0].substring(1) : parts[0];
+        String messageType = parts[0];
         System.out.println(messageType);
         String content = parts[1];
-
-        String cleanedElement = content.substring(0, content.length() - 1);
-        cleanedElement = cleanedElement.replaceAll("\\\\\"", "\"");
-        cleanedElement = cleanedElement.replaceAll("\\\\n", "\n");
 
         switch (messageType) {
             case "THEME_INIT": {
                 mainNode.callDeferred(StringNameUtils.asStringName("emit_signal"),
-                        StringNameUtils.asStringName("main_init_general_theme"),cleanedElement);
+                        StringNameUtils.asStringName("main_init_general_theme"),content);
                 break;
             }
             case "VIEW_UPDATE": {
                 mainNode.callDeferred(StringNameUtils.asStringName("emit_signal"),
-                        StringNameUtils.asStringName("main_update_scene"), cleanedElement);
+                        StringNameUtils.asStringName("main_update_scene"), content);
                 break;
             }
             default: {

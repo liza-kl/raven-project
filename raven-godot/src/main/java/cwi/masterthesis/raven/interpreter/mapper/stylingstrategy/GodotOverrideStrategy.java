@@ -2,6 +2,7 @@ package cwi.masterthesis.raven.interpreter.mapper.stylingstrategy;
 
 import godot.Control;
 import godot.core.StringNameUtils;
+import godot.core.Vector2;
 import java.lang.reflect.Constructor;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -33,16 +34,30 @@ public class GodotOverrideStrategy implements StylingStrategy {
             String params = matcher.group(2);
             String[] paramArray = params.split(",");
 
-            try {
-                String fullClassName = "godot.core." + className;
-                Class<?> clazz = Class.forName(fullClassName);
-                return createInstance(clazz, paramArray);
-            } catch (Exception e) {
-                throw new RuntimeException("Failed to parse value: " + value, e);
+            if (className.equals("Vector2")) {
+                if (paramArray.length == 2) {
+                    try {
+                        float x = Float.parseFloat(paramArray[0].trim());
+                        float y = Float.parseFloat(paramArray[1].trim());
+                        return new Vector2(x, y);
+                    } catch (NumberFormatException e) {
+                        throw new RuntimeException("Invalid format for Vector2: " + value, e);
+                    }
+                } else {
+                    throw new RuntimeException("Vector2 requires exactly 2 parameters: " + value);
+                }
+            } else {
+                try {
+                    String fullClassName = "godot.core." + className;
+                    Class<?> clazz = Class.forName(fullClassName);
+                    return createInstance(clazz, paramArray);
+                } catch (Exception e) {
+                    throw new RuntimeException("Failed to parse value: " + value, e);
+                }
             }
         }
 
-        return value; // Default to returning the string if no pattern is matched
+        return value;
     }
 
     private Object createInstance(Class<?> clazz, String[] paramArray) throws Exception {
