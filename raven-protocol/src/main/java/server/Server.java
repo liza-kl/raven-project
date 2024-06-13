@@ -20,10 +20,6 @@ public class Server extends Thread {
 
     public Server(IValueFactory values) {
         this.values = values;
-        /* if (instance != null) {
-            throw new IllegalStateException("Instance already exists");
-        }
-        instance = this; */
     }
 
     public void setRunning(boolean running) {
@@ -52,7 +48,7 @@ public class Server extends Thread {
             Socket socket = null;
             socket = new Socket(HOST, PORT);
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            out.println(message.toString());
+            out.println(message);
 
         } catch (IOException e) {
             throw new RuntimeException(e);

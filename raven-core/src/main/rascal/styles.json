@@ -1,47 +1,8 @@
 
 [
-{
-
-   "Button": 
-   [
-   {
-      "Color": 
-      {
-         "font_color": "CRIMSON",
-         "font_hover_color":  "LIGHT_SKY_BLUE",
-         "font_outline_color": "LIGHT_SKY_BLUE",
-         "font_pressed_color": "CRIMSON"
-      
-      
-      }
-     
-   },
-   {
-      "StyleboxFlat": {
-         "normal": {
-            "bg_color":"FIREBRICK" 
-         },
-            "hover": {
-            "bg_color":"LIGHT_SKY_BLUE" 
-         },
-            "pressed": {
-            "bg_color":"CRIMSON" 
-         }
-      }
-   },
-   {
-        "FontSize":{
-         "font_size":20 
-      }
-   }
-   
-   ]
-   
-   
-},
 
 {
-"Control":
+"PanelContainer":
  [
   
    {
@@ -62,13 +23,14 @@
       }
    },
    {
-        "FontSize":{
-         "font_size":20 
+      "FontSize":{
+         "font_size": 30 
       }
    }
    
    ]
 },
+
 
 
 {
@@ -90,7 +52,7 @@
    },
    {
         "FontSize":{
-         "font_size": 50
+         "font_size": 40 
       }
    }
    

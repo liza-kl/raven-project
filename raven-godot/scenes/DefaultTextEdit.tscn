@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://byieg8k3o6tpw"]
+
+[node name="DefaultTextEdit" type="TextEdit"]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2

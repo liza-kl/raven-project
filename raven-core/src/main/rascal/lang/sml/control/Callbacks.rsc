@@ -24,7 +24,6 @@ import lang::sml::control::ViewCommand;
 public void viewControl(Command incomingCallback: MachCreate(UUID mid)) {
     IO::println("Calling MachCreate");
     lang::Main::env = eval(env, MachCreate(mid));
-
     list[int] machToUpdate = [mid2 | elem <- env, mach(mid2,_,_,_) := env[elem]];
 
     for (machID <- machToUpdate) {

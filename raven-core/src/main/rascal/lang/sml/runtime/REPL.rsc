@@ -46,7 +46,7 @@ public Env eval(Env env, Command cmd: MachInstDelete(UUID miid, UUID mid)) {
 
 public Env eval(Env env, Command cmd: MachInstAddStateInst(UUID miid, UUID sid, UUID siid)) {
   env = visit(env) {
-    case machInst(UUID miid, UUID mid, UUID cur, map[UUID, UUID] sis)
+    case machInst( miid,  mid,  cur, sis)
       => machInst(miid, mid, cur, sis + (sid : siid))
   }
   return env;
@@ -60,8 +60,8 @@ public Env eval(Env env, Command cmd: MachInstRemoveStateInst(UUID miid, UUID si
   }
   //remove the state instance
   env = visit(env) {
-    case machInst(UUID id, UUID mid, UUID cur, map[UUID, UUID] sis) =>
-      machInst(id, mid, cur, delete(sis, sid))
+    case machInst( miid, UUID mid, UUID cur, map[UUID, UUID] sis) =>
+      machInst(miid, mid, cur, delete(sis, sid))
   }
   return env;
 }
@@ -73,6 +73,41 @@ public Env eval(Env env, Command cmd: MachInstInitialize(UUID miid)) {
     UUID siid = mi.sis[sid];
     env = eval(env, MachInstSetCurState(miid, siid));      
   }
+  return env;
+}
+
+
+public Env eval(Env env, Command cmd: MachInstSetCurState(UUID miid, UUID siid)) {
+  env = visit(env) {
+    case machInst(miid, mid, _, sis) => machInst(miid, mid, siid, sis)
+  }
+  //post migrate
+  if(siid != -1) {
+    Model si = getStateInst(env, siid);
+    env = eval(env, StateInstSetCount(siid, si.count+1));
+  }
+  return env;
+}
+
+public Env eval(Env env, Command cmd: StateInstCreate(UUID siid, UUID sid, UUID miid)) {
+  Model si = stateInst(siid, sid, 0);
+  env = env_store(env, siid, si);
+  //post migrate
+  env = eval(env, MachInstAddStateInst(miid, sid, siid));
+  return env;
+}
+
+public Env eval(Env env, Command cmd: StateInstSetCount(UUID siid, int count)) {
+  env = visit(env){
+    case stateInst(siid,  sid, _) => stateInst(siid, sid, count)
+  }
+  return env;
+}
+
+public Env eval(Env env, Command cmd: StateInstDelete(UUID siid, UUID miid)) {
+  println("eval StateInstDelete");
+  Model si = getStateInst(env, siid);
+  env = env_delete(env, siid);
   return env;
 }
 
@@ -94,54 +129,11 @@ public Env eval(Env env, Command cmd: MachInstTrigger(UUID miid, ID trigger)) {
     }
   }
   // TODO: missing case!
+  // Add explicit hisotry 
  // env = eval(env, MachInstQuiescence(miid));
   return env;
 }
 
-public Env eval(Env env, Command cmd: MachInstSetCurState(UUID miid, UUID siid)) {
-  Model mi = getMachInst(env, miid);
-  env = visit(env) {
-    case machInst(UUID id, UUID mid, _, map[UUID, UUID] sis) => machInst(id, mid, siid, sis)
-  }
-  //post migrate
-  if(siid != -1) {
-    Model si = getStateInst(env, siid);
-    env = eval(env, StateInstSetCount(siid, si.count+1));
-  }
-  return env;
-}
-
-public Env eval(Env env, Command cmd: StateInstCreate(UUID siid, UUID sid, UUID miid)) {
-  Model si = stateInst(siid, sid, 0);
-  env = env_store(env, siid, si);
-  //post migrate
-  env = eval(env, MachInstAddStateInst(miid, sid, siid));
-  return env;
-}
-
-public Env eval(Env env, Command cmd: StateInstSetCount(UUID siid, int count)) {
-  env = visit(env){
-    case stateInst(UUID id, UUID sid, _) => stateInst(id, sid, count)
-  }
-  return env;
-}
-
-public Env eval(Env env, Command cmd: StateInstDelete(UUID siid, UUID miid)) {
-  Model si = getStateInst(env, siid);
-  env = env_delete(env, siid);
-  return env;
-}
-
-public Env eval(Env env, Command cmd: MachInstIntermTrigger(UUID miid, int idx)) {
-  IO::println("evl machinst");
-  println("current mappings");
-  println(env_retrieve(env, #CurrentPossibleTriggers, 6).mappings);
-  println("current miid <miid><idx>");
-  ID trigger = env_retrieve(env, #CurrentPossibleTriggers, 6).mappings[miid][idx];
-  IO::println("evl machinsttrigger");
-  env = lang::sml::runtime::REPL::eval(env, MachInstTrigger( miid, trigger));
-  return env;
-}
 
 public default Env eval(Env env, Command cmd) {
   throw "Missing eval case";

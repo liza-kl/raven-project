@@ -3,7 +3,7 @@ module lang::raven::RavenNode
 // Property is something like "Color" or "StyleBox"
 data Setting = setting(str property, list[tuple[str property, value val] settings]);
 alias InlineStyleSetting = list[Setting];
-
+// COmment: Might be that we need a settings thing everywhere to be access it without magic.
 public data RavenNode = 
             ravenNode2D(str nodeID, list[RavenNode] children, bool root)
             | ravenNode2D(str nodeID, list[RavenNode] children)
