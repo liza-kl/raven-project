@@ -1,5 +1,13 @@
 @startuml
-node Rascal as n1 {
+
+node "Language Model" as langmodel {
+    component "lang::sml::renderer"
+    component "lang::sml::control"
+}
+
+"lang::sml::renderer" -[hidden]-> "lang::sml::control"
+
+node "raven core (Rascal)" as rascal {
     component "Design Specification" as ds {
 
     }
@@ -14,14 +22,30 @@ node Rascal as n1 {
 
 interface "Scene Tree as JSON" as json
 
+node "Java Server" as java {
+component "Sender"
+component "Receiver"
+}
 
-node Godot as godot
+node "Godot" as godotBE {
+component "Sender"
+component "Receiver"
+component "JSON Interpreter"
+}
 
-json <.. godot :use
+
+java -[hidden]-> rascal
+json <.. godotBE :use
+godotFE -[hidden]-> godotBE
 ds ..> gen :use
+ vs -u-> ds
+
+godotBE --> displayui
+
+
 vs ..> gen :use
 gen --> json :produce
-godot --> listener: communicate changes
+godotBE --> listener: communicate changes
 listener --> gen :call on change
 
 @enduml
