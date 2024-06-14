@@ -10,6 +10,8 @@ import godot.core.StringNameUtils;
 import godot.signals.Signal;
 import godot.signals.SignalProvider;
 
+import java.util.concurrent.*;
+
 @RegisterClass
 public class TextEditScript extends RavenTextEdit {
     @RegisterSignal
@@ -17,33 +19,45 @@ public class TextEditScript extends RavenTextEdit {
     @RegisterSignal
     public Signal textInit = SignalProvider.signal(this, "text_init");
 
+    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+    private Future<?> lastScheduledFuture = null;
+    private final int debounceDelay = 500; // debounce delay in milliseconds
+
     @RegisterFunction
     public void callbackTextChanged() {
-        String content = "\"" + this.getText() + "\"";
+        /*
+        * The scheduling here allows for a JavaScript like debounce effect. Because we are not diffing (yet),
+        * this is the only way to ensure that a callback doesn't get fired on every char change.
+        * */
+        if (lastScheduledFuture != null && !lastScheduledFuture.isDone()) {
+            lastScheduledFuture.cancel(false);
+        }
 
-        String callback = (String) this.get(StringNameUtils.asStringName("node_callback"));
-        assert callback != null;
-        // TODO Assuming callback has only one ^% parameter for now
-        // Rascal is accepting strings and then converting to custom types.
-        String alteredCallback = callback.replaceAll("%(\\w+)", content);
-        this.callbackTextEdit(alteredCallback);
+        lastScheduledFuture = scheduler.schedule(() -> {
+            String content = "\"" + this.getText() + "\"";
+            String callback = (String) this.get(StringNameUtils.asStringName("node_callback"));
+            assert callback != null;
+            // TODO Assuming callback has only one % parameter for now
+            // Rascal is accepting strings and then converting to custom types.
+            String alteredCallback = callback.replaceAll("%(\\w+)", content);
+            this.callbackTextEdit(alteredCallback);
+        }, debounceDelay, TimeUnit.MILLISECONDS);
     }
+
     @RegisterFunction
     public void callbackTextEdit(String callback) {
         NativeClient.getInstance(
-                "0.0.0.0",
-                23000,
-                getTree().getRoot().getChild(0))
+                        "0.0.0.0",
+                        23000,
+                        getTree().getRoot().getChild(0))
                 .send("CALLBACK: " + callback);
     }
 
     @RegisterFunction
     public void callbackTextInit(String callback) {
-
-        this.set(StringNameUtils.asStringName("node_callback"),callback);
+        this.set(StringNameUtils.asStringName("node_callback"), callback);
         this.notifyPropertyListChanged();
     }
-
 
     @RegisterFunction
     public void _ready() {
