@@ -1,7 +1,10 @@
 module lang::raven::RavenNode
 
 // Property is something like "Color" or "StyleBox"
-data Setting = setting(str property, list[tuple[str property, value val] settings]);
+data Setting 
+  = setting(str property, list[tuple[str property, value val]] setting2)
+  | setting(str property, list[Setting] setting1);
+
 alias InlineStyleSetting = list[Setting];
 // COmment: Might be that we need a settings thing everywhere to be access it without magic.
 public data RavenNode = 
@@ -18,7 +21,8 @@ public data RavenNode =
             | ravenGraphNode(str nodeID, int xPosition, int yPosition)
             | ravenGraphEditNode(str nodeID, int xPosition, int yPosition, list[RavenNode] children)
             // TODO Is there a way to match this kind of things so we avoid redundancy?
-            | ravenTextEdit(str content,str callback) 
+            | ravenTextEdit(str content,str callback,list[Setting] settings = [] ) 
+            | ravenLineEdit(str content,str callback,list[Setting] settings = [] ) 
             // Visual Arrangement Options
             | ravenGrid(str nodeID, int columns,list[RavenNode] children=[],  map[str, value]settings=())
             | ravenGrid(str nodeID, int columns, int vSeparation, int hSeparation, int xPosition, int yPosition, list[RavenNode] children)

@@ -59,7 +59,11 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
          // TODO rvnHorizontalSpace(40), leaving Horizontal space out for now   
          // TODO do we need the mid for the state??
           ravenLabel("Edit State Name"),
-          ravenTextEdit(name, "StateSetName(<sid>, %text)"),
+          ravenLineEdit(),
+          ravenTextEdit(name, "StateSetName(<sid>, %text)", settings=[setting("Vector2", [setting("custom_minimum_size",  [
+        <"x","100">,
+        <"y","200">
+      ])])]),
           ravenButton("Delete State", "StateDelete(<sid>)")
         ]
       )

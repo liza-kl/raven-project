@@ -39,6 +39,11 @@ UUID env_retrieveMIDfromVID(UUID vid) {
       return viewMID[vid];
 }
 
+// list[Model] env_retrieveTransitions() {
+//       Model transitions = env_retrieve(env, #Model, id);
+//       return [elem | elem <- env, trans(_, _,_, _) := env[elem] && tid == tid2];
+// }
+
 list[UUID] env_retrieveVIDfromMID(UUID mid) {
     println("calling env_retrieveVIDfromMID");
     ViewMIDMap viewMID = env_retrieve(env, #ViewMIDMap, 3);
@@ -64,6 +69,8 @@ UUID env_retrieveSIDfromName(str name2) {
   println("calling env_retrieveSIDfromName"); 
   return [sid | elem <- env, state(sid,_,name,_,_,_,_) := env[elem] && name == name2][0];
 }
+
+
 
 void main() { 
 
@@ -114,11 +121,12 @@ void main() {
   genJSON(view);
 
  
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(JSON_TREE_FILE));
+  lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(JSON_TREE_FILE));
 
 
   //init();
 }
+
 
 void init() {
  // lang::raven::helpers::Server::send("THEME_INIT:" + readFile(JSON_STYLING_FILE));
