@@ -260,7 +260,9 @@ public class Interpreter extends Node implements Visitor {
                         strategy = new GodotOverrideStrategy(node, entry.getKey(), entry.getKey());
                     }
                     if(themeprop.equals("Vector2")) {
-                        strategy = new Vector2OverrideStrategy(node, entry.getKey(), entry.getValue().asInt(), entry.getValue().asInt());
+                        Map<String, String> result = mapper.convertValue(entry.getValue(), new TypeReference<>() {
+                        });
+                        strategy = new Vector2OverrideStrategy(node, entry.getKey(),Integer.valueOf(result.get("x")), Integer.valueOf(result.get("y")));
                     }
                     if (themeprop.equals("Primitive")) {
                         strategy = new PrimitiveOverrideStrategy(node, entry.getKey(),entry.getValue().asText());

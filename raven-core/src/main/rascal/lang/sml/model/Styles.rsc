@@ -2,8 +2,8 @@ module lang::sml::model::Styles
 import lang::raven::RavenNode;
 
 public list[Setting] textEditSettings = [setting("Vector2", [setting("custom_minimum_size",  [
-        <"x",100>,
-        <"y",200>
+        <"x",200>,
+        <"y",30>
       ])])];
 
 public list[Setting] buttonDanger = [setting("StyleBoxFlat", [setting("normal",  [

@@ -55,7 +55,7 @@ public RavenNode render(Env env) =
     [
       render(env, toString(tab[0]), tab[1]) | tab <- toList(env_retrieve(env, #ViewEnv, 1).currentTabs)
     ],
-    [setting("Primitive", [<"current_tab", "Int%<env[4].tabIndex>">])]
+    settings=[setting("Primitive", [<"current_tab", "Int%<env[4].tabIndex>">])]
     )
   ], true);
 

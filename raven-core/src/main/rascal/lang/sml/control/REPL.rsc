@@ -16,7 +16,7 @@ import lang::sml::runtime::Model;
 import List;
 import Set;
 import Map;
-
+import lang::sml::model::Styles;
 
 // TODO Make more generic because of runtime stuff? 
 public Env eval(Env env, Command cmd: ViewTabCreate(UUID vid)) {
@@ -128,7 +128,7 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
                 "ViewTabSetMachine(<vid>,%machine)",
                 settings=[setting("Primitive", [<"selected", "Int%<List::indexOf([mid2 | elem <- env,mach( mid2, _, _, _) := env[elem]],mid)>">])]),
                 ravenLabel("Machine Name"),
-                ravenTextEdit(machine.name, "MachSetName(<mid>, %text)"),
+                ravenTextEdit(machine.name, "MachSetName(<mid>, %text)", settings=lang::sml::model::Styles::textEditSettings),
                 lang::raven::RavenNode::ravenButton("Delete Machine", "MachDelete(<mid>)"),
                 lang::raven::RavenNode::ravenButton("Create State", "StateCreate(<nextID(env)>, <mid>)"),
                 lang::raven::RavenNode::ravenButton("Run Instance of this Machine", "MachInstCreate(<nextID(env)>,<mid>)"),
