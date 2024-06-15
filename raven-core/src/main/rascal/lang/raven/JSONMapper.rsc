@@ -171,26 +171,6 @@ str rvn_print(RavenNode nodeName:ravenLineEdit(str content, str callback)) =
 
 
 // BUTTONS 
-str rvn_print(RavenNode nodeName:ravenButton(str nodeID,
-                                            str buttonText,
-                                            str callback)) = 
-    "\"Button\":
-    '{
-    '   \"id\": \"<nodeID>\",
-    '   \"text\": \"<buttonText>\",
-    '   \"callback\": \"<callback>\"
-    '}";
-
-/* TODO How to deal with the x y position if they are not set */
-str rvn_print(RavenNode nodeName:ravenButton(str nodeID,
-                                            str buttonText,
-                                            str callback)) = 
-    "\"Button\":
-    '{
-    '   \"id\": \"<nodeID>\",
-    '   \"text\": \"<buttonText>\",
-    '   \"callback\": \"<callback>\"
-    '}";
 
 str rvn_print(RavenNode nodeName:ravenButton(
                                             str buttonText,
@@ -200,55 +180,11 @@ str rvn_print(RavenNode nodeName:ravenButton(
     '   \"id\": \"<uuidi()>\",
     '   \"text\": \"<buttonText>\",
     '   \"callback\": \"<callback>\"
-    '}";
-
-// BUTTONS 
-str rvn_print(RavenNode nodeName:ravenGraphEditNode(str nodeID,
-                                                    int xPosition,
-                                                    int yPosition,
-                                                    list[RavenNode]  children)) =
-    "\"GraphEditNode\":
-    '{
-    '   \"id\": \"<nodeID>\",
-    '   \"xPosition\": \"<xPosition>\",
-    '   \"yPosition\": \"<yPosition>\",
-    <if(children!=[]){>
-    '   \"children\":
-    '[<rvn_print(children)>
+    '<if(isKeywordArgDefined(nodeName, "settings")){>,
+    \"styles\": [
+    '<rvn_print(getKeywordParameters(nodeName)["settings"])>
     ']
-    '<}> 
-    '}";
-
-str rvn_print(RavenNode nodeName:ravenGraphNode(str nodeID,
-                                                int xPosition,
-                                                int yPosition)) =
-    "\"GraphNode\":
-    '{
-    '   \"id\": \"<nodeID>\",
-    '   \"xPosition\": \"<xPosition>\",
-    '   \"yPosition\": \"<yPosition>\"
-    '}";
-
-str rvn_print(RavenNode nodeName:ravenGrid(str nodeID,
-                                            int columns,
-                                            int vSeparation,
-                                            int hSeparation,
-                                            int xPosition,
-                                            int yPosition,
-                                            list[RavenNode] children)) =
- "\"GridContainer\":
-    '{
-    '   \"id\": \"<nodeID>\",
-    '   \"columns\": \"<columns>\",    
-    '   \"vSeparation\": \"<vSeparation>\",    
-    '   \"hSeparation\": \"<hSeparation>\",    
-    '   \"xPosition\": \"<xPosition>\",
-    '   \"yPosition\": \"<yPosition>\",
-    <if(children!=[]){>
-    '   \"children\":
-    '[<rvn_print(children)>
-    ']
-    '<}> 
+    '<}>
     '}";
 
 
