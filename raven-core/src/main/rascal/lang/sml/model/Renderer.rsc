@@ -41,13 +41,13 @@ public RavenNode render(Env env) =
   ravenTab(toString(nextID(env)),"State Machine Language",
     [
       ravenVBox([
-      ravenLabel("State Machines Everywhere!", [setting("Color", [<"font_color", "LAVENDER">])]),
+      ravenLabel("State Machines Everywhere!"),
       ravenButton("Create New Machine", "MachCreate(<nextID(env)>)"),
       ravenButton("Open New Tab", "ViewTabCreate(<uuidi()>)")
       ]),
       ravenVBox([
-      ravenLabel("Available Machines", [setting("Color", [<"font_color", "CRIMSON">])])
-      ] //+ [ ravenLabel(machine) | machine <- convertSetToList(domain(env))] 
+      ravenLabel("Available Machines")
+      ] 
       + [ravenLabel(toString(mid)) | elem <- env, mach( mid, _, _, _) := env[elem]]
       )
     ])]

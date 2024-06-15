@@ -74,7 +74,7 @@ public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, 
       // TODO an adapter View Function?
       ravenOptionButton([name | elem <- env, state(_,mid2,name,_,_,_,_) := env[elem]],   "InterTransSetTarget(<id>,%state)",
       // Getting only the states available for that specific machine.
-      [setting("Primitive", [<"selected", "Int%<List::indexOf([sid | elem <- env, state(sid,mid2,name,_,_,_,_) := env[elem]],tgt)>">, <"allow_reselect", "Boolean%true">])])
+      settings=[setting("Primitive", [<"selected", "Int%<List::indexOf([sid | elem <- env, state(sid,mid2,name,_,_,_,_) := env[elem]],tgt)>">, <"allow_reselect", "Boolean%true">])])
       //FIXME: should be from the current machine these states are part of
     ]
   ); }
