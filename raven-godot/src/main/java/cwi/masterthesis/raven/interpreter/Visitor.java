@@ -19,4 +19,5 @@ public interface Visitor {
     void visitPanelContainer(RavenPanelContainer ravenPanelContainer);
     void visitScrollContainer(RavenScrollContainer ravenScrollContainer);
     void visitLineEdit(RavenLineEdit ravenLineEdit);
+    void visitPanel(RavenPanel ravenPanel);
 }

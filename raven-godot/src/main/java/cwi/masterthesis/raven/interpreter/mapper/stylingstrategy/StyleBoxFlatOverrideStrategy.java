@@ -1,7 +1,7 @@
 package cwi.masterthesis.raven.interpreter.mapper.stylingstrategy;
 
 import godot.Control;
-import godot.StyleBox;
+import godot.StyleBoxFlat;
 import godot.core.Color;
 import godot.core.StringNameUtils;
 
@@ -29,9 +29,9 @@ public class StyleBoxFlatOverrideStrategy implements StylingStrategy{
         }
         return value;
     }
-    private void createStyleBox(Control node, String stateToOverwrite) throws InvocationTargetException, IllegalAccessException {
+    private StyleBoxFlat createStyleBox(Control node, String stateToOverwrite) throws InvocationTargetException, IllegalAccessException {
 
-        StyleBox current = (StyleBox) node.getThemeStylebox(StringNameUtils.asStringName(stateToOverwrite)).duplicate();
+        StyleBoxFlat current = (StyleBoxFlat) node.getThemeStylebox(StringNameUtils.asStringName(stateToOverwrite)).duplicate();
 
         for (var entry : values.entrySet()) {
             assert current != null;
@@ -44,7 +44,7 @@ public class StyleBoxFlatOverrideStrategy implements StylingStrategy{
         }
     //    current.set(StringNameUtils.asStringName("bg_color"), new Color(Color.Companion.getCornflowerBlue()));
         assert current != null;
-        node.addThemeStyleboxOverride(StringNameUtils.asStringName(stateToOverwrite),current);
+        return current;
 
         // you can add all those things here
         // https://docs.godotengine.org/en/stable/classes/class_styleboxflat.html
@@ -54,7 +54,8 @@ public class StyleBoxFlatOverrideStrategy implements StylingStrategy{
     @Override
     public void applyStyling() {
         try {
-            this.createStyleBox(node, this.state);
+            StyleBoxFlat box = this.createStyleBox(this.node, this.state);
+            this.node.addThemeStyleboxOverride(StringNameUtils.asStringName(this.state),box);
         } catch (InvocationTargetException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }

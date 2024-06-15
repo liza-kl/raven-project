@@ -403,6 +403,25 @@ str rvn_print(RavenNode nodeName:ravenPanelContainer(list[RavenNode] children)) 
     '<}> 
     '}";
 
+// PANEL
+
+str rvn_print(RavenNode nodeName:ravenPanel(list[RavenNode] children)) =
+ "\"Panel\":
+    '{
+    '   \"id\": \"<uuidi()>\"
+    '<if(isKeywordArgDefined(nodeName, "settings")){>,
+    \"styles\": [
+    '<rvn_print(getKeywordParameters(nodeName)["settings"])>
+    ']
+    '<}> 
+    <if(children!=[]){>,
+    '   \"children\":
+    '[<rvn_print(children)>
+    ']
+    '<}> 
+    '}";
+
+
 // https://docs.godotengine.org/en/stable/classes/class_scrollcontainer.html#class-scrollcontainer
 str rvn_print(RavenNode nodeName:ravenScrollContainer(list[RavenNode] children)) =
  "\"ScrollContainer\":
