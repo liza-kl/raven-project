@@ -14,17 +14,9 @@ public data RavenNode =
             | ravenLabel(str text,list[Setting] settings = [])
             // Control Nodes
             // Button
-            | ravenButton(str label, str callback)
-            | ravenButton(str nodeID, str label, str callback)
-            // GraphNode
-            | ravenGraphNode(str nodeID, int xPosition, int yPosition)
-            | ravenGraphEditNode(str nodeID, int xPosition, int yPosition, list[RavenNode] children)
-            // TODO Is there a way to match this kind of things so we avoid redundancy?
+            | ravenButton(str label, str callback, list[Setting] settings = [])
             | ravenTextEdit(str content,str callback,list[Setting] settings = [] ) 
             | ravenLineEdit(str content,str callback,list[Setting] settings = [] ) 
-            // Visual Arrangement Options
-            | ravenGrid(str nodeID, int columns,list[RavenNode] children=[],  map[str, value]settings=())
-            | ravenGrid(str nodeID, int columns, int vSeparation, int hSeparation, int xPosition, int yPosition, list[RavenNode] children)
             // OptionButton
             | ravenOptionButton( list[str] options, str callback, list[Setting] settings = [])
             // Containers
