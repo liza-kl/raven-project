@@ -36,7 +36,7 @@ public Env eval(Env env, Command cmd: ViewTabCreate(UUID vid)) {
                 lang::raven::RavenNode::ravenOptionButton(
                     [toString(mid) | elem <- env, mach( mid,_,_,_) := env[elem]],
                     "ViewTabSetMachine(<vid>,%machine)",
-                    [setting("Primitive", [<"selected", "Int%<-1>">])]) 
+                    settings=[setting("Primitive", [<"selected", "Int%<-1>">])]) 
             ]
         )
         ]>);
@@ -61,7 +61,7 @@ public Env eval(Env env, Command cmd: ViewTabCreate(UUID vid)) {
                 lang::raven::RavenNode::ravenOptionButton(
                     [toString(mid) | elem <- env, mach( mid,_,_,_) := env[elem]],
                     "ViewTabSetMachine(<vid>,%machine)",
-                    [setting("Primitive", [<"selected", "Int%<-1>">])]) 
+                    settings=[setting("Primitive", [<"selected", "Int%<-1>">])]) 
             ]
         )
         ]>);
@@ -126,7 +126,7 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
                 lang::raven::RavenNode::ravenOptionButton(
                 [toString(mid2) |  elem <- env, mach( mid2, _, _, _) := env[elem]],
                 "ViewTabSetMachine(<vid>,%machine)",
-                [setting("Primitive", [<"selected", "Int%<List::indexOf([mid2 | elem <- env,mach( mid2, _, _, _) := env[elem]],mid)>">])]),
+                settings=[setting("Primitive", [<"selected", "Int%<List::indexOf([mid2 | elem <- env,mach( mid2, _, _, _) := env[elem]],mid)>">])]),
                 ravenLabel("Machine Name"),
                 ravenTextEdit(machine.name, "MachSetName(<mid>, %text)"),
                 lang::raven::RavenNode::ravenButton("Delete Machine", "MachDelete(<mid>)"),
@@ -134,7 +134,7 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
                 lang::raven::RavenNode::ravenButton("Run Instance of this Machine", "MachInstCreate(<nextID(env)>,<mid>)"),
                 lang::raven::RavenNode::ravenOptionButton(["tree","table"],
                 "ViewTabSetType(<vid>,%type)",
-                [setting("Primitive", [<"selected", "Int%<List::indexOf(["tree","table"], vidType.mappings[vid])>">])])   
+                settings=[setting("Primitive", [<"selected", "Int%<List::indexOf(["tree","table"], vidType.mappings[vid])>">])])   
             ]
         )
 

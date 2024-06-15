@@ -15,7 +15,7 @@ import List;
 import util::UUID;
 import List;
 import ValueIO;
-
+import lang::sml::model::Styles;
 
 import String;
 import lang::Main;
@@ -50,10 +50,10 @@ public RavenNode render(Env env, machInst(UUID miid, UUID mid, UUID cur,  map[UU
         // The custom table, I guess
         ravenHBox([
             
-            ravenPanelContainer([ravenHBox([ravenLabel("Current State",[setting("FontSize", [<"font_size", 50>])])])]),
-            ravenPanelContainer([ravenHBox([ravenLabel("State", [setting("FontSize", [<"font_size", 50>])])])]),
-            ravenPanelContainer([ravenHBox([ravenLabel("Count",[setting("FontSize", [<"font_size", 50>])])])]),
-            ravenPanelContainer([ravenHBox([ravenLabel("Events", [setting("FontSize", [<"font_size", 50>])])])])
+            ravenPanelContainer([ravenHBox([ravenLabel("Current State",settings=lang::sml::model::Styles::runtimeTabelLabel)])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("State",settings=lang::sml::model::Styles::runtimeTabelLabel)])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("Count",settings=lang::sml::model::Styles::runtimeTabelLabel)])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("Events", settings=lang::sml::model::Styles::runtimeTabelLabel)])])
         ])
     ]+ 
     [render(env, env[t], cur, miid) | t <- env, stateInst(siid,sid,count) := env[t]]);
@@ -65,12 +65,11 @@ public RavenNode render(Env env, stateInst(UUID siid, UUID sid, int count), UUID
 
 
     return ravenHBox([
-            ravenPanelContainer([ravenHBox([ravenLabel("<if(cur == siid){>*<}>",[setting("FontSize", [<"font_size", 50>])])])]),
-            ravenPanelContainer([ravenHBox([ravenLabel("<env[sid].name>",[setting("FontSize", [<"font_size", 50>])])])],settings=ravenPanelStyle),
-            ravenPanelContainer([ravenHBox([ravenLabel("<count>",[setting("FontSize", [<"font_size", 50>])])])],settings=ravenPanelStyle),
+            ravenPanelContainer([ravenHBox([ravenLabel("<if(cur == siid){>*<}>",settings=lang::sml::model::Styles::runtimeTabelLabel)])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("<env[sid].name>",settings=lang::sml::model::Styles::runtimeTabelLabel)])],settings=ravenPanelStyle),
+            ravenPanelContainer([ravenHBox([ravenLabel("<count>",settings=lang::sml::model::Styles::runtimeTabelLabel)])],settings=ravenPanelStyle),
             ravenPanelContainer([ravenHBox([ravenLabel("<replaceAll(itoString([elem | elem <- getAllTrigger(env, sid,miid)]),"\"", "")>",
-                                [setting("FontSize",
-                                        [<"font_size", 50>])])
+                                settings=runtimeTabelLabel)
                                 ])],
                                 settings=ravenPanelStyle)
         ]);

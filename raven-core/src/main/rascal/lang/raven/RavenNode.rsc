@@ -11,8 +11,7 @@ public data RavenNode =
             ravenNode2D(str nodeID, list[RavenNode] children, bool root)
             | ravenNode2D(str nodeID, list[RavenNode] children)
             // Label
-            | ravenLabel(str text,list[Setting] styles)
-            | ravenLabel(str text)
+            | ravenLabel(str text,list[Setting] settings = [])
             // Control Nodes
             // Button
             | ravenButton(str label, str callback)
@@ -27,9 +26,7 @@ public data RavenNode =
             | ravenGrid(str nodeID, int columns,list[RavenNode] children=[],  map[str, value]settings=())
             | ravenGrid(str nodeID, int columns, int vSeparation, int hSeparation, int xPosition, int yPosition, list[RavenNode] children)
             // OptionButton
-            | ravenOptionButton( list[str] options)
-            | ravenOptionButton( list[str] options, str callback)
-            | ravenOptionButton( list[str] options, str callback, list[Setting] styles)
+            | ravenOptionButton( list[str] options, str callback, list[Setting] settings = [])
             // Containers
             | ravenHBox( list[RavenNode] children) 
             | ravenVBox( list[RavenNode] children)

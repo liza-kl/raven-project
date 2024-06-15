@@ -60,24 +60,16 @@ str rvn_print(Setting setting: setting(str property, list[Setting] setting1)) =
 str rvn_print(RavenNode nodeName: empty()) =
     "";
    
-
 // LABEL
-// TODO why error expected 1 arg but got two?
 str rvn_print(RavenNode nodeName: ravenLabel(str text)) =
     "\"Label\": {
     '   \"id\": \"<uuidi()>\",
     '   \"text\": <rvn_print(text)>
-    '   
-    '}  ";
-   
-// LABEL
-str rvn_print(RavenNode nodeName: ravenLabel(str text, InlineStyleSetting styles)) =
-    "\"Label\": {
-    '   \"id\": \"<uuidi()>\",
-    '   \"text\": <rvn_print(text)>,
-    '   \"styles\": [
-    '<rvn_print(styles)>
-    '] 
+    '<if(isKeywordArgDefined(nodeName, "settings")){>,
+    \"styles\": [
+    '<rvn_print(getKeywordParameters(nodeName)["settings"])>
+    ']
+    '<}>
     '}  ";
    
 
@@ -147,7 +139,6 @@ str rvn_print(map[str, value] settings) = "
 ' }
 <}>          
 ";
-default str rvn_print(RavenNode ravenNode) { throw "you forgot a case <typeOf(ravenNode)>"; } 
 
 // TEXTEDIT
 str rvn_print(RavenNode nodeName:ravenTextEdit(str content, str callback)) =
@@ -346,32 +337,8 @@ str rvn_print(RavenNode nodeName:ravenTab(str nodeID, str name, list[RavenNode] 
     '<}> 
     '}";
 
-
 // OPTION BUTTON
-str rvn_print(RavenNode nodeName:ravenOptionButton(list[str] options)) =
- "\"OptionButton\":
-    '{
-    '   \"id\": \"<uuidi()>\"<if(options!=[]){>,
-    '   \"options\":
-    '[<rvn_print(options)>
-    ']
-    '<}> 
-    '}";
-
-// OPTION BUTTON + CALLBACK 
 str rvn_print(RavenNode nodeName:ravenOptionButton(list[str] options, str callback)) =
- "\"OptionButton\":
-    '{
-    '   \"id\": \"<uuidi()>\",
-    '   \"callback\": \"<callback>\",
-    <if(options!=[]){>
-    '   \"options\":
-    '[<rvn_print(options)>
-    ']
-    '<}> 
-    '}";
-
-str rvn_print(RavenNode nodeName:ravenOptionButton(list[str] options, str callback, list[Setting] styles)) =
  "\"OptionButton\":
     '{
     '   \"id\": \"<uuidi()>\",
@@ -380,10 +347,12 @@ str rvn_print(RavenNode nodeName:ravenOptionButton(list[str] options, str callba
     '   \"options\":
     '[<rvn_print(options)>
     ']
-    '<}>,
-    '   \"styles\": [
-    '<rvn_print(styles)>
-    ']  
+    '<}> 
+    '<if(isKeywordArgDefined(nodeName, "settings")){>,
+    \"styles\": [
+    '<rvn_print(getKeywordParameters(nodeName)["settings"])>
+    ']
+    '<}> 
     '}";
 
 // https://docs.godotengine.org/en/stable/classes/class_panelcontainer.html#class-panelcontainer
@@ -438,6 +407,8 @@ str rvn_print(RavenNode nodeName:ravenScrollContainer(list[RavenNode] children))
     ']
     '<}> 
     '}";
+
+default str rvn_print(RavenNode ravenNode) { throw "you forgot a case <typeOf(ravenNode)>"; } 
 
 
 // MISC Functions

@@ -13,6 +13,7 @@ import util::Math;
 import util::UUID;
 import List;
 import lang::Main;
+import lang::sml::model::Styles;
 
 
 // Render General Tab Content (Root) ? of Machine
@@ -33,16 +34,7 @@ public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] st
           )
         ] +
         [ render(env, getState(env, sid), "tree") | UUID sid <- states] 
-        // + [ 
-        //   ravenHBox
-        //   (
-        //     [
-        //       ravenButton("Create State", "StateCreate(<nextID(env)>, <mid>)")
-        //     ]
-        //   )
-        // ]        
       )
-   //  ravenVBox([]) TODO will be fixed later with proper spacing.
     ]
   );
 
@@ -56,14 +48,9 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
       ravenHBox
       (
         [
-         // TODO rvnHorizontalSpace(40), leaving Horizontal space out for now   
-         // TODO do we need the mid for the state??
+
           ravenLabel("Edit State Name"),
-          ravenLineEdit(),
-          ravenTextEdit(name, "StateSetName(<sid>, %text)", settings=[setting("Vector2", [setting("custom_minimum_size",  [
-        <"x","100">,
-        <"y","200">
-      ])])]),
+          ravenLineEdit(name, "StateSetName(<sid>, %text)", settings=lang::sml::model::Styles::textEditSettings),
           ravenButton("Delete State", "StateDelete(<sid>)")
         ]
       )
@@ -73,7 +60,6 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
       ravenHBox
       (
         [
-        // TODO rvnHorizontalSpace(40),  leaving Horizontal space out for now
           ravenButton("Create Trans Source", "TransCreateSource(<nextID(env)>,<sid>)")
         ]
           
@@ -86,12 +72,12 @@ public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, 
   (
     [
       ravenButton("Delete Transition", "TransDelete(<id>)"),
-      ravenTextEdit(trigger, "TransSetTrigger(<id>, %text)"),
+      ravenTextEdit(trigger, "TransSetTrigger(<id>, %text)", settings=lang::sml::model::Styles::textEditSettings),
       ravenLabel(" --\> "),
       // TODO an adapter View Function?
       ravenOptionButton([name | elem <- env, state(_,mid2,name,_,_,_,_) := env[elem]],   "InterTransSetTarget(<id>,%state)",
       // Getting only the states available for that specific machine.
-      [setting("Primitive", [<"selected", "Int%<List::indexOf([sid | elem <- env, state(sid,mid2,name,_,_,_,_) := env[elem]],tgt)>">, <"allow_reselect", "Boolean%true">])])
+      settings=[setting("Primitive", [<"selected", "Int%<List::indexOf([sid | elem <- env, state(sid,mid2,name,_,_,_,_) := env[elem]],tgt)>">, <"allow_reselect", "Boolean%true">])])
       //FIXME: should be from the current machine these states are part of
     ]
   ); }
