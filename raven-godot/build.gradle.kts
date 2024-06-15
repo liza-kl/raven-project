@@ -8,7 +8,7 @@ repositories {
 
 dependencies {
     implementation("com.fasterxml.jackson.core:jackson-databind:2.17.0")
-    implementation(files("../raven-protocol/target/raven-protocol-1.0-SNAPSHOT.jar"))
+    implementation(files("../raven-rascal-example/raven-protocol/target/raven-protocol-1.0-SNAPSHOT.jar"))
     implementation("org.reflections:reflections:0.10.2")
 
 

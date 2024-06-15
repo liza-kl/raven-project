@@ -17,11 +17,13 @@ run.debug:
 	$(godot) --jvm-debug-port=5005 --wait-for-debugger=true
 
 run.server:
-	java -jar ../raven-protocol/target/raven-protocol-1.0-SNAPSHOT.jar
+	java -jar ~/raven-project/raven-rascal-example/raven-protocol/target/raven-protocol-1.0-SNAPSHOT.jar
 
 run:
-	tmux new-session -d -s raven-session -n "Java" java -jar ../raven-protocol/target/raven-protocol-1.0-SNAPSHOT.jar \; \
-		new-window -n "Godot" $(godot)
+	tmux new-session -d -s raven-session -n "Java" \; \
+	send-keys 'java -jar ~/raven-project/raven-rascal-example/raven-protocol/target/raven-protocol-1.0-SNAPSHOT.jar' C-m \; \
+	new-window -n "Godot" \; \
+	send-keys '$(godot)' C-m
 
 stop:
 	tmux send-keys -t raven-session C-c
