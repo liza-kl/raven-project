@@ -3,15 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cwi.masterthesis</groupId>
+        <artifactId>raven-rascal-example</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
-    <groupId>cwi.masterthesis</groupId>
     <artifactId>raven-protocol</artifactId>
-    <version>1.0-SNAPSHOT</version>
+
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
     <repositories>
         <repository>
             <id>rascalmpl</id>
@@ -19,6 +24,14 @@
             <url>https://releases.usethesource.io/maven/</url>
         </repository>
     </repositories>
+
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>usethesource</id>
+            <url>https://releases.usethesource.io/maven/</url>
+        </pluginRepository>
+    </pluginRepositories>
 
 
     <dependencies>
@@ -31,21 +44,6 @@
             <groupId>io.usethesource</groupId>
             <artifactId>vallang</artifactId>
             <version>0.15.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.17.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>2.17.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.17.0</version>
         </dependency>
     </dependencies>
     <build>

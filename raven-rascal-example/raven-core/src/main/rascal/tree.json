@@ -1,0 +1,1079 @@
+{"id": "root",
+   "children":
+[{"TabContainer":
+ {
+    "id": "-84637244865562635308027265566010727150"
+  
+ ,
+     "styles": [
+ 
+ 
+ {
+    "Primitive": {
+       
+       
+          "current_tab": "Int%0"
+       
+    
+    }  }
+ 
+ ]
+  
+     ,
+    "children":
+ [{"HBoxContainer":
+  {
+     "id": "14",
+     "name": "State Machine Language",
+     "children":
+  [{"VBoxContainer":
+   {
+      "id": "-124276901898358479209564275804771611517",
+      "children":
+   [{"Label": {
+       "id": "46989357095896088088686115366158999427",
+       "text": "State Machines Everywhere!"
+    
+    }  },{"Button":
+    {
+       "id": "121744036388384845011117498231126187710",
+       "text": "Create New Machine",
+       "callback": "MachCreate(14)"
+    
+    }},{"Button":
+    {
+       "id": "-94359226979667745343342106593123183795",
+       "text": "Open New Tab",
+       "callback": "ViewTabCreate(-147859440462758795999241414110123934688)"
+    
+    }}
+   ]
+    
+   }},{"VBoxContainer":
+   {
+      "id": "-138525913005063376039967473232154211890",
+      "children":
+   [{"Label": {
+       "id": "-44549495438389939748756149599280880906",
+       "text": "Available Machines"
+    
+    }  },{"Label": {
+       "id": "7096859943959313448131905210844399416",
+       "text": "6"
+    
+    }  }
+   ]
+    
+   }}
+  ]
+   
+  }},{"HBoxContainer":
+  {
+     "id": "-69280136035387254835714920436028356896",
+     "name": "Tab -69280136035387254835714920436028356896",
+     "children":
+  [{"VBoxContainer":
+   {
+      "id": "-25227732145737336479391364740372663524",
+      "children":
+   [{"Button":
+    {
+       "id": "83020281764867782669298863388586354200",
+       "text": "Delete Tab",
+       "callback": "ViewTabDelete(-69280136035387254835714920436028356896)"
+    
+    }},{"Label": {
+       "id": "33091336855757792526833000950108767442",
+       "text": "Current Machine: 6"
+    
+    }  },{"Label": {
+       "id": "124293787589699168485936639147608455054",
+       "text": "Select New Machine"
+    
+    }  },{"OptionButton":
+    {
+       "id": "45978939756508284018212834133798104959",
+       "callback": "ViewTabSetMachine(-69280136035387254835714920436028356896,%machine)"
+        ,
+       "options":
+    ["6"
+    ]
+     
+    ,
+        "styles": [
+    
+    
+    {
+       "Primitive": {
+          
+          
+             "selected": "Int%0"
+          
+       
+       }  }
+    
+    ]
+     
+    }},{"Label": {
+       "id": "85720702569564521745782326278859509545",
+       "text": "Machine Name"
+    
+    }  },{"TextEdit":
+    {
+       "id": "-40902804440474913870830200072517848971",
+       "callback": "MachSetName(6, %text)",
+       "text": "door"
+    ,
+        "styles": [
+    
+    
+    {
+       "Vector2": 
+          
+          
+          {
+             "custom_minimum_size": {
+                
+                
+                   "x": "200",
+                
+                
+                   "y": "30"
+                
+             
+             }  }
+       
+         }
+    
+    ]
+    
+    }},{"Button":
+    {
+       "id": "49747523569630689284903766548810636363",
+       "text": "Delete Machine",
+       "callback": "MachDelete(6)"
+    
+    }},{"Button":
+    {
+       "id": "-28849194113551458266587275309658494084",
+       "text": "Create State",
+       "callback": "StateCreate(11, 6)"
+    
+    }},{"Button":
+    {
+       "id": "-107731575190039873900453928318325995622",
+       "text": "Run Instance of this Machine",
+       "callback": "MachInstCreate(11,6)"
+    
+    }},{"OptionButton":
+    {
+       "id": "-158305394393181750409527357695731490081",
+       "callback": "ViewTabSetType(-69280136035387254835714920436028356896,%type)"
+        ,
+       "options":
+    ["tree","table"
+    ]
+     
+    ,
+        "styles": [
+    
+    
+    {
+       "Primitive": {
+          
+          
+             "selected": "Int%0"
+          
+       
+       }  }
+    
+    ]
+     
+    }}
+   ]
+    
+   }},{"HBoxContainer":
+   {
+      "id": "-163781669921689256688841471049738592930",
+      "children":
+   [{"VBoxContainer":
+    {
+       "id": "21693532562622665565904509573349527477",
+       "children":
+    [{"HBoxContainer":
+     {
+        "id": "-124998615066422829235051704427829452008",
+        "children":
+     [{"Label": {
+         "id": "-95809727776041368079266597764792065325",
+         "text": "Available States"
+      
+      }  }
+     ]
+      
+     }},{"VBoxContainer":
+     {
+        "id": "20239887769077790297525281537285414364",
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "120701707763536012933636047763456901922",
+         "children":
+      [{"Label": {
+          "id": "78657724996345040523482544249644704639",
+          "text": "Edit State Name"
+       
+       }  },{"TextEdit":
+       {
+          "id": "74543529055411007835316359312107214560",
+          "callback": "StateSetName(7, %text)",
+          "text": "opened"
+       ,
+           "styles": [
+       
+       
+       {
+          "Vector2": 
+             
+             
+             {
+                "custom_minimum_size": {
+                   
+                   
+                      "x": "200",
+                   
+                   
+                      "y": "30"
+                   
+                
+                }  }
+          
+            }
+       
+       ]
+       
+       }},{"Button":
+       {
+          "id": "160381804945959867876158000590605157560",
+          "text": "Delete State",
+          "callback": "StateDelete(7)"
+       
+       }}
+      ]
+       
+      }},{"HBoxContainer":
+      {
+         "id": "-5703686827811440190590239891967001686",
+         "children":
+      [{"Button":
+       {
+          "id": "143888019831265338697572391247113201661",
+          "text": "Delete Transition",
+          "callback": "TransDelete(9)"
+       
+       }},{"TextEdit":
+       {
+          "id": "-103964327247269408576714978751437122172",
+          "callback": "TransSetTrigger(9, %text)",
+          "text": "close"
+       ,
+           "styles": [
+       
+       
+       {
+          "Vector2": 
+             
+             
+             {
+                "custom_minimum_size": {
+                   
+                   
+                      "x": "200",
+                   
+                   
+                      "y": "30"
+                   
+                
+                }  }
+          
+            }
+       
+       ]
+       
+       }},{"Label": {
+          "id": "-90611770123083950266964392597369931330",
+          "text": " --> "
+       
+       }  },{"OptionButton":
+       {
+          "id": "-57510176715153695404989262235473778698",
+          "callback": "InterTransSetTarget(9,%state)"
+           ,
+          "options":
+       ["opened","closed"
+       ]
+        
+       ,
+           "styles": [
+       
+       
+       {
+          "Primitive": {
+             
+             
+                "selected": "Int%1",
+             
+             
+                "allow_reselect": "Boolean%true"
+             
+          
+          }  }
+       
+       ]
+        
+       }}
+      ]
+       
+      }},{"HBoxContainer":
+      {
+         "id": "-141094949251105379220984332956105505065" 
+      }}
+     ]
+      
+     }},{"VBoxContainer":
+     {
+        "id": "7957303936900881387116071416831614642",
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "-107038160173509510138818362433102659383",
+         "children":
+      [{"Label": {
+          "id": "138942522762301217673685029745635070186",
+          "text": "Edit State Name"
+       
+       }  },{"TextEdit":
+       {
+          "id": "94244102880997753326460539547266735035",
+          "callback": "StateSetName(8, %text)",
+          "text": "closed"
+       ,
+           "styles": [
+       
+       
+       {
+          "Vector2": 
+             
+             
+             {
+                "custom_minimum_size": {
+                   
+                   
+                      "x": "200",
+                   
+                   
+                      "y": "30"
+                   
+                
+                }  }
+          
+            }
+       
+       ]
+       
+       }},{"Button":
+       {
+          "id": "-88730002070972852608386249149679217723",
+          "text": "Delete State",
+          "callback": "StateDelete(8)"
+       
+       }}
+      ]
+       
+      }},{"HBoxContainer":
+      {
+         "id": "100979689612948385993791891862135803743",
+         "children":
+      [{"Button":
+       {
+          "id": "-165258239397734265842552092488344592501",
+          "text": "Delete Transition",
+          "callback": "TransDelete(10)"
+       
+       }},{"TextEdit":
+       {
+          "id": "-52620363025920653180298026517127365256",
+          "callback": "TransSetTrigger(10, %text)",
+          "text": "open"
+       ,
+           "styles": [
+       
+       
+       {
+          "Vector2": 
+             
+             
+             {
+                "custom_minimum_size": {
+                   
+                   
+                      "x": "200",
+                   
+                   
+                      "y": "30"
+                   
+                
+                }  }
+          
+            }
+       
+       ]
+       
+       }},{"Label": {
+          "id": "49467478885667346212522442397911373471",
+          "text": " --> "
+       
+       }  },{"OptionButton":
+       {
+          "id": "-158787128164516341716826620507871890711",
+          "callback": "InterTransSetTarget(10,%state)"
+           ,
+          "options":
+       ["opened","closed"
+       ]
+        
+       ,
+           "styles": [
+       
+       
+       {
+          "Primitive": {
+             
+             
+                "selected": "Int%0",
+             
+             
+                "allow_reselect": "Boolean%true"
+             
+          
+          }  }
+       
+       ]
+        
+       }}
+      ]
+       
+      }},{"HBoxContainer":
+      {
+         "id": "117237892177145808028598681569127246352" 
+      }}
+     ]
+      
+     }}
+    ]
+     
+    }}
+   ]
+    
+   }}
+  ]
+   
+  }},{"HBoxContainer":
+  {
+     "id": "-100866701794695435606017579736478596547",
+     "name": "RuntimeTab -100866701794695435606017579736478596547",
+     "children":
+  [{"VBoxContainer":
+   {
+      "id": "12149115700491657300258522494267434584",
+      "children":
+   [{"Button":
+    {
+       "id": "69182683944163016564075815798389451735",
+       "text": "Delete Tab",
+       "callback": "ViewTabDelete(-100866701794695435606017579736478596547)"
+    
+    }},{"Button":
+    {
+       "id": "6189516131410890167766875773465978989",
+       "text": "Kill Instance",
+       "callback": "MachInstDelete"
+    
+    }}
+   ]
+    
+   }},{"VBoxContainer":
+   {
+      "id": "-55703427298854763927368369965656501052",
+      "children":
+   [{"Label": {
+       "id": "-112399146439338781027559056527102539005",
+       "text": "Possible trigger, dependening on curr event"
+    
+    }  },{"Button":
+    {
+       "id": "-91632297225349535037046535807760071052",
+       "text": "close",
+       "callback": "MachInstTrigger(11,\"close\")"
+    
+    }},{"HBoxContainer":
+    {
+       "id": "43737896807369847416468127771283152432",
+       "children":
+    [{"PanelContainer":
+     {
+        "id": "-122752812657050083971611752593642950012"
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "2367273171625236268850458040214485587",
+         "children":
+      [{"Label": {
+          "id": "-115287622202328037915225410303780532046",
+          "text": "Current State"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "50"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "108857507421844724717963111139108129425"
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "54610878136071358758282801067362941428",
+         "children":
+      [{"Label": {
+          "id": "32115489318175083390873014806324928316",
+          "text": "State"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "50"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "-162806157868863849628059926372311928765"
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "62958465507759640725946697213914327359",
+         "children":
+      [{"Label": {
+          "id": "-148747478433312481541648305852410688613",
+          "text": "Count"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "50"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "73335818211288739014515492629826043268"
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "-121447414489444012580529701164633304909",
+         "children":
+      [{"Label": {
+          "id": "-81591953785995058829153734311781230884",
+          "text": "Events"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "50"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+       
+      }}
+     ]
+      
+     }}
+    ]
+     
+    }},{"HBoxContainer":
+    {
+       "id": "146657400272421579729686480972635497192",
+       "children":
+    [{"PanelContainer":
+     {
+        "id": "153091579249128241055988619543482254309"
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "1632720080375106732521277595301858888",
+         "children":
+      [{"Label": {
+          "id": "-12380651576305164485494746181010011149",
+          "text": ""
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "50"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "-73328305011879500613306670953227404838"
+     ,
+         "styles": [
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "HONEYDEW"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "-56034105266749526274130554670844997908",
+         "children":
+      [{"Label": {
+          "id": "-2412148251586096669929914957334150676",
+          "text": "closed"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "50"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "-35656759519668929069556545187757867580"
+     ,
+         "styles": [
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "HONEYDEW"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "-142671056560631358728714422378633498985",
+         "children":
+      [{"Label": {
+          "id": "61152341699261616556622245698789020530",
+          "text": "0"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "50"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "-27615816816649940683387483715581978864"
+     ,
+         "styles": [
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "HONEYDEW"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "-104159963939782696088758427062498098761",
+         "children":
+      [{"Label": {
+          "id": "158365148088889172401986612787485938543",
+          "text": "[open]"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "50"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+       
+      }}
+     ]
+      
+     }}
+    ]
+     
+    }},{"HBoxContainer":
+    {
+       "id": "17477974428517544040500029373225207256",
+       "children":
+    [{"PanelContainer":
+     {
+        "id": "-128062969734380540413589198047577508739"
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "-144911474698852906708143932730335132071",
+         "children":
+      [{"Label": {
+          "id": "-25749645183403401995695351275337135046",
+          "text": "*"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "50"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "73596934840826695610072906872729550770"
+     ,
+         "styles": [
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "HONEYDEW"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "-36388840306988070938060373866710898363",
+         "children":
+      [{"Label": {
+          "id": "-88014659563499488644819267717627629842",
+          "text": "opened"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "50"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "-44461234657325875970225005641257729082"
+     ,
+         "styles": [
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "HONEYDEW"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "69086955724255151127837798398193152892",
+         "children":
+      [{"Label": {
+          "id": "-35864444714330056327959639329344917203",
+          "text": "1"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "50"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "-118468227901315326373775827211300091713"
+     ,
+         "styles": [
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "HONEYDEW"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "126182640234127927375203172316002901170",
+         "children":
+      [{"Label": {
+          "id": "-73206779610857618172143626415476827397",
+          "text": "[close]"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "50"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+       
+      }}
+     ]
+      
+     }}
+    ]
+     
+    }}
+   ]
+    
+   }}
+  ]
+   
+  }}
+ ]
+  
+ }}
+]
+}

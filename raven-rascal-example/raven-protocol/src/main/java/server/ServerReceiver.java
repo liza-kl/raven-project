@@ -22,12 +22,12 @@ class ServerReceiver implements ReceiveCallback {
     ServerReceiver(PrintWriter output, IValueFactory values) {
         this.output = output;
         this.values = values;
-        String srcFolder = new File("src/main/resources/rascal-0.33.0.jar").getAbsolutePath();
-        String rascalProjectFolder = new File(".").getAbsolutePath().replace("raven-protocol/", "raven-core/src/main/rascal").replace(".", "");
+        String srcFolder = new File("raven-protocol/src/main/resources/rascal-0.33.0.jar").getAbsolutePath();
+        String rascalProjectFolder = new File(".").getAbsolutePath() + "raven-core/src/main/rascal";
         this.evaluator = new Evaluator(values, System.in, System.err, System.out, top, heap);
         this.evaluator.addRascalSearchPath(URIUtil.rootLocation("std"));
         this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","", srcFolder ));
-        this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","",rascalProjectFolder));
+        this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","",rascalProjectFolder.replace(".","")));
         this.evaluator.doImport(null, "lang::raven::Core");
         this.evaluator.call(null, "lang::Main", "main");
         this.evaluator.call(null, "lang::Main", "init");

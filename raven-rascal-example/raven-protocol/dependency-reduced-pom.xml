@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <artifactId>raven-rascal-example</artifactId>
+    <groupId>cwi.masterthesis</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>cwi.masterthesis</groupId>
   <artifactId>raven-protocol</artifactId>
-  <version>1.0-SNAPSHOT</version>
   <build>
     <plugins>
       <plugin>
@@ -34,6 +37,12 @@
       <url>https://releases.usethesource.io/maven/</url>
     </repository>
   </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>usethesource</id>
+      <url>https://releases.usethesource.io/maven/</url>
+    </pluginRepository>
+  </pluginRepositories>
   <properties>
     <maven.compiler.target>11</maven.compiler.target>
     <maven.compiler.source>11</maven.compiler.source>
