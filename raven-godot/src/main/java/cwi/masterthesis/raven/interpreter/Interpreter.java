@@ -120,6 +120,19 @@ public class Interpreter extends Node implements Visitor {
         ravenOptionButton.emitSignal(StringNameUtils.asStringName("option_init"), ravenOptionButton.getCallback());
     }
 
+
+    @Override
+    public void visitPanel(RavenPanel ravenPanel) {
+        System.out.println("Creating Panel");
+        Panel panel = new Panel();
+        panel.setSizeFlagsHorizontal(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
+        panel.setSizeFlagsVertical(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
+        panel.setTheme(Main.mainTheme);
+        panel.setName(StringNameUtils.asStringName(ravenPanel.getName() == null ? ravenPanel.getNodeID() : ravenPanel.getName()));
+        Objects.requireNonNull(ravenPanel.getParentNode()).addChild(panel);
+        applyStyling(ravenPanel, panel);
+    }
+
     @Override
     public void visitPanelContainer(RavenPanelContainer ravenPanelContainer) {
         System.out.println("Creating PanelContainer");
@@ -130,7 +143,6 @@ public class Interpreter extends Node implements Visitor {
         panelContainer.setName(StringNameUtils.asStringName(ravenPanelContainer.getName() == null ? ravenPanelContainer.getNodeID() : ravenPanelContainer.getName()));
         Objects.requireNonNull(ravenPanelContainer.getParentNode()).addChild(panelContainer);
         applyStyling(ravenPanelContainer, panelContainer);
-
     }
 
     @Override

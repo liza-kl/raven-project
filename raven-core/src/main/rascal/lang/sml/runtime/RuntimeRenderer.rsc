@@ -21,6 +21,11 @@ import String;
 import lang::Main;
 import IO;
 
+list[Setting] ravenPanelStyle =[setting("StyleBoxFlat",
+                                        [setting(
+                                            "panel",
+                                            [<"bg_color", "HONEYDEW">]
+                                        )])]; 
 
 // To create the possible trigger events, apply to machine or curr state I guess.
 list[str] getAllTrigger(Env env, UUID sid, UUID miid) {
@@ -58,15 +63,11 @@ public RavenNode render(Env env, machInst(UUID miid, UUID mid, UUID cur,  map[UU
 public RavenNode render(Env env, stateInst(UUID siid, UUID sid, int count), UUID cur, UUID miid) {
     println("calling  render(Env env, stateInst(UUID siid, UUID sid, int count), UUID cur, UUID miid) ");
 
-    list[Setting] ravenPanelStyle =[setting("StyleBoxFlat",
-                                        [setting(
-                                            "normal",
-                                            [<"bg_color", "CRIMSON">]
-                                        )])]; 
+
     return ravenHBox([
             ravenPanelContainer([ravenHBox([ravenLabel("<if(cur == siid){>*<}>",[setting("FontSize", [<"font_size", 50>])])])]),
-            ravenPanelContainer([ravenHBox([ravenLabel("<env[sid].name>",[setting("FontSize", [<"font_size", 50>])])])]),
-            ravenPanelContainer([ravenHBox([ravenLabel("<count>",[setting("FontSize", [<"font_size", 50>])])])]),
+            ravenPanelContainer([ravenHBox([ravenLabel("<env[sid].name>",[setting("FontSize", [<"font_size", 50>])])])],settings=ravenPanelStyle),
+            ravenPanelContainer([ravenHBox([ravenLabel("<count>",[setting("FontSize", [<"font_size", 50>])])])],settings=ravenPanelStyle),
             ravenPanelContainer([ravenHBox([ravenLabel("<replaceAll(itoString([elem | elem <- getAllTrigger(env, sid,miid)]),"\"", "")>",
                                 [setting("FontSize",
                                         [<"font_size", 50>])])
