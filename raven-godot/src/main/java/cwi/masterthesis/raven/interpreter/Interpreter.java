@@ -96,7 +96,7 @@ public class Interpreter extends Node implements Visitor {
     @Override
     public void visitTextEdit(RavenTextEdit ravenTextEditNode) {
         System.out.println("Creating TextEdit Node");
-       ravenTextEditNode.setCustomMinimumSize(new Vector2(200,100));
+       //ravenTextEditNode.setCustomMinimumSize(new Vector2(200,100));
         ravenTextEditNode.setTheme(Main.mainTheme);
         ravenTextEditNode.setName(StringNameUtils.asStringName(ravenTextEditNode.getNodeID()));
         ravenTextEditNode.setText(ravenTextEditNode.getTextContent());
@@ -145,6 +145,18 @@ public class Interpreter extends Node implements Visitor {
         scrollContainer.setSizeFlagsVertical(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
         applyStyling(ravenScrollContainer, scrollContainer);
 
+    }
+
+    @Override
+    public void visitLineEdit(RavenLineEdit ravenLineEdit) {
+        System.out.println("Creating LineEdit Node");
+        ravenLineEdit.setTheme(Main.mainTheme);
+        ravenLineEdit.setName(StringNameUtils.asStringName(ravenLineEdit.getNodeID()));
+        ravenLineEdit.setText(ravenLineEdit.getTextContent());
+        ravenLineEdit.set(StringNameUtils.asStringName("node_callback"), ravenLineEdit.getCallback());
+        ravenLineEdit.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/LineEditScript.gdj"));
+        Objects.requireNonNull(ravenLineEdit.getParentNode()).addChild(ravenLineEdit);
+        ravenLineEdit.emitSignal(StringNameUtils.asStringName("line_init"), ravenLineEdit.getCallback());
     }
 
     @Override
@@ -233,6 +245,9 @@ public class Interpreter extends Node implements Visitor {
                     // TODO: Dummy values for now.
                     if (themeprop.equals("Godot")) {
                         strategy = new GodotOverrideStrategy(node, entry.getKey(), entry.getKey());
+                    }
+                    if(themeprop.equals("Vector2")) {
+                        strategy = new Vector2OverrideStrategy(node, entry.getKey(), entry.getValue().asInt(), entry.getValue().asInt());
                     }
                     if (themeprop.equals("Primitive")) {
                         strategy = new PrimitiveOverrideStrategy(node, entry.getKey(),entry.getValue().asText());
