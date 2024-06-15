@@ -103,6 +103,7 @@ public class Interpreter extends Node implements Visitor {
         ravenTextEditNode.set(StringNameUtils.asStringName("node_callback"), ravenTextEditNode.getCallback());
         ravenTextEditNode.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/TextEditScript.gdj"));
         Objects.requireNonNull(ravenTextEditNode.getParentNode()).addChild(ravenTextEditNode);
+        applyStyling(ravenTextEditNode, ravenTextEditNode);
         ravenTextEditNode.emitSignal(StringNameUtils.asStringName("text_init"), ravenTextEditNode.getCallback());
     }
 
@@ -258,7 +259,7 @@ public class Interpreter extends Node implements Visitor {
                     if (themeprop.equals("FontSize")) {
                         strategy = new FontSizeOverrideStrategy(node, entry.getKey(),entry.getValue().asInt());
                     }
-                    if (themeprop.equals("StyleboxFlat")) {
+                    if (themeprop.equals("StyleBoxFlat")) {
                         Map<String, Object> result = mapper.convertValue(entry.getValue(), new TypeReference<>() {
                         });
                         strategy = new StyleBoxFlatOverrideStrategy(node, entry.getKey(), result);

@@ -18,6 +18,8 @@ public str JSON_CONTENT_END = "}";
 * https://www.rascal-mpl.org/docs/Rascal/Declarations/AlgebraicDataType/#examples
 */ 
 public bool isKeywordArgDefined (RavenNode n, &T arg) {
+    println("checking the keyword <n>");
+    println(arg in getKeywordParameters(n));
     return arg in getKeywordParameters(n);
 }
 public str toString(x) = rvn_print(x);
@@ -28,13 +30,12 @@ str rvn_print(list[RavenNode] children: [empty()]) = "";
 str rvn_print(list[Setting] settings: []) = "";
 
 str rvn_print(list[Setting] settings) = 
-"\"styles\": [
+"
 '<for(Setting child <- settings){>
 '{
 '   <rvn_print(child)>}<if(!(indexOf(settings,child) == size(settings) - 1) && !(List::last(settings) == child)){>,
 '<}>
-<}>
-    ']  ";
+<}>";
 
 str rvn_print(list[tuple[str property, value val]] styles) = "
 '<for(style <- styles){>
@@ -43,11 +44,15 @@ str rvn_print(list[tuple[str property, value val]] styles) = "
 <}>
 "; 
 
-str rvn_print(Setting setting: setting(str property, list[tuple[str property, value val]] styles)) = 
+str rvn_print(Setting setting: setting(str property, list[tuple[str property, value val]] setting2)) = 
 "\"<property>\": {
-    '   <rvn_print(styles)>
+    '   <rvn_print(setting2)>
     '}  ";
 
+str rvn_print(Setting setting: setting(str property, list[Setting] setting1)) = 
+"\"<property>\": 
+    '   <rvn_print(setting1)>
+    '  ";
 
 
 
@@ -66,13 +71,13 @@ str rvn_print(RavenNode nodeName: ravenLabel(str text)) =
     '}  ";
    
 // LABEL
-// TODO why error expected 1 arg but got two?
 str rvn_print(RavenNode nodeName: ravenLabel(str text, InlineStyleSetting styles)) =
     "\"Label\": {
     '   \"id\": \"<uuidi()>\",
     '   \"text\": <rvn_print(text)>,
-    ' <rvn_print(styles)>
-    '   
+    '   \"styles\": [
+    '<rvn_print(styles)>
+    '] 
     '}  ";
    
 
@@ -151,7 +156,27 @@ str rvn_print(RavenNode nodeName:ravenTextEdit(str content, str callback)) =
     '   \"id\": \"<uuidi()>\",
     '   \"callback\": \"<callback>\",
     '   \"text\": \"<content>\"
+    '<if(isKeywordArgDefined(nodeName, "settings")){>,
+    \"styles\": [
+    '<rvn_print(getKeywordParameters(nodeName)["settings"])>
+    ']
+    '<}>
     '}";
+
+// LINEEDIT
+str rvn_print(RavenNode nodeName:ravenLineEdit(str content, str callback)) =
+    "\"LineEdit\":
+    '{
+    '   \"id\": \"<uuidi()>\",
+    '   \"callback\": \"<callback>\",
+    '   \"text\": \"<content>\"
+    '<if(isKeywordArgDefined(nodeName, "settings")){>,
+    \"styles\": [
+    '<rvn_print(getKeywordParameters(nodeName)["settings"])>
+    ']
+    '<}>
+    '}";
+
 
 
 // BUTTONS 
@@ -263,8 +288,8 @@ str rvn_print(RavenNode nodeName:ravenHBox (list[RavenNode] children)) =
 str rvn_print(RavenNode nodeName:ravenTabContainer(list[RavenNode] children)) =
  "\"TabContainer\":
     '{
-    '   \"id\": \"<uuidi()>\",
-    <if(children!=[]){>
+    '   \"id\": \"<uuidi()>\"
+    <if(children!=[]){>,
     '   \"children\":
     '[<rvn_print(children)>
     ']
@@ -274,8 +299,12 @@ str rvn_print(RavenNode nodeName:ravenTabContainer(list[RavenNode] children)) =
 str rvn_print(RavenNode nodeName:ravenTabContainer(list[RavenNode] children, list[Setting] settings)) =
  "\"TabContainer\":
     '{
-    '   \"id\": \"<uuidi()>\",
-    ' <rvn_print(settings)>
+    '   \"id\": \"<uuidi()>\"
+    '<if(isKeywordArgDefined(nodeName, "settings")){>,
+    \"styles\": [
+    '<rvn_print(getKeywordParameters(nodeName)["settings"])>
+    ']
+    '<}>  
     <if(children!=[]){>,
     '   \"children\":
     '[<rvn_print(children)>
@@ -288,8 +317,12 @@ str rvn_print(RavenNode nodeName:ravenTabContainer(list[RavenNode] children, str
  "\"TabContainer\":
     '{
     '   \"id\": \"<uuidi()>\",
-    '   \"callback\": \"<callback>\",
-    ' <rvn_print(settings)>
+    '   \"callback\": \"<callback>\"
+    '<if(isKeywordArgDefined(nodeName, "settings")){>,
+    \"styles\": [
+    '<rvn_print(getKeywordParameters(nodeName)["settings"])>
+    ']
+    '<}> 
     <if(children!=[]){>,
     '   \"children\":
     '[<rvn_print(children)>
@@ -348,7 +381,9 @@ str rvn_print(RavenNode nodeName:ravenOptionButton(list[str] options, str callba
     '[<rvn_print(options)>
     ']
     '<}>,
-    <rvn_print(styles)> 
+    '   \"styles\": [
+    '<rvn_print(styles)>
+    ']  
     '}";
 
 // https://docs.godotengine.org/en/stable/classes/class_panelcontainer.html#class-panelcontainer
@@ -356,9 +391,11 @@ str rvn_print(RavenNode nodeName:ravenPanelContainer(list[RavenNode] children)) 
  "\"PanelContainer\":
     '{
     '   \"id\": \"<uuidi()>\"
-     <if(isKeywordArgDefined(nodeName, "settings")){>,
+    '<if(isKeywordArgDefined(nodeName, "settings")){>,
+    \"styles\": [
     '<rvn_print(getKeywordParameters(nodeName)["settings"])>
-    '<}>
+    ']
+    '<}> 
     <if(children!=[]){>,
     '   \"children\":
     '[<rvn_print(children)>
@@ -371,9 +408,11 @@ str rvn_print(RavenNode nodeName:ravenScrollContainer(list[RavenNode] children))
  "\"ScrollContainer\":
     '{
     '   \"id\": \"<uuidi()>\"
-     <if(isKeywordArgDefined(nodeName, "settings")){>,
+    '<if(isKeywordArgDefined(nodeName, "settings")){>,
+    \"styles\": [
     '<rvn_print(getKeywordParameters(nodeName)["settings"])>
-    '<}>
+    ']
+    '<}> 
     <if(children!=[]){>,
     '   \"children\":
     '[<rvn_print(children)>
