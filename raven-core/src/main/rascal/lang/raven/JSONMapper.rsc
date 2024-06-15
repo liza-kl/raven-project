@@ -212,39 +212,15 @@ str rvn_print(RavenNode nodeName:ravenHBox (list[RavenNode] children)) =
     '}";
 
 // TAB CONTAINER 
+
+
 str rvn_print(RavenNode nodeName:ravenTabContainer(list[RavenNode] children)) =
  "\"TabContainer\":
     '{
     '   \"id\": \"<uuidi()>\"
-    <if(children!=[]){>,
-    '   \"children\":
-    '[<rvn_print(children)>
-    ']
+     '<if(isKeywordArgDefined(nodeName, "callback")){>,
+    '   \"callback\": \"<getKeywordParameters(nodeName)["callback"]>\"
     '<}> 
-    '}";
-
-str rvn_print(RavenNode nodeName:ravenTabContainer(list[RavenNode] children, list[Setting] settings)) =
- "\"TabContainer\":
-    '{
-    '   \"id\": \"<uuidi()>\"
-    '<if(isKeywordArgDefined(nodeName, "settings")){>,
-    \"styles\": [
-    '<rvn_print(getKeywordParameters(nodeName)["settings"])>
-    ']
-    '<}>  
-    <if(children!=[]){>,
-    '   \"children\":
-    '[<rvn_print(children)>
-    ']
-    '<}> 
-    '}";
-
-
-str rvn_print(RavenNode nodeName:ravenTabContainer(list[RavenNode] children, str callback, list[Setting] settings)) =
- "\"TabContainer\":
-    '{
-    '   \"id\": \"<uuidi()>\",
-    '   \"callback\": \"<callback>\"
     '<if(isKeywordArgDefined(nodeName, "settings")){>,
     \"styles\": [
     '<rvn_print(getKeywordParameters(nodeName)["settings"])>

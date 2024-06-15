@@ -13,7 +13,7 @@ import util::Math;
 import util::UUID;
 import List;
 import lang::Main;
-
+import lang::sml::model::Styles;
 
 // In Table View
 public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] states, list[UUID] instances), "table") =
@@ -46,7 +46,7 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
          // TODO rvnHorizontalSpace(40), leaving Horizontal space out for now   
          // TODO do we need the mid for the state??
           ravenLabel("Edit State Name"),
-          ravenTextEdit(name, "StateSetName(<sid>, %text)"),
+          ravenTextEdit(name, "StateSetName(<sid>, %text)",  settings=lang::sml::model::Styles::textEditSettings),
           ravenButton("Delete State", "StateDelete(<sid>)")
         ]
       )
@@ -69,7 +69,7 @@ public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, 
   (
     [
       ravenButton("Delete Transition", "TransDelete(<id>)"),
-      ravenTextEdit(trigger, "TransSetTrigger(<id>, %text)"),
+      ravenTextEdit(trigger, "TransSetTrigger(<id>, %text)", settings=lang::sml::model::Styles::textEditSettings),
       ravenLabel(" --\> "),
       // TODO an adapter View Function?
       ravenOptionButton([name | elem <- env, state(_,mid2,name,_,_,_,_) := env[elem]],   "InterTransSetTarget(<id>,%state)",
