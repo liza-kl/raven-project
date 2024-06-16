@@ -67,7 +67,14 @@ public void runtimeControl(Command incomingCallback: MachInstCreate(UUID miid, U
 // IMP
 public void runtimeControl(Command incomingCallback: MachInstDelete(UUID miid, UUID mid)) {
     IO::println("Calling MachInstDelete");
-    lang::Main::env = eval(env, MachInstDelete(miid, mid));
+    list[int] vid = env_retrieveVIDfromMID(miid);
+    for (int v <- vid) {
+    env = lang::sml::control::REPL::eval(lang::Main::env, ViewTabDelete(v));
+    }
+    env = eval(env, MachInstDelete(miid, mid));
+
+    println("current env");
+    println(env);
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
@@ -81,9 +88,6 @@ public void runtimeControl(Command incomingCallback: MachInstTrigger(UUID miid, 
     for (int v <- vid) {
     env = eval(env,ViewTabSetMachineInstance(v, miid));
     }
-    println("current env");
-    println(env);
-
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }

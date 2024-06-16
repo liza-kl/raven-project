@@ -21,11 +21,6 @@ import String;
 import lang::Main;
 import IO;
 
-list[Setting] ravenPanelStyle =[setting("StyleBoxFlat",
-                                        [setting(
-                                            "panel",
-                                            [<"bg_color", "HONEYDEW">]
-                                        )])]; 
 
 // To create the possible trigger events, apply to machine or curr state I guess.
 list[str] getAllTrigger(Env env, UUID sid, UUID miid) {

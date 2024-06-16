@@ -60,7 +60,7 @@ public Env eval(Env env, Command cmd: MachInstRemoveStateInst(UUID miid, UUID si
   }
   //remove the state instance
   env = visit(env) {
-    case machInst( miid, UUID mid, UUID cur, map[UUID, UUID] sis) =>
+    case machInst( miid,  mid,  cur,sis) =>
       machInst(miid, mid, cur, delete(sis, sid))
   }
   return env;

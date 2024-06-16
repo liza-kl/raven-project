@@ -178,8 +178,8 @@ public class Interpreter extends Node implements Visitor {
         // TODO in the end one could provide custom scenes? In a Configuration?
         PackedScene DefaultTabContainer = GD.load("res://scenes/DefaultHBoxContainer.tscn");
         HBoxContainer hBoxContainer = (HBoxContainer) DefaultTabContainer.instantiate();
-        hBoxContainer.setSizeFlagsHorizontal(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
-        hBoxContainer.setSizeFlagsVertical(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
+      //  hBoxContainer.setSizeFlagsHorizontal(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
+        //  hBoxContainer.setSizeFlagsVertical(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
         hBoxContainer.setTheme(Main.mainTheme);
         hBoxContainer.setName(StringNameUtils.asStringName(ravenHBoxContainer.getName() == null ? ravenHBoxContainer.getNodeID() : ravenHBoxContainer.getName()));
         Objects.requireNonNull(ravenHBoxContainer.getParentNode()).addChild(hBoxContainer);

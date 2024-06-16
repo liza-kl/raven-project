@@ -18,10 +18,9 @@ public str JSON_CONTENT_END = "}";
 * https://www.rascal-mpl.org/docs/Rascal/Declarations/AlgebraicDataType/#examples
 */ 
 public bool isKeywordArgDefined (RavenNode n, &T arg) {
-    println("checking the keyword <n>");
-    println(arg in getKeywordParameters(n));
     return arg in getKeywordParameters(n);
 }
+
 public str toString(x) = rvn_print(x);
 str rvn_print(int number) = "<number>";
 str rvn_print(str string) =  "\"<string>\"";
