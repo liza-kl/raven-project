@@ -50,7 +50,7 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
         [
 
           ravenLabel("Edit State Name"),
-          ravenLineEdit(name, "StateSetName(<sid>, %text)", settings=lang::sml::model::Styles::textEditSettings),
+          ravenTextEdit(name, "StateSetName(<sid>, %text)", settings=lang::sml::model::Styles::textEditSettings),
           ravenButton("Delete State", "StateDelete(<sid>)")
         ]
       )

@@ -42,7 +42,6 @@ public class StyleBoxFlatOverrideStrategy implements StylingStrategy{
                 System.err.println("Could not set value for key " + entry.getKey());
             }
         }
-    //    current.set(StringNameUtils.asStringName("bg_color"), new Color(Color.Companion.getCornflowerBlue()));
         assert current != null;
         return current;
 

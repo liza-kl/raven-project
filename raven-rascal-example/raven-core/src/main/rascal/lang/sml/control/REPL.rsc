@@ -162,7 +162,7 @@ public Env eval(Env env, Command cmd: ViewTabSetMachineInstance(UUID vid, UUID m
 
     RavenNode machineContent = render(env,machineInstance, "runtime-1"); 
     viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"RuntimeTab <vid>",
-    [ravenVBox([ravenButton("Delete Tab", "ViewTabDelete(<vid>)"),ravenButton("Kill Instance", "MachInstDelete")])] + 
+    [ravenVBox([ravenButton("Delete Tab", "ViewTabDelete(<vid>)"),ravenButton("Kill Instance", "MachInstDelete(<miid>,<machineInstance.mid>)")])] + 
     [machineContent]>); 
     env = env_store(env, 1, view(viewEnv.currentTabs));
     env = env_store(env, 3, viewMID(midVidMappings.mappings));

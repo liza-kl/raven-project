@@ -6,8 +6,23 @@ public list[Setting] textEditSettings = [setting("Vector2", [setting("custom_min
         <"y",30>
       ])])];
 
-public list[Setting] buttonDanger = [setting("StyleBoxFlat", [setting("normal",  [
-        <"bg_color","LINEN">
+public list[Setting] buttonDanger = [
+    setting("Color", [<"font_color", "GHOST_WHITE">]),
+    setting("StyleBoxFlat", [setting("normal",  [
+        <"bg_color","INDIAN_RED">,
+        <"height", 30>,
+        <"width", 50>
+
       ])])];
 
+
 public list[Setting] runtimeTabelLabel = [setting("FontSize", [<"font_size", 50>])];
+
+public list[Setting] ravenPanelStyle =[setting("StyleBoxFlat",
+                                        [setting(
+                                            "panel",
+                                            [<"bg_color", "LAVENDER">]
+                                        )])]; 
+
+/* Table Editor */
+public list[Setting] tableEditorHeadings = [setting("FontSize", [<"font_size", 30>])];

@@ -10,7 +10,7 @@ public class PrimitiveOverrideStrategy implements StylingStrategy{
     private final String property;
     private final Object value;
 
-    private Object detectConverter(String value) {
+    public static Object detectConverter(String value) {
 
         String[] splitted = value.split("%");
         String type = splitted[0];
