@@ -24,6 +24,7 @@ public data RavenNode =
             | ravenVBox( list[RavenNode] children, list[Setting] settings = [] )
             | ravenTab(str nodeID, str name, list[RavenNode] children,list[Setting] settings = [] )
             | ravenTabContainer(list[RavenNode] children, str callback="",list[Setting] settings = [])
+            | ravenMarginContainer(list[RavenNode] children, str callback="",list[Setting] settings = [])
             | ravenPanelContainer(list[RavenNode] children,list[Setting] settings = [])
             | ravenPanel(list[RavenNode] children, list[Setting] settings = [])
             | ravenScrollContainer(list[RavenNode] children,list[Setting] settings = [])

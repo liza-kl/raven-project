@@ -220,8 +220,24 @@ str rvn_print(RavenNode nodeName:ravenHBox (list[RavenNode] children)) =
     '<}> 
     '}";
 
-// TAB CONTAINER 
+// MARGIN CONTAINER 
 
+str rvn_print(RavenNode nodeName:ravenMarginContainer (list[RavenNode] children)) =
+ "\"MarginContainer\":
+    '{
+    '   \"id\": \"<uuidi()>\"<if(children!=[]){>,
+    '   \"children\":
+    '[<rvn_print(children)>
+    ']
+    '<}>
+    '<if(isKeywordArgDefined(nodeName, "settings")){>,
+    \"styles\": [
+    '<rvn_print(getKeywordParameters(nodeName)["settings"])>
+    ']
+    '<}> 
+    '}";
+
+// TAB CONTAINER 
 
 str rvn_print(RavenNode nodeName:ravenTabContainer(list[RavenNode] children)) =
  "\"TabContainer\":
