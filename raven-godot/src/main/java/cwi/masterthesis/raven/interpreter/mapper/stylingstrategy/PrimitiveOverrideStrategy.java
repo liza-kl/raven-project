@@ -35,6 +35,7 @@ public class PrimitiveOverrideStrategy implements StylingStrategy{
     @Override
     public void applyStyling() {
         // FIXME write generic converter to infer value
+
         node.set(StringNameUtils.asStringName(this.property), this.value);
     }
 }

@@ -7,10 +7,12 @@ import godot.Node;
 public class RavenVBoxContainer implements RavenNode {
     private final String nodeID;
     private final Node parentNode;
+    private final String styles;
 
-    public RavenVBoxContainer(String nodeID, Node parentNode) {
+    public RavenVBoxContainer(String nodeID, Node parentNode, String styles) {
         this.nodeID = nodeID;
         this.parentNode = parentNode;
+        this.styles = styles;
     }
 
 
@@ -31,6 +33,6 @@ public class RavenVBoxContainer implements RavenNode {
 
     @Override
     public String getStyles() {
-        return "";
+        return styles;
     }
 }
