@@ -11,7 +11,8 @@ public class VBoxContainerFactory implements RavenNodeFactory {
     public RavenNode createRavenNode(Node node, Map<String, String> attrMap) {
         return new RavenVBoxContainer(
                 attrMap.get("id"),
-                node
+                node,
+                attrMap.get("styles") == null ? null : attrMap.get("styles")
         );
     }
 }

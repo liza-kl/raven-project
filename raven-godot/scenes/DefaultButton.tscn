@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://j8b0x2ej6iiw"]
-
-[ext_resource type="Script" path="res://gdj/cwi/masterthesis/raven/buttons/UpdateSceneButton.gdj" id="1_ik6cm"]
+[gd_scene format=3 uid="uid://j8b0x2ej6iiw"]
 
 [node name="DefaultButton" type="Button"]
 anchors_preset = -1
@@ -12,4 +10,3 @@ grow_horizontal = 0
 theme_override_colors/font_color = Color(0.780392, 0, 0.992157, 1)
 theme_override_colors/icon_hover_color = Color(0.937255, 0.678431, 0.788235, 1)
 text = "A Default Text <3"
-script = ExtResource("1_ik6cm")

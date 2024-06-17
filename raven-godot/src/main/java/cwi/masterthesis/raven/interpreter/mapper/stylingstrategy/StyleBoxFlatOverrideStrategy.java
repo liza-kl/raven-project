@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import static cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.ColorStrategy.getColorByName;
+import static cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.PrimitiveOverrideStrategy.detectConverter;
 
 public class StyleBoxFlatOverrideStrategy implements StylingStrategy{
     private final Control node; // something like Button
@@ -23,7 +24,10 @@ public class StyleBoxFlatOverrideStrategy implements StylingStrategy{
         this.values = values;
     }
 
-    private Object parseValue(String entryKey, Object value) {
+    private Object parseValue(String entryKey, String value) {
+        if (value.contains("%")) { // For Primitive Value stuff
+            return detectConverter((String) value);
+        }
         if (entryKey.contains("color")) {
             return new Color(Objects.requireNonNull(getColorByName((String) value)));
         }
@@ -37,7 +41,7 @@ public class StyleBoxFlatOverrideStrategy implements StylingStrategy{
             assert current != null;
             try {
             current.set(StringNameUtils.asStringName(entry.getKey()),
-                            parseValue(entry.getKey(), entry.getValue()));}
+                            parseValue(entry.getKey(), (String) entry.getValue()));}
             catch (Exception e) {
                 System.err.println("Could not set value for key " + entry.getKey());
             }
