@@ -195,7 +195,12 @@ str rvn_print(RavenNode nodeName:ravenVBox (list[RavenNode] children)) =
     '   \"children\":
     '[<rvn_print(children)>
     ']
-    '<}> 
+    '<}>
+    '<if(isKeywordArgDefined(nodeName, "settings")){>,
+    \"styles\": [
+    '<rvn_print(getKeywordParameters(nodeName)["settings"])>
+    ']
+    '<}>  
     '}";
 
 
@@ -206,6 +211,11 @@ str rvn_print(RavenNode nodeName:ravenHBox (list[RavenNode] children)) =
     '   \"id\": \"<uuidi()>\"<if(children!=[]){>,
     '   \"children\":
     '[<rvn_print(children)>
+    ']
+    '<}>
+    '<if(isKeywordArgDefined(nodeName, "settings")){>,
+    \"styles\": [
+    '<rvn_print(getKeywordParameters(nodeName)["settings"])>
     ']
     '<}> 
     '}";
@@ -244,6 +254,11 @@ str rvn_print(RavenNode nodeName:ravenTab(str nodeID, str name, list[RavenNode] 
     '   \"name\": \"<name>\"<if(children!=[]){>,
     '   \"children\":
     '[<rvn_print(children)>
+    ']
+    '<}>
+    '<if(isKeywordArgDefined(nodeName, "settings")){>,
+    \"styles\": [
+    '<rvn_print(getKeywordParameters(nodeName)["settings"])>
     ']
     '<}> 
     '}";
