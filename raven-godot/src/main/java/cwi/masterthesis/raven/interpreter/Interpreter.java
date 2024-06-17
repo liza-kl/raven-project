@@ -23,10 +23,6 @@ import java.util.Objects;
 public class Interpreter extends Node implements Visitor {
     private static StylingStrategy strategy;
 
-    private void initDefault() {
-        // TODO: Get classname from raven name and init it.
-    }
-
     private void applyStyling(RavenNode ravenNode, Control appendedClass) {
         if (ravenNode.getStyles() != null) {
 
@@ -37,6 +33,7 @@ public class Interpreter extends Node implements Visitor {
             }
         }
     }
+
     @Override
     public void visitButton(RavenButton ravenButton)  {
         System.out.println("Creating Button");
@@ -131,11 +128,19 @@ public class Interpreter extends Node implements Visitor {
     }
 
     @Override
+    public void visitMarginContainer(RavenMarginContainer ravenMarginContainer) {
+        System.out.println("Creating MarginContainer");
+        MarginContainer marginContainer = new MarginContainer();
+        marginContainer.setTheme(Main.mainTheme);
+        marginContainer.setName(StringNameUtils.asStringName(ravenMarginContainer.getName() == null ? ravenMarginContainer.getNodeID() : ravenMarginContainer.getName()));
+        applyStyling(ravenMarginContainer, marginContainer);
+        Objects.requireNonNull(ravenMarginContainer.getParentNode()).addChild(marginContainer);
+    }
+
+    @Override
     public void visitPanelContainer(RavenPanelContainer ravenPanelContainer) {
         System.out.println("Creating PanelContainer");
         PanelContainer panelContainer = new PanelContainer();
-      //  panelContainer.setSizeFlagsHorizontal(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
-      //  panelContainer.setSizeFlagsVertical(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
         panelContainer.setTheme(Main.mainTheme);
         panelContainer.setName(StringNameUtils.asStringName(ravenPanelContainer.getName() == null ? ravenPanelContainer.getNodeID() : ravenPanelContainer.getName()));
         applyStyling(ravenPanelContainer, panelContainer);
@@ -145,11 +150,7 @@ public class Interpreter extends Node implements Visitor {
     @Override
     public void visitScrollContainer(RavenScrollContainer ravenScrollContainer) {
         System.out.println("Creating ScrollContainer");
-       // PackedScene DefaultTabContainer = GD.load("res://scenes/DefaultScrollContainer.tscn");
-       // ScrollContainer scrollContainer = (ScrollContainer) DefaultTabContainer.instantiate();
         ScrollContainer scrollContainer = new ScrollContainer();
-//        scrollContainer.setSizeFlagsHorizontal(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
-//        scrollContainer.setSizeFlagsVertical(Control.SizeFlags.Companion.getSIZE_EXPAND_FILL());
         scrollContainer.setTheme(Main.mainTheme);
         scrollContainer.setName(StringNameUtils.asStringName(ravenScrollContainer.getName() == null ? ravenScrollContainer.getNodeID() : ravenScrollContainer.getName()));
         applyStyling(ravenScrollContainer, scrollContainer);
@@ -172,7 +173,6 @@ public class Interpreter extends Node implements Visitor {
     @Override
     public void visitHBoxContainer(RavenHBoxContainer ravenHBoxContainer) {
         System.out.println("Creating HBoxContainer");
-        // TODO in the end one could provide custom scenes? In a Configuration?
         HBoxContainer hBoxContainer = new HBoxContainer();
         hBoxContainer.setTheme(Main.mainTheme);
         hBoxContainer.setName(StringNameUtils.asStringName(ravenHBoxContainer.getName() == null ? ravenHBoxContainer.getNodeID() : ravenHBoxContainer.getName()));
@@ -183,14 +183,11 @@ public class Interpreter extends Node implements Visitor {
     @Override
     public void visitVBoxContainer(RavenVBoxContainer ravenVBoxContainer) {
         System.out.println("Creating VBoxContainer");
-//        PackedScene DefaultVBoxContainer = GD.load("res://scenes/DefaultVBoxContainer.tscn");
-//        VBoxContainer vBoxContainer = (VBoxContainer) DefaultVBoxContainer.instantiate();
         VBoxContainer vBoxContainer = new VBoxContainer();
         vBoxContainer.setTheme(Main.mainTheme);
         vBoxContainer.setName(StringNameUtils.asStringName(ravenVBoxContainer.getNodeID()));
         applyStyling(ravenVBoxContainer, vBoxContainer);
         Objects.requireNonNull(ravenVBoxContainer.getParentNode()).addChild(vBoxContainer);
-
     }
 
     @Override
@@ -212,25 +209,20 @@ public class Interpreter extends Node implements Visitor {
         System.out.println("Creating Control");
         Control control = new Control();
         control.setTheme(Main.mainTheme);
-
         control.setName(StringNameUtils.asStringName(ravenControl.getNodeID()));
+        applyStyling(ravenControl, control);
         Objects.requireNonNull(ravenControl.getParentNode()).addChild(control);
     }
 
     @Override
     public void visitTabContainer(RavenTabContainer ravenTabContainer) {
         System.out.println("Creating TabContainer");
-        // TODO everyone could just customize this I guess.
-
-//        PackedScene DefaultTabContainer = GD.load("res://scenes/DefaultTabContainer.tscn");
-//        TabContainer tabContainer = (TabContainer) DefaultTabContainer.instantiate();
         TabContainer tabContainer = new TabContainer();
         tabContainer.setTheme(Main.mainTheme);
         tabContainer.setName(StringNameUtils.asStringName(ravenTabContainer.getNodeID()));
 
         // Apparently the order matters here...
         applyStyling(ravenTabContainer, tabContainer);
-
         Objects.requireNonNull(ravenTabContainer.getParentNode()).addChild(tabContainer);
     }
 
