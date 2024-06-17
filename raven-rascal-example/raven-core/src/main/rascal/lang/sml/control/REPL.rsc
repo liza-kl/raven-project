@@ -11,7 +11,6 @@ import util::Math;
 import Map;
 import lang::sml::model::Renderer;
 import lang::sml::model::Model;
-import lang::raven::helpers::Utils;
 import lang::sml::runtime::Model;
 import List;
 import Set;
@@ -27,18 +26,18 @@ public Env eval(Env env, Command cmd: ViewTabCreate(UUID vid)) {
     viewID2TabType.mappings[vid] = "tree"; 
     env = env_store(env, 5, vidType(viewID2TabType.mappings));
     // The Default Screen appearing when opening a new tab.
-    viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"New Tab <vid>",
+    viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"New Tab",
     [
         ravenVBox(
             [
-                lang::raven::RavenNode::ravenButton("Delete Tab", "ViewTabDelete(<vid>)"),
+                lang::raven::RavenNode::ravenButton("Delete Tab", "ViewTabDelete(<vid>)", settings=buttonDanger),
                 lang::raven::RavenNode::ravenLabel("Select Machine"),
                 lang::raven::RavenNode::ravenOptionButton(
                     [toString(mid) | elem <- env, mach( mid,_,_,_) := env[elem]],
                     "ViewTabSetMachine(<vid>,%machine)",
-                    settings=[setting("Primitive", [<"selected", "Int%<-1>">])]) 
+                    settings= optionButtonSettings + [setting("Primitive", [<"selected", "Int%<-1>">])]) 
             ]
-        )
+        , settings=vboxContainerStyles)
         ]>);
     env = env_store(env, 1, view(viewEnv.currentTabs));
     return env;
@@ -52,18 +51,18 @@ public Env eval(Env env, Command cmd: ViewTabCreate(UUID vid)) {
     viewID2TabType.mappings[vid] = "runtime-1"; 
     env = env_store(env, 5, vidType(viewID2TabType.mappings));
     // The Default Screen appearing when opening a new tab.
-    viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"New Tab <vid>",
+    viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"New Tab",
     [
         ravenVBox(
             [
-                lang::raven::RavenNode::ravenButton("Delete Tab", "ViewTabDelete(<vid>)"),
+                lang::raven::RavenNode::ravenButton("Delete Tab", "ViewTabDelete(<vid>)", settings=buttonDanger),
                 lang::raven::RavenNode::ravenLabel("Select Machine"),
                 lang::raven::RavenNode::ravenOptionButton(
                     [toString(mid) | elem <- env, mach( mid,_,_,_) := env[elem]],
                     "ViewTabSetMachine(<vid>,%machine)",
-                    settings=[setting("Primitive", [<"selected", "Int%<-1>">])]) 
+                    settings= optionButtonSettings + [setting("Primitive", [<"selected", "Int%<-1>">])]) 
             ]
-        )
+        , settings=vboxContainerStyles)
         ]>);
     env = env_store(env, 1, view(viewEnv.currentTabs));
     return env;
@@ -115,28 +114,28 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
     map[int, Tab] currentTabs = viewEnv.currentTabs; 
     Model machine = lang::sml::model::Model::getMach(env,mid);
     RavenNode machineContent = render(env,machine,vidType.mappings[vid]); 
-    viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"Tab <vid>",
+    viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"<machine.name> Editor Tab <mid>",
     [
         ravenVBox(
             [
 
-                lang::raven::RavenNode::ravenButton("Delete Tab", "ViewTabDelete(<vid>)"),
-                lang::raven::RavenNode::ravenLabel("Current Machine: <mid>"),
-                lang::raven::RavenNode::ravenLabel("Select New Machine"),
+                lang::raven::RavenNode::ravenButton("Delete Tab", "ViewTabDelete(<vid>)", settings=buttonDanger),
+                lang::raven::RavenNode::ravenLabel("Current Machine: <mid>", settings=bodyFontSize),
+                lang::raven::RavenNode::ravenLabel("Select New Machine", settings=bodyFontSize),
                 lang::raven::RavenNode::ravenOptionButton(
                 [toString(mid2) |  elem <- env, mach( mid2, _, _, _) := env[elem]],
                 "ViewTabSetMachine(<vid>,%machine)",
                 settings=[setting("Primitive", [<"selected", "Int%<List::indexOf([mid2 | elem <- env,mach( mid2, _, _, _) := env[elem]],mid)>">])]),
-                ravenLabel("Machine Name"),
+                ravenLabel("Machine Name", settings=bodyFontSize),
                 ravenTextEdit(machine.name, "MachSetName(<mid>, %text)", settings=lang::sml::model::Styles::textEditSettings),
-                lang::raven::RavenNode::ravenButton("Delete Machine", "MachDelete(<mid>)"),
-                lang::raven::RavenNode::ravenButton("Create State", "StateCreate(<nextID(env)>, <mid>)"),
-                lang::raven::RavenNode::ravenButton("Run Instance of this Machine", "MachInstCreate(<nextID(env)>,<mid>)"),
+                lang::raven::RavenNode::ravenButton("Delete Machine", "MachDelete(<mid>)", settings=buttonDanger),
+                lang::raven::RavenNode::ravenButton("Create State", "StateCreate(<nextID(env)>, <mid>)", settings=buttonCreate),
+                lang::raven::RavenNode::ravenButton("Run Instance of this Machine", "MachInstCreate(<nextID(env)>,<mid>)", settings=buttonCreate),
                 lang::raven::RavenNode::ravenOptionButton(["tree","table"],
                 "ViewTabSetType(<vid>,%type)",
-                settings=[setting("Primitive", [<"selected", "Int%<List::indexOf(["tree","table"], vidType.mappings[vid])>">])])   
+                settings=optionButtonSettings + [setting("Primitive", [<"selected", "Int%<List::indexOf(["tree","table"], vidType.mappings[vid])>">])])   
             ]
-        )
+        , settings=vboxContainerStyles)
 
         ]  + [machineContent]>); 
     println("current tab content");
@@ -161,8 +160,9 @@ public Env eval(Env env, Command cmd: ViewTabSetMachineInstance(UUID vid, UUID m
     map[int, Tab] currentTabs = viewEnv.currentTabs;  
 
     RavenNode machineContent = render(env,machineInstance, "runtime-1"); 
-    viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"RuntimeTab <vid>",
-    [ravenVBox([ravenButton("Delete Tab", "ViewTabDelete(<vid>)"),ravenButton("Kill Instance", "MachInstDelete(<miid>,<machineInstance.mid>)")])] + 
+    viewEnv.currentTabs[vid] = lang::sml::model::Renderer::tab(<"Runtime Tab <miid>",
+    [ravenVBox([ravenButton("Delete Tab", "ViewTabDelete(<vid>)",settings=buttonDanger),
+    ravenButton("Kill Instance", "MachInstDelete(<miid>,<machineInstance.mid>)", settings=buttonDanger)], settings=vboxContainerStyles)] + 
     [machineContent]>); 
     env = env_store(env, 1, view(viewEnv.currentTabs));
     env = env_store(env, 3, viewMID(midVidMappings.mappings));

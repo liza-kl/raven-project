@@ -20,9 +20,9 @@ public data RavenNode =
             // OptionButton
             | ravenOptionButton( list[str] options, str callback, list[Setting] settings = [])
             // Containers
-            | ravenHBox( list[RavenNode] children) 
-            | ravenVBox( list[RavenNode] children)
-            | ravenTab(str nodeID, str name, list[RavenNode] children)
+            | ravenHBox( list[RavenNode] children,list[Setting] settings = []  ) 
+            | ravenVBox( list[RavenNode] children, list[Setting] settings = [] )
+            | ravenTab(str nodeID, str name, list[RavenNode] children,list[Setting] settings = [] )
             | ravenTabContainer(list[RavenNode] children, str callback="",list[Setting] settings = [])
             | ravenPanelContainer(list[RavenNode] children,list[Setting] settings = [])
             | ravenPanel(list[RavenNode] children, list[Setting] settings = [])

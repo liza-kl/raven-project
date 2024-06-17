@@ -5,14 +5,13 @@ import lang::raven::Environment;
 import lang::sml::model::Model;
 import lang::sml::model::REPL;
 import lang::sml::model::Command;
-import lang::raven::helpers::Utils;
 import Map;
 import Set;
 import lang::Main;
 import util::Math;
 import util::UUID;
 import List;
-import lang::Main;
+import lang::sml::model::Styles;
 
 extend lang::sml::model::TableRenderer;
 extend lang::sml::model::TreeRenderer; 
@@ -41,21 +40,22 @@ public RavenNode render(Env env) =
   ravenTab(toString(nextID(env)),"State Machine Language",
     [
       ravenVBox([
-      ravenLabel("State Machines Everywhere!"),
-      ravenButton("Create New Machine", "MachCreate(<nextID(env)>)"),
-      ravenButton("Open New Tab", "ViewTabCreate(<uuidi()>)")
-      ]),
+      ravenLabel("State Machines Everywhere!",settings= [setting("Primary", [<"horizontal_alignment", "Long%1">])]),
+      ravenButton("Create New Machine", "MachCreate(<nextID(env)>)", settings=buttonCreate),
+      ravenButton("Open New Tab", "ViewTabCreate(<uuidi()>)", settings=primaryButton)
+      ],settings=vboxContainerStyles),
       ravenVBox([
-      ravenLabel("Available Machines")
+      ravenLabel("Available Machines",settings= [setting("Primary", [<"horizontal_alignment", 1>])])
       ] 
-      + [ravenLabel(toString(mid)) | elem <- env, mach( mid, _, _, _) := env[elem]]
-      )
-    ])]
+      + [ravenLabel(toString(mid), settings=bodyFontSize) | elem <- env, mach( mid, _, _, _) := env[elem]]
+      ,settings=vboxContainerStyles)
+    ], settings=tabContentStyles)]
     +
     [
       render(env, toString(tab[0]), tab[1]) | tab <- toList(env_retrieve(env, #ViewEnv, 1).currentTabs)
     ],
-    settings=[setting("Primitive", [<"current_tab", "Int%<env[4].tabIndex>">])]
+    settings=[setting("Primitive", [<"current_tab", "Int%<env[4].tabIndex>">,
+                                    <"clip_tabs","Boolean%false">])] + tabContainerStyles 
     )
   ], true);
 
@@ -63,7 +63,8 @@ public RavenNode render(Env env,str tabID, Tab t: tab(tuple[str name, list[Raven
   ravenTab(
     tabID,
     t.content.name,
-    t.content.content
+    t.content.content,
+    settings=tabContentStyles
   );
   
 

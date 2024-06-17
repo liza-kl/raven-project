@@ -5,7 +5,6 @@ import lang::raven::Environment;
 import lang::sml::model::Model;
 import lang::sml::model::REPL;
 import lang::sml::model::Command;
-import lang::raven::helpers::Utils;
 import Map;
 import IO;
 import Set;
@@ -13,7 +12,6 @@ import lang::Main;
 import util::Math;
 import util::UUID;
 import List;
-import lang::Main;
 import lang::sml::model::Styles;
 
 // In Table View
@@ -26,17 +24,17 @@ public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] st
     ravenLabel("Transition Table"),
     ravenVBox([
     ravenHBox([
-            ravenPanelContainer([ravenLabel("In State")]),
-            ravenPanelContainer([ravenLabel("Action")]),
-            ravenPanelContainer([ravenLabel("Out State")]),
-            ravenPanelContainer([ravenLabel("")])
+            ravenPanelContainer([ravenLabel("In State")], settings=panelTreeEditor + bodyFontSize),
+            ravenPanelContainer([ravenLabel("Action")],settings=panelTreeEditor + bodyFontSize),
+            ravenPanelContainer([ravenLabel("Out State")],settings=panelTreeEditor + bodyFontSize),
+            ravenPanelContainer([ravenLabel("")],settings=panelTreeEditor + bodyFontSize)
 
-        ])
+        ], settings=hboxContainerStyles)
         
   ]    ),
   ravenVBox([render(env, getState(env, sid), "table-body") |  sid <- states] + ravenButton("Create new Transition","")) 
 
-    ]);
+    ],settings=vboxContainerStyles);
 
 
 
@@ -47,7 +45,7 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
           ravenPanelContainer([ravenLabel("Edit State Name")]),
           ravenTextEdit(name, "StateSetName(<sid>, %text)",  settings=lang::sml::model::Styles::textEditSettings),
           ravenPanelContainer([ravenButton("Delete State", "StateDelete(<sid>)", settings=buttonDanger)])
-        ]
+        ],settings=hboxContainerStyles
       );
 
 public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, list[UUID] ti, list[UUID] to, int x, int y), "table-body") {    
@@ -68,14 +66,14 @@ public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, 
     [
       ravenPanelContainer([ravenOptionButton([name | elem <- env, state(_,mid2,name,_,_,_,_) := env[elem]],   "InterTransSetTarget(<id>,%state)",
       // Getting only the states available for that specific machine.
-      settings=[setting("Primitive", [<"selected", "Int%<List::indexOf([sid | elem <- env, state(sid,mid2,name,_,_,_,_) := env[elem]],src)>">, <"allow_reselect", "Boolean%true">])])]),
+      settings= optionButtonSettings + [setting("Primitive", [<"selected", "Int%<List::indexOf([sid | elem <- env, state(sid,mid2,name,_,_,_,_) := env[elem]],src)>">, <"allow_reselect", "Boolean%true">])])]),
 
-      ravenPanelContainer([ravenTextEdit(trigger, "TransSetTrigger(<id>, %text)", settings=lang::sml::model::Styles::textEditSettings)]),  
+      ravenPanelContainer([ravenTextEdit(trigger, "TransSetTrigger(<id>, %text)", settings=textEditSettings)]),  
       ravenPanelContainer([ravenOptionButton([name | elem <- env, state(_,mid2,name,_,_,_,_) := env[elem]],   "InterTransSetTarget(<id>,%state)",
       // Getting only the states available for that specific machine.
-      settings=[setting("Primitive", [<"selected", "Int%<List::indexOf([sid | elem <- env, state(sid,mid2,name,_,_,_,_) := env[elem]],tgt)>">, <"allow_reselect", "Boolean%true">])])]),
+      settings=optionButtonSettings + [setting("Primitive", [<"selected", "Int%<List::indexOf([sid | elem <- env, state(sid,mid2,name,_,_,_,_) := env[elem]],tgt)>">, <"allow_reselect", "Boolean%true">])])]),
       ravenPanelContainer([ravenButton("Delete Transition", "TransDelete(<id>)", settings=buttonDanger)])
 
       //FIXME: should be from the current machine these states are part of
-    ]
+    ],settings=hboxContainerStyles
   ); }

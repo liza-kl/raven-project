@@ -6,7 +6,6 @@ import lang::sml::model::Model;
 import lang::sml::runtime::Model;
 import lang::sml::model::REPL;
 import lang::sml::model::Command;
-import lang::raven::helpers::Utils;
 import Map;
 import Set;
 import lang::Main;
@@ -18,7 +17,6 @@ import ValueIO;
 import lang::sml::model::Styles;
 
 import String;
-import lang::Main;
 import IO;
 
 
@@ -35,7 +33,7 @@ public int getDefiningState(Env env, UUID siid) {
 public RavenNode render(Env env, machInst(UUID miid, UUID mid, UUID cur,  map[UUID sid, UUID siid] sis), "runtime-1") {
     
 
-    return ravenVBox([
+    return ravenScrollContainer([ravenVBox([
         ravenLabel("Possible trigger, dependening on curr event") 
     ] + [
         // TODO how to parse that correctly ...
@@ -49,9 +47,9 @@ public RavenNode render(Env env, machInst(UUID miid, UUID mid, UUID cur,  map[UU
             ravenPanelContainer([ravenHBox([ravenLabel("State",settings=lang::sml::model::Styles::runtimeTabelLabel)])]),
             ravenPanelContainer([ravenHBox([ravenLabel("Count",settings=lang::sml::model::Styles::runtimeTabelLabel)])]),
             ravenPanelContainer([ravenHBox([ravenLabel("Events", settings=lang::sml::model::Styles::runtimeTabelLabel)])])
-        ])
+        ], settings=hboxContainerStyles)
     ]+ 
-    [render(env, env[t], cur, miid) | t <- env, stateInst(siid,sid,count) := env[t]]);
+    [render(env, env[t], cur, miid) | t <- env, stateInst(siid,sid,count) := env[t]])]);
 
 }
 
@@ -67,5 +65,5 @@ public RavenNode render(Env env, stateInst(UUID siid, UUID sid, int count), UUID
                                 settings=runtimeTabelLabel)
                                 ])],
                                 settings=ravenPanelStyle)
-        ]);
+        ],  settings=hboxContainerStyles);
 }
