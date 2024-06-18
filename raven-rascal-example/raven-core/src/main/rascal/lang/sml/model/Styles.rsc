@@ -41,7 +41,7 @@ public list[Setting] buttonCreate = bodyFontSize + [
 ];
 
 
-public list[Setting] tabContainerStyles = bodyFontSize + [
+public list[Setting] tabContainerStyles = h2FontSize + [
   setting("SizeFlags", [<"size_flags_horizontal","SIZE_EXPAND_FILL">,
                         <"size_flags_vertical", "SIZE_EXPAND_FILL">
                         ]),
@@ -72,8 +72,20 @@ public list[Setting] hboxContainerHorizontalExpand = [
   setting("AnchorPreset", [<"set_anchors_preset", "PRESET_FULL_RECT">])
 ];
 
+public list[Setting] marginContainerSetting = [
+  setting("Constant", [<"margin_top", 20>])
+];
 
+public list[Setting] marginContainer5 = [
+  setting("Constant", [<"margin_top", 5>,<"margin_bottom",5>])
+];
 
+public list[Setting] marginContainerEven = [
+  setting("Constant",
+    [<"margin_left", 5>,
+    <"margin_right",5>,
+    <"margin_top", 5>,
+    <"margin_bottom", 5>])] + hboxContainerStyles;
 
 public list[Setting] panelStyles = [
   setting("SizeFlags", [<"size_flags_horizontal","SIZE_EXPAND_FILL">,
@@ -83,12 +95,9 @@ public list[Setting] panelStyles = [
   setting("AnchorPreset", [<"set_anchors_preset", "PRESET_FULL_RECT">])
 ];
 
-public list[Setting] panelTreeEditor = panelStyles + [
+public list[Setting] panelTreeEditor = [
   setting("StyleBoxFlat", [setting("panel",  [
-        <"bg_color","LIGHT_CORAL">,
-        <"border_width_top", "Long%10">,
-        <"border_width_bottom", "Long%10">,
-        <"border_blend", "Bool%true">
+        <"bg_color","LIGHT_CORAL">
       ])]) 
 ];
 
@@ -135,14 +144,27 @@ public list[Setting] buttonDanger = bodyFontSize +  [
       ])])];
 
 
-public list[Setting] runtimeTabelLabel = [setting("FontSize", [<"font_size", 30>])];
+public list[Setting] runtimeTabelLabel = h2FontSize + setting("Color", [<"font_color","DARK_BLUE">]);
 
-public list[Setting] ravenPanelStyle =[setting("StyleBoxFlat",
+public list[Setting] tableHeadingStyle =   setting("SizeFlags", [<"size_flags_horizontal","SIZE_EXPAND_FILL">
+                        ]) + [setting("Color", [<"font_color","GHOST_WHITE">]),
+                                        setting("StyleBoxFlat",
                                         [setting(
                                             "panel",
-                                            [<"bg_color", "LAVENDER">,
-                                            <"content_margin_left","Float%5.0">] 
+                                            [
+                                            <"bg_color","CORAL">] 
                                         )])]; 
+public list[Setting] tableBodyStyle =   setting("SizeFlags", [<"size_flags_horizontal","SIZE_EXPAND_FILL">
+                        ]) + [
+                                        setting("StyleBoxFlat",
+                                        [setting(
+                                            "panel",
+                                            [
+                                            <"bg_color","GHOST_WHITE">] 
+                                        )])]; 
+
+
+public list[Setting] ravenPanelStyle = hboxContainerHorizontalExpand;
 
 /* Table Editor */
 public list[Setting] tableEditorHeadings = [setting("FontSize", [<"font_size", 30>])];

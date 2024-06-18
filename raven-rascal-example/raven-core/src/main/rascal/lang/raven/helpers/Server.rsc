@@ -9,3 +9,5 @@ module lang::raven::helpers::Server
 @javaClass{server.Server}
 public java void send(str message);
 
+@javaClass{server.Server}
+public java void startServer();
