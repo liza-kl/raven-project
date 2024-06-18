@@ -62,7 +62,6 @@ public class OptionButtonScript extends RavenOptionButton {
 
     @RegisterFunction
     public void callbackOptionInit(String callback) {
-        System.out.println("init is called, the callback is " + callback);
         this.set(StringNameUtils.asStringName("node_callback"),callback);
         this.notifyPropertyListChanged();
     }
@@ -70,7 +69,6 @@ public class OptionButtonScript extends RavenOptionButton {
 
     @RegisterFunction
     public void _ready() {
-        System.out.println("OptionButton is connected to script");
         connect(
                 StringNameUtils.asStringName("item_selected"),
                 new Callable(this, StringNameUtils.asStringName("callback_option_selected"))

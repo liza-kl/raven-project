@@ -18,7 +18,7 @@ public final class InterpreterUtils {
             Method method = visitorClass.getMethod("visit" + methodName, argumentTypes);
 
             // Create an instance of the Visitor class
-            Interpreter visitor = new Interpreter();
+            Interpreter visitor = Interpreter.getInstance();
 
             // Invoke the method on the Visitor instance
             method.invoke(visitor, arguments);

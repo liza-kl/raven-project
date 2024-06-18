@@ -23,7 +23,7 @@ public class NativeClientReceiver extends Node implements ReceiveCallback {
 
     @Override
     public void onReceive(String element) {
-        GD.INSTANCE.print("New element received Client: " + element);
+       // GD.INSTANCE.print("New element received Client: " + element);
 
         String[] parts = element.split(":", 2);
         if (parts.length != 2) {
@@ -31,7 +31,7 @@ public class NativeClientReceiver extends Node implements ReceiveCallback {
         }
 
         String messageType = parts[0];
-        System.out.println(messageType);
+       // System.out.println(messageType);
         String content = parts[1];
 
         switch (messageType) {

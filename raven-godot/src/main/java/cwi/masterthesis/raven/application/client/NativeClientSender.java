@@ -21,7 +21,6 @@ public class NativeClientSender implements Runnable {
         try {
             String line;
             while ((line = reader.readLine()) != null) {
-                GD.INSTANCE.print("new line received");
                 synchronized (buffer) {
                     buffer.produce(line);
                 }

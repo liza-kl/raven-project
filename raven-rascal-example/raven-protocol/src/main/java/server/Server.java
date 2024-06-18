@@ -40,7 +40,7 @@ public class Server extends Thread {
 
 
     public void send(IString message){
-        System.out.println("I am sending a message");
+       // System.out.println("I am sending a message");
         String HOST = "0.0.0.0";
         int PORT = 23000;
 

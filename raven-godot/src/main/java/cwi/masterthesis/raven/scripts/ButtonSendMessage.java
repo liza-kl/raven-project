@@ -25,7 +25,6 @@ public class ButtonSendMessage extends Button {
 
     @RegisterFunction
     public void _ready() {
-        System.out.println("the button is ready");
         connect(
                 StringNameUtils.asStringName("button_init"),
                 new Callable(this, StringNameUtils.asStringName("callback_button_init"))
@@ -39,7 +38,6 @@ public class ButtonSendMessage extends Button {
 
     @RegisterFunction
     public void callbackButtonInit(String callback) {
-        System.out.println("button_init emitted");
         this.set(StringNameUtils.asStringName("node_callback"),callback);
         this.notifyPropertyListChanged();
     }
@@ -54,7 +52,6 @@ public class ButtonSendMessage extends Button {
 
     @RegisterFunction
     public void _pressed() {
-        System.out.println("Sending Content");
         emitSignal(StringNameUtils.asStringName("button_send_message"), this);
     }
 }

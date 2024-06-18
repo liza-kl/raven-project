@@ -21,7 +21,7 @@ public class TextEditScript extends RavenTextEdit {
 
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     private Future<?> lastScheduledFuture = null;
-    private final int debounceDelay = 500; // debounce delay in milliseconds
+    private final int debounceDelay = 1000; // debounce delay in milliseconds
 
     @RegisterFunction
     public void callbackTextChanged() {
@@ -61,7 +61,6 @@ public class TextEditScript extends RavenTextEdit {
 
     @RegisterFunction
     public void _ready() {
-        System.out.println("TextEdit is connected to script");
         connect(
                 StringNameUtils.asStringName("text_changed"),
                 new Callable(this, StringNameUtils.asStringName("callback_text_changed"))

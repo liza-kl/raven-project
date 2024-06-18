@@ -8,7 +8,7 @@ import lang::sml::model::Command;
 import lang::sml::runtime::Model;
 import lang::sml::runtime::Command;
 import lang::sml::runtime::REPL;
-
+import IO;
 //import lang::sml::model::Renderer;
 //import lang::raven::helpers::Server;
 //import Main;
@@ -33,23 +33,25 @@ public /*effect*/ Env eval(Env env, Command cmd: MachCreate(UUID mid)) {
 
 public /*inverse effect*/ Env eval(Env env, Command cmd: MachDelete(UUID mid)) {
   //pre-migrate
+
   Model m = getMach(env, mid);
-  for(UUID sid <- m.states) {
+  for( sid <- m.states) {
     env = eval(env, StateDelete(sid));
   }
 
-  for(UUID miid <- m.instances) {
+  for( miid <- m.instances) {
     env = eval(env, MachInstDelete(miid, mid));
   }
 
   //delete machine
   env = env_delete(env, mid);
+
   return env;
 }
 
-public /*side-effect*/ Env eval(Env env, Command cmd: MachAddState(UUID mid, UUID sid)) {
+public /*side-effect*/ Env eval(Env env, Command cmd: MachAddState( mid, UUID sid)) {
   env = visit(env) {
-    case mach(UUID mid, ID name, list[UUID] states, list[UUID] instances) =>
+    case mach( mid, ID name, list[UUID] states, list[UUID] instances) =>
       mach(mid, name, states + [sid], instances)
   }
 
@@ -77,7 +79,7 @@ public /*inverse side-effect*/ Env eval(Env env, Command cmd: MachRemoveState(UU
   }
   //remove the state
   env = visit(env) {
-    case mach(UUID mid, ID name, list[UUID] states, list[UUID] instances) =>
+    case mach( mid, ID name,  states, instances) =>
       mach(mid, name, states - [sid], instances)
   }
   return env;
@@ -85,7 +87,7 @@ public /*inverse side-effect*/ Env eval(Env env, Command cmd: MachRemoveState(UU
 
 public /*side-effect*/ Env eval(Env env, Command cmd: MachAddMachInst(UUID mid, UUID miid)) {
   env = visit(env) {
-    case mach(UUID mid, ID name, list[UUID] states, list[UUID] instances) =>
+    case mach( mid, ID name, list[UUID] states, list[UUID] instances) =>
       mach(mid, name, states, instances + [miid])
   }
   return env;
@@ -93,7 +95,7 @@ public /*side-effect*/ Env eval(Env env, Command cmd: MachAddMachInst(UUID mid, 
 
 public /*inverse side-effect*/ Env eval(Env env, Command cmd: MachRemoveMachInst(UUID mid, UUID miid)) {
   env = visit(env) {
-    case mach(UUID mid, ID name, list[UUID] states, list[UUID] instances) =>
+    case mach( mid, ID name, list[UUID] states, list[UUID] instances) =>
       mach(mid, name, states, instances - [miid])
   }
   return env;
@@ -102,13 +104,15 @@ public /*inverse side-effect*/ Env eval(Env env, Command cmd: MachRemoveMachInst
 public /*invertible effect*/ Env eval(Env env, Command cmd: MachSetName(UUID mid, ID name)) {
   //fixme: old name is missing
   env = visit(env) {
-    case mach(UUID mid, _, list[UUID] es, list[UUID] instances) =>
+    case mach( mid, _, list[UUID] es, list[UUID] instances) =>
       mach(mid, name, es, instances)
   }
   return env;
 }
 
 public /*effect*/ Env eval(Env env, Command cmd: StateCreate(UUID sid, UUID mid)) {
+
+
   Model s = state(sid, mid, "", [], [], 0, 0);
   env = env_store(env, sid, s);
 
