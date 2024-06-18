@@ -73,7 +73,6 @@ public class NativeClient extends Node implements Client {
     }
 
     public boolean send(String message) {
-        System.out.println("Connection Status" + this.socket.isConnected());
         this.out.println(message);
         return true;
     }

@@ -31,16 +31,18 @@ public Env eval(Env env, Command cmd: MachInstCreate(UUID miid, UUID mid)) {
 
 public Env eval(Env env, Command cmd: MachInstDelete(UUID miid, UUID mid)) {
   //pre migrate
+
   Model mi = getMachInst(env, miid);
   Model m = getMach(env, mi.mid);
-  for(UUID sid <- m.states) {
+  for( sid <- m.states) {
     //Model s = getState(env, sid);
     UUID siid = mi.sis[sid];
     env = eval(env, MachInstRemoveStateInst(miid, sid, siid));
-    env = eval(env, StateInstCreate(siid, sid, miid));
+    env = eval(env, StateInstDelete(siid, miid));
   }
   //actual deletion
   env = env_delete(env, miid);
+
   return env;
 }
 
@@ -126,6 +128,7 @@ public Env eval(Env env, Command cmd: MachInstTrigger(UUID miid, ID trigger)) {
       return env;
     }
   }
+
   // TODO: missing case!
   // Add explicit hisotry 
  // env = eval(env, MachInstQuiescence(miid));

@@ -60,7 +60,6 @@ public class TabContainerScript extends RavenOptionButton {
 
     @RegisterFunction
     public void callbackTabInit(String callback) {
-        System.out.println("init is called, the callback is " + callback);
         this.set(StringNameUtils.asStringName("node_callback"),callback);
         this.notifyPropertyListChanged();
     }
@@ -68,7 +67,6 @@ public class TabContainerScript extends RavenOptionButton {
 
     @RegisterFunction
     public void _ready() {
-        System.out.println("OptionButton is connected to script");
         connect(
                 StringNameUtils.asStringName("tab_clicked"),
                 new Callable(this, StringNameUtils.asStringName("callback_tab_clicked"))

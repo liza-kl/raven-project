@@ -21,6 +21,7 @@ import java.util.Objects;
 // TODO: Some kind of builder to remove redundancy...
 public class Interpreter extends Node implements Visitor {
     private static StylingStrategy strategy;
+    private static Interpreter instance;
 
     private void applyStyling(RavenNode ravenNode, Control appendedClass) {
         if (ravenNode.getStyles() != null) {
@@ -32,6 +33,15 @@ public class Interpreter extends Node implements Visitor {
             }
         }
     }
+    private Interpreter(){}
+
+    public static Interpreter getInstance() {
+        if (instance == null) {
+            instance = new Interpreter();
+        }
+        return instance;
+    }
+
 
     @Override
     public void visitButton(RavenButton ravenButton)  {
@@ -51,7 +61,7 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitLabel(RavenLabel ravenLabel) {
-        System.out.println("Creating Label");
+       // System.out.println("Creating Label");
         Label label = new Label();
         label.setTheme(Main.mainTheme);
         label.setName(StringNameUtils.asStringName(ravenLabel.getNodeID()));
@@ -62,7 +72,7 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitNode2D(RavenNode2D ravenNode2D) {
-        System.out.println("Creating Node2D");
+       // System.out.println("Creating Node2D");
         Node2D node2D = new Node2D();
         node2D.setName(StringNameUtils.asStringName(ravenNode2D.getNodeID()));
         Objects.requireNonNull(ravenNode2D.getParentNode()).addChild(node2D);
@@ -70,7 +80,7 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitGraphNode(RavenGraphNode ravenGraphNode) {
-        System.out.println("Creating GraphNode");
+       // System.out.println("Creating GraphNode");
         GraphNode graphNode = new GraphNode();
         graphNode.setTheme(Main.mainTheme);
         graphNode.setName(StringNameUtils.asStringName(ravenGraphNode.getNodeID()));
@@ -79,7 +89,7 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitGraphEditNode(RavenGraphEditNode ravenGraphEditNode) {
-        System.out.println("Creating GraphEditNode");
+       // System.out.println("Creating GraphEditNode");
         GraphEdit graphEditNode = new GraphEdit();
         graphEditNode.setTheme(Main.mainTheme);
         graphEditNode.setSize(new Vector2(500,600));
@@ -89,7 +99,7 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitTextEdit(RavenTextEdit ravenTextEditNode) {
-        System.out.println("Creating TextEdit Node");
+        //System.out.println("Creating TextEdit Node");
         ravenTextEditNode.setTheme(Main.mainTheme);
         ravenTextEditNode.setName(StringNameUtils.asStringName(ravenTextEditNode.getNodeID()));
         ravenTextEditNode.setText(ravenTextEditNode.getTextContent());
@@ -102,7 +112,7 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitOptionButton(RavenOptionButton ravenOptionButton) {
-        System.out.println("Creating OptionButton");
+      //  System.out.println("Creating OptionButton");
         ravenOptionButton.setTheme(Main.mainTheme);
         ravenOptionButton.setName(StringNameUtils.asStringName(ravenOptionButton.getNodeID()));
         ravenOptionButton.set(StringNameUtils.asStringName("node_callback"), ravenOptionButton.getCallback());
@@ -116,7 +126,7 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitPanel(RavenPanel ravenPanel) {
-        System.out.println("Creating Panel");
+       // System.out.println("Creating Panel");
         Panel panel = new Panel();
         panel.setTheme(Main.mainTheme);
         panel.setName(StringNameUtils.asStringName(ravenPanel.getName() == null ? ravenPanel.getNodeID() : ravenPanel.getName()));
@@ -126,7 +136,7 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitMarginContainer(RavenMarginContainer ravenMarginContainer) {
-        System.out.println("Creating MarginContainer");
+        //System.out.println("Creating MarginContainer");
         MarginContainer marginContainer = new MarginContainer();
         marginContainer.setTheme(Main.mainTheme);
         marginContainer.setName(StringNameUtils.asStringName(ravenMarginContainer.getName() == null ? ravenMarginContainer.getNodeID() : ravenMarginContainer.getName()));
@@ -136,7 +146,7 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitPanelContainer(RavenPanelContainer ravenPanelContainer) {
-        System.out.println("Creating PanelContainer");
+        //System.out.println("Creating PanelContainer");
         PanelContainer panelContainer = new PanelContainer();
         panelContainer.setTheme(Main.mainTheme);
         panelContainer.setName(StringNameUtils.asStringName(ravenPanelContainer.getName() == null ? ravenPanelContainer.getNodeID() : ravenPanelContainer.getName()));
@@ -146,7 +156,7 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitScrollContainer(RavenScrollContainer ravenScrollContainer) {
-        System.out.println("Creating ScrollContainer");
+       // System.out.println("Creating ScrollContainer");
         ScrollContainer scrollContainer = new ScrollContainer();
         scrollContainer.setTheme(Main.mainTheme);
         scrollContainer.setName(StringNameUtils.asStringName(ravenScrollContainer.getName() == null ? ravenScrollContainer.getNodeID() : ravenScrollContainer.getName()));
@@ -156,7 +166,7 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitLineEdit(RavenLineEdit ravenLineEdit) {
-        System.out.println("Creating LineEdit Node");
+      //  System.out.println("Creating LineEdit Node");
         ravenLineEdit.setTheme(Main.mainTheme);
         ravenLineEdit.setName(StringNameUtils.asStringName(ravenLineEdit.getNodeID()));
         ravenLineEdit.setText(ravenLineEdit.getTextContent());
@@ -169,7 +179,7 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitHBoxContainer(RavenHBoxContainer ravenHBoxContainer) {
-        System.out.println("Creating HBoxContainer");
+        //System.out.println("Creating HBoxContainer");
         HBoxContainer hBoxContainer = new HBoxContainer();
         hBoxContainer.setTheme(Main.mainTheme);
         hBoxContainer.setName(StringNameUtils.asStringName(ravenHBoxContainer.getName() == null ? ravenHBoxContainer.getNodeID() : ravenHBoxContainer.getName()));
@@ -179,7 +189,7 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitVBoxContainer(RavenVBoxContainer ravenVBoxContainer) {
-        System.out.println("Creating VBoxContainer");
+       // System.out.println("Creating VBoxContainer");
         VBoxContainer vBoxContainer = new VBoxContainer();
         vBoxContainer.setTheme(Main.mainTheme);
         vBoxContainer.setName(StringNameUtils.asStringName(ravenVBoxContainer.getNodeID()));
@@ -189,7 +199,7 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitGridContainer(RavenGridContainer ravenGridContainer) {
-        System.out.println("Creating Grid");
+        //System.out.println("Creating Grid");
         GridContainer gridContainer = new GridContainer();
         gridContainer.setTheme(Main.mainTheme);
 
@@ -203,7 +213,7 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitControl(RavenControl ravenControl) {
-        System.out.println("Creating Control");
+        //System.out.println("Creating Control");
         Control control = new Control();
         control.setTheme(Main.mainTheme);
         control.setName(StringNameUtils.asStringName(ravenControl.getNodeID()));
@@ -213,7 +223,7 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitTabContainer(RavenTabContainer ravenTabContainer) {
-        System.out.println("Creating TabContainer");
+       // System.out.println("Creating TabContainer");
         TabContainer tabContainer = new TabContainer();
         ravenTabContainer.set(StringNameUtils.asStringName("node_callback"), ravenTabContainer.getCallback());
         tabContainer.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/TabContainerScript.gdj"));

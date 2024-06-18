@@ -64,7 +64,6 @@ public class LineEditScript extends RavenLineEdit {
 
     @RegisterFunction
     public void _ready() {
-        System.out.println("TextEdit is connected to script");
         connect(
                 StringNameUtils.asStringName("text_changed"),
                 new Callable(this, StringNameUtils.asStringName("callback_text_changed"))

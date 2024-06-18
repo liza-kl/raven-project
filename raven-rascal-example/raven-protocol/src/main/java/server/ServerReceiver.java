@@ -30,7 +30,6 @@ class ServerReceiver implements ReceiveCallback {
         this.evaluator.addRascalSearchPath(URIUtil.correctLocation("file","",rascalProjectFolder.replaceAll("\\.", "")));
         this.evaluator.doImport(null, "lang::raven::Core");
         this.evaluator.call(null, "lang::Main", "main");
-        this.evaluator.call(null, "lang::Main", "init");
     }
 
     public static synchronized ServerReceiver getInstance(PrintWriter output,IValueFactory values) {
@@ -44,7 +43,7 @@ class ServerReceiver implements ReceiveCallback {
     // Code adjusted from https://reintech.io/blog/java-socket-programming-creating-custom-communication-protocols
     @Override
     public void onReceive(String element) {
-        System.out.println("Server received: " + element);
+        //System.out.println("Server received: " + element);
 
         element = element.startsWith("\"") ?  element.substring(1, element.length() -1) : element;
         element = element.endsWith("\"") ?  element.substring(0, element.length() -1) : element;
@@ -55,7 +54,7 @@ class ServerReceiver implements ReceiveCallback {
         }
 
         String messageType = parts[0];
-        System.out.println("Message type: " + messageType);
+        //System.out.println("Message type: " + messageType);
         String content = parts[1]
                 .replaceAll("/\\S+|\\n/g\n", "")
                 .replaceAll("\r", "")
@@ -63,7 +62,7 @@ class ServerReceiver implements ReceiveCallback {
                 // FIXME this is because of rascal's double escape, but there is a cleaner solution for sure.
                 .replaceAll("\\\\\\\"(.*?)\\\\\\\"", "\"$1\"")
                 .replaceAll("\\\\n", "");
-        System.out.println("cleaned type: " + content);
+        //System.out.println("cleaned type: " + content);
 
         /* This plainly sends a message to Godot to update the whole view.*/
         if (messageType.equals("VIEW_UPDATE")) {

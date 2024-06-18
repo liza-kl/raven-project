@@ -95,7 +95,7 @@ public list[Setting] panelStyles = [
   setting("AnchorPreset", [<"set_anchors_preset", "PRESET_FULL_RECT">])
 ];
 
-public list[Setting] panelTreeEditor = [
+public list[Setting] panelTreeEditor =   [
   setting("StyleBoxFlat", [setting("panel",  [
         <"bg_color","LIGHT_CORAL">
       ])]) 

@@ -157,12 +157,12 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
 
 
 public Env eval(Env env, Command cmd: ViewTabSetCurrentTab(UUID tabID)) {
-    println("Evaluating ViewTabSetCurrentTab(UUID vid, UUID miid)");
+   // println("Evaluating ViewTabSetCurrentTab(UUID vid, UUID miid)");
     env = env_store(env,4,currentTab(tabID));
     return env;
 }
 public Env eval(Env env, Command cmd: ViewTabSetMachineInstance(UUID vid, UUID miid)) {
-    println("Evaluating ViewTabSetMachineInstance(UUID vid, UUID miid)");
+ //   println("Evaluating ViewTabSetMachineInstance(UUID vid, UUID miid)");
     ViewEnv viewEnv = env_retrieve(env, #ViewEnv, 1);
     ViewTypeMap vidType = env_retrieve(env, #ViewTypeMap, 5);
     ViewMIDMap midVidMappings = env_retrieve(env, #ViewMIDMap, 3);
@@ -180,7 +180,7 @@ public Env eval(Env env, Command cmd: ViewTabSetMachineInstance(UUID vid, UUID m
             [
             ravenLabel("General Actions", settings=h2FontSize),
             ravenLabel("Running Machine Instance <miid>", settings=h2FontSize),
-            ravenButton("Delete Tab", "ViewTabDelete(<vid>)",settings=buttonDanger),
+           // ravenButton("Delete Tab", "ViewTabDelete(<vid>)",settings=buttonDanger),
             ravenButton("Kill Instance", "MachInstDelete(<miid>,<machineInstance.mid>)", settings=buttonDanger)]
             )
     ] + 

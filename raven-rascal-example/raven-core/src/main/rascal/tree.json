@@ -2,7 +2,7 @@
    "children":
 [{"TabContainer":
  {
-    "id": "-70795327999772999472500760209558194577"
+    "id": "72058204521264929704579823031843592787"
  ,
     "callback": "ViewTabSetCurrentTab(%tabID)"
   
@@ -61,15 +61,15 @@
     "children":
  [{"HBoxContainer":
   {
-     "id": "15",
+     "id": "11",
      "name": "State Machine Language",
      "children":
   [{"VBoxContainer":
    {
-      "id": "6559433549412975278536713669342036754",
+      "id": "43639903782788650219395204028034513932",
       "children":
    [{"Label": {
-       "id": "101421494458896237435004420200419441708",
+       "id": "-148441639938983937883114010264382546642",
        "text": "State Machines Everywhere!"
     ,
         "styles": [
@@ -88,9 +88,9 @@
     
     }  },{"Button":
     {
-       "id": "95685162178629208378191998205704031589",
+       "id": "126885724636626263343362111799634777474",
        "text": "Create New Machine",
-       "callback": "MachCreate(15)"
+       "callback": "MachCreate(11)"
     ,
         "styles": [
     
@@ -134,9 +134,9 @@
     
     }},{"Button":
     {
-       "id": "152853787856821660999554736259094417779",
+       "id": "-55318215237161773486032626708681159500",
        "text": "Open New Tab",
-       "callback": "ViewTabCreate(62931987886142749428028395327236405953)"
+       "callback": "ViewTabCreate(162200043375315663207607084075717480590)"
     ,
         "styles": [
     
@@ -211,10 +211,10 @@
      
    }},{"VBoxContainer":
    {
-      "id": "-27146936516449353045224602398660922131",
+      "id": "104874614266643022674299272360259279122",
       "children":
    [{"Label": {
-       "id": "-154165316471278777416629190735057109640",
+       "id": "-27687142477190899163954082388445925397",
        "text": "Available Machines"
     ,
         "styles": [
@@ -232,7 +232,7 @@
     ]
     
     }  },{"Label": {
-       "id": "-151942270089395484375518158322027263416",
+       "id": "127199071441649890760549343804484212254",
        "text": "6"
     ,
         "styles": [
@@ -313,1469 +313,19 @@
    
   }},{"HBoxContainer":
   {
-     "id": "121480727176925266483424335962391877730",
-     "name": "Runtime Tab 11",
-     "children":
-  [{"VBoxContainer":
-   {
-      "id": "109706751538897786713123149588907309644",
-      "children":
-   [{"Label": {
-       "id": "-146099694854635377586094543636229508900",
-       "text": "General Actions"
-    ,
-        "styles": [
-    
-    
-    {
-       "FontSize": {
-          
-          
-             "font_size": "25"
-          
-       
-       }  }
-    
-    ]
-    
-    }  },{"Label": {
-       "id": "-28555402302914202330379328889999946874",
-       "text": "Running Machine Instance 11"
-    ,
-        "styles": [
-    
-    
-    {
-       "FontSize": {
-          
-          
-             "font_size": "25"
-          
-       
-       }  }
-    
-    ]
-    
-    }  },{"Button":
-    {
-       "id": "55266864759609701003457083256108458086",
-       "text": "Delete Tab",
-       "callback": "ViewTabDelete(121480727176925266483424335962391877730)"
-    ,
-        "styles": [
-    
-    
-    {
-       "FontSize": {
-          
-          
-             "font_size": "20"
-          
-       
-       }  },
-    
-    
-    {
-       "Color": {
-          
-          
-             "font_color": "GHOST_WHITE"
-          
-       
-       }  },
-    
-    
-    {
-       "StyleBoxFlat": 
-          
-          
-          {
-             "normal": {
-                
-                
-                   "bg_color": "INDIAN_RED",
-                
-                
-                   "height": "30",
-                
-                
-                   "width": "50"
-                
-             
-             }  }
-       
-         }
-    
-    ]
-    
-    }},{"Button":
-    {
-       "id": "94113873005005456516376464714551989532",
-       "text": "Kill Instance",
-       "callback": "MachInstDelete(11,6)"
-    ,
-        "styles": [
-    
-    
-    {
-       "FontSize": {
-          
-          
-             "font_size": "20"
-          
-       
-       }  },
-    
-    
-    {
-       "Color": {
-          
-          
-             "font_color": "GHOST_WHITE"
-          
-       
-       }  },
-    
-    
-    {
-       "StyleBoxFlat": 
-          
-          
-          {
-             "normal": {
-                
-                
-                   "bg_color": "INDIAN_RED",
-                
-                
-                   "height": "30",
-                
-                
-                   "width": "50"
-                
-             
-             }  }
-       
-         }
-    
-    ]
-    
-    }}
-   ]
-   
-     
-   }},{"VBoxContainer":
-   {
-      "id": "-142696488098864666725645980405763965491",
-      "children":
-   [{"MarginContainer":
-    {
-       "id": "-16796085910074545879470999587228749525",
-       "children":
-    [{"Label": {
-        "id": "84147284444678807141624883679195852324",
-        "text": "Possible Actions"
-     ,
-         "styles": [
-     
-     
-     {
-        "FontSize": {
-           
-           
-              "font_size": "25"
-           
-        
-        }  },
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "AnchorPreset": {
-           
-           
-              "set_anchors_preset": "PRESET_FULL_RECT"
-           
-        
-        }  }
-     
-     ]
-     
-     }  }
-    ]
-    
-    ,
-        "styles": [
-    
-    
-    {
-       "Constant": {
-          
-          
-             "margin_top": "5",
-          
-          
-             "margin_bottom": "5"
-          
-       
-       }  }
-    
-    ]
-     
-    }},{"Button":
-    {
-       "id": "-162348353328139432811682639913489959614",
-       "text": "closed",
-       "callback": "MachInstTrigger(11,\"closed\")"
-    ,
-        "styles": [
-    
-    
-    {
-       "SizeFlags": {
-          
-          
-             "size_flags_horizontal": "SIZE_EXPAND_FILL"
-          
-       
-       }  },
-    
-    
-    {
-       "AnchorPreset": {
-          
-          
-             "set_anchors_preset": "PRESET_FULL_RECT"
-          
-       
-       }  },
-    
-    
-    {
-       "FontSize": {
-          
-          
-             "font_size": "20"
-          
-       
-       }  },
-    
-    
-    {
-       "Color": {
-          
-          
-             "font_color": "DARK_SLATE_GRAY"
-          
-       
-       }  },
-    
-    
-    {
-       "StyleBoxFlat": 
-          
-          
-          {
-             "normal": {
-                
-                
-                   "bg_color": "GHOST_WHITE",
-                
-                
-                   "height": "30",
-                
-                
-                   "width": "50"
-                
-             
-             }  }
-       
-         }
-    
-    ]
-    
-    }},{"MarginContainer":
-    {
-       "id": "-57112630614963987534724299996951289944",
-       "children":
-    [{"Label": {
-        "id": "-65062793033096616469640720854614742479",
-        "text": "Current Program State"
-     ,
-         "styles": [
-     
-     
-     {
-        "FontSize": {
-           
-           
-              "font_size": "25"
-           
-        
-        }  },
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "AnchorPreset": {
-           
-           
-              "set_anchors_preset": "PRESET_FULL_RECT"
-           
-        
-        }  }
-     
-     ]
-     
-     }  }
-    ]
-    
-    ,
-        "styles": [
-    
-    
-    {
-       "Constant": {
-          
-          
-             "margin_top": "5",
-          
-          
-             "margin_bottom": "5"
-          
-       
-       }  }
-    
-    ]
-     
-    }},{"HBoxContainer":
-    {
-       "id": "103698777693039033760287608776680118320",
-       "children":
-    [{"PanelContainer":
-     {
-        "id": "-152691087823415160557585270767203981866"
-     ,
-         "styles": [
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "Color": {
-           
-           
-              "font_color": "GHOST_WHITE"
-           
-        
-        }  },
-     
-     
-     {
-        "StyleBoxFlat": 
-           
-           
-           {
-              "panel": {
-                 
-                 
-                    "bg_color": "CORAL"
-                 
-              
-              }  }
-        
-          }
-     
-     ]
-      
-         ,
-        "children":
-     [{"HBoxContainer":
-      {
-         "id": "-134713188936700584895210314144736028658",
-         "children":
-      [{"Label": {
-          "id": "137184715714850806492095673348732043080",
-          "text": "Current"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "25"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "DARK_BLUE"
-             
-          
-          }  }
-       
-       ]
-       
-       }  }
-      ]
-      
-       
-      }}
-     ]
-      
-     }},{"PanelContainer":
-     {
-        "id": "41826217423727793392765201156505877988"
-     ,
-         "styles": [
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "Color": {
-           
-           
-              "font_color": "GHOST_WHITE"
-           
-        
-        }  },
-     
-     
-     {
-        "StyleBoxFlat": 
-           
-           
-           {
-              "panel": {
-                 
-                 
-                    "bg_color": "CORAL"
-                 
-              
-              }  }
-        
-          }
-     
-     ]
-      
-         ,
-        "children":
-     [{"HBoxContainer":
-      {
-         "id": "-31736267473998385965759362764342384370",
-         "children":
-      [{"Label": {
-          "id": "45613628021094995830484463786258765388",
-          "text": "State"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "25"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "DARK_BLUE"
-             
-          
-          }  }
-       
-       ]
-       
-       }  }
-      ]
-      
-       
-      }}
-     ]
-      
-     }},{"PanelContainer":
-     {
-        "id": "-91650127801608427070780349347651137152"
-     ,
-         "styles": [
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "Color": {
-           
-           
-              "font_color": "GHOST_WHITE"
-           
-        
-        }  },
-     
-     
-     {
-        "StyleBoxFlat": 
-           
-           
-           {
-              "panel": {
-                 
-                 
-                    "bg_color": "CORAL"
-                 
-              
-              }  }
-        
-          }
-     
-     ]
-      
-         ,
-        "children":
-     [{"HBoxContainer":
-      {
-         "id": "-70572863059013504716441816740278650517",
-         "children":
-      [{"Label": {
-          "id": "154940991887733719688136242490099773013",
-          "text": "Count"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "25"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "DARK_BLUE"
-             
-          
-          }  }
-       
-       ]
-       
-       }  }
-      ]
-      
-       
-      }}
-     ]
-      
-     }},{"PanelContainer":
-     {
-        "id": "-137919481191211004447957608250032426644"
-     ,
-         "styles": [
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "Color": {
-           
-           
-              "font_color": "GHOST_WHITE"
-           
-        
-        }  },
-     
-     
-     {
-        "StyleBoxFlat": 
-           
-           
-           {
-              "panel": {
-                 
-                 
-                    "bg_color": "CORAL"
-                 
-              
-              }  }
-        
-          }
-     
-     ]
-      
-         ,
-        "children":
-     [{"HBoxContainer":
-      {
-         "id": "-164604838988812852809737804683214890041",
-         "children":
-      [{"Label": {
-          "id": "33631487376880300592698289436799677495",
-          "text": "Events"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "25"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "DARK_BLUE"
-             
-          
-          }  }
-       
-       ]
-       
-       }  }
-      ]
-      
-       
-      }}
-     ]
-      
-     }}
-    ]
-    
-    ,
-        "styles": [
-    
-    
-    {
-       "SizeFlags": {
-          
-          
-             "size_flags_horizontal": "SIZE_EXPAND_FILL"
-          
-       
-       }  },
-    
-    
-    {
-       "AnchorPreset": {
-          
-          
-             "set_anchors_preset": "PRESET_FULL_RECT"
-          
-       
-       }  }
-    
-    ]
-     
-    }},{"HBoxContainer":
-    {
-       "id": "-104165887228620249679639931179613815523",
-       "children":
-    [{"PanelContainer":
-     {
-        "id": "-84540737869986894565862373677692357453"
-     ,
-         "styles": [
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "StyleBoxFlat": 
-           
-           
-           {
-              "panel": {
-                 
-                 
-                    "bg_color": "GHOST_WHITE"
-                 
-              
-              }  }
-        
-          }
-     
-     ]
-      
-         ,
-        "children":
-     [{"HBoxContainer":
-      {
-         "id": "101969980731411383549403316130123299989",
-         "children":
-      [{"Label": {
-          "id": "-73950965258825243283418008065508263483",
-          "text": ""
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "25"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "DARK_BLUE"
-             
-          
-          }  }
-       
-       ]
-       
-       }  }
-      ]
-      
-       
-      }}
-     ]
-      
-     }},{"PanelContainer":
-     {
-        "id": "166947623959895989408868776322563893112"
-     ,
-         "styles": [
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "StyleBoxFlat": 
-           
-           
-           {
-              "panel": {
-                 
-                 
-                    "bg_color": "GHOST_WHITE"
-                 
-              
-              }  }
-        
-          }
-     
-     ]
-      
-         ,
-        "children":
-     [{"HBoxContainer":
-      {
-         "id": "-112572725353046492663410970141322060157",
-         "children":
-      [{"Label": {
-          "id": "165612696398419534437405001387506801835",
-          "text": "closed"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "25"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "DARK_BLUE"
-             
-          
-          }  }
-       
-       ]
-       
-       }  }
-      ]
-      
-       
-      }}
-     ]
-      
-     }},{"PanelContainer":
-     {
-        "id": "149928255139214764108947429708627869947"
-     ,
-         "styles": [
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "StyleBoxFlat": 
-           
-           
-           {
-              "panel": {
-                 
-                 
-                    "bg_color": "GHOST_WHITE"
-                 
-              
-              }  }
-        
-          }
-     
-     ]
-      
-         ,
-        "children":
-     [{"HBoxContainer":
-      {
-         "id": "148001945172827776597032897511890697604",
-         "children":
-      [{"Label": {
-          "id": "-57260679804470548884444961801694712693",
-          "text": "0"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "25"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "DARK_BLUE"
-             
-          
-          }  }
-       
-       ]
-       
-       }  }
-      ]
-      
-       
-      }}
-     ]
-      
-     }},{"PanelContainer":
-     {
-        "id": "97989713674783595248162216893019476208"
-     ,
-         "styles": [
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "StyleBoxFlat": 
-           
-           
-           {
-              "panel": {
-                 
-                 
-                    "bg_color": "GHOST_WHITE"
-                 
-              
-              }  }
-        
-          }
-     
-     ]
-      
-         ,
-        "children":
-     [{"HBoxContainer":
-      {
-         "id": "-146969938316657815983292888366394438863",
-         "children":
-      [{"Label": {
-          "id": "-43150565095943361883789561414088932910",
-          "text": "[open]"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "25"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "DARK_BLUE"
-             
-          
-          }  }
-       
-       ]
-       
-       }  }
-      ]
-      
-       
-      }}
-     ]
-      
-     }}
-    ]
-    
-    ,
-        "styles": [
-    
-    
-    {
-       "SizeFlags": {
-          
-          
-             "size_flags_horizontal": "SIZE_EXPAND_FILL"
-          
-       
-       }  },
-    
-    
-    {
-       "AnchorPreset": {
-          
-          
-             "set_anchors_preset": "PRESET_FULL_RECT"
-          
-       
-       }  }
-    
-    ]
-     
-    }},{"HBoxContainer":
-    {
-       "id": "-120534632943313881555436006332283784028",
-       "children":
-    [{"PanelContainer":
-     {
-        "id": "71875325398536122851695743941758748723"
-     ,
-         "styles": [
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "StyleBoxFlat": 
-           
-           
-           {
-              "panel": {
-                 
-                 
-                    "bg_color": "GHOST_WHITE"
-                 
-              
-              }  }
-        
-          }
-     
-     ]
-      
-         ,
-        "children":
-     [{"HBoxContainer":
-      {
-         "id": "-1492772718148729175802677668105362058",
-         "children":
-      [{"Label": {
-          "id": "163766099964022215183761946794996166167",
-          "text": "*"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "25"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "DARK_BLUE"
-             
-          
-          }  }
-       
-       ]
-       
-       }  }
-      ]
-      
-       
-      }}
-     ]
-      
-     }},{"PanelContainer":
-     {
-        "id": "117665923796272160850695620734329428467"
-     ,
-         "styles": [
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "StyleBoxFlat": 
-           
-           
-           {
-              "panel": {
-                 
-                 
-                    "bg_color": "GHOST_WHITE"
-                 
-              
-              }  }
-        
-          }
-     
-     ]
-      
-         ,
-        "children":
-     [{"HBoxContainer":
-      {
-         "id": "-49639463596328465472376790316578116630",
-         "children":
-      [{"Label": {
-          "id": "-30490823651338717378074593801685030533",
-          "text": "opened"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "25"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "DARK_BLUE"
-             
-          
-          }  }
-       
-       ]
-       
-       }  }
-      ]
-      
-       
-      }}
-     ]
-      
-     }},{"PanelContainer":
-     {
-        "id": "-77894875376479060167308433595565208083"
-     ,
-         "styles": [
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "StyleBoxFlat": 
-           
-           
-           {
-              "panel": {
-                 
-                 
-                    "bg_color": "GHOST_WHITE"
-                 
-              
-              }  }
-        
-          }
-     
-     ]
-      
-         ,
-        "children":
-     [{"HBoxContainer":
-      {
-         "id": "-155630094536309017101946593756356797870",
-         "children":
-      [{"Label": {
-          "id": "83523001216425663978463791069543795642",
-          "text": "1"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "25"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "DARK_BLUE"
-             
-          
-          }  }
-       
-       ]
-       
-       }  }
-      ]
-      
-       
-      }}
-     ]
-      
-     }},{"PanelContainer":
-     {
-        "id": "-42043869801505048630959664429719383688"
-     ,
-         "styles": [
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "StyleBoxFlat": 
-           
-           
-           {
-              "panel": {
-                 
-                 
-                    "bg_color": "GHOST_WHITE"
-                 
-              
-              }  }
-        
-          }
-     
-     ]
-      
-         ,
-        "children":
-     [{"HBoxContainer":
-      {
-         "id": "78463744541269151442188558319050006980",
-         "children":
-      [{"Label": {
-          "id": "-146553371669647708604058473716429390624",
-          "text": "[closed]"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "25"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "DARK_BLUE"
-             
-          
-          }  }
-       
-       ]
-       
-       }  }
-      ]
-      
-       
-      }}
-     ]
-      
-     }}
-    ]
-    
-    ,
-        "styles": [
-    
-    
-    {
-       "SizeFlags": {
-          
-          
-             "size_flags_horizontal": "SIZE_EXPAND_FILL"
-          
-       
-       }  },
-    
-    
-    {
-       "AnchorPreset": {
-          
-          
-             "set_anchors_preset": "PRESET_FULL_RECT"
-          
-       
-       }  }
-    
-    ]
-     
-    }}
-   ]
-   
-   ,
-       "styles": [
-   
-   
-   {
-      "SizeFlags": {
-         
-         
-            "size_flags_horizontal": "SIZE_EXPAND_FILL"
-         
-      
-      }  },
-   
-   
-   {
-      "AnchorPreset": {
-         
-         
-            "set_anchors_preset": "PRESET_FULL_RECT"
-         
-      
-      }  }
-   
-   ]
-     
-   }}
-  ]
-  
-  ,
-      "styles": [
-  
-  
-  {
-     "SizeFlags": {
-        
-        
-           "size_flags_horizontal": "SIZE_EXPAND_FILL",
-        
-        
-           "size_flags_vertical": "SIZE_EXPAND_FILL"
-        
-     
-     }  },
-  
-  
-  {
-     "AnchorPreset": {
-        
-        
-           "set_anchors_preset": "PRESET_FULL_RECT"
-        
-     
-     }  }
-  
-  ]
-   
-  }},{"HBoxContainer":
-  {
-     "id": "-60042516586726429686617564966512715041",
+     "id": "47178962787076288891492327480110889097",
      "name": "door Editor Tab 6",
      "children":
   [{"MarginContainer":
    {
-      "id": "132786236956425192401102173359426388539",
+      "id": "-160279138361442804336209799012240051223",
       "children":
    [{"VBoxContainer":
     {
-       "id": "-104873154686667129975364143478942705001",
+       "id": "-71147888067065802836586078887274335794",
        "children":
     [{"Label": {
-        "id": "78001758365025776323817283664792450871",
+        "id": "-15156374496029545798040221870787043",
         "text": "General Actions"
      ,
          "styles": [
@@ -1794,9 +344,9 @@
      
      }  },{"Button":
      {
-        "id": "-127047108141785304480321879970671216837",
+        "id": "-71692212744813414388320272147870384641",
         "text": "Delete Tab",
-        "callback": "ViewTabDelete(-60042516586726429686617564966512715041)"
+        "callback": "ViewTabDelete(47178962787076288891492327480110889097)"
      ,
          "styles": [
      
@@ -1846,10 +396,10 @@
      
      }},{"HBoxContainer":
      {
-        "id": "-55172596133194640978723724868933545494",
+        "id": "-35554510037691857285018760604925733256",
         "children":
      [{"Label": {
-         "id": "122153970977242549550378497763849160763",
+         "id": "-3784981209213239216617959565312042604",
          "text": "Current Machine"
       ,
           "styles": [
@@ -1888,8 +438,8 @@
       
       }  },{"OptionButton":
       {
-         "id": "79068524205939937668722129318344424742",
-         "callback": "ViewTabSetMachine(-60042516586726429686617564966512715041,%machine)"
+         "id": "-123293613662517680595628108788755771442",
+         "callback": "ViewTabSetMachine(47178962787076288891492327480110889097,%machine)"
           ,
          "options":
       ["6"
@@ -1942,7 +492,7 @@
        
       }},{"Button":
       {
-         "id": "16757430906424567357737381146289046656",
+         "id": "73779848332487262908118799003260495825",
          "text": "Delete Machine",
          "callback": "MachDelete(6)"
       ,
@@ -2042,10 +592,10 @@
       
      }},{"HBoxContainer":
      {
-        "id": "29611994585943015747717333545074720812",
+        "id": "157295049294743115908948716135788172995",
         "children":
      [{"Label": {
-         "id": "-68737683302282089138027631350215635109",
+         "id": "165695174555962955838886262141921771530",
          "text": "Machine Name"
       ,
           "styles": [
@@ -2084,7 +634,7 @@
       
       }  },{"TextEdit":
       {
-         "id": "118802811480120907473075666042763802994",
+         "id": "-137529926460475176415732519637110842400",
          "callback": "MachSetName(6, %text)",
          "text": "door"
       ,
@@ -2171,9 +721,9 @@
       
      }},{"Button":
      {
-        "id": "-90222343713336789336496461044169580916",
+        "id": "83541672257923274672486999175511114350",
         "text": "Create State",
-        "callback": "StateCreate(15, 6)"
+        "callback": "StateCreate(11, 6)"
      ,
          "styles": [
      
@@ -2217,9 +767,9 @@
      
      }},{"Button":
      {
-        "id": "-26017112174909768109039079611490644789",
+        "id": "96475146862756600359551188452204635385",
         "text": "Run Instance of this Machine",
-        "callback": "MachInstCreate(15,6)"
+        "callback": "MachInstCreate(11,6)"
      ,
          "styles": [
      
@@ -2263,10 +813,10 @@
      
      }},{"MarginContainer":
      {
-        "id": "24185301744454030553029357894568587466",
+        "id": "-68646345759283099983533324634978103948",
         "children":
      [{"Label": {
-         "id": "74347183369502399400222872338157642934",
+         "id": "55538953315764711528412746966406716079",
          "text": "Available Editors"
       ,
           "styles": [
@@ -2306,8 +856,8 @@
       
      }},{"OptionButton":
      {
-        "id": "50062438698246891177822235528324296970",
-        "callback": "ViewTabSetType(-60042516586726429686617564966512715041,%type)"
+        "id": "-88733320801251693042045451508308939669",
+        "callback": "ViewTabSetType(47178962787076288891492327480110889097,%type)"
          ,
         "options":
      ["tree","table"
@@ -2331,7 +881,7 @@
         "Primitive": {
            
            
-              "selected": "Int%1"
+              "selected": "Int%0"
            
         
         }  }
@@ -2419,326 +969,1152 @@
    
    ]
     
-   }},{"VBoxContainer":
+   }},{"MarginContainer":
    {
-      "id": "83085928397436234036081311785547503180",
+      "id": "-83710354499023943521891574699388821313",
       "children":
-   [{"Label": {
-       "id": "-57148953798566285752049308198541732097",
-       "text": "Table Representation"
-    ,
-        "styles": [
-    
-    
+   [{"HBoxContainer":
     {
-       "FontSize": {
-          
-          
-             "font_size": "30"
-          
-       
-       }  }
-    
-    ]
-    
-    }  },{"Label": {
-       "id": "70687582183922231207195424884820582993",
-       "text": "Modify States"
-    ,
-        "styles": [
-    
-    
-    {
-       "FontSize": {
-          
-          
-             "font_size": "30"
-          
-       
-       }  }
-    
-    ]
-    
-    }  },{"VBoxContainer":
-    {
-       "id": "36553980050708599944948649077056848612",
+       "id": "-108333613483344386946275700719453185283",
        "children":
-    [{"HBoxContainer":
+    [{"VBoxContainer":
      {
-        "id": "-133572892500668517857959548375186426278",
+        "id": "68387907942393709514218397792825009729",
         "children":
-     [{"PanelContainer":
-      {
-         "id": "-43438382095331437313615896616199375322"
+     [{"Label": {
+         "id": "114237008528453111605953028655684394925",
+         "text": "Available States"
       ,
           "styles": [
-      
-      
-      {
-         "StyleBoxFlat": 
-            
-            
-            {
-               "panel": {
-                  
-                  
-                     "bg_color": "LIGHT_CORAL"
-                  
-               
-               }  }
-         
-           },
       
       
       {
          "FontSize": {
             
             
-               "font_size": "20"
-            
-         
-         }  },
-      
-      
-      {
-         "SizeFlags": {
-            
-            
-               "size_flags_horizontal": "SIZE_EXPAND_FILL"
-            
-         
-         }  },
-      
-      
-      {
-         "AnchorPreset": {
-            
-            
-               "set_anchors_preset": "PRESET_FULL_RECT"
+               "font_size": "25"
             
          
          }  }
       
       ]
-       
-          ,
+      
+      }  },{"VBoxContainer":
+      {
+         "id": "23360487319863905951529539009760628107",
          "children":
-      [{"Label": {
-          "id": "-65190248199433987050300553922852181676",
-          "text": "Edit State Name"
-       
-       }  }
-      ]
-       
-      }},{"PanelContainer":
-      {
-         "id": "-66598088104157785157188698124181614293"
-      ,
-          "styles": [
-      
-      
-      {
-         "StyleBoxFlat": 
-            
-            
-            {
-               "panel": {
-                  
-                  
-                     "bg_color": "LIGHT_CORAL"
-                  
-               
-               }  }
-         
-           },
-      
-      
-      {
-         "FontSize": {
-            
-            
-               "font_size": "20"
-            
-         
-         }  },
-      
-      
-      {
-         "SizeFlags": {
-            
-            
-               "size_flags_horizontal": "SIZE_EXPAND_FILL"
-            
-         
-         }  },
-      
-      
-      {
-         "AnchorPreset": {
-            
-            
-               "set_anchors_preset": "PRESET_FULL_RECT"
-            
-         
-         }  }
-      
-      ]
-       
-          ,
-         "children":
-      [{"TextEdit":
+      [{"HBoxContainer":
        {
-          "id": "48408037158286647142307903266196067621",
-          "callback": "StateSetName(7, %text)",
-          "text": "opened"
+          "id": "1081890728729950159434109481616742314",
+          "children":
+       [{"Label": {
+           "id": "-64946168139016666314062107321720264576",
+           "text": "Edit State Name"
+        ,
+            "styles": [
+        
+        
+        {
+           "FontSize": {
+              
+              
+                 "font_size": "20"
+              
+           
+           }  },
+        
+        
+        {
+           "SizeFlags": {
+              
+              
+                 "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              
+           
+           }  },
+        
+        
+        {
+           "AnchorPreset": {
+              
+              
+                 "set_anchors_preset": "PRESET_FULL_RECT"
+              
+           
+           }  }
+        
+        ]
+        
+        }  },{"TextEdit":
+        {
+           "id": "6112138835459195266928525388811745042",
+           "callback": "StateSetName(7, %text)",
+           "text": "opened"
+        ,
+            "styles": [
+        
+        
+        {
+           "FontSize": {
+              
+              
+                 "font_size": "20"
+              
+           
+           }  },
+        
+        
+        {
+           "Vector2": 
+              
+              
+              {
+                 "custom_minimum_size": {
+                    
+                    
+                       "x": "200",
+                    
+                    
+                       "y": "30"
+                    
+                 
+                 }  }
+           
+             },
+        
+        
+        {
+           "SizeFlags": {
+              
+              
+                 "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              
+           
+           }  },
+        
+        
+        {
+           "AnchorPreset": {
+              
+              
+                 "set_anchors_preset": "PRESET_FULL_RECT"
+              
+           
+           }  }
+        
+        ]
+        
+        }},{"Button":
+        {
+           "id": "-166594233883190287960312822357514058973",
+           "text": "Delete State",
+           "callback": "StateDelete(7)"
+        ,
+            "styles": [
+        
+        
+        {
+           "FontSize": {
+              
+              
+                 "font_size": "20"
+              
+           
+           }  },
+        
+        
+        {
+           "Color": {
+              
+              
+                 "font_color": "GHOST_WHITE"
+              
+           
+           }  },
+        
+        
+        {
+           "StyleBoxFlat": 
+              
+              
+              {
+                 "normal": {
+                    
+                    
+                       "bg_color": "INDIAN_RED",
+                    
+                    
+                       "height": "30",
+                    
+                    
+                       "width": "50"
+                    
+                 
+                 }  }
+           
+             },
+        
+        
+        {
+           "SizeFlags": {
+              
+              
+                 "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              
+           
+           }  },
+        
+        
+        {
+           "AnchorPreset": {
+              
+              
+                 "set_anchors_preset": "PRESET_FULL_RECT"
+              
+           
+           }  }
+        
+        ]
+        
+        }}
+       ]
+       
        ,
            "styles": [
        
        
        {
-          "FontSize": {
+          "SizeFlags": {
              
              
-                "font_size": "20"
+                "size_flags_horizontal": "SIZE_EXPAND_FILL",
+             
+             
+                "size_flags_vertical": "SIZE_EXPAND_FILL"
              
           
           }  },
        
        
        {
-          "Vector2": 
+          "AnchorPreset": {
              
              
-             {
-                "custom_minimum_size": {
-                   
-                   
-                      "x": "200",
-                   
-                   
-                      "y": "30"
-                   
-                
-                }  }
+                "set_anchors_preset": "PRESET_FULL_RECT"
+             
           
-            }
+          }  }
        
        ]
-       
-       }}
-      ]
-       
-      }},{"PanelContainer":
-      {
-         "id": "40691604264395761285072820894275435846"
-      ,
-          "styles": [
-      
-      
-      {
-         "StyleBoxFlat": 
-            
-            
-            {
-               "panel": {
-                  
-                  
-                     "bg_color": "LIGHT_CORAL"
-                  
-               
-               }  }
-         
-           },
-      
-      
-      {
-         "FontSize": {
-            
-            
-               "font_size": "20"
-            
-         
-         }  },
-      
-      
-      {
-         "SizeFlags": {
-            
-            
-               "size_flags_horizontal": "SIZE_EXPAND_FILL"
-            
-         
-         }  },
-      
-      
-      {
-         "AnchorPreset": {
-            
-            
-               "set_anchors_preset": "PRESET_FULL_RECT"
-            
-         
-         }  }
-      
-      ]
-       
-          ,
-         "children":
-      [{"Button":
+        
+       }},{"HBoxContainer":
        {
-          "id": "-109731361515192586391814837736880620592",
-          "text": "Delete State",
-          "callback": "StateDelete(7)"
+          "id": "155223352648470263938532990609203519459",
+          "children":
+       [{"TextEdit":
+        {
+           "id": "-111857791726039935830359318257961683052",
+           "callback": "TransSetTrigger(9, %text)",
+           "text": "close"
+        ,
+            "styles": [
+        
+        
+        {
+           "FontSize": {
+              
+              
+                 "font_size": "20"
+              
+           
+           }  },
+        
+        
+        {
+           "Vector2": 
+              
+              
+              {
+                 "custom_minimum_size": {
+                    
+                    
+                       "x": "200",
+                    
+                    
+                       "y": "30"
+                    
+                 
+                 }  }
+           
+             },
+        
+        
+        {
+           "SizeFlags": {
+              
+              
+                 "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              
+           
+           }  },
+        
+        
+        {
+           "AnchorPreset": {
+              
+              
+                 "set_anchors_preset": "PRESET_FULL_RECT"
+              
+           
+           }  }
+        
+        ]
+        
+        }},{"Label": {
+           "id": "29967907728298185969214054375464421887",
+           "text": " --> "
+        ,
+            "styles": [
+        
+        
+        {
+           "FontSize": {
+              
+              
+                 "font_size": "20"
+              
+           
+           }  },
+        
+        
+        {
+           "SizeFlags": {
+              
+              
+                 "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              
+           
+           }  },
+        
+        
+        {
+           "AnchorPreset": {
+              
+              
+                 "set_anchors_preset": "PRESET_FULL_RECT"
+              
+           
+           }  }
+        
+        ]
+        
+        }  },{"OptionButton":
+        {
+           "id": "-143625245356601706744363568106698317671",
+           "callback": "InterTransSetTarget(9,%state)"
+            ,
+           "options":
+        ["opened","closed"
+        ]
+         
+        ,
+            "styles": [
+        
+        
+        {
+           "SizeFlags": {
+              
+              
+                 "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              
+           
+           }  },
+        
+        
+        {
+           "AnchorPreset": {
+              
+              
+                 "set_anchors_preset": "PRESET_FULL_RECT"
+              
+           
+           }  },
+        
+        
+        {
+           "Primitive": {
+              
+              
+                 "selected": "Int%1",
+              
+              
+                 "allow_reselect": "Boolean%true"
+              
+           
+           }  }
+        
+        ]
+         
+        }},{"Button":
+        {
+           "id": "709737081393062505070590305302480840",
+           "text": "Delete Transition",
+           "callback": "TransDelete(9)"
+        ,
+            "styles": [
+        
+        
+        {
+           "FontSize": {
+              
+              
+                 "font_size": "20"
+              
+           
+           }  },
+        
+        
+        {
+           "Color": {
+              
+              
+                 "font_color": "GHOST_WHITE"
+              
+           
+           }  },
+        
+        
+        {
+           "StyleBoxFlat": 
+              
+              
+              {
+                 "normal": {
+                    
+                    
+                       "bg_color": "INDIAN_RED",
+                    
+                    
+                       "height": "30",
+                    
+                    
+                       "width": "50"
+                    
+                 
+                 }  }
+           
+             },
+        
+        
+        {
+           "SizeFlags": {
+              
+              
+                 "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              
+           
+           }  },
+        
+        
+        {
+           "AnchorPreset": {
+              
+              
+                 "set_anchors_preset": "PRESET_FULL_RECT"
+              
+           
+           }  }
+        
+        ]
+        
+        }}
+       ]
+       
        ,
            "styles": [
        
        
        {
-          "FontSize": {
+          "SizeFlags": {
              
              
-                "font_size": "20"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "GHOST_WHITE"
+                "size_flags_horizontal": "SIZE_EXPAND_FILL"
              
           
           }  },
        
        
        {
-          "StyleBoxFlat": 
+          "AnchorPreset": {
              
              
-             {
-                "normal": {
-                   
-                   
-                      "bg_color": "INDIAN_RED",
-                   
-                   
-                      "height": "30",
-                   
-                   
-                      "width": "50"
-                   
-                
-                }  }
+                "set_anchors_preset": "PRESET_FULL_RECT"
+             
           
-            }
+          }  }
        
        ]
+        
+       }},{"HBoxContainer":
+       {
+          "id": "155304351353795596999896033057107768193",
+          "children":
+       [{"Button":
+        {
+           "id": "35381221626129533111125790157320616599",
+           "text": "Create New Transition for State: opened",
+           "callback": "TransCreateSource(11,7)"
+        ,
+            "styles": [
+        
+        
+        {
+           "FontSize": {
+              
+              
+                 "font_size": "20"
+              
+           
+           }  },
+        
+        
+        {
+           "Color": {
+              
+              
+                 "font_color": "DARK_SLATE_GRAY"
+              
+           
+           }  },
+        
+        
+        {
+           "StyleBoxFlat": 
+              
+              
+              {
+                 "normal": {
+                    
+                    
+                       "bg_color": "HONEYDEW"
+                    
+                 
+                 }  }
+           
+             },
+        
+        
+        {
+           "SizeFlags": {
+              
+              
+                 "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              
+           
+           }  },
+        
+        
+        {
+           "AnchorPreset": {
+              
+              
+                 "set_anchors_preset": "PRESET_FULL_RECT"
+              
+           
+           }  }
+        
+        ]
+        
+        }}
+       ]
        
+       ,
+           "styles": [
+       
+       
+       {
+          "SizeFlags": {
+             
+             
+                "size_flags_horizontal": "SIZE_EXPAND_FILL"
+             
+          
+          }  },
+       
+       
+       {
+          "AnchorPreset": {
+             
+             
+                "set_anchors_preset": "PRESET_FULL_RECT"
+             
+          
+          }  }
+       
+       ]
+        
        }}
       ]
+      
+        
+      }},{"VBoxContainer":
+      {
+         "id": "28513948078680612485930447183498492880",
+         "children":
+      [{"HBoxContainer":
+       {
+          "id": "-8650447907251972811676890388951342615",
+          "children":
+       [{"Label": {
+           "id": "146539441843046855711719990427522741588",
+           "text": "Edit State Name"
+        ,
+            "styles": [
+        
+        
+        {
+           "FontSize": {
+              
+              
+                 "font_size": "20"
+              
+           
+           }  },
+        
+        
+        {
+           "SizeFlags": {
+              
+              
+                 "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              
+           
+           }  },
+        
+        
+        {
+           "AnchorPreset": {
+              
+              
+                 "set_anchors_preset": "PRESET_FULL_RECT"
+              
+           
+           }  }
+        
+        ]
+        
+        }  },{"TextEdit":
+        {
+           "id": "-140310601189715823840742611867206200602",
+           "callback": "StateSetName(8, %text)",
+           "text": "closed"
+        ,
+            "styles": [
+        
+        
+        {
+           "FontSize": {
+              
+              
+                 "font_size": "20"
+              
+           
+           }  },
+        
+        
+        {
+           "Vector2": 
+              
+              
+              {
+                 "custom_minimum_size": {
+                    
+                    
+                       "x": "200",
+                    
+                    
+                       "y": "30"
+                    
+                 
+                 }  }
+           
+             },
+        
+        
+        {
+           "SizeFlags": {
+              
+              
+                 "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              
+           
+           }  },
+        
+        
+        {
+           "AnchorPreset": {
+              
+              
+                 "set_anchors_preset": "PRESET_FULL_RECT"
+              
+           
+           }  }
+        
+        ]
+        
+        }},{"Button":
+        {
+           "id": "77063774054011417002003419797657344095",
+           "text": "Delete State",
+           "callback": "StateDelete(8)"
+        ,
+            "styles": [
+        
+        
+        {
+           "FontSize": {
+              
+              
+                 "font_size": "20"
+              
+           
+           }  },
+        
+        
+        {
+           "Color": {
+              
+              
+                 "font_color": "GHOST_WHITE"
+              
+           
+           }  },
+        
+        
+        {
+           "StyleBoxFlat": 
+              
+              
+              {
+                 "normal": {
+                    
+                    
+                       "bg_color": "INDIAN_RED",
+                    
+                    
+                       "height": "30",
+                    
+                    
+                       "width": "50"
+                    
+                 
+                 }  }
+           
+             },
+        
+        
+        {
+           "SizeFlags": {
+              
+              
+                 "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              
+           
+           }  },
+        
+        
+        {
+           "AnchorPreset": {
+              
+              
+                 "set_anchors_preset": "PRESET_FULL_RECT"
+              
+           
+           }  }
+        
+        ]
+        
+        }}
+       ]
        
+       ,
+           "styles": [
+       
+       
+       {
+          "SizeFlags": {
+             
+             
+                "size_flags_horizontal": "SIZE_EXPAND_FILL",
+             
+             
+                "size_flags_vertical": "SIZE_EXPAND_FILL"
+             
+          
+          }  },
+       
+       
+       {
+          "AnchorPreset": {
+             
+             
+                "set_anchors_preset": "PRESET_FULL_RECT"
+             
+          
+          }  }
+       
+       ]
+        
+       }},{"HBoxContainer":
+       {
+          "id": "-3820439200565930905765231829912340231",
+          "children":
+       [{"TextEdit":
+        {
+           "id": "-70385417401521043871048395834441789394",
+           "callback": "TransSetTrigger(10, %text)",
+           "text": "open"
+        ,
+            "styles": [
+        
+        
+        {
+           "FontSize": {
+              
+              
+                 "font_size": "20"
+              
+           
+           }  },
+        
+        
+        {
+           "Vector2": 
+              
+              
+              {
+                 "custom_minimum_size": {
+                    
+                    
+                       "x": "200",
+                    
+                    
+                       "y": "30"
+                    
+                 
+                 }  }
+           
+             },
+        
+        
+        {
+           "SizeFlags": {
+              
+              
+                 "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              
+           
+           }  },
+        
+        
+        {
+           "AnchorPreset": {
+              
+              
+                 "set_anchors_preset": "PRESET_FULL_RECT"
+              
+           
+           }  }
+        
+        ]
+        
+        }},{"Label": {
+           "id": "-144277640682554067588495845552658120338",
+           "text": " --> "
+        ,
+            "styles": [
+        
+        
+        {
+           "FontSize": {
+              
+              
+                 "font_size": "20"
+              
+           
+           }  },
+        
+        
+        {
+           "SizeFlags": {
+              
+              
+                 "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              
+           
+           }  },
+        
+        
+        {
+           "AnchorPreset": {
+              
+              
+                 "set_anchors_preset": "PRESET_FULL_RECT"
+              
+           
+           }  }
+        
+        ]
+        
+        }  },{"OptionButton":
+        {
+           "id": "-61822485631602529395888550924447587745",
+           "callback": "InterTransSetTarget(10,%state)"
+            ,
+           "options":
+        ["opened","closed"
+        ]
+         
+        ,
+            "styles": [
+        
+        
+        {
+           "SizeFlags": {
+              
+              
+                 "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              
+           
+           }  },
+        
+        
+        {
+           "AnchorPreset": {
+              
+              
+                 "set_anchors_preset": "PRESET_FULL_RECT"
+              
+           
+           }  },
+        
+        
+        {
+           "Primitive": {
+              
+              
+                 "selected": "Int%0",
+              
+              
+                 "allow_reselect": "Boolean%true"
+              
+           
+           }  }
+        
+        ]
+         
+        }},{"Button":
+        {
+           "id": "92142925089348782947777442664700118036",
+           "text": "Delete Transition",
+           "callback": "TransDelete(10)"
+        ,
+            "styles": [
+        
+        
+        {
+           "FontSize": {
+              
+              
+                 "font_size": "20"
+              
+           
+           }  },
+        
+        
+        {
+           "Color": {
+              
+              
+                 "font_color": "GHOST_WHITE"
+              
+           
+           }  },
+        
+        
+        {
+           "StyleBoxFlat": 
+              
+              
+              {
+                 "normal": {
+                    
+                    
+                       "bg_color": "INDIAN_RED",
+                    
+                    
+                       "height": "30",
+                    
+                    
+                       "width": "50"
+                    
+                 
+                 }  }
+           
+             },
+        
+        
+        {
+           "SizeFlags": {
+              
+              
+                 "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              
+           
+           }  },
+        
+        
+        {
+           "AnchorPreset": {
+              
+              
+                 "set_anchors_preset": "PRESET_FULL_RECT"
+              
+           
+           }  }
+        
+        ]
+        
+        }}
+       ]
+       
+       ,
+           "styles": [
+       
+       
+       {
+          "SizeFlags": {
+             
+             
+                "size_flags_horizontal": "SIZE_EXPAND_FILL"
+             
+          
+          }  },
+       
+       
+       {
+          "AnchorPreset": {
+             
+             
+                "set_anchors_preset": "PRESET_FULL_RECT"
+             
+          
+          }  }
+       
+       ]
+        
+       }},{"HBoxContainer":
+       {
+          "id": "-160001180660030573420745167646362639118",
+          "children":
+       [{"Button":
+        {
+           "id": "-144706785769468528184497502659464201803",
+           "text": "Create New Transition for State: closed",
+           "callback": "TransCreateSource(11,8)"
+        ,
+            "styles": [
+        
+        
+        {
+           "FontSize": {
+              
+              
+                 "font_size": "20"
+              
+           
+           }  },
+        
+        
+        {
+           "Color": {
+              
+              
+                 "font_color": "DARK_SLATE_GRAY"
+              
+           
+           }  },
+        
+        
+        {
+           "StyleBoxFlat": 
+              
+              
+              {
+                 "normal": {
+                    
+                    
+                       "bg_color": "HONEYDEW"
+                    
+                 
+                 }  }
+           
+             },
+        
+        
+        {
+           "SizeFlags": {
+              
+              
+                 "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              
+           
+           }  },
+        
+        
+        {
+           "AnchorPreset": {
+              
+              
+                 "set_anchors_preset": "PRESET_FULL_RECT"
+              
+           
+           }  }
+        
+        ]
+        
+        }}
+       ]
+       
+       ,
+           "styles": [
+       
+       
+       {
+          "SizeFlags": {
+             
+             
+                "size_flags_horizontal": "SIZE_EXPAND_FILL"
+             
+          
+          }  },
+       
+       
+       {
+          "AnchorPreset": {
+             
+             
+                "set_anchors_preset": "PRESET_FULL_RECT"
+             
+          
+          }  }
+       
+       ]
+        
+       }}
+      ]
+      
+        
       }}
      ]
      
@@ -2750,7 +2126,10 @@
         "SizeFlags": {
            
            
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+              "size_flags_horizontal": "SIZE_EXPAND_FILL",
+           
+           
+              "size_flags_vertical": "SIZE_EXPAND_FILL"
            
         
         }  },
@@ -2766,533 +2145,7 @@
         }  }
      
      ]
-      
-     }},{"HBoxContainer":
-     {
-        "id": "84765759017299703249928816323981315585",
-        "children":
-     [{"PanelContainer":
-      {
-         "id": "50255075930580256959716813433028561799"
-      ,
-          "styles": [
-      
-      
-      {
-         "StyleBoxFlat": 
-            
-            
-            {
-               "panel": {
-                  
-                  
-                     "bg_color": "LIGHT_CORAL"
-                  
-               
-               }  }
-         
-           },
-      
-      
-      {
-         "FontSize": {
-            
-            
-               "font_size": "20"
-            
-         
-         }  },
-      
-      
-      {
-         "SizeFlags": {
-            
-            
-               "size_flags_horizontal": "SIZE_EXPAND_FILL"
-            
-         
-         }  },
-      
-      
-      {
-         "AnchorPreset": {
-            
-            
-               "set_anchors_preset": "PRESET_FULL_RECT"
-            
-         
-         }  }
-      
-      ]
        
-          ,
-         "children":
-      [{"Label": {
-          "id": "137183488615187762967637035357987369125",
-          "text": "Edit State Name"
-       
-       }  }
-      ]
-       
-      }},{"PanelContainer":
-      {
-         "id": "-21054337646048525225333491504593668176"
-      ,
-          "styles": [
-      
-      
-      {
-         "StyleBoxFlat": 
-            
-            
-            {
-               "panel": {
-                  
-                  
-                     "bg_color": "LIGHT_CORAL"
-                  
-               
-               }  }
-         
-           },
-      
-      
-      {
-         "FontSize": {
-            
-            
-               "font_size": "20"
-            
-         
-         }  },
-      
-      
-      {
-         "SizeFlags": {
-            
-            
-               "size_flags_horizontal": "SIZE_EXPAND_FILL"
-            
-         
-         }  },
-      
-      
-      {
-         "AnchorPreset": {
-            
-            
-               "set_anchors_preset": "PRESET_FULL_RECT"
-            
-         
-         }  }
-      
-      ]
-       
-          ,
-         "children":
-      [{"TextEdit":
-       {
-          "id": "-41550182631057957692624046068629823343",
-          "callback": "StateSetName(8, %text)",
-          "text": "closed"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "20"
-             
-          
-          }  },
-       
-       
-       {
-          "Vector2": 
-             
-             
-             {
-                "custom_minimum_size": {
-                   
-                   
-                      "x": "200",
-                   
-                   
-                      "y": "30"
-                   
-                
-                }  }
-          
-            }
-       
-       ]
-       
-       }}
-      ]
-       
-      }},{"PanelContainer":
-      {
-         "id": "104951949695571370315304876498254317451"
-      ,
-          "styles": [
-      
-      
-      {
-         "StyleBoxFlat": 
-            
-            
-            {
-               "panel": {
-                  
-                  
-                     "bg_color": "LIGHT_CORAL"
-                  
-               
-               }  }
-         
-           },
-      
-      
-      {
-         "FontSize": {
-            
-            
-               "font_size": "20"
-            
-         
-         }  },
-      
-      
-      {
-         "SizeFlags": {
-            
-            
-               "size_flags_horizontal": "SIZE_EXPAND_FILL"
-            
-         
-         }  },
-      
-      
-      {
-         "AnchorPreset": {
-            
-            
-               "set_anchors_preset": "PRESET_FULL_RECT"
-            
-         
-         }  }
-      
-      ]
-       
-          ,
-         "children":
-      [{"Button":
-       {
-          "id": "-168183912216917789219552677562069289430",
-          "text": "Delete State",
-          "callback": "StateDelete(8)"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "20"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "GHOST_WHITE"
-             
-          
-          }  },
-       
-       
-       {
-          "StyleBoxFlat": 
-             
-             
-             {
-                "normal": {
-                   
-                   
-                      "bg_color": "INDIAN_RED",
-                   
-                   
-                      "height": "30",
-                   
-                   
-                      "width": "50"
-                   
-                
-                }  }
-          
-            }
-       
-       ]
-       
-       }}
-      ]
-       
-      }}
-     ]
-     
-     ,
-         "styles": [
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "AnchorPreset": {
-           
-           
-              "set_anchors_preset": "PRESET_FULL_RECT"
-           
-        
-        }  }
-     
-     ]
-      
-     }}
-    ]
-    
-      
-    }},{"Button":
-    {
-       "id": "-84830562509816238209332087848036320379",
-       "text": "Create New State",
-       "callback": "StateCreate(15,6)"
-    
-    }},{"Label": {
-       "id": "-69911270504007954552734031981914394796",
-       "text": "Transition Table"
-    
-    }  },{"VBoxContainer":
-    {
-       "id": "144280427883744012769421145300854068106",
-       "children":
-    [{"HBoxContainer":
-     {
-        "id": "-130200633422428615894886483781729642496",
-        "children":
-     [{"PanelContainer":
-      {
-         "id": "126221430506744458391120850772617612411"
-      ,
-          "styles": [
-      
-      
-      {
-         "StyleBoxFlat": 
-            
-            
-            {
-               "panel": {
-                  
-                  
-                     "bg_color": "LIGHT_CORAL"
-                  
-               
-               }  }
-         
-           },
-      
-      
-      {
-         "FontSize": {
-            
-            
-               "font_size": "25"
-            
-         
-         }  }
-      
-      ]
-       
-          ,
-         "children":
-      [{"Label": {
-          "id": "99067220230817491286006503317219952361",
-          "text": "In State"
-       
-       }  }
-      ]
-       
-      }},{"PanelContainer":
-      {
-         "id": "36730005589408803376407104048237887948"
-      ,
-          "styles": [
-      
-      
-      {
-         "StyleBoxFlat": 
-            
-            
-            {
-               "panel": {
-                  
-                  
-                     "bg_color": "LIGHT_CORAL"
-                  
-               
-               }  }
-         
-           },
-      
-      
-      {
-         "FontSize": {
-            
-            
-               "font_size": "25"
-            
-         
-         }  }
-      
-      ]
-       
-          ,
-         "children":
-      [{"Label": {
-          "id": "-126602924962537420279711215752333195482",
-          "text": "Action"
-       
-       }  }
-      ]
-       
-      }},{"PanelContainer":
-      {
-         "id": "169145503105127374366071763349412697883"
-      ,
-          "styles": [
-      
-      
-      {
-         "StyleBoxFlat": 
-            
-            
-            {
-               "panel": {
-                  
-                  
-                     "bg_color": "LIGHT_CORAL"
-                  
-               
-               }  }
-         
-           },
-      
-      
-      {
-         "FontSize": {
-            
-            
-               "font_size": "25"
-            
-         
-         }  }
-      
-      ]
-       
-          ,
-         "children":
-      [{"Label": {
-          "id": "27061069691257161206063681939990994574",
-          "text": "Out State"
-       
-       }  }
-      ]
-       
-      }},{"PanelContainer":
-      {
-         "id": "-60185869474720318500639731995570547184"
-      ,
-          "styles": [
-      
-      
-      {
-         "StyleBoxFlat": 
-            
-            
-            {
-               "panel": {
-                  
-                  
-                     "bg_color": "LIGHT_CORAL"
-                  
-               
-               }  }
-         
-           },
-      
-      
-      {
-         "FontSize": {
-            
-            
-               "font_size": "25"
-            
-         
-         }  }
-      
-      ]
-       
-          ,
-         "children":
-      [{"Label": {
-          "id": "12136839634969930605326767905487095687",
-          "text": ""
-       
-       }  }
-      ]
-       
-      }}
-     ]
-     
-     ,
-         "styles": [
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "AnchorPreset": {
-           
-           
-              "set_anchors_preset": "PRESET_FULL_RECT"
-           
-        
-        }  }
-     
-     ]
-      
      }}
     ]
     
@@ -3304,10 +2157,10 @@
        "SizeFlags": {
           
           
-             "size_flags_horizontal": "SIZE_FILL",
+             "size_flags_horizontal": "SIZE_EXPAND_FILL",
           
           
-             "size_flags_vertical": "SIZE_FILL"
+             "size_flags_vertical": "SIZE_EXPAND_FILL"
           
        
        }  },
@@ -3323,498 +2176,31 @@
        }  }
     
     ]
-      
-    }},{"VBoxContainer":
-    {
-       "id": "-43108053787911759903333198548203632719",
-       "children":
-    [{"HBoxContainer":
-     {
-        "id": "-71714535131920650640491361727807543977",
-        "children":
-     [{"PanelContainer":
-      {
-         "id": "163772120586443040900411629101635331097"
-       
-          ,
-         "children":
-      [{"OptionButton":
-       {
-          "id": "3640136254935827577889373181642028502",
-          "callback": "InterTransSetTarget(9,%state)"
-           ,
-          "options":
-       ["opened","closed"
-       ]
-        
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "20"
-             
-          
-          }  },
-       
-       
-       {
-          "Primitive": {
-             
-             
-                "selected": "Int%0",
-             
-             
-                "allow_reselect": "Boolean%true"
-             
-          
-          }  }
-       
-       ]
-        
-       }}
-      ]
-       
-      }},{"PanelContainer":
-      {
-         "id": "-168855188180684925264964924327129244018"
-       
-          ,
-         "children":
-      [{"TextEdit":
-       {
-          "id": "-115454473185395703202766978554734096505",
-          "callback": "TransSetTrigger(9, %text)",
-          "text": "closed"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "20"
-             
-          
-          }  },
-       
-       
-       {
-          "Vector2": 
-             
-             
-             {
-                "custom_minimum_size": {
-                   
-                   
-                      "x": "200",
-                   
-                   
-                      "y": "30"
-                   
-                
-                }  }
-          
-            }
-       
-       ]
-       
-       }}
-      ]
-       
-      }},{"PanelContainer":
-      {
-         "id": "-64934963849089668138909371717267188850"
-       
-          ,
-         "children":
-      [{"OptionButton":
-       {
-          "id": "-86880349607222753365850403330793068878",
-          "callback": "InterTransSetTarget(9,%state)"
-           ,
-          "options":
-       ["opened","closed"
-       ]
-        
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "20"
-             
-          
-          }  },
-       
-       
-       {
-          "Primitive": {
-             
-             
-                "selected": "Int%1",
-             
-             
-                "allow_reselect": "Boolean%true"
-             
-          
-          }  }
-       
-       ]
-        
-       }}
-      ]
-       
-      }},{"PanelContainer":
-      {
-         "id": "27584462652092879467709044100564127627"
-       
-          ,
-         "children":
-      [{"Button":
-       {
-          "id": "62645207934411473756755373236428410934",
-          "text": "Delete Transition",
-          "callback": "TransDelete(9)"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "20"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "GHOST_WHITE"
-             
-          
-          }  },
-       
-       
-       {
-          "StyleBoxFlat": 
-             
-             
-             {
-                "normal": {
-                   
-                   
-                      "bg_color": "INDIAN_RED",
-                   
-                   
-                      "height": "30",
-                   
-                   
-                      "width": "50"
-                   
-                
-                }  }
-          
-            }
-       
-       ]
-       
-       }}
-      ]
-       
-      }}
-     ]
      
-     ,
-         "styles": [
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL",
-           
-           
-              "size_flags_vertical": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "AnchorPreset": {
-           
-           
-              "set_anchors_preset": "PRESET_FULL_RECT"
-           
-        
-        }  }
-     
-     ]
-      
-     }},{"HBoxContainer":
-     {
-        "id": "-9007946595452948596417689905516105272",
-        "children":
-     [{"PanelContainer":
-      {
-         "id": "99853724505723087402348011488530029638"
-       
-          ,
-         "children":
-      [{"OptionButton":
-       {
-          "id": "89724844652853086954388990560123832536",
-          "callback": "InterTransSetTarget(10,%state)"
-           ,
-          "options":
-       ["opened","closed"
-       ]
-        
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "20"
-             
-          
-          }  },
-       
-       
-       {
-          "Primitive": {
-             
-             
-                "selected": "Int%1",
-             
-             
-                "allow_reselect": "Boolean%true"
-             
-          
-          }  }
-       
-       ]
-        
-       }}
-      ]
-       
-      }},{"PanelContainer":
-      {
-         "id": "92327945495474662664661573569460307471"
-       
-          ,
-         "children":
-      [{"TextEdit":
-       {
-          "id": "158325572703397487205895903131690812738",
-          "callback": "TransSetTrigger(10, %text)",
-          "text": "open"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "20"
-             
-          
-          }  },
-       
-       
-       {
-          "Vector2": 
-             
-             
-             {
-                "custom_minimum_size": {
-                   
-                   
-                      "x": "200",
-                   
-                   
-                      "y": "30"
-                   
-                
-                }  }
-          
-            }
-       
-       ]
-       
-       }}
-      ]
-       
-      }},{"PanelContainer":
-      {
-         "id": "-67695371963462163767765951529022541258"
-       
-          ,
-         "children":
-      [{"OptionButton":
-       {
-          "id": "136441406715502648791214177248637455841",
-          "callback": "InterTransSetTarget(10,%state)"
-           ,
-          "options":
-       ["opened","closed"
-       ]
-        
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "20"
-             
-          
-          }  },
-       
-       
-       {
-          "Primitive": {
-             
-             
-                "selected": "Int%0",
-             
-             
-                "allow_reselect": "Boolean%true"
-             
-          
-          }  }
-       
-       ]
-        
-       }}
-      ]
-       
-      }},{"PanelContainer":
-      {
-         "id": "107288495433571379343556086341421014970"
-       
-          ,
-         "children":
-      [{"Button":
-       {
-          "id": "-168941199854927900561711382544532885937",
-          "text": "Delete Transition",
-          "callback": "TransDelete(10)"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "20"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "GHOST_WHITE"
-             
-          
-          }  },
-       
-       
-       {
-          "StyleBoxFlat": 
-             
-             
-             {
-                "normal": {
-                   
-                   
-                      "bg_color": "INDIAN_RED",
-                   
-                   
-                      "height": "30",
-                   
-                   
-                      "width": "50"
-                   
-                
-                }  }
-          
-            }
-       
-       ]
-       
-       }}
-      ]
-       
-      }}
-     ]
-     
-     ,
-         "styles": [
-     
-     
-     {
-        "SizeFlags": {
-           
-           
-              "size_flags_horizontal": "SIZE_EXPAND_FILL",
-           
-           
-              "size_flags_vertical": "SIZE_EXPAND_FILL"
-           
-        
-        }  },
-     
-     
-     {
-        "AnchorPreset": {
-           
-           
-              "set_anchors_preset": "PRESET_FULL_RECT"
-           
-        
-        }  }
-     
-     ]
-      
-     }},{"Button":
-     {
-        "id": "-119250502204653831305781447708732869397",
-        "text": "Create new Transition",
-        "callback": ""
-     
-     }}
-    ]
-    
-      
     }}
    ]
    
    ,
        "styles": [
+   
+   
+   {
+      "Constant": {
+         
+         
+            "margin_left": "5",
+         
+         
+            "margin_right": "5",
+         
+         
+            "margin_top": "5",
+         
+         
+            "margin_bottom": "5"
+         
+      
+      }  },
    
    
    {
@@ -3840,7 +2226,7 @@
       }  }
    
    ]
-     
+    
    }}
   ]
   
