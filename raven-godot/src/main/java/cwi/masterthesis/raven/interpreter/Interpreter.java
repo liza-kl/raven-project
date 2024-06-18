@@ -218,12 +218,16 @@ public class Interpreter extends Node implements Visitor {
     public void visitTabContainer(RavenTabContainer ravenTabContainer) {
         System.out.println("Creating TabContainer");
         TabContainer tabContainer = new TabContainer();
+        ravenTabContainer.set(StringNameUtils.asStringName("node_callback"), ravenTabContainer.getCallback());
+        tabContainer.setScript(GD.load("res://gdj/cwi/masterthesis/raven/scripts/TabContainerScript.gdj"));
         tabContainer.setTheme(Main.mainTheme);
         tabContainer.setName(StringNameUtils.asStringName(ravenTabContainer.getNodeID()));
 
         // Apparently the order matters here...
         applyStyling(ravenTabContainer, tabContainer);
         Objects.requireNonNull(ravenTabContainer.getParentNode()).addChild(tabContainer);
+        tabContainer.emitSignal(StringNameUtils.asStringName("tab_init"), ravenTabContainer.getCallback());
+
     }
 
 

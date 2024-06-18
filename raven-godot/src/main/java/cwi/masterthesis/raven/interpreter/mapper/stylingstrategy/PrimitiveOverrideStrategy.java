@@ -34,8 +34,13 @@ public class PrimitiveOverrideStrategy implements StylingStrategy{
 
     @Override
     public void applyStyling() {
-        // FIXME write generic converter to infer value
 
-        node.set(StringNameUtils.asStringName(this.property), this.value);
+        if (this.property == "current_tab") {
+            node.callDeferred(StringNameUtils.asStringName("set"),
+                    StringNameUtils.asStringName(this.property), this.value );
+        } else {
+            node.set(StringNameUtils.asStringName(this.property), this.value);
+        }
+
     }
 }

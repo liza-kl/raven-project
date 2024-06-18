@@ -148,6 +148,13 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
     return env;
 }
 
+
+
+public Env eval(Env env, Command cmd: ViewTabSetCurrentTab(UUID tabID)) {
+    println("Evaluating ViewTabSetCurrentTab(UUID vid, UUID miid)");
+    env = env_store(env,4,currentTab(tabID));
+    return env;
+}
 public Env eval(Env env, Command cmd: ViewTabSetMachineInstance(UUID vid, UUID miid)) {
     println("Evaluating ViewTabSetMachineInstance(UUID vid, UUID miid)");
     ViewEnv viewEnv = env_retrieve(env, #ViewEnv, 1);

@@ -19,6 +19,8 @@ import lang::raven::JSONMapper;
 import lang::raven::helpers::Server;
 import ApplicationConf;
 import Map;
+import Map;
+import List;
 
 public data ViewEnv = view(map[int vid, Tab tab] currentTabs); // Except the initial screen I guess.
 public data InputEnv = input(list[value] stagedValues); // Possibly future feature to evaluate multiple inputs from UI 
@@ -68,6 +70,13 @@ UUID env_retrieveMIDfromTID(UUID tid2) {
 UUID env_retrieveSIDfromName(str name2) {
   println("calling env_retrieveSIDfromName"); 
   return [sid | elem <- env, state(sid,_,name,_,_,_,_) := env[elem] && name == name2][0];
+}
+
+Env env_setCurrentTab(UUID vid) {
+  // hackedy hackedy do.
+  list[UUID] availableVids = [tab[0] | tab <- toList(env_retrieve(env, #ViewEnv, 1).currentTabs)];
+    env = env_store(env,4,currentTab(indexOf(availableVids, vid)));
+    return env;
 }
 
 
