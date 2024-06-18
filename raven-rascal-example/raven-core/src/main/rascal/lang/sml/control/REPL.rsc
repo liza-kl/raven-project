@@ -19,7 +19,7 @@ import lang::sml::model::Styles;
 
 // TODO Make more generic because of runtime stuff? 
 public Env eval(Env env, Command cmd: ViewTabCreate(UUID vid)) {
-    println("Evaluating ViewTabCreate");
+  //  println("Evaluating ViewTabCreate");
     lang::Main::ViewTypeMap viewID2TabType = env_retrieve(env, #ViewTypeMap, 5);
     lang::Main::ViewEnv viewEnv = env_retrieve(env, #lang::Main::ViewEnv, 1);
     // The Default view of a machine when rendered.
@@ -44,7 +44,7 @@ public Env eval(Env env, Command cmd: ViewTabCreate(UUID vid)) {
 }
 
 public Env eval(Env env, Command cmd: ViewTabCreate(UUID vid)) {
-    println("Evaluating ViewTabCreate");
+   // println("Evaluating ViewTabCreate");
     lang::Main::ViewTypeMap viewID2TabType = env_retrieve(env, #ViewTypeMap, 5);
     lang::Main::ViewEnv viewEnv = env_retrieve(env, #lang::Main::ViewEnv, 1);
     // The Default view of a machine when rendered.
@@ -90,7 +90,7 @@ public Env eval(Env env, Command cmd: ViewTabDelete(UUID vid)) {
 
 public Env eval(Env env, Command cmd: ViewTabSetType(UUID vid, str viewType)) {
     // TODO: Fix the update / render if machine is already set.
-    IO::println("Evaluating ViewTabSetType");
+   // IO::println("Evaluating ViewTabSetType");
     ViewTypeMap midVidMappings = env_retrieve(env, #ViewTypeMap, 5);
     midVidMappings.mappings[vid] = viewType; 
     env = env_store(env, 5, vidType(midVidMappings.mappings));
@@ -138,13 +138,8 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
         , settings=vboxContainerStyles)
 
         ]  + [machineContent]>); 
-    println("current tab content");
-    println(viewEnv.currentTabs[vid]);
     env = env_store(env, 1, view(viewEnv.currentTabs));
     env = env_store(env, 3, viewMID(midVidMappings.mappings));
-
-    println("current env");
-    println(env); 
     return env;
 }
 

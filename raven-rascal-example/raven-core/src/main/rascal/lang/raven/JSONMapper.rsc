@@ -355,7 +355,6 @@ default str rvn_print(RavenNode ravenNode) { throw "you forgot a case <typeOf(ra
 
 // MISC Functions
 RavenNode mapNodesToJSON(RavenNode tree)  {
-    println(tree);
     top-down-break visit(tree){
     case RavenNode tree : JSON_CONTENT += rvn_print(tree);
 }

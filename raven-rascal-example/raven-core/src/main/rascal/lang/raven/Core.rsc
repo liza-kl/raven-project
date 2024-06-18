@@ -13,18 +13,18 @@ import String;
 /* TODO add different languages and prepend with languages VIEW_addTab, PROGRAM_updateEnv */ 
 // TODO add parameter for language controller 
 void dispatch(str callback) {
-        print("Dispatching callback");
+      //  print("Dispatching callback");
     if(startsWith(callback, "Input")) {
-        println("Calling Input-Callback");
+      //  println("Calling Input-Callback");
         lang::sml::control::InputCallbacks::inputControl(ValueIO::readTextValueString(#Command, callback));
     } else if(startsWith(callback, "View")) {
-        println("Calling Viewcallback");
+      //  println("Calling Viewcallback");
         lang::sml::control::ViewCallbacks::viewControl(ValueIO::readTextValueString(#Command, callback));
     } else if(startsWith(callback, "MachInst")) {
-        println("Calling MachInst-Callback");
+       // println("Calling MachInst-Callback");
         lang::sml::runtime::RuntimeCallbacks::runtimeControl(ValueIO::readTextValueString(#Command, callback));
     } else {
-        println("Calling Residual-Callback");
+       // println("Calling Residual-Callback");
         lang::sml::control::Callbacks::viewControl(ValueIO::readTextValueString(#Command, callback));
     }
 }

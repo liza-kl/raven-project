@@ -105,14 +105,12 @@ public Env eval(Env env, Command cmd: StateInstSetCount(UUID siid, int count)) {
 }
 
 public Env eval(Env env, Command cmd: StateInstDelete(UUID siid, UUID miid)) {
-  println("eval StateInstDelete");
   Model si = getStateInst(env, siid);
   env = env_delete(env, siid);
   return env;
 }
 
 public Env eval(Env env, Command cmd: MachInstTrigger(UUID miid, ID trigger)) {
-  println("eval MachInstTrigger");
   Model mi = getMachInst(env, miid);
   Model si = getStateInst(env, mi.cur);
   Model s = getState(env, si.sid);
