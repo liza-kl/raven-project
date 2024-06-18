@@ -1,20 +1,19 @@
 package cwi.masterthesis.raven.interpreter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import cwi.masterthesis.raven.Main;
-import cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.*;
+import cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.StylingStrategy;
 import cwi.masterthesis.raven.interpreter.nodes.RavenNode;
 import cwi.masterthesis.raven.interpreter.nodes.RavenNode2D;
+import cwi.masterthesis.raven.interpreter.nodes.StylingStrategyOverride;
 import cwi.masterthesis.raven.interpreter.nodes.control.*;
 import godot.*;
 import godot.core.StringNameUtils;
 import godot.core.Vector2;
 import godot.global.GD;
 
-import java.lang.Object;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
@@ -36,8 +35,6 @@ public class Interpreter extends Node implements Visitor {
 
     @Override
     public void visitButton(RavenButton ravenButton)  {
-        System.out.println("Creating Button");
-      //  PackedScene DefaultButtonLook = GD.load("res://scenes/DefaultButton.tscn");
         Button button = new Button();
         button.setTheme(Main.mainTheme);
 
@@ -230,52 +227,23 @@ public class Interpreter extends Node implements Visitor {
 
     }
 
-
     public static void styleOverrideTraverser(String theme, Control node) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode elements = mapper.readTree(theme);
+        StylingStrategyOverride themeOverride = new StylingStrategyOverride();
+
         for (JsonNode elem : elements) {
-                String themeprop = elem.fieldNames().next();
-                JsonNode valueContent = elem.get(themeprop);
+            String themeprop = elem.fieldNames().next();
+            JsonNode valueContent = elem.get(themeprop);
 
-                Iterator<Map.Entry<String, JsonNode>> fields = valueContent.fields();
-                while (fields.hasNext()) {
-                    Map.Entry<String, JsonNode> entry = fields.next();
-                    // TODO: Some switch expression / mapping to increase traverse performance
-                    // TODO: Dummy values for now.
-                    if (themeprop.equals("Godot")) {
-                        strategy = new GodotOverrideStrategy(node, entry.getKey(), entry.getKey());
-                    }
-                    if(themeprop.equals("Vector2")) {
-                        Map<String, String> result = mapper.convertValue(entry.getValue(), new TypeReference<>() {
-                        });
-                        strategy = new Vector2OverrideStrategy(node, entry.getKey(),Integer.valueOf(result.get("x")), Integer.valueOf(result.get("y")));
-                    }
-                    if (themeprop.equals("Primitive")) {
-                        strategy = new PrimitiveOverrideStrategy(node, entry.getKey(),entry.getValue().asText());
-                    }
-                    if (themeprop.equals("Color")) {
-                        strategy = new ColorOverrideStrategy(node, entry.getKey(),entry.getValue().asText());
-                    }
-                    if (themeprop.equals("FontSize")) {
-                        strategy = new FontSizeOverrideStrategy(node, entry.getKey(),entry.getValue().asInt());
-                    }
-                    if (themeprop.equals("SizeFlags")) {
-                        strategy = new SizeFlagsOverrideStrategy(node, entry.getKey(), entry.getValue().asText());
-                    }
-                    if (themeprop.equals("AnchorPreset")) {
-                        strategy = new AnchorPresetOverrideStrategy(node, entry.getKey(), entry.getValue().asText());
-                    }
-                    if (themeprop.equals("StyleBoxFlat")) {
-                        Map<String, Object> result = mapper.convertValue(entry.getValue(), new TypeReference<>() {
-                        });
-                        strategy = new StyleBoxFlatOverrideStrategy(node, entry.getKey(), result);
-                    }
-                    strategy.applyStyling();
-
-                }
+            Iterator<Map.Entry<String, JsonNode>> fields = valueContent.fields();
+            while (fields.hasNext()) {
+                Map.Entry<String, JsonNode> entry = fields.next();
+                StylingStrategy strategy = themeOverride.getStrategy(themeprop, node, entry);
+                strategy.applyStyling();
             }
         }
+    }
 
 
 }

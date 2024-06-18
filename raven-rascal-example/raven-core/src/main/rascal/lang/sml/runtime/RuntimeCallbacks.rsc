@@ -18,7 +18,7 @@ import util::UUID;
 import lang::sml::runtime::RuntimeRenderer;
 // IMP
 public void runtimeControl(Command incomingCallback: MachInstCreate(UUID miid, UUID mid)) {
-    IO::println("Calling MachInstCreate");
+   // IO::println("Calling MachInstCreate");
     env = eval(env, MachInstCreate(miid, mid));
     ViewMIDMap viewMID2 = env_retrieve(env, #ViewMIDMap, 3);
     vid2 = uuidi();
@@ -30,8 +30,6 @@ public void runtimeControl(Command incomingCallback: MachInstCreate(UUID miid, U
     list[int] machToUpdate = [miid2 | elem <- env, machInst(miid2,_,_,_) := env[elem]];
     for (machID <- machToUpdate) {
         list[int] vid = env_retrieveVIDfromMID(machID);
-        println("vids");
-        println(vid);
         for (int v <- vid) {
         lang::Main::env = eval(env,ViewTabSetMachineInstance(v, machID));
         }
@@ -66,22 +64,19 @@ public void runtimeControl(Command incomingCallback: MachInstCreate(UUID miid, U
 
 // IMP
 public void runtimeControl(Command incomingCallback: MachInstDelete(UUID miid, UUID mid)) {
-    IO::println("Calling MachInstDelete");
+    //IO::println("Calling MachInstDelete");
     list[int] vid = env_retrieveVIDfromMID(miid);
     for (int v <- vid) {
     env = lang::sml::control::REPL::eval(lang::Main::env, ViewTabDelete(v));
     }
     env = eval(env, MachInstDelete(miid, mid));
-
-    println("current env");
-    println(env);
     lang::raven::JSONMapper::genJSON(render(env));
     lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 // IMP
 public void runtimeControl(Command incomingCallback: MachInstTrigger(UUID miid, str trigger)) {
-    IO::println("Calling MachInstTrigger");
+   // IO::println("Calling MachInstTrigger");
     env = eval(env, MachInstTrigger(miid, trigger));
 
     list[int] vid = env_retrieveVIDfromMID(miid);

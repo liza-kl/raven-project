@@ -47,28 +47,28 @@ UUID env_retrieveMIDfromVID(UUID vid) {
 // }
 
 list[UUID] env_retrieveVIDfromMID(UUID mid) {
-    println("calling env_retrieveVIDfromMID");
+    //println("calling env_retrieveVIDfromMID");
     ViewMIDMap viewMID = env_retrieve(env, #ViewMIDMap, 3);
     list[UUID] result = [view | view <- viewMID.mappings, viewMID.mappings[view] == mid];
     return result;
 }
 
 UUID env_retrieveMIDfromSID(UUID sid2) {
-  println("calling env_retrieveMIDfromSID");
+ // println("calling env_retrieveMIDfromSID");
   // There can be only one machine per designated state.
   // sid2 to avoid naming collisions.
   return [mid | elem <- env, state(sid,mid,_,_,_,_,_) := env[elem] && sid == sid2][0];
 }
 
 UUID env_retrieveMIDfromTID(UUID tid2) {
-  println("calling env_retrieveMIDfromTID");
+ // println("calling env_retrieveMIDfromTID");
   // There can be only one machine per designated state.
   // sid2 to avoid naming collisions.
    return [env_retrieveMIDfromSID(src) | elem <- env, trans(tid, src,_, _) := env[elem] && tid == tid2][0];
 }
 
 UUID env_retrieveSIDfromName(str name2) {
-  println("calling env_retrieveSIDfromName"); 
+ // println("calling env_retrieveSIDfromName"); 
   return [sid | elem <- env, state(sid,_,name,_,_,_,_) := env[elem] && name == name2][0];
 }
 

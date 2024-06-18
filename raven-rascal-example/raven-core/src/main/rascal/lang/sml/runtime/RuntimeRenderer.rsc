@@ -54,9 +54,6 @@ public RavenNode render(Env env, machInst(UUID miid, UUID mid, UUID cur,  map[UU
 }
 
 public RavenNode render(Env env, stateInst(UUID siid, UUID sid, int count), UUID cur, UUID miid) {
-    println("calling  render(Env env, stateInst(UUID siid, UUID sid, int count), UUID cur, UUID miid) ");
-
-
     return ravenHBox([
             ravenPanelContainer([ravenHBox([ravenLabel("<if(cur == siid){>*<}>",settings=lang::sml::model::Styles::runtimeTabelLabel)])]),
             ravenPanelContainer([ravenHBox([ravenLabel("<env[sid].name>",settings=lang::sml::model::Styles::runtimeTabelLabel)])],settings=ravenPanelStyle),
