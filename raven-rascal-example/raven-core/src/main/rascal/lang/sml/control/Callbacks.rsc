@@ -129,16 +129,7 @@ public void viewControl(Command incomingCallback: TransCreateSource(UUID tid, UU
 public void viewControl(Command incomingCallback: TransSetTarget(UUID tid, UUID tgt)) {
     println("TransSetTarget(UUID tid, UUID src, UUID tgt))");
     lang::Main::env = eval(env, TransSetTarget( tid,tgt));
-
-     // tgt is a state, so we can apply the same functions as before.
-
-    // UUID mid = env_retrieveMIDfromTID(tid);
-    // list[int] vid = env_retrieveVIDfromMID(mid);
-    // for (int v <- vid) {
-    //     lang::Main::env = eval(env,ViewTabSetMachine(v, mid));
-    // }
-
-      UUID mid = env_retrieveMIDfromSID(tgt);
+    UUID mid = env_retrieveMIDfromSID(tgt);
     list[int] vid = env_retrieveVIDfromMID(mid);
     for (int v <- vid) {
         lang::Main::env = eval(env,ViewTabSetMachine(v, mid));
