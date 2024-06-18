@@ -9,7 +9,7 @@ import ApplicationConf;
 import lang::raven::helpers::Server;
 // RAVEN MODULES
 import lang::raven::JSONMapper;
-import lang::raven::Environment;
+import lang::sml::Environment;
 // MODEL
 import lang::sml::model::Command;
 import lang::sml::model::REPL;

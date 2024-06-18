@@ -1,4 +1,4 @@
-module lang::raven::Environment
+module lang::sml::Environment
 import Map;
 import lang::sml::control::AST;
 

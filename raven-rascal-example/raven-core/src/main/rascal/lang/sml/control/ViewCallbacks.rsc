@@ -5,7 +5,7 @@ import Type;
 import ApplicationConf;
 import lang::raven::helpers::Server;
 import lang::Main;
-import lang::raven::Environment;
+import lang::sml::Environment;
 import lang::raven::JSONMapper;
 import lang::sml::model::Renderer;
 import lang::sml::control::ViewCommand;
