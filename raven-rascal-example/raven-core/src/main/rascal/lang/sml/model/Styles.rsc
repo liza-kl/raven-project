@@ -101,6 +101,12 @@ public list[Setting] panelTreeEditor =   [
       ])]) 
 ];
 
+public list[Setting] panelTableEditor =   [
+  setting("StyleBoxFlat", [setting("panel",  [
+        <"bg_color","DEEP_PINK">
+      ])]) 
+];
+
 public list[Setting] vboxContainerStyles = [
   setting("SizeFlags", [<"size_flags_horizontal","SIZE_EXPAND_FILL">,
                         <"size_flags_vertical", "SIZE_EXPAND_FILL">
@@ -128,19 +134,20 @@ public list[Setting] buttonSubmit = bodyFontSize +  [
 
   setting("Color", [<"font_color", "DARK_SLATE_GRAY">]),
   setting("StyleBoxFlat", [setting("normal",  [
-        <"bg_color","GHOST_WHITE">,
-        <"height", 30>,
-        <"width", 50>
+        <"bg_color","GHOST_WHITE">
       ])]) 
 ];
 
 public list[Setting] buttonDanger = bodyFontSize +  [
     setting("Color", [<"font_color", "GHOST_WHITE">]),
     setting("StyleBoxFlat", [setting("normal",  [
-        <"bg_color","INDIAN_RED">,
-        <"height", 30>,
-        <"width", 50>
+        <"bg_color","INDIAN_RED"> 
+      ])])];
 
+public list[Setting] buttonBlue = bodyFontSize +  [
+    setting("Color", [<"font_color", "GHOST_WHITE">]),
+    setting("StyleBoxFlat", [setting("normal",  [
+        <"bg_color","MEDIUM_SEA_BLUE"> 
       ])])];
 
 
@@ -167,4 +174,4 @@ public list[Setting] tableBodyStyle =   setting("SizeFlags", [<"size_flags_horiz
 public list[Setting] ravenPanelStyle = hboxContainerHorizontalExpand;
 
 /* Table Editor */
-public list[Setting] tableEditorHeadings = [setting("FontSize", [<"font_size", 30>])];
+public list[Setting] tableEditorHeadings = h2FontSize; 

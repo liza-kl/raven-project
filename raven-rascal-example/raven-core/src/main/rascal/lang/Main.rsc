@@ -82,25 +82,25 @@ Env env_setCurrentTab(UUID vid) {
 
 void main() { 
 
-  <env, mid> = env_getNextId(env);
-  env = eval(env, MachCreate(mid));
-   env = eval(env, MachSetName(mid, "door"));
+  // <env, mid> = env_getNextId(env);
+  // env = eval(env, MachCreate(mid));
+  //  env = eval(env, MachSetName(mid, "door"));
 
-   <env, sid1> = env_getNextId(env);  
-   env = eval(env, StateCreate(sid1, mid));
-   env = eval(env, StateSetName(sid1, "opened"));
+  //  <env, sid1> = env_getNextId(env);  
+  //  env = eval(env, StateCreate(sid1, mid));
+  //  env = eval(env, StateSetName(sid1, "opened"));
 
-   <env, sid2> = env_getNextId(env);  
-   env = eval(env, StateCreate(sid2, mid));
-   env = eval(env, StateSetName(sid2, "closed"));
+  //  <env, sid2> = env_getNextId(env);  
+  //  env = eval(env, StateCreate(sid2, mid));
+  //  env = eval(env, StateSetName(sid2, "closed"));
 
-   <env, tid1> = env_getNextId(env); 
-   env = eval(env, TransCreate(tid1, sid1, sid2));
-  env = eval(env, TransSetTrigger(tid1, "close"));
+  //  <env, tid1> = env_getNextId(env); 
+  //  env = eval(env, TransCreate(tid1, sid1, sid2));
+  // env = eval(env, TransSetTrigger(tid1, "close"));
 
-  <env, tid2> = env_getNextId(env); 
-   env = eval(env, TransCreate(tid2, sid2, sid1));
-   env = eval(env, TransSetTrigger(tid2, "open"));
+  // <env, tid2> = env_getNextId(env); 
+  //  env = eval(env, TransCreate(tid2, sid2, sid1));
+  //  env = eval(env, TransSetTrigger(tid2, "open"));
 
   // println(print(env, env[mid]));  //complete door machine
 
