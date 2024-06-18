@@ -2,7 +2,7 @@ module lang::Main
 
 import IO;
 import String;
-import lang::raven::Environment;
+import lang::sml::Environment;
 import lang::raven::RavenNode;
 import lang::sml::model::Model;
 import lang::sml::model::Command;
@@ -19,8 +19,13 @@ import lang::raven::JSONMapper;
 import lang::raven::helpers::Server;
 import ApplicationConf;
 import Map;
-import Map;
+import lang::sml::control::ViewCallbacks;
+import lang::sml::control::InputCallbacks;
+import lang::sml::runtime::RuntimeCallbacks;
+import  lang::sml::control::Callbacks;
 import List;
+import lang::raven::Core;
+import ValueIO;
 
 public data ViewEnv = view(map[int vid, Tab tab] currentTabs); // Except the initial screen I guess.
 public data InputEnv = input(list[value] stagedValues); // Possibly future feature to evaluate multiple inputs from UI 
@@ -124,7 +129,7 @@ void main() {
   // env = eval(env, MachDelete(mid)); //deletes everything
   // iprintln(env); //empty environment = all cleaned up!
 
-
+  lang::raven::Core::newRavenApp(dispatcherFunc);
   RavenNode view = render(env);
   genJSON(view);
 
@@ -135,6 +140,22 @@ void main() {
   //init();
 }
 
+void dispatcherFunc(str callback) {
+      //  print("Dispatching callback");
+    if(startsWith(callback, "Input")) {
+      //  println("Calling Input-Callback");
+        lang::sml::control::InputCallbacks::inputControl(ValueIO::readTextValueString(#Command, callback));
+    } else if(startsWith(callback, "View")) {
+      //  println("Calling Viewcallback");
+        lang::sml::control::ViewCallbacks::viewControl(ValueIO::readTextValueString(#Command, callback));
+    } else if(startsWith(callback, "MachInst")) {
+       // println("Calling MachInst-Callback");
+        lang::sml::runtime::RuntimeCallbacks::runtimeControl(ValueIO::readTextValueString(#Command, callback));
+    } else {
+       // println("Calling Residual-Callback");
+        lang::sml::control::Callbacks::viewControl(ValueIO::readTextValueString(#Command, callback));
+    }
+}
 
 void init() {
  // lang::raven::helpers::Server::send("THEME_INIT:" + readFile(JSON_STYLING_FILE));

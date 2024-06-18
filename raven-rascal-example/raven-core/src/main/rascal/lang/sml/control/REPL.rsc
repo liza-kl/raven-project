@@ -2,7 +2,7 @@ module lang::sml::control::REPL
 
 import lang::sml::control::ViewCommand;
 import lang::sml::control::InputCommand;
-import lang::raven::Environment;
+import lang::sml::Environment;
 import lang::raven::RavenNode;
 import lang::sml::runtime::RuntimeRenderer;
 import lang::Main;

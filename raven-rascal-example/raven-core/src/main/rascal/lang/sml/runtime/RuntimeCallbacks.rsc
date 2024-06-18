@@ -3,7 +3,7 @@ import lang::sml::runtime::Command;
 import lang::sml::runtime::Model;
 import lang::sml::runtime::REPL;
 import lang::sml::model::Model;
-import lang::raven::Environment;
+import lang::sml::Environment;
 import lang::raven::RavenNode;
 import lang::sml::model::Renderer;
 import IO;

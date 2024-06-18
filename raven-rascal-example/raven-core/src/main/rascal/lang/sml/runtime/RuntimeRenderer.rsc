@@ -1,7 +1,7 @@
 module lang::sml::runtime::RuntimeRenderer
 
 import lang::raven::RavenNode;
-import lang::raven::Environment;
+import lang::sml::Environment;
 import lang::sml::model::Model;
 import lang::sml::runtime::Model;
 import lang::sml::model::REPL;

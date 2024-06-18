@@ -1,7 +1,7 @@
 module lang::sml::model::TableRenderer
 
 import lang::raven::RavenNode;
-import lang::raven::Environment;
+import lang::sml::Environment;
 import lang::sml::model::Model;
 import lang::sml::model::REPL;
 import lang::sml::model::Command;
