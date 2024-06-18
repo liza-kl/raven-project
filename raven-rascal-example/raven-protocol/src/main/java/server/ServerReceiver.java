@@ -18,7 +18,6 @@ class ServerReceiver implements ReceiveCallback {
     private PrintWriter output;
     private static ServerReceiver instance;
 
-    // Lifting up evaluator i guess to avoid memory leaks.
     ServerReceiver(PrintWriter output, IValueFactory values) {
         this.output = output;
         this.values = values;

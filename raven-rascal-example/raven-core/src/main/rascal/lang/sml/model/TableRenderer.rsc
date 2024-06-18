@@ -24,10 +24,10 @@ public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] st
     ravenLabel("Transition Table", settings=h2FontSize),
     ravenVBox([
     ravenHBox([
-            ravenPanelContainer([ravenLabel("In State",settings=bodyFontSize + hboxContainerHorizontalExpand)], settings=panelTreeEditor + bodyFontSize + hboxContainerHorizontalExpand ),
-            ravenPanelContainer([ravenLabel("Action", settings=bodyFontSize + hboxContainerHorizontalExpand)],settings=panelTreeEditor + bodyFontSize + hboxContainerHorizontalExpand  ),
-            ravenPanelContainer([ravenLabel("Out State", settings=bodyFontSize +hboxContainerHorizontalExpand)],settings=panelTreeEditor + bodyFontSize + hboxContainerHorizontalExpand  ),
-            ravenPanelContainer([ravenLabel("",settings=bodyFontSize + hboxContainerHorizontalExpand)],settings=panelTreeEditor + bodyFontSize + hboxContainerHorizontalExpand )
+            ravenPanelContainer([ravenLabel("In State",settings=bodyFontSize + hboxContainerHorizontalExpand)], settings=panelTableEditor + bodyFontSize + hboxContainerHorizontalExpand ),
+            ravenPanelContainer([ravenLabel("Action", settings=bodyFontSize + hboxContainerHorizontalExpand)],settings=panelTableEditor + bodyFontSize + hboxContainerHorizontalExpand  ),
+            ravenPanelContainer([ravenLabel("Out State", settings=bodyFontSize +hboxContainerHorizontalExpand)],settings=panelTableEditor + bodyFontSize + hboxContainerHorizontalExpand  ),
+            ravenPanelContainer([ravenLabel("",settings=bodyFontSize + hboxContainerHorizontalExpand)],settings=panelTableEditor + bodyFontSize + hboxContainerHorizontalExpand )
 
         ], settings=hboxContainerHorizontalExpand)
         
@@ -43,9 +43,9 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
       ravenHBox
       (
         [
-          ravenPanelContainer([ravenLabel("Edit State Name", settings=bodyFontSize + hboxContainerHorizontalExpand)],settings=panelTreeEditor + bodyFontSize + hboxContainerHorizontalExpand),
-          ravenPanelContainer([ravenTextEdit(name, "StateSetName(<sid>, %text)",  settings=textEditSettings + hboxContainerHorizontalExpand)], settings = panelTreeEditor + bodyFontSize + hboxContainerHorizontalExpand),
-          ravenPanelContainer([ravenButton("Delete State", "StateDelete(<sid>)", settings=buttonDanger + hboxContainerHorizontalExpand)],settings=panelTreeEditor + bodyFontSize + hboxContainerHorizontalExpand)
+          ravenPanelContainer([ravenLabel("Edit State Name", settings=bodyFontSize + hboxContainerHorizontalExpand)],settings=panelTableEditor + bodyFontSize + hboxContainerHorizontalExpand),
+          ravenPanelContainer([ravenTextEdit(name, "StateSetName(<sid>, %text)",  settings=textEditSettings + hboxContainerHorizontalExpand)], settings =  bodyFontSize + hboxContainerHorizontalExpand),
+          ravenPanelContainer([ravenButton("Delete State", "StateDelete(<sid>)", settings=buttonDanger + hboxContainerHorizontalExpand)],settings=panelTableEditor + bodyFontSize + hboxContainerHorizontalExpand)
         ],settings=hboxContainerHorizontalExpand
       );
 
