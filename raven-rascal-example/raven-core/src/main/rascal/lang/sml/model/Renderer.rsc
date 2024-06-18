@@ -40,12 +40,12 @@ public RavenNode render(Env env) =
   ravenTab(toString(nextID(env)),"State Machine Language",
     [
       ravenVBox([
-      ravenLabel("State Machines Everywhere!",settings= [setting("Primary", [<"horizontal_alignment", "Long%1">])]),
+      ravenLabel("State Machines Everywhere!",settings=h2FontSize),
       ravenButton("Create New Machine", "MachCreate(<nextID(env)>)", settings=buttonCreate),
       ravenButton("Open New Tab", "ViewTabCreate(<uuidi()>)", settings=primaryButton)
       ],settings=vboxContainerStyles),
       ravenVBox([
-      ravenLabel("Available Machines",settings= [setting("Primary", [<"horizontal_alignment", 1>])])
+      ravenLabel("Available Machines",settings=h2FontSize)
       ] 
       + [ravenLabel(toString(mid), settings=bodyFontSize) | elem <- env, mach( mid, _, _, _) := env[elem]]
       ,settings=vboxContainerStyles)
