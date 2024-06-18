@@ -86,7 +86,7 @@
 
 RAVEN is my Master's thesis project. It aims to connect the technological spaces of _language workbenches_
 and _game engines_ in a _generic_ way. The goal is to have a prototype for creating visual programming environments with Godot. 
-This would provide (in theory) an alternative to existing Eclipse and web-based technologies which are being used for DSLs nowadays.
+
 > [!WARNING]  
 > This is a work in progress and has only been tested under macOS so far. I am working on a Docker image to make the setup process easier.
 
