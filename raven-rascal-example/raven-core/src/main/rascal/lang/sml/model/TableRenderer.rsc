@@ -24,14 +24,14 @@ public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] st
     ravenLabel("Transition Table"),
     ravenVBox([
     ravenHBox([
-            ravenPanelContainer([ravenLabel("In State")], settings=panelTreeEditor + bodyFontSize),
-            ravenPanelContainer([ravenLabel("Action")],settings=panelTreeEditor + bodyFontSize),
-            ravenPanelContainer([ravenLabel("Out State")],settings=panelTreeEditor + bodyFontSize),
-            ravenPanelContainer([ravenLabel("")],settings=panelTreeEditor + bodyFontSize)
+            ravenPanelContainer([ravenLabel("In State")], settings=panelTreeEditor + h2FontSize ),
+            ravenPanelContainer([ravenLabel("Action")],settings=panelTreeEditor + h2FontSize  ),
+            ravenPanelContainer([ravenLabel("Out State")],settings=panelTreeEditor + h2FontSize  ),
+            ravenPanelContainer([ravenLabel("")],settings=panelTreeEditor + h2FontSize )
 
-        ], settings=hboxContainerStyles)
+        ], settings=hboxContainerHorizontalExpand)
         
-  ]    ),
+  ], settings=vboxContainerSizeFill   ),
   ravenVBox([render(env, getState(env, sid), "table-body") |  sid <- states] + ravenButton("Create new Transition","")) 
 
     ],settings=vboxContainerStyles);
@@ -42,10 +42,10 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
       ravenHBox
       (
         [
-          ravenPanelContainer([ravenLabel("Edit State Name")]),
-          ravenTextEdit(name, "StateSetName(<sid>, %text)",  settings=lang::sml::model::Styles::textEditSettings),
-          ravenPanelContainer([ravenButton("Delete State", "StateDelete(<sid>)", settings=buttonDanger)])
-        ],settings=hboxContainerStyles
+          ravenPanelContainer([ravenLabel("Edit State Name")],settings=panelTreeEditor + bodyFontSize + hboxContainerHorizontalExpand),
+          ravenPanelContainer([ravenTextEdit(name, "StateSetName(<sid>, %text)",  settings=textEditSettings)], settings = panelTreeEditor + bodyFontSize + hboxContainerHorizontalExpand),
+          ravenPanelContainer([ravenButton("Delete State", "StateDelete(<sid>)", settings=buttonDanger)],settings=panelTreeEditor + bodyFontSize + hboxContainerHorizontalExpand)
+        ],settings=hboxContainerHorizontalExpand
       );
 
 public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, list[UUID] ti, list[UUID] to, int x, int y), "table-body") {    

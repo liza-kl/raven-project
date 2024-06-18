@@ -2,7 +2,7 @@
    "children":
 [{"TabContainer":
  {
-    "id": "-90503274736337616254503160401313601849"
+    "id": "-70795327999772999472500760209558194577"
  ,
     "callback": "ViewTabSetCurrentTab(%tabID)"
   
@@ -27,7 +27,7 @@
     "FontSize": {
        
        
-          "font_size": "20"
+          "font_size": "25"
        
     
     }  },
@@ -61,25 +61,25 @@
     "children":
  [{"HBoxContainer":
   {
-     "id": "12",
+     "id": "15",
      "name": "State Machine Language",
      "children":
   [{"VBoxContainer":
    {
-      "id": "15648390387722561741368213164577304401",
+      "id": "6559433549412975278536713669342036754",
       "children":
    [{"Label": {
-       "id": "18229932810987637238164512053634675961",
+       "id": "101421494458896237435004420200419441708",
        "text": "State Machines Everywhere!"
     ,
         "styles": [
     
     
     {
-       "Primary": {
+       "FontSize": {
           
           
-             "horizontal_alignment": "Long%1"
+             "font_size": "25"
           
        
        }  }
@@ -88,9 +88,9 @@
     
     }  },{"Button":
     {
-       "id": "29623997147857963103068503393549830625",
+       "id": "95685162178629208378191998205704031589",
        "text": "Create New Machine",
-       "callback": "MachCreate(12)"
+       "callback": "MachCreate(15)"
     ,
         "styles": [
     
@@ -134,9 +134,9 @@
     
     }},{"Button":
     {
-       "id": "118027642867714773147684344526449125549",
+       "id": "152853787856821660999554736259094417779",
        "text": "Open New Tab",
-       "callback": "ViewTabCreate(87726945022070801700466889153790104239)"
+       "callback": "ViewTabCreate(62931987886142749428028395327236405953)"
     ,
         "styles": [
     
@@ -146,6 +146,16 @@
           
           
              "font_size": "20"
+          
+       
+       }  },
+    
+    
+    {
+       "Color": {
+          
+          
+             "font_color": "DARK_SLATE_GRAY"
           
        
        }  },
@@ -201,20 +211,20 @@
      
    }},{"VBoxContainer":
    {
-      "id": "23148045213103680576638476072483749493",
+      "id": "-27146936516449353045224602398660922131",
       "children":
    [{"Label": {
-       "id": "109290641430937624133750972527205036337",
+       "id": "-154165316471278777416629190735057109640",
        "text": "Available Machines"
     ,
         "styles": [
     
     
     {
-       "Primary": {
+       "FontSize": {
           
           
-             "horizontal_alignment": "1"
+             "font_size": "25"
           
        
        }  }
@@ -222,7 +232,7 @@
     ]
     
     }  },{"Label": {
-       "id": "96817059589100671652560300311494137806",
+       "id": "-151942270089395484375518158322027263416",
        "text": "6"
     ,
         "styles": [
@@ -303,18 +313,16 @@
    
   }},{"HBoxContainer":
   {
-     "id": "-26931422260259512639882614396416402026",
-     "name": "door Editor Tab 6",
+     "id": "121480727176925266483424335962391877730",
+     "name": "Runtime Tab 11",
      "children":
   [{"VBoxContainer":
    {
-      "id": "81369761063806888079471532538054498415",
+      "id": "109706751538897786713123149588907309644",
       "children":
-   [{"Button":
-    {
-       "id": "-59611138482941270786700991351184347606",
-       "text": "Delete Tab",
-       "callback": "ViewTabDelete(-26931422260259512639882614396416402026)"
+   [{"Label": {
+       "id": "-146099694854635377586094543636229508900",
+       "text": "General Actions"
     ,
         "styles": [
     
@@ -323,57 +331,7 @@
        "FontSize": {
           
           
-             "font_size": "20"
-          
-       
-       }  },
-    
-    
-    {
-       "Color": {
-          
-          
-             "font_color": "GHOST_WHITE"
-          
-       
-       }  },
-    
-    
-    {
-       "StyleBoxFlat": 
-          
-          
-          {
-             "normal": {
-                
-                
-                   "bg_color": "INDIAN_RED",
-                
-                
-                   "height": "30",
-                
-                
-                   "width": "50"
-                
-             
-             }  }
-       
-         }
-    
-    ]
-    
-    }},{"Label": {
-       "id": "-137880744536084281309715708743231991229",
-       "text": "Current Machine: 6"
-    ,
-        "styles": [
-    
-    
-    {
-       "FontSize": {
-          
-          
-             "font_size": "20"
+             "font_size": "25"
           
        
        }  }
@@ -381,8 +339,8 @@
     ]
     
     }  },{"Label": {
-       "id": "-60004615578263245466918164262509487756",
-       "text": "Select New Machine"
+       "id": "-28555402302914202330379328889999946874",
+       "text": "Running Machine Instance 11"
     ,
         "styles": [
     
@@ -391,99 +349,18 @@
        "FontSize": {
           
           
-             "font_size": "20"
+             "font_size": "25"
           
        
        }  }
     
     ]
     
-    }  },{"OptionButton":
+    }  },{"Button":
     {
-       "id": "28340905788295944076935670514922538475",
-       "callback": "ViewTabSetMachine(-26931422260259512639882614396416402026,%machine)"
-        ,
-       "options":
-    ["6"
-    ]
-     
-    ,
-        "styles": [
-    
-    
-    {
-       "Primitive": {
-          
-          
-             "selected": "Int%0"
-          
-       
-       }  }
-    
-    ]
-     
-    }},{"Label": {
-       "id": "141237403623533064628614723270172635632",
-       "text": "Machine Name"
-    ,
-        "styles": [
-    
-    
-    {
-       "FontSize": {
-          
-          
-             "font_size": "20"
-          
-       
-       }  }
-    
-    ]
-    
-    }  },{"TextEdit":
-    {
-       "id": "41728607830397505020040673425972928809",
-       "callback": "MachSetName(6, %text)",
-       "text": "door"
-    ,
-        "styles": [
-    
-    
-    {
-       "FontSize": {
-          
-          
-             "font_size": "20"
-          
-       
-       }  },
-    
-    
-    {
-       "Vector2": 
-          
-          
-          {
-             "custom_minimum_size": {
-                
-                
-                   "x": "200",
-                
-                
-                   "y": "30"
-                
-             
-             }  }
-       
-         }
-    
-    ]
-    
-    }},{"Button":
-    {
-       "id": "-48375044536257791015384614614092682010",
-       "text": "Delete Machine",
-       "callback": "MachDelete(6)"
+       "id": "55266864759609701003457083256108458086",
+       "text": "Delete Tab",
+       "callback": "ViewTabDelete(121480727176925266483424335962391877730)"
     ,
         "styles": [
     
@@ -533,9 +410,9 @@
     
     }},{"Button":
     {
-       "id": "130202331787141534014145823922392887255",
-       "text": "Create State",
-       "callback": "StateCreate(12, 6)"
+       "id": "94113873005005456516376464714551989532",
+       "text": "Kill Instance",
+       "callback": "MachInstDelete(11,6)"
     ,
         "styles": [
     
@@ -554,7 +431,7 @@
        "Color": {
           
           
-             "font_color": "DARK_SLATE_GRAY"
+             "font_color": "GHOST_WHITE"
           
        
        }  },
@@ -568,7 +445,13 @@
              "normal": {
                 
                 
-                   "bg_color": "HONEYDEW"
+                   "bg_color": "INDIAN_RED",
+                
+                
+                   "height": "30",
+                
+                
+                   "width": "50"
                 
              
              }  }
@@ -577,63 +460,104 @@
     
     ]
     
-    }},{"Button":
+    }}
+   ]
+   
+     
+   }},{"VBoxContainer":
+   {
+      "id": "-142696488098864666725645980405763965491",
+      "children":
+   [{"MarginContainer":
     {
-       "id": "30911823009558381069261318605881083442",
-       "text": "Run Instance of this Machine",
-       "callback": "MachInstCreate(12,6)"
+       "id": "-16796085910074545879470999587228749525",
+       "children":
+    [{"Label": {
+        "id": "84147284444678807141624883679195852324",
+        "text": "Possible Actions"
+     ,
+         "styles": [
+     
+     
+     {
+        "FontSize": {
+           
+           
+              "font_size": "25"
+           
+        
+        }  },
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "AnchorPreset": {
+           
+           
+              "set_anchors_preset": "PRESET_FULL_RECT"
+           
+        
+        }  }
+     
+     ]
+     
+     }  }
+    ]
+    
     ,
         "styles": [
     
     
     {
-       "FontSize": {
+       "Constant": {
           
           
-             "font_size": "20"
-          
-       
-       }  },
-    
-    
-    {
-       "Color": {
+             "margin_top": "5",
           
           
-             "font_color": "DARK_SLATE_GRAY"
+             "margin_bottom": "5"
           
        
-       }  },
+       }  }
     
-    
-    {
-       "StyleBoxFlat": 
-          
-          
-          {
-             "normal": {
-                
-                
-                   "bg_color": "HONEYDEW"
-                
-             
-             }  }
-       
-         }
-    
-    ]
-    
-    }},{"OptionButton":
-    {
-       "id": "163816233777288260874698667314592268012",
-       "callback": "ViewTabSetType(-26931422260259512639882614396416402026,%type)"
-        ,
-       "options":
-    ["tree","table"
     ]
      
+    }},{"Button":
+    {
+       "id": "-162348353328139432811682639913489959614",
+       "text": "closed",
+       "callback": "MachInstTrigger(11,\"closed\")"
     ,
         "styles": [
+    
+    
+    {
+       "SizeFlags": {
+          
+          
+             "size_flags_horizontal": "SIZE_EXPAND_FILL"
+          
+       
+       }  },
+    
+    
+    {
+       "AnchorPreset": {
+          
+          
+             "set_anchors_preset": "PRESET_FULL_RECT"
+          
+       
+       }  },
     
     
     {
@@ -647,10 +571,1131 @@
     
     
     {
-       "Primitive": {
+       "Color": {
           
           
-             "selected": "Int%0"
+             "font_color": "DARK_SLATE_GRAY"
+          
+       
+       }  },
+    
+    
+    {
+       "StyleBoxFlat": 
+          
+          
+          {
+             "normal": {
+                
+                
+                   "bg_color": "GHOST_WHITE",
+                
+                
+                   "height": "30",
+                
+                
+                   "width": "50"
+                
+             
+             }  }
+       
+         }
+    
+    ]
+    
+    }},{"MarginContainer":
+    {
+       "id": "-57112630614963987534724299996951289944",
+       "children":
+    [{"Label": {
+        "id": "-65062793033096616469640720854614742479",
+        "text": "Current Program State"
+     ,
+         "styles": [
+     
+     
+     {
+        "FontSize": {
+           
+           
+              "font_size": "25"
+           
+        
+        }  },
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "AnchorPreset": {
+           
+           
+              "set_anchors_preset": "PRESET_FULL_RECT"
+           
+        
+        }  }
+     
+     ]
+     
+     }  }
+    ]
+    
+    ,
+        "styles": [
+    
+    
+    {
+       "Constant": {
+          
+          
+             "margin_top": "5",
+          
+          
+             "margin_bottom": "5"
+          
+       
+       }  }
+    
+    ]
+     
+    }},{"HBoxContainer":
+    {
+       "id": "103698777693039033760287608776680118320",
+       "children":
+    [{"PanelContainer":
+     {
+        "id": "-152691087823415160557585270767203981866"
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "Color": {
+           
+           
+              "font_color": "GHOST_WHITE"
+           
+        
+        }  },
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "CORAL"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "-134713188936700584895210314144736028658",
+         "children":
+      [{"Label": {
+          "id": "137184715714850806492095673348732043080",
+          "text": "Current"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "25"
+             
+          
+          }  },
+       
+       
+       {
+          "Color": {
+             
+             
+                "font_color": "DARK_BLUE"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+      
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "41826217423727793392765201156505877988"
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "Color": {
+           
+           
+              "font_color": "GHOST_WHITE"
+           
+        
+        }  },
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "CORAL"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "-31736267473998385965759362764342384370",
+         "children":
+      [{"Label": {
+          "id": "45613628021094995830484463786258765388",
+          "text": "State"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "25"
+             
+          
+          }  },
+       
+       
+       {
+          "Color": {
+             
+             
+                "font_color": "DARK_BLUE"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+      
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "-91650127801608427070780349347651137152"
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "Color": {
+           
+           
+              "font_color": "GHOST_WHITE"
+           
+        
+        }  },
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "CORAL"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "-70572863059013504716441816740278650517",
+         "children":
+      [{"Label": {
+          "id": "154940991887733719688136242490099773013",
+          "text": "Count"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "25"
+             
+          
+          }  },
+       
+       
+       {
+          "Color": {
+             
+             
+                "font_color": "DARK_BLUE"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+      
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "-137919481191211004447957608250032426644"
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "Color": {
+           
+           
+              "font_color": "GHOST_WHITE"
+           
+        
+        }  },
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "CORAL"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "-164604838988812852809737804683214890041",
+         "children":
+      [{"Label": {
+          "id": "33631487376880300592698289436799677495",
+          "text": "Events"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "25"
+             
+          
+          }  },
+       
+       
+       {
+          "Color": {
+             
+             
+                "font_color": "DARK_BLUE"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+      
+       
+      }}
+     ]
+      
+     }}
+    ]
+    
+    ,
+        "styles": [
+    
+    
+    {
+       "SizeFlags": {
+          
+          
+             "size_flags_horizontal": "SIZE_EXPAND_FILL"
+          
+       
+       }  },
+    
+    
+    {
+       "AnchorPreset": {
+          
+          
+             "set_anchors_preset": "PRESET_FULL_RECT"
+          
+       
+       }  }
+    
+    ]
+     
+    }},{"HBoxContainer":
+    {
+       "id": "-104165887228620249679639931179613815523",
+       "children":
+    [{"PanelContainer":
+     {
+        "id": "-84540737869986894565862373677692357453"
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "GHOST_WHITE"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "101969980731411383549403316130123299989",
+         "children":
+      [{"Label": {
+          "id": "-73950965258825243283418008065508263483",
+          "text": ""
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "25"
+             
+          
+          }  },
+       
+       
+       {
+          "Color": {
+             
+             
+                "font_color": "DARK_BLUE"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+      
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "166947623959895989408868776322563893112"
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "GHOST_WHITE"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "-112572725353046492663410970141322060157",
+         "children":
+      [{"Label": {
+          "id": "165612696398419534437405001387506801835",
+          "text": "closed"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "25"
+             
+          
+          }  },
+       
+       
+       {
+          "Color": {
+             
+             
+                "font_color": "DARK_BLUE"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+      
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "149928255139214764108947429708627869947"
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "GHOST_WHITE"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "148001945172827776597032897511890697604",
+         "children":
+      [{"Label": {
+          "id": "-57260679804470548884444961801694712693",
+          "text": "0"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "25"
+             
+          
+          }  },
+       
+       
+       {
+          "Color": {
+             
+             
+                "font_color": "DARK_BLUE"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+      
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "97989713674783595248162216893019476208"
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "GHOST_WHITE"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "-146969938316657815983292888366394438863",
+         "children":
+      [{"Label": {
+          "id": "-43150565095943361883789561414088932910",
+          "text": "[open]"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "25"
+             
+          
+          }  },
+       
+       
+       {
+          "Color": {
+             
+             
+                "font_color": "DARK_BLUE"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+      
+       
+      }}
+     ]
+      
+     }}
+    ]
+    
+    ,
+        "styles": [
+    
+    
+    {
+       "SizeFlags": {
+          
+          
+             "size_flags_horizontal": "SIZE_EXPAND_FILL"
+          
+       
+       }  },
+    
+    
+    {
+       "AnchorPreset": {
+          
+          
+             "set_anchors_preset": "PRESET_FULL_RECT"
+          
+       
+       }  }
+    
+    ]
+     
+    }},{"HBoxContainer":
+    {
+       "id": "-120534632943313881555436006332283784028",
+       "children":
+    [{"PanelContainer":
+     {
+        "id": "71875325398536122851695743941758748723"
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "GHOST_WHITE"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "-1492772718148729175802677668105362058",
+         "children":
+      [{"Label": {
+          "id": "163766099964022215183761946794996166167",
+          "text": "*"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "25"
+             
+          
+          }  },
+       
+       
+       {
+          "Color": {
+             
+             
+                "font_color": "DARK_BLUE"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+      
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "117665923796272160850695620734329428467"
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "GHOST_WHITE"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "-49639463596328465472376790316578116630",
+         "children":
+      [{"Label": {
+          "id": "-30490823651338717378074593801685030533",
+          "text": "opened"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "25"
+             
+          
+          }  },
+       
+       
+       {
+          "Color": {
+             
+             
+                "font_color": "DARK_BLUE"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+      
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "-77894875376479060167308433595565208083"
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "GHOST_WHITE"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "-155630094536309017101946593756356797870",
+         "children":
+      [{"Label": {
+          "id": "83523001216425663978463791069543795642",
+          "text": "1"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "25"
+             
+          
+          }  },
+       
+       
+       {
+          "Color": {
+             
+             
+                "font_color": "DARK_BLUE"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+      
+       
+      }}
+     ]
+      
+     }},{"PanelContainer":
+     {
+        "id": "-42043869801505048630959664429719383688"
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "panel": {
+                 
+                 
+                    "bg_color": "GHOST_WHITE"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+      
+         ,
+        "children":
+     [{"HBoxContainer":
+      {
+         "id": "78463744541269151442188558319050006980",
+         "children":
+      [{"Label": {
+          "id": "-146553371669647708604058473716429390624",
+          "text": "[closed]"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "25"
+             
+          
+          }  },
+       
+       
+       {
+          "Color": {
+             
+             
+                "font_color": "DARK_BLUE"
+             
+          
+          }  }
+       
+       ]
+       
+       }  }
+      ]
+      
+       
+      }}
+     ]
+      
+     }}
+    ]
+    
+    ,
+        "styles": [
+    
+    
+    {
+       "SizeFlags": {
+          
+          
+             "size_flags_horizontal": "SIZE_EXPAND_FILL"
+          
+       
+       }  },
+    
+    
+    {
+       "AnchorPreset": {
+          
+          
+             "set_anchors_preset": "PRESET_FULL_RECT"
           
        
        }  }
@@ -662,6 +1707,692 @@
    
    ,
        "styles": [
+   
+   
+   {
+      "SizeFlags": {
+         
+         
+            "size_flags_horizontal": "SIZE_EXPAND_FILL"
+         
+      
+      }  },
+   
+   
+   {
+      "AnchorPreset": {
+         
+         
+            "set_anchors_preset": "PRESET_FULL_RECT"
+         
+      
+      }  }
+   
+   ]
+     
+   }}
+  ]
+  
+  ,
+      "styles": [
+  
+  
+  {
+     "SizeFlags": {
+        
+        
+           "size_flags_horizontal": "SIZE_EXPAND_FILL",
+        
+        
+           "size_flags_vertical": "SIZE_EXPAND_FILL"
+        
+     
+     }  },
+  
+  
+  {
+     "AnchorPreset": {
+        
+        
+           "set_anchors_preset": "PRESET_FULL_RECT"
+        
+     
+     }  }
+  
+  ]
+   
+  }},{"HBoxContainer":
+  {
+     "id": "-60042516586726429686617564966512715041",
+     "name": "door Editor Tab 6",
+     "children":
+  [{"MarginContainer":
+   {
+      "id": "132786236956425192401102173359426388539",
+      "children":
+   [{"VBoxContainer":
+    {
+       "id": "-104873154686667129975364143478942705001",
+       "children":
+    [{"Label": {
+        "id": "78001758365025776323817283664792450871",
+        "text": "General Actions"
+     ,
+         "styles": [
+     
+     
+     {
+        "FontSize": {
+           
+           
+              "font_size": "25"
+           
+        
+        }  }
+     
+     ]
+     
+     }  },{"Button":
+     {
+        "id": "-127047108141785304480321879970671216837",
+        "text": "Delete Tab",
+        "callback": "ViewTabDelete(-60042516586726429686617564966512715041)"
+     ,
+         "styles": [
+     
+     
+     {
+        "FontSize": {
+           
+           
+              "font_size": "20"
+           
+        
+        }  },
+     
+     
+     {
+        "Color": {
+           
+           
+              "font_color": "GHOST_WHITE"
+           
+        
+        }  },
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "normal": {
+                 
+                 
+                    "bg_color": "INDIAN_RED",
+                 
+                 
+                    "height": "30",
+                 
+                 
+                    "width": "50"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+     
+     }},{"HBoxContainer":
+     {
+        "id": "-55172596133194640978723724868933545494",
+        "children":
+     [{"Label": {
+         "id": "122153970977242549550378497763849160763",
+         "text": "Current Machine"
+      ,
+          "styles": [
+      
+      
+      {
+         "FontSize": {
+            
+            
+               "font_size": "20"
+            
+         
+         }  },
+      
+      
+      {
+         "SizeFlags": {
+            
+            
+               "size_flags_horizontal": "SIZE_EXPAND_FILL"
+            
+         
+         }  },
+      
+      
+      {
+         "AnchorPreset": {
+            
+            
+               "set_anchors_preset": "PRESET_FULL_RECT"
+            
+         
+         }  }
+      
+      ]
+      
+      }  },{"OptionButton":
+      {
+         "id": "79068524205939937668722129318344424742",
+         "callback": "ViewTabSetMachine(-60042516586726429686617564966512715041,%machine)"
+          ,
+         "options":
+      ["6"
+      ]
+       
+      ,
+          "styles": [
+      
+      
+      {
+         "SizeFlags": {
+            
+            
+               "size_flags_horizontal": "SIZE_EXPAND_FILL"
+            
+         
+         }  },
+      
+      
+      {
+         "AnchorPreset": {
+            
+            
+               "set_anchors_preset": "PRESET_FULL_RECT"
+            
+         
+         }  },
+      
+      
+      {
+         "FontSize": {
+            
+            
+               "font_size": "20"
+            
+         
+         }  },
+      
+      
+      {
+         "Primitive": {
+            
+            
+               "selected": "Int%0"
+            
+         
+         }  }
+      
+      ]
+       
+      }},{"Button":
+      {
+         "id": "16757430906424567357737381146289046656",
+         "text": "Delete Machine",
+         "callback": "MachDelete(6)"
+      ,
+          "styles": [
+      
+      
+      {
+         "SizeFlags": {
+            
+            
+               "size_flags_horizontal": "SIZE_EXPAND_FILL"
+            
+         
+         }  },
+      
+      
+      {
+         "AnchorPreset": {
+            
+            
+               "set_anchors_preset": "PRESET_FULL_RECT"
+            
+         
+         }  },
+      
+      
+      {
+         "FontSize": {
+            
+            
+               "font_size": "20"
+            
+         
+         }  },
+      
+      
+      {
+         "Color": {
+            
+            
+               "font_color": "GHOST_WHITE"
+            
+         
+         }  },
+      
+      
+      {
+         "StyleBoxFlat": 
+            
+            
+            {
+               "normal": {
+                  
+                  
+                     "bg_color": "INDIAN_RED",
+                  
+                  
+                     "height": "30",
+                  
+                  
+                     "width": "50"
+                  
+               
+               }  }
+         
+           }
+      
+      ]
+      
+      }}
+     ]
+     
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "AnchorPreset": {
+           
+           
+              "set_anchors_preset": "PRESET_FULL_RECT"
+           
+        
+        }  }
+     
+     ]
+      
+     }},{"HBoxContainer":
+     {
+        "id": "29611994585943015747717333545074720812",
+        "children":
+     [{"Label": {
+         "id": "-68737683302282089138027631350215635109",
+         "text": "Machine Name"
+      ,
+          "styles": [
+      
+      
+      {
+         "FontSize": {
+            
+            
+               "font_size": "20"
+            
+         
+         }  },
+      
+      
+      {
+         "SizeFlags": {
+            
+            
+               "size_flags_horizontal": "SIZE_EXPAND_FILL"
+            
+         
+         }  },
+      
+      
+      {
+         "AnchorPreset": {
+            
+            
+               "set_anchors_preset": "PRESET_FULL_RECT"
+            
+         
+         }  }
+      
+      ]
+      
+      }  },{"TextEdit":
+      {
+         "id": "118802811480120907473075666042763802994",
+         "callback": "MachSetName(6, %text)",
+         "text": "door"
+      ,
+          "styles": [
+      
+      
+      {
+         "FontSize": {
+            
+            
+               "font_size": "20"
+            
+         
+         }  },
+      
+      
+      {
+         "Vector2": 
+            
+            
+            {
+               "custom_minimum_size": {
+                  
+                  
+                     "x": "200",
+                  
+                  
+                     "y": "30"
+                  
+               
+               }  }
+         
+           },
+      
+      
+      {
+         "SizeFlags": {
+            
+            
+               "size_flags_horizontal": "SIZE_EXPAND_FILL"
+            
+         
+         }  },
+      
+      
+      {
+         "AnchorPreset": {
+            
+            
+               "set_anchors_preset": "PRESET_FULL_RECT"
+            
+         
+         }  }
+      
+      ]
+      
+      }}
+     ]
+     
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "AnchorPreset": {
+           
+           
+              "set_anchors_preset": "PRESET_FULL_RECT"
+           
+        
+        }  }
+     
+     ]
+      
+     }},{"Button":
+     {
+        "id": "-90222343713336789336496461044169580916",
+        "text": "Create State",
+        "callback": "StateCreate(15, 6)"
+     ,
+         "styles": [
+     
+     
+     {
+        "FontSize": {
+           
+           
+              "font_size": "20"
+           
+        
+        }  },
+     
+     
+     {
+        "Color": {
+           
+           
+              "font_color": "DARK_SLATE_GRAY"
+           
+        
+        }  },
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "normal": {
+                 
+                 
+                    "bg_color": "HONEYDEW"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+     
+     }},{"Button":
+     {
+        "id": "-26017112174909768109039079611490644789",
+        "text": "Run Instance of this Machine",
+        "callback": "MachInstCreate(15,6)"
+     ,
+         "styles": [
+     
+     
+     {
+        "FontSize": {
+           
+           
+              "font_size": "20"
+           
+        
+        }  },
+     
+     
+     {
+        "Color": {
+           
+           
+              "font_color": "DARK_SLATE_GRAY"
+           
+        
+        }  },
+     
+     
+     {
+        "StyleBoxFlat": 
+           
+           
+           {
+              "normal": {
+                 
+                 
+                    "bg_color": "HONEYDEW"
+                 
+              
+              }  }
+        
+          }
+     
+     ]
+     
+     }},{"MarginContainer":
+     {
+        "id": "24185301744454030553029357894568587466",
+        "children":
+     [{"Label": {
+         "id": "74347183369502399400222872338157642934",
+         "text": "Available Editors"
+      ,
+          "styles": [
+      
+      
+      {
+         "FontSize": {
+            
+            
+               "font_size": "25"
+            
+         
+         }  }
+      
+      ]
+      
+      }  }
+     ]
+     
+     ,
+         "styles": [
+     
+     
+     {
+        "Constant": {
+           
+           
+              "margin_top": "5",
+           
+           
+              "margin_bottom": "5"
+           
+        
+        }  }
+     
+     ]
+      
+     }},{"OptionButton":
+     {
+        "id": "50062438698246891177822235528324296970",
+        "callback": "ViewTabSetType(-60042516586726429686617564966512715041,%type)"
+         ,
+        "options":
+     ["tree","table"
+     ]
+      
+     ,
+         "styles": [
+     
+     
+     {
+        "FontSize": {
+           
+           
+              "font_size": "20"
+           
+        
+        }  },
+     
+     
+     {
+        "Primitive": {
+           
+           
+              "selected": "Int%1"
+           
+        
+        }  }
+     
+     ]
+      
+     }}
+    ]
+    
+    ,
+        "styles": [
+    
+    
+    {
+       "SizeFlags": {
+          
+          
+             "size_flags_horizontal": "SIZE_EXPAND_FILL",
+          
+          
+             "size_flags_vertical": "SIZE_EXPAND_FILL"
+          
+       
+       }  },
+    
+    
+    {
+       "AnchorPreset": {
+          
+          
+             "set_anchors_preset": "PRESET_FULL_RECT"
+          
+       
+       }  }
+    
+    ]
+      
+    }}
+   ]
+   
+   ,
+       "styles": [
+   
+   
+   {
+      "Constant": {
+         
+         
+            "margin_left": "5",
+         
+         
+            "margin_right": "5",
+         
+         
+            "margin_top": "5",
+         
+         
+            "margin_bottom": "5"
+         
+      
+      }  },
    
    
    {
@@ -687,82 +2418,177 @@
       }  }
    
    ]
-     
-   }},{"HBoxContainer":
+    
+   }},{"VBoxContainer":
    {
-      "id": "164302035224461641230855020590882978863",
+      "id": "83085928397436234036081311785547503180",
       "children":
-   [{"VBoxContainer":
+   [{"Label": {
+       "id": "-57148953798566285752049308198541732097",
+       "text": "Table Representation"
+    ,
+        "styles": [
+    
+    
     {
-       "id": "-83426760207801393955216705330584217875",
+       "FontSize": {
+          
+          
+             "font_size": "30"
+          
+       
+       }  }
+    
+    ]
+    
+    }  },{"Label": {
+       "id": "70687582183922231207195424884820582993",
+       "text": "Modify States"
+    ,
+        "styles": [
+    
+    
+    {
+       "FontSize": {
+          
+          
+             "font_size": "30"
+          
+       
+       }  }
+    
+    ]
+    
+    }  },{"VBoxContainer":
+    {
+       "id": "36553980050708599944948649077056848612",
        "children":
-    [{"Label": {
-        "id": "15261322929481756157608546590965693577",
-        "text": "Available States"
-     ,
-         "styles": [
-     
-     
+    [{"HBoxContainer":
      {
-        "FontSize": {
-           
-           
-              "font_size": "25"
-           
-        
-        }  }
-     
-     ]
-     
-     }  },{"VBoxContainer":
-     {
-        "id": "105846490166896246313366499386954142542",
+        "id": "-133572892500668517857959548375186426278",
         "children":
-     [{"HBoxContainer":
+     [{"PanelContainer":
       {
-         "id": "-2332375272660371474526272041057203330",
+         "id": "-43438382095331437313615896616199375322"
+      ,
+          "styles": [
+      
+      
+      {
+         "StyleBoxFlat": 
+            
+            
+            {
+               "panel": {
+                  
+                  
+                     "bg_color": "LIGHT_CORAL"
+                  
+               
+               }  }
+         
+           },
+      
+      
+      {
+         "FontSize": {
+            
+            
+               "font_size": "20"
+            
+         
+         }  },
+      
+      
+      {
+         "SizeFlags": {
+            
+            
+               "size_flags_horizontal": "SIZE_EXPAND_FILL"
+            
+         
+         }  },
+      
+      
+      {
+         "AnchorPreset": {
+            
+            
+               "set_anchors_preset": "PRESET_FULL_RECT"
+            
+         
+         }  }
+      
+      ]
+       
+          ,
          "children":
       [{"Label": {
-          "id": "-161336205970118049296801751332446999933",
+          "id": "-65190248199433987050300553922852181676",
           "text": "Edit State Name"
-       ,
-           "styles": [
        
+       }  }
+      ]
        
+      }},{"PanelContainer":
+      {
+         "id": "-66598088104157785157188698124181614293"
+      ,
+          "styles": [
+      
+      
+      {
+         "StyleBoxFlat": 
+            
+            
+            {
+               "panel": {
+                  
+                  
+                     "bg_color": "LIGHT_CORAL"
+                  
+               
+               }  }
+         
+           },
+      
+      
+      {
+         "FontSize": {
+            
+            
+               "font_size": "20"
+            
+         
+         }  },
+      
+      
+      {
+         "SizeFlags": {
+            
+            
+               "size_flags_horizontal": "SIZE_EXPAND_FILL"
+            
+         
+         }  },
+      
+      
+      {
+         "AnchorPreset": {
+            
+            
+               "set_anchors_preset": "PRESET_FULL_RECT"
+            
+         
+         }  }
+      
+      ]
+       
+          ,
+         "children":
+      [{"TextEdit":
        {
-          "FontSize": {
-             
-             
-                "font_size": "20"
-             
-          
-          }  },
-       
-       
-       {
-          "SizeFlags": {
-             
-             
-                "size_flags_horizontal": "SIZE_EXPAND_FILL"
-             
-          
-          }  },
-       
-       
-       {
-          "AnchorPreset": {
-             
-             
-                "set_anchors_preset": "PRESET_FULL_RECT"
-             
-          
-          }  }
-       
-       ]
-       
-       }  },{"TextEdit":
-       {
-          "id": "-127076601621061486753918594206486866222",
+          "id": "48408037158286647142307903266196067621",
           "callback": "StateSetName(7, %text)",
           "text": "opened"
        ,
@@ -795,33 +2621,72 @@
                 
                 }  }
           
-            },
-       
-       
-       {
-          "SizeFlags": {
-             
-             
-                "size_flags_horizontal": "SIZE_EXPAND_FILL"
-             
-          
-          }  },
-       
-       
-       {
-          "AnchorPreset": {
-             
-             
-                "set_anchors_preset": "PRESET_FULL_RECT"
-             
-          
-          }  }
+            }
        
        ]
        
-       }},{"Button":
+       }}
+      ]
+       
+      }},{"PanelContainer":
+      {
+         "id": "40691604264395761285072820894275435846"
+      ,
+          "styles": [
+      
+      
+      {
+         "StyleBoxFlat": 
+            
+            
+            {
+               "panel": {
+                  
+                  
+                     "bg_color": "LIGHT_CORAL"
+                  
+               
+               }  }
+         
+           },
+      
+      
+      {
+         "FontSize": {
+            
+            
+               "font_size": "20"
+            
+         
+         }  },
+      
+      
+      {
+         "SizeFlags": {
+            
+            
+               "size_flags_horizontal": "SIZE_EXPAND_FILL"
+            
+         
+         }  },
+      
+      
+      {
+         "AnchorPreset": {
+            
+            
+               "set_anchors_preset": "PRESET_FULL_RECT"
+            
+         
+         }  }
+      
+      ]
+       
+          ,
+         "children":
+      [{"Button":
        {
-          "id": "-120043890005846876826925058844805615230",
+          "id": "-109731361515192586391814837736880620592",
           "text": "Delete State",
           "callback": "StateDelete(7)"
        ,
@@ -867,136 +2732,76 @@
                 
                 }  }
           
-            },
-       
-       
-       {
-          "SizeFlags": {
-             
-             
-                "size_flags_horizontal": "SIZE_EXPAND_FILL"
-             
-          
-          }  },
-       
-       
-       {
-          "AnchorPreset": {
-             
-             
-                "set_anchors_preset": "PRESET_FULL_RECT"
-             
-          
-          }  }
+            }
        
        ]
        
        }}
       ]
+       
+      }}
+     ]
+     
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "AnchorPreset": {
+           
+           
+              "set_anchors_preset": "PRESET_FULL_RECT"
+           
+        
+        }  }
+     
+     ]
       
+     }},{"HBoxContainer":
+     {
+        "id": "84765759017299703249928816323981315585",
+        "children":
+     [{"PanelContainer":
+      {
+         "id": "50255075930580256959716813433028561799"
       ,
           "styles": [
       
       
       {
-         "SizeFlags": {
+         "StyleBoxFlat": 
             
             
-               "size_flags_horizontal": "SIZE_EXPAND_FILL",
+            {
+               "panel": {
+                  
+                  
+                     "bg_color": "LIGHT_CORAL"
+                  
+               
+               }  }
+         
+           },
+      
+      
+      {
+         "FontSize": {
             
             
-               "size_flags_vertical": "SIZE_EXPAND_FILL"
+               "font_size": "20"
             
          
          }  },
-      
-      
-      {
-         "AnchorPreset": {
-            
-            
-               "set_anchors_preset": "PRESET_FULL_RECT"
-            
-         
-         }  }
-      
-      ]
-       
-      }},{"HBoxContainer":
-      {
-         "id": "-49183746474021258068097736704198998817",
-         "children":
-      [{"Button":
-       {
-          "id": "-67489987475552553568779991449120037735",
-          "text": "Create New Transition for State: opened",
-          "callback": "TransCreateSource(12,7)"
-       ,
-           "styles": [
-       
-       
-       {
-          "FontSize": {
-             
-             
-                "font_size": "20"
-             
-          
-          }  },
-       
-       
-       {
-          "Color": {
-             
-             
-                "font_color": "DARK_SLATE_GRAY"
-             
-          
-          }  },
-       
-       
-       {
-          "StyleBoxFlat": 
-             
-             
-             {
-                "normal": {
-                   
-                   
-                      "bg_color": "HONEYDEW"
-                   
-                
-                }  }
-          
-            },
-       
-       
-       {
-          "SizeFlags": {
-             
-             
-                "size_flags_horizontal": "SIZE_EXPAND_FILL"
-             
-          
-          }  },
-       
-       
-       {
-          "AnchorPreset": {
-             
-             
-                "set_anchors_preset": "PRESET_FULL_RECT"
-             
-          
-          }  }
-       
-       ]
-       
-       }}
-      ]
-      
-      ,
-          "styles": [
       
       
       {
@@ -1020,60 +2825,75 @@
       
       ]
        
-      }}
-     ]
-     
-       
-     }},{"VBoxContainer":
-     {
-        "id": "-230236205426658642040215887158116451",
-        "children":
-     [{"HBoxContainer":
-      {
-         "id": "-121238452460022726320430246889277465469",
+          ,
          "children":
       [{"Label": {
-          "id": "-72967814567843739568360146913338562430",
+          "id": "137183488615187762967637035357987369125",
           "text": "Edit State Name"
-       ,
-           "styles": [
        
+       }  }
+      ]
        
+      }},{"PanelContainer":
+      {
+         "id": "-21054337646048525225333491504593668176"
+      ,
+          "styles": [
+      
+      
+      {
+         "StyleBoxFlat": 
+            
+            
+            {
+               "panel": {
+                  
+                  
+                     "bg_color": "LIGHT_CORAL"
+                  
+               
+               }  }
+         
+           },
+      
+      
+      {
+         "FontSize": {
+            
+            
+               "font_size": "20"
+            
+         
+         }  },
+      
+      
+      {
+         "SizeFlags": {
+            
+            
+               "size_flags_horizontal": "SIZE_EXPAND_FILL"
+            
+         
+         }  },
+      
+      
+      {
+         "AnchorPreset": {
+            
+            
+               "set_anchors_preset": "PRESET_FULL_RECT"
+            
+         
+         }  }
+      
+      ]
+       
+          ,
+         "children":
+      [{"TextEdit":
        {
-          "FontSize": {
-             
-             
-                "font_size": "20"
-             
-          
-          }  },
-       
-       
-       {
-          "SizeFlags": {
-             
-             
-                "size_flags_horizontal": "SIZE_EXPAND_FILL"
-             
-          
-          }  },
-       
-       
-       {
-          "AnchorPreset": {
-             
-             
-                "set_anchors_preset": "PRESET_FULL_RECT"
-             
-          
-          }  }
-       
-       ]
-       
-       }  },{"TextEdit":
-       {
-          "id": "-10833144564384080192429904602356687615",
-          "callback": "StateSetName(11, %text)",
+          "id": "-41550182631057957692624046068629823343",
+          "callback": "StateSetName(8, %text)",
           "text": "closed"
        ,
            "styles": [
@@ -1105,35 +2925,74 @@
                 
                 }  }
           
-            },
-       
-       
-       {
-          "SizeFlags": {
-             
-             
-                "size_flags_horizontal": "SIZE_EXPAND_FILL"
-             
-          
-          }  },
-       
-       
-       {
-          "AnchorPreset": {
-             
-             
-                "set_anchors_preset": "PRESET_FULL_RECT"
-             
-          
-          }  }
+            }
        
        ]
        
-       }},{"Button":
+       }}
+      ]
+       
+      }},{"PanelContainer":
+      {
+         "id": "104951949695571370315304876498254317451"
+      ,
+          "styles": [
+      
+      
+      {
+         "StyleBoxFlat": 
+            
+            
+            {
+               "panel": {
+                  
+                  
+                     "bg_color": "LIGHT_CORAL"
+                  
+               
+               }  }
+         
+           },
+      
+      
+      {
+         "FontSize": {
+            
+            
+               "font_size": "20"
+            
+         
+         }  },
+      
+      
+      {
+         "SizeFlags": {
+            
+            
+               "size_flags_horizontal": "SIZE_EXPAND_FILL"
+            
+         
+         }  },
+      
+      
+      {
+         "AnchorPreset": {
+            
+            
+               "set_anchors_preset": "PRESET_FULL_RECT"
+            
+         
+         }  }
+      
+      ]
+       
+          ,
+         "children":
+      [{"Button":
        {
-          "id": "-110997336028573535955778589200127263108",
+          "id": "-168183912216917789219552677562069289430",
           "text": "Delete State",
-          "callback": "StateDelete(11)"
+          "callback": "StateDelete(8)"
        ,
            "styles": [
        
@@ -1177,70 +3036,453 @@
                 
                 }  }
           
-            },
-       
-       
-       {
-          "SizeFlags": {
-             
-             
-                "size_flags_horizontal": "SIZE_EXPAND_FILL"
-             
-          
-          }  },
-       
-       
-       {
-          "AnchorPreset": {
-             
-             
-                "set_anchors_preset": "PRESET_FULL_RECT"
-             
-          
-          }  }
+            }
        
        ]
        
        }}
       ]
+       
+      }}
+     ]
+     
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "AnchorPreset": {
+           
+           
+              "set_anchors_preset": "PRESET_FULL_RECT"
+           
+        
+        }  }
+     
+     ]
       
+     }}
+    ]
+    
+      
+    }},{"Button":
+    {
+       "id": "-84830562509816238209332087848036320379",
+       "text": "Create New State",
+       "callback": "StateCreate(15,6)"
+    
+    }},{"Label": {
+       "id": "-69911270504007954552734031981914394796",
+       "text": "Transition Table"
+    
+    }  },{"VBoxContainer":
+    {
+       "id": "144280427883744012769421145300854068106",
+       "children":
+    [{"HBoxContainer":
+     {
+        "id": "-130200633422428615894886483781729642496",
+        "children":
+     [{"PanelContainer":
+      {
+         "id": "126221430506744458391120850772617612411"
       ,
           "styles": [
       
       
       {
-         "SizeFlags": {
+         "StyleBoxFlat": 
             
             
-               "size_flags_horizontal": "SIZE_EXPAND_FILL",
-            
-            
-               "size_flags_vertical": "SIZE_EXPAND_FILL"
-            
+            {
+               "panel": {
+                  
+                  
+                     "bg_color": "LIGHT_CORAL"
+                  
+               
+               }  }
          
-         }  },
+           },
       
       
       {
-         "AnchorPreset": {
+         "FontSize": {
             
             
-               "set_anchors_preset": "PRESET_FULL_RECT"
+               "font_size": "25"
             
          
          }  }
       
       ]
        
-      }},{"HBoxContainer":
+          ,
+         "children":
+      [{"Label": {
+          "id": "99067220230817491286006503317219952361",
+          "text": "In State"
+       
+       }  }
+      ]
+       
+      }},{"PanelContainer":
       {
-         "id": "-47601369528802306139320357667555669620",
+         "id": "36730005589408803376407104048237887948"
+      ,
+          "styles": [
+      
+      
+      {
+         "StyleBoxFlat": 
+            
+            
+            {
+               "panel": {
+                  
+                  
+                     "bg_color": "LIGHT_CORAL"
+                  
+               
+               }  }
+         
+           },
+      
+      
+      {
+         "FontSize": {
+            
+            
+               "font_size": "25"
+            
+         
+         }  }
+      
+      ]
+       
+          ,
+         "children":
+      [{"Label": {
+          "id": "-126602924962537420279711215752333195482",
+          "text": "Action"
+       
+       }  }
+      ]
+       
+      }},{"PanelContainer":
+      {
+         "id": "169145503105127374366071763349412697883"
+      ,
+          "styles": [
+      
+      
+      {
+         "StyleBoxFlat": 
+            
+            
+            {
+               "panel": {
+                  
+                  
+                     "bg_color": "LIGHT_CORAL"
+                  
+               
+               }  }
+         
+           },
+      
+      
+      {
+         "FontSize": {
+            
+            
+               "font_size": "25"
+            
+         
+         }  }
+      
+      ]
+       
+          ,
+         "children":
+      [{"Label": {
+          "id": "27061069691257161206063681939990994574",
+          "text": "Out State"
+       
+       }  }
+      ]
+       
+      }},{"PanelContainer":
+      {
+         "id": "-60185869474720318500639731995570547184"
+      ,
+          "styles": [
+      
+      
+      {
+         "StyleBoxFlat": 
+            
+            
+            {
+               "panel": {
+                  
+                  
+                     "bg_color": "LIGHT_CORAL"
+                  
+               
+               }  }
+         
+           },
+      
+      
+      {
+         "FontSize": {
+            
+            
+               "font_size": "25"
+            
+         
+         }  }
+      
+      ]
+       
+          ,
+         "children":
+      [{"Label": {
+          "id": "12136839634969930605326767905487095687",
+          "text": ""
+       
+       }  }
+      ]
+       
+      }}
+     ]
+     
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "AnchorPreset": {
+           
+           
+              "set_anchors_preset": "PRESET_FULL_RECT"
+           
+        
+        }  }
+     
+     ]
+      
+     }}
+    ]
+    
+    ,
+        "styles": [
+    
+    
+    {
+       "SizeFlags": {
+          
+          
+             "size_flags_horizontal": "SIZE_FILL",
+          
+          
+             "size_flags_vertical": "SIZE_FILL"
+          
+       
+       }  },
+    
+    
+    {
+       "AnchorPreset": {
+          
+          
+             "set_anchors_preset": "PRESET_FULL_RECT"
+          
+       
+       }  }
+    
+    ]
+      
+    }},{"VBoxContainer":
+    {
+       "id": "-43108053787911759903333198548203632719",
+       "children":
+    [{"HBoxContainer":
+     {
+        "id": "-71714535131920650640491361727807543977",
+        "children":
+     [{"PanelContainer":
+      {
+         "id": "163772120586443040900411629101635331097"
+       
+          ,
+         "children":
+      [{"OptionButton":
+       {
+          "id": "3640136254935827577889373181642028502",
+          "callback": "InterTransSetTarget(9,%state)"
+           ,
+          "options":
+       ["opened","closed"
+       ]
+        
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "20"
+             
+          
+          }  },
+       
+       
+       {
+          "Primitive": {
+             
+             
+                "selected": "Int%0",
+             
+             
+                "allow_reselect": "Boolean%true"
+             
+          
+          }  }
+       
+       ]
+        
+       }}
+      ]
+       
+      }},{"PanelContainer":
+      {
+         "id": "-168855188180684925264964924327129244018"
+       
+          ,
+         "children":
+      [{"TextEdit":
+       {
+          "id": "-115454473185395703202766978554734096505",
+          "callback": "TransSetTrigger(9, %text)",
+          "text": "closed"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "20"
+             
+          
+          }  },
+       
+       
+       {
+          "Vector2": 
+             
+             
+             {
+                "custom_minimum_size": {
+                   
+                   
+                      "x": "200",
+                   
+                   
+                      "y": "30"
+                   
+                
+                }  }
+          
+            }
+       
+       ]
+       
+       }}
+      ]
+       
+      }},{"PanelContainer":
+      {
+         "id": "-64934963849089668138909371717267188850"
+       
+          ,
+         "children":
+      [{"OptionButton":
+       {
+          "id": "-86880349607222753365850403330793068878",
+          "callback": "InterTransSetTarget(9,%state)"
+           ,
+          "options":
+       ["opened","closed"
+       ]
+        
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "20"
+             
+          
+          }  },
+       
+       
+       {
+          "Primitive": {
+             
+             
+                "selected": "Int%1",
+             
+             
+                "allow_reselect": "Boolean%true"
+             
+          
+          }  }
+       
+       ]
+        
+       }}
+      ]
+       
+      }},{"PanelContainer":
+      {
+         "id": "27584462652092879467709044100564127627"
+       
+          ,
          "children":
       [{"Button":
        {
-          "id": "126758327990081611114134786845124344216",
-          "text": "Create New Transition for State: closed",
-          "callback": "TransCreateSource(12,11)"
+          "id": "62645207934411473756755373236428410934",
+          "text": "Delete Transition",
+          "callback": "TransDelete(9)"
        ,
            "styles": [
        
@@ -1259,7 +3501,7 @@
           "Color": {
              
              
-                "font_color": "DARK_SLATE_GRAY"
+                "font_color": "GHOST_WHITE"
              
           
           }  },
@@ -1273,97 +3515,300 @@
                 "normal": {
                    
                    
-                      "bg_color": "HONEYDEW"
+                      "bg_color": "INDIAN_RED",
+                   
+                   
+                      "height": "30",
+                   
+                   
+                      "width": "50"
                    
                 
                 }  }
           
-            },
+            }
+       
+       ]
+       
+       }}
+      ]
+       
+      }}
+     ]
+     
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL",
+           
+           
+              "size_flags_vertical": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "AnchorPreset": {
+           
+           
+              "set_anchors_preset": "PRESET_FULL_RECT"
+           
+        
+        }  }
+     
+     ]
+      
+     }},{"HBoxContainer":
+     {
+        "id": "-9007946595452948596417689905516105272",
+        "children":
+     [{"PanelContainer":
+      {
+         "id": "99853724505723087402348011488530029638"
+       
+          ,
+         "children":
+      [{"OptionButton":
+       {
+          "id": "89724844652853086954388990560123832536",
+          "callback": "InterTransSetTarget(10,%state)"
+           ,
+          "options":
+       ["opened","closed"
+       ]
+        
+       ,
+           "styles": [
        
        
        {
-          "SizeFlags": {
+          "FontSize": {
              
              
-                "size_flags_horizontal": "SIZE_EXPAND_FILL"
+                "font_size": "20"
              
           
           }  },
        
        
        {
-          "AnchorPreset": {
+          "Primitive": {
              
              
-                "set_anchors_preset": "PRESET_FULL_RECT"
+                "selected": "Int%1",
+             
+             
+                "allow_reselect": "Boolean%true"
              
           
           }  }
        
        ]
+        
+       }}
+      ]
+       
+      }},{"PanelContainer":
+      {
+         "id": "92327945495474662664661573569460307471"
+       
+          ,
+         "children":
+      [{"TextEdit":
+       {
+          "id": "158325572703397487205895903131690812738",
+          "callback": "TransSetTrigger(10, %text)",
+          "text": "open"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "20"
+             
+          
+          }  },
+       
+       
+       {
+          "Vector2": 
+             
+             
+             {
+                "custom_minimum_size": {
+                   
+                   
+                      "x": "200",
+                   
+                   
+                      "y": "30"
+                   
+                
+                }  }
+          
+            }
+       
+       ]
        
        }}
       ]
-      
-      ,
-          "styles": [
-      
-      
+       
+      }},{"PanelContainer":
       {
-         "SizeFlags": {
-            
-            
-               "size_flags_horizontal": "SIZE_EXPAND_FILL"
-            
-         
-         }  },
-      
-      
+         "id": "-67695371963462163767765951529022541258"
+       
+          ,
+         "children":
+      [{"OptionButton":
+       {
+          "id": "136441406715502648791214177248637455841",
+          "callback": "InterTransSetTarget(10,%state)"
+           ,
+          "options":
+       ["opened","closed"
+       ]
+        
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "20"
+             
+          
+          }  },
+       
+       
+       {
+          "Primitive": {
+             
+             
+                "selected": "Int%0",
+             
+             
+                "allow_reselect": "Boolean%true"
+             
+          
+          }  }
+       
+       ]
+        
+       }}
+      ]
+       
+      }},{"PanelContainer":
       {
-         "AnchorPreset": {
-            
-            
-               "set_anchors_preset": "PRESET_FULL_RECT"
-            
-         
-         }  }
-      
+         "id": "107288495433571379343556086341421014970"
+       
+          ,
+         "children":
+      [{"Button":
+       {
+          "id": "-168941199854927900561711382544532885937",
+          "text": "Delete Transition",
+          "callback": "TransDelete(10)"
+       ,
+           "styles": [
+       
+       
+       {
+          "FontSize": {
+             
+             
+                "font_size": "20"
+             
+          
+          }  },
+       
+       
+       {
+          "Color": {
+             
+             
+                "font_color": "GHOST_WHITE"
+             
+          
+          }  },
+       
+       
+       {
+          "StyleBoxFlat": 
+             
+             
+             {
+                "normal": {
+                   
+                   
+                      "bg_color": "INDIAN_RED",
+                   
+                   
+                      "height": "30",
+                   
+                   
+                      "width": "50"
+                   
+                
+                }  }
+          
+            }
+       
+       ]
+       
+       }}
       ]
        
       }}
      ]
      
-       
+     ,
+         "styles": [
+     
+     
+     {
+        "SizeFlags": {
+           
+           
+              "size_flags_horizontal": "SIZE_EXPAND_FILL",
+           
+           
+              "size_flags_vertical": "SIZE_EXPAND_FILL"
+           
+        
+        }  },
+     
+     
+     {
+        "AnchorPreset": {
+           
+           
+              "set_anchors_preset": "PRESET_FULL_RECT"
+           
+        
+        }  }
+     
+     ]
+      
+     }},{"Button":
+     {
+        "id": "-119250502204653831305781447708732869397",
+        "text": "Create new Transition",
+        "callback": ""
+     
      }}
     ]
     
-    ,
-        "styles": [
-    
-    
-    {
-       "SizeFlags": {
-          
-          
-             "size_flags_horizontal": "SIZE_EXPAND_FILL",
-          
-          
-             "size_flags_vertical": "SIZE_EXPAND_FILL"
-          
-       
-       }  },
-    
-    
-    {
-       "AnchorPreset": {
-          
-          
-             "set_anchors_preset": "PRESET_FULL_RECT"
-          
-       
-       }  }
-    
-    ]
       
     }}
    ]
@@ -1395,7 +3840,7 @@
       }  }
    
    ]
-    
+     
    }}
   ]
   

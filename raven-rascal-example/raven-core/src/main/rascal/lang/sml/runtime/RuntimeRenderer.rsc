@@ -33,34 +33,36 @@ public int getDefiningState(Env env, UUID siid) {
 public RavenNode render(Env env, machInst(UUID miid, UUID mid, UUID cur,  map[UUID sid, UUID siid] sis), "runtime-1") {
     
 
-    return ravenScrollContainer([ravenVBox([
-        ravenLabel("Possible trigger, dependening on curr event") 
+    return ravenVBox([
+        ravenMarginContainer([
+        ravenLabel("Possible Actions", settings=h2FontSize + hboxContainerHorizontalExpand)], settings=marginContainer5) 
     ] + [
-        // TODO how to parse that correctly ...
-        // Maybe define again a mapping in the env for possible values and their id?
-        ravenButton(elem, "MachInstTrigger(<miid>,\\\"<elem>\\\")") | elem <-getAllTrigger(env,getDefiningState(env, cur), miid) 
+        ravenButton(elem, "MachInstTrigger(<miid>,\\\"<elem>\\\")",settings=hboxContainerHorizontalExpand + buttonSubmit) | elem <-getAllTrigger(env,getDefiningState(env, cur), miid ) 
     ]+ [
         // The custom table, I guess
+        ravenMarginContainer([ravenLabel("Current Program State", settings=h2FontSize + hboxContainerHorizontalExpand)], 
+        settings=marginContainer5),
         ravenHBox([
             
-            ravenPanelContainer([ravenHBox([ravenLabel("Current State",settings=lang::sml::model::Styles::runtimeTabelLabel)])]),
-            ravenPanelContainer([ravenHBox([ravenLabel("State",settings=lang::sml::model::Styles::runtimeTabelLabel)])]),
-            ravenPanelContainer([ravenHBox([ravenLabel("Count",settings=lang::sml::model::Styles::runtimeTabelLabel)])]),
-            ravenPanelContainer([ravenHBox([ravenLabel("Events", settings=lang::sml::model::Styles::runtimeTabelLabel)])])
-        ], settings=hboxContainerStyles)
+            ravenPanelContainer([ravenHBox([ravenLabel("Current",settings=runtimeTabelLabel)])],settings=tableHeadingStyle),
+            ravenPanelContainer([ravenHBox([ravenLabel("State",settings=runtimeTabelLabel)])],settings=tableHeadingStyle),
+            ravenPanelContainer([ravenHBox([ravenLabel("Count",settings=runtimeTabelLabel)])],settings=tableHeadingStyle),
+            ravenPanelContainer([ravenHBox([ravenLabel("Events", settings=runtimeTabelLabel)])],settings=tableHeadingStyle)
+        ], settings=hboxContainerHorizontalExpand)
     ]+ 
-    [render(env, env[t], cur, miid) | t <- env, stateInst(siid,sid,count) := env[t]])]);
+    [render(env, env[t], cur, miid) | t <- env, stateInst(siid,sid,count) := env[t]],
+    settings=hboxContainerHorizontalExpand);
 
 }
 
 public RavenNode render(Env env, stateInst(UUID siid, UUID sid, int count), UUID cur, UUID miid) {
     return ravenHBox([
-            ravenPanelContainer([ravenHBox([ravenLabel("<if(cur == siid){>*<}>",settings=lang::sml::model::Styles::runtimeTabelLabel)])]),
-            ravenPanelContainer([ravenHBox([ravenLabel("<env[sid].name>",settings=lang::sml::model::Styles::runtimeTabelLabel)])],settings=ravenPanelStyle),
-            ravenPanelContainer([ravenHBox([ravenLabel("<count>",settings=lang::sml::model::Styles::runtimeTabelLabel)])],settings=ravenPanelStyle),
+            ravenPanelContainer([ravenHBox([ravenLabel("<if(cur == siid){>*<}>",settings=lang::sml::model::Styles::runtimeTabelLabel)])],settings=tableBodyStyle),
+            ravenPanelContainer([ravenHBox([ravenLabel("<env[sid].name>",settings=lang::sml::model::Styles::runtimeTabelLabel)])],settings=tableBodyStyle),
+            ravenPanelContainer([ravenHBox([ravenLabel("<count>",settings=lang::sml::model::Styles::runtimeTabelLabel)])],settings=tableBodyStyle),
             ravenPanelContainer([ravenHBox([ravenLabel("<replaceAll(itoString([elem | elem <- getAllTrigger(env, sid,miid)]),"\"", "")>",
                                 settings=runtimeTabelLabel)
                                 ])],
-                                settings=ravenPanelStyle)
-        ],  settings=hboxContainerStyles);
+                                settings=tableBodyStyle)
+        ],  settings=hboxContainerHorizontalExpand);
 }

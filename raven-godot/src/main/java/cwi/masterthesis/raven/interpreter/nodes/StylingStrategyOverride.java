@@ -18,6 +18,12 @@ public class StylingStrategyOverride {
     }
 
     private enum ThemeProperty {
+        CONSTANT {
+            @Override
+            StylingStrategy createStrategy(Node node, Map.Entry<String, JsonNode> entry, ObjectMapper mapper) {
+                return new ConstantOverrideStrategy((Control) node, entry.getKey(), entry.getValue().asInt());
+            }
+        },
         VECTOR2 {
             @Override
             StylingStrategy createStrategy(Node node, Map.Entry<String, JsonNode> entry, ObjectMapper mapper) {

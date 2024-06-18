@@ -42,7 +42,7 @@ public RavenNode render(Env env) =
       ravenVBox([
       ravenLabel("State Machines Everywhere!",settings=h2FontSize),
       ravenButton("Create New Machine", "MachCreate(<nextID(env)>)", settings=buttonCreate),
-      ravenButton("Open New Tab", "ViewTabCreate(<uuidi()>)", settings=primaryButton)
+      ravenButton("Open New Tab", "ViewTabCreate(<uuidi()>)", settings=buttonCreate)
       ],settings=vboxContainerStyles),
       ravenVBox([
       ravenLabel("Available Machines",settings=h2FontSize)

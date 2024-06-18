@@ -17,6 +17,7 @@ import lang::sml::model::Styles;
 // Render General Tab Content (Root) ? of Machine
 // In Tree 
 public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] states, list[UUID] instances), "tree") =
+  ravenMarginContainer([
   ravenHBox(
    // toString(nextID(env)), "State Machine Language <mid>: <name>",
     [
@@ -30,7 +31,7 @@ public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] st
         [ render(env, getState(env, sid), "tree") | UUID sid <- states] 
       ,settings=vboxContainerStyles)
     ],settings=hboxContainerStyles
-  );
+  )], settings=marginContainerEven);
 
 
 
@@ -61,7 +62,9 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
   );
 public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, UUID tgt), "tree") {
   UUID mid2 = lang::Main::env_retrieveMIDfromSID(src);
-  return ravenHBox
+  return 
+  
+  ravenHBox
   (
     [
       
@@ -70,7 +73,7 @@ public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, 
       // TODO an adapter View Function?
       ravenOptionButton([name | elem <- env, state(_,mid2,name,_,_,_,_) := env[elem]],   "InterTransSetTarget(<id>,%state)",
       // Getting only the states available for that specific machine.
-      settings=[setting("Primitive", [<"selected", "Int%<List::indexOf([sid | elem <- env, state(sid,mid2,name,_,_,_,_) := env[elem]],tgt)>">, <"allow_reselect", "Boolean%true">])]),
+      settings= hboxContainerHorizontalExpand + [setting("Primitive", [<"selected", "Int%<List::indexOf([sid | elem <- env, state(sid,mid2,name,_,_,_,_) := env[elem]],tgt)>">, <"allow_reselect", "Boolean%true">])]),
       ravenButton("Delete Transition", "TransDelete(<id>)", settings=buttonDanger  + hboxContainerHorizontalExpand)
       //FIXME: should be from the current machine these states are part of
     ]
