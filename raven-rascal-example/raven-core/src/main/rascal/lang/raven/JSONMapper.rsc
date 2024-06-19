@@ -358,8 +358,20 @@ RavenNode mapNodesToJSON(RavenNode tree)  {
     top-down-break visit(tree){
     case RavenNode tree : JSON_CONTENT += rvn_print(tree);
 }
-
 return tree;
+}
+
+str mapNodesToJSONStr(RavenNode tree)  {
+    str result = "";
+    top-down-break visit(tree){
+    case RavenNode tree : result += rvn_print(tree);
+}
+return result;
+}
+
+public str genJSONStr(RavenNode tree) {
+    str result = mapNodesToJSONStr(tree);
+    return "{" + result + "}";
 }
 
 

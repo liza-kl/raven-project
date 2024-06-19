@@ -19,22 +19,25 @@ public void viewControl(Command incomingCallback: ViewTabCreate(UUID vid)) {
     // Default are tree views.
     lang::Main::env = lang::sml::control::REPL::eval(lang::Main::env, ViewTabSetType(vid, "tree"));
     env = updateMachines(env);
-    lang::raven::JSONMapper::genJSON(render(env));
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+   lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: ViewTabDelete(UUID vid)) {
    // IO::println("Calling ViewTabDelete");
     env = lang::sml::control::REPL::eval(lang::Main::env, ViewTabDelete(vid));
     env = updateMachines(env);
-    genJSON(lang::sml::model::Renderer::render(env));    
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 public void viewControl(Command incomingCallback: ViewTabSetCurrentTab(UUID tabID)) {
  //   IO::println("Calling ViewTabSetCurrentTab");
     lang::Main::env = lang::sml::control::REPL::eval(lang::Main::env, ViewTabSetCurrentTab(tabID));
-    genJSON(lang::sml::model::Renderer::render(env));    
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 
@@ -43,23 +46,26 @@ public void viewControl(Command incomingCallback: ViewTabSetType(UUID vid, str v
  //   IO::println("Calling ViewTabSetType");
     lang::Main::env = lang::sml::control::REPL::eval(lang::Main::env, ViewTabSetType(vid, viewType));   
     env = updateMachines(env);  
-    genJSON(lang::sml::model::Renderer::render(env));   
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: ViewTabSetMachine(UUID vid, UUID mid)) {
    // IO::println("Calling ViewTabSetMachine");
     lang::Main::env = lang::sml::control::REPL::eval(lang::Main::env, ViewTabSetMachine(vid,mid));
-    genJSON(lang::sml::model::Renderer::render(env));     
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: ViewTabSetMachineInstance(UUID vid, UUID miid)) {
  //   IO::println("Calling ViewTabSetMachineInstance");
     lang::Main::env = lang::sml::control::REPL::eval(lang::Main::env, ViewTabSetMachineInstance(vid,miid));
     env = updateMachines(env);
-    genJSON(lang::sml::model::Renderer::render(env));     
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public default void viewControl(Command incomingCallback) { 
