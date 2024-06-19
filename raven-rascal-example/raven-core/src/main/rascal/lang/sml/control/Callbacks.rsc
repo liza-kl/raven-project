@@ -27,8 +27,9 @@ public void viewControl(Command incomingCallback: MachCreate(UUID mid)) {
     lang::Main::env = eval(env, MachCreate(mid));
     env = updateMachines(env);
 
-    lang::raven::JSONMapper::genJSON(render(env));
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+    //lang::raven::JSONMapper::genJSON(render(env));
+      lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+  //  lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: MachDelete(UUID mid)) {
@@ -40,16 +41,20 @@ public void viewControl(Command incomingCallback: MachDelete(UUID mid)) {
     lang::Main::env = lang::sml::control::REPL::eval(lang::Main::env, ViewTabDelete(v));
     }
     env = updateMachines(env);
-    lang::raven::JSONMapper::genJSON(render(env));
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+    
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: MachSetName(UUID mid, ID name)) {
    // println("Calling MachSetName");
     env = eval(env, MachSetName(mid,name));
     env = updateMachines(env);
-    lang::raven::JSONMapper::genJSON(render(env));
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: StateCreate(UUID sid, UUID mid)) {
@@ -58,8 +63,9 @@ public void viewControl(Command incomingCallback: StateCreate(UUID sid, UUID mid
     env = eval(env, StateCreate(sid,mid));
     Model m = getMach(env, mid);
     env = updateMachines(env);
-    lang::raven::JSONMapper::genJSON(render(env));
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: StateSetName(UUID sid, ID name)) {
@@ -69,8 +75,9 @@ public void viewControl(Command incomingCallback: StateSetName(UUID sid, ID name
     UUID mid = env_retrieveMIDfromSID(sid);
     list[int] vid = env_retrieveVIDfromMID(mid);
     env = updateMachines(env);
-    lang::raven::JSONMapper::genJSON(render(env));
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: StateDelete(UUID sid)) {
@@ -78,8 +85,9 @@ public void viewControl(Command incomingCallback: StateDelete(UUID sid)) {
     UUID mid = env_retrieveMIDfromSID(sid);
     lang::Main::env = eval(env, StateDelete(sid));
     env = updateMachines(env);
-    lang::raven::JSONMapper::genJSON(render(env));
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: TransCreate(UUID tid, UUID src, UUID tgt)) {
@@ -95,8 +103,9 @@ public void viewControl(Command incomingCallback: TransCreate(UUID tid, UUID src
 
     env = updateMachines(env);
 
-    lang::raven::JSONMapper::genJSON(render(env));
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: TransCreateSource(UUID tid, UUID src)) {
@@ -112,8 +121,9 @@ public void viewControl(Command incomingCallback: TransCreateSource(UUID tid, UU
     }
     env = updateMachines(env);
 
-    lang::raven::JSONMapper::genJSON(render(env));
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+   lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: TransSetTarget(UUID tid, UUID tgt)) {
@@ -125,8 +135,9 @@ public void viewControl(Command incomingCallback: TransSetTarget(UUID tid, UUID 
     //     lang::Main::env = eval(env,ViewTabSetMachine(v, mid));
     // }
     env = updateMachines(env);
-    lang::raven::JSONMapper::genJSON(render(env));
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: TransSetTrigger(UUID tid, ID trigger)) {
@@ -138,8 +149,9 @@ public void viewControl(Command incomingCallback: TransSetTrigger(UUID tid, ID t
     //     lang::Main::env = eval(env,ViewTabSetMachine(v, mid));
     // }
     env = updateMachines(env);
-    lang::raven::JSONMapper::genJSON(render(env));
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 public void viewControl(Command incomingCallback: TransDelete(UUID tid)) {
@@ -151,8 +163,9 @@ public void viewControl(Command incomingCallback: TransDelete(UUID tid)) {
     //     lang::Main::env = eval(env,ViewTabSetMachine(v, mid));
     // }
     env = updateMachines(env);
-    lang::raven::JSONMapper::genJSON(render(env));
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+   lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 // TODO need to put this helper function somewhere else.

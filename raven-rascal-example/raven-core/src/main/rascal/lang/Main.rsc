@@ -131,10 +131,7 @@ void main() {
 
   lang::raven::Core::newRavenApp(dispatcherFunc);
   RavenNode view = render(env);
-  genJSON(view);
-
- 
-  lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(JSON_TREE_FILE));
+  lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(view));
 
 
   //init();

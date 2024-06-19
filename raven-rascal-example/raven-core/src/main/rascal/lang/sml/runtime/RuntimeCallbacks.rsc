@@ -45,8 +45,9 @@ public void runtimeControl(Command incomingCallback: MachInstCreate(UUID miid, U
     viewMID2.mappings[vid2] = miid;
     env = env_store(env, 3, viewMID(viewMID2.mappings));
     env = updateMachines(env); 
-    lang::raven::JSONMapper::genJSON(render(env));
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 
@@ -60,8 +61,9 @@ public void runtimeControl(Command incomingCallback: MachInstDelete(UUID miid, U
     }
     env = eval(env, MachInstDelete(miid, mid));
     env = updateMachines(env); 
-    lang::raven::JSONMapper::genJSON(render(env));
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+    lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
 
 // IMP
@@ -69,6 +71,7 @@ public void runtimeControl(Command incomingCallback: MachInstTrigger(UUID miid, 
    // IO::println("Calling MachInstTrigger");
     env = eval(env, MachInstTrigger(miid, trigger));
     env = updateMachines(env); 
-    lang::raven::JSONMapper::genJSON(render(env));
-    lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
+   lang::raven::helpers::Server::send("VIEW_UPDATE:" + genJSONStr(render(env)));
+    // lang::raven::JSONMapper::genJSON(render(env));
+    // lang::raven::helpers::Server::send("VIEW_UPDATE:" + readFile(ApplicationConf::JSON_TREE_FILE));
 }
