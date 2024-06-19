@@ -1,0 +1,10 @@
+# config.yaml
+app:
+  name: raven-protocol
+  version: 0.0.1
+  rascal-search-path: ["/Users/ekletsko/raven-project/raven-rascal-example/raven-core/src/main/rascal"]
+  imports: ["lang::raven::Core", "lang::Main"]
+  main:
+    - module: "lang::Main"
+    - func: "main"
+    - args: []
