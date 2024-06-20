@@ -99,6 +99,8 @@ and _game engines_ in a _generic_ way. The goal is to have a prototype for creat
 
 <!-- GETTING STARTED -->
 ## How to try it out
+> [!WARNING]  
+> Currently only available for macOS
 
 This is an example of how you may give instructions on setting up the project locally.
 
@@ -107,7 +109,7 @@ This is an example of how you may give instructions on setting up the project lo
 
 - You need at least Java Version 11 on your machine
 - Please download the [0.9.1-4.2.2](https://github.com/utopia-rise/godot-kotlin-jvm/releases/tag/0.9.1-4.2.2) of the Godot/JVM framework
-- If you are under macOS, please move the Godot Application to the Applications folder. 
+- If you are under macOS, please move the Godot Application to the Applications folder: `/Applications/Godot.app/Contents/MacOS/Godot` 
 - For "enhanced" developer experience, please consider [downloading](https://github.com/tmux/tmux/wiki) `tmux` 
 
 ### Installation
@@ -117,11 +119,10 @@ This is an example of how you may give instructions on setting up the project lo
    git clone https://github.com/liza-kl/raven-project.git
    ```
 2. [Download Rascal](https://github.com/usethesource/rascal/releases/tag/v0.33.0)
-3. In the `raven-example/raven-protocol` go to the `src/main&resources/config.yaml` and replace the `rascal-search-path`
+3. In the `raven-rascal-example/raven-protocol` go to the [`src/main/resources/config.yaml`](https://github.com/liza-kl/raven-project/blob/main/raven-rascal-example/raven-protocol/src/main/resources/config.yaml) and replace the `rascal-search-path`
    so it points to the `raven-project/raven-rascal-example/raven-core/src/main/rascal` project. 
-4. Setup the project
+4. Setup the project under `raven-project/raven-rascal-example/raven-core`
    ```sh
-   cd raven-core 
    make setup
    ```
 
