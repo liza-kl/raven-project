@@ -1,13 +1,5 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
 
 
 <!-- PROJECT SHIELDS -->
@@ -88,7 +80,7 @@ RAVEN is my Master's thesis project. It aims to connect the technological spaces
 and _game engines_ in a _generic_ way. The goal is to have a prototype for creating visual programming environments with Godot. 
 
 > [!WARNING]  
-> This is a work in progress and has only been tested under macOS so far. I am working on a Docker image to make the setup process easier.
+> This is a work in progress and has only been tested under macOS.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -106,17 +98,17 @@ and _game engines_ in a _generic_ way. The goal is to have a prototype for creat
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## How to try it out
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+This is an example of how you may give instructions on setting up the project locally.
+
 
 ### Prerequisites
 
 - You need at least Java Version 11 on your machine
-- Please download the [0.8.2-4.2.1 release](https://github.com/utopia-rise/godot-kotlin-jvm/releases/tag/0.8.2-4.2.1) of the Godot/JVM framework
-- If you ar under macOS, please move the Godot Application to the Applications folder. 
-- For "enhanced" developer experience, please consider to [download](https://github.com/tmux/tmux/wiki) `tmux` 
+- Please download the [0.9.1-4.2.2](https://github.com/utopia-rise/godot-kotlin-jvm/releases/tag/0.9.1-4.2.2) of the Godot/JVM framework
+- If you are under macOS, please move the Godot Application to the Applications folder. 
+- For "enhanced" developer experience, please consider [downloading](https://github.com/tmux/tmux/wiki) `tmux` 
 
 ### Installation
 
@@ -124,8 +116,12 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    git clone https://github.com/liza-kl/raven-project.git
    ```
-2. Setup the project
+2. [Download Rascal](https://github.com/usethesource/rascal/releases/tag/v0.33.0)
+3. In the `raven-example/raven-protocol` go to the `src/main&resources/config.yaml` and replace the `rascal-search-path`
+   so it points to the `raven-project/raven-rascal-example/raven-core/src/main/rascal` project. 
+4. Setup the project
    ```sh
+   cd raven-core 
    make setup
    ```
 
@@ -154,6 +150,7 @@ If you have **not** installed `tmux`:
    make run.godot
    ```
 
+Now it should display the Tiny State Machine Example
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
