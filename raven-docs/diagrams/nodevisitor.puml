@@ -1,0 +1,30 @@
+@startuml
+interface RavenNode {
+    +  void acceptVisitor(v: Visitor);
+
+}
+
+class RavenButton {
+    + acceptVisitor(v: Visitor)
+    + operationA()
+}
+
+interface Visitor {
+    + visitButton(element: RavenButton)
+}
+
+class Interpreter {
+    + visitButton(element: RavenButton)
+}
+
+
+RavenNode <|-- RavenButton
+
+Visitor <|-- Interpreter
+
+RavenButton --> Visitor : accept(v)
+Interpreter --> RavenButton : visitButton(element)
+
+Visitor <-r[hidden]-- Interpreter
+
+@enduml

@@ -1,51 +1,86 @@
 @startuml
 
-node "Language Model" as langmodel {
-    component "lang::sml::renderer"
-    component "lang::sml::control"
+top to bottom direction
+
+/'
+artifact "Scene Tree" as st
+artifact "Scene Tree as JSON" as json
+'/
+/'
+node "Game Engine View" as godotView #ffe5d9
+
+
+frame "Generic Part" as genericPart #f07167 {
+node "Interpreter Backend for Game Engine" as godotBE #fed9b7 {
+
+node "Peer" as peer #fdfcdc {
+component "Sender" as genericSender #ffcad4
+component "Receiver" as receiver #ffcad4
+component "Shared Buffer" as buffer #ffcad4
 }
 
-"lang::sml::renderer" -[hidden]-> "lang::sml::control"
+component "JSON Interpreter" as jsonInt #00afb9
+}
+}
+jsonInt --> godotView : ⑤ Generate Scene Tree
+godotView -[hidden]d-> genericPart
+receiver --> buffer: ③ Read Buffer
+receiver --> jsonInt : ④ Call(Json)
+jsonInt -[hidden]d-> peer
 
-node "raven core (Rascal)" as rascal {
-    component "Design Specification" as ds {
+genericSender -[hidden]-> godotView
+godotView --> genericSender : ① (On User Action) \nSend Message
+genericSender --> buffer : ② Write Message
 
-    }
-    component "View Specification" as vs {
+'/
 
-        }
-    component "Change Listener" as listener
+frame "LWB Specific Part" as lwbSpecificPart {
+node "Language Workbench Implementation " as rascal {
 
-    component "Generator" as gen
+    component "JSON Generator" as gen
+    component "Data Type Definition" as dtd
+    component "Dispatcher \n Component" as lwbDispatcher
+    component "Transporter \n Function" as lwbSendFunc
+
+}
+node "Communication Unit" as comunit {
+
+    component "Sender" as lwbSender
+    component "Shared Buffer" as lwbSharedBuffer
+    component "Receiver" as lwbReceiver
+}
+}
+lwbSender -[hidden]-> lwbSender
+rascal -[hidden]u-> comunit
+
+/'
+frame "Language Specific Part" as languageSpecificPart {
+node "DSL \n e.g Live State Machine" as langmodel {
+component Controller as controller
+component Model as model
+component "Renderer for \n Elements (View)" as dslView
+}
 
 }
 
-interface "Scene Tree as JSON" as json
-
-node "Java Server" as java {
-component "Sender"
-component "Receiver"
-}
-
-node "Godot" as godotBE {
-component "Sender"
-component "Receiver"
-component "JSON Interpreter"
-}
 
 
-java -[hidden]-> rascal
-json <.. godotBE :use
-godotFE -[hidden]-> godotBE
-ds ..> gen :use
- vs -u-> ds
-
-godotBE --> displayui
 
 
-vs ..> gen :use
+lwbReceiver --> lwbDispatcher :call
+gen --> dtd :use
 gen --> json :produce
-godotBE --> listener: communicate changes
-listener --> gen :call on change
+jsonInt --> st :generate
+lwbSendFunc <.. json :consume
+lwbSendFunc --> lwbSender :send
+lwbSendFunc --> genericSender :send
+godotView ..> st :display
+dslView --> dtd :use
 
+lwbSpecificPart -[hidden]u-> genericPart
+lwbSpecificPart -[hidden]u-> languageSpecificPart
+
+st -[hidden]d-> json
+json -[hidden]d-> godotView
+'/
 @enduml

@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+
+frame "Language Agnostic" {
+rectangle "Game Engine View" as godotView
+rectangle "Raven Generic \nInterpreter Backend" as genericPart
+}
+frame "Specific LWB Implementation" {
+rectangle "Specific Raven \nLWB Implementation" as lwbPart
+}
+frame "DSL Model" {
+rectangle "DSL" as dsl
+}
+
+godotView --> genericPart : callback \n string
+lwbPart --> genericPart : send \n editor \nstructure
+genericPart --> godotView : scene tree
+genericPart --> lwbPart : callback \n string
+lwbPart --> dsl : execute \n callback \n function
+lwbPart <-- dsl  : pass \n updated\n view
+
+
+@enduml
