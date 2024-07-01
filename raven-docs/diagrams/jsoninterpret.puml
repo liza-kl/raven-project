@@ -1,0 +1,31 @@
+@startuml
+
+node " " as rascal {
+
+    component "JSON Generator" as gen
+    note right
+      //<<JSON Gen Func>>//
+      // LABEL
+      str rvn_print(RavenNode nodeName: ravenLabel(str text)) =
+          "\"Label\": {
+          \'   \"id\": \"<uuidi()>\",
+          '   \"text\": <rvn_print(text)>
+          '<if(isKeywordArgDefined(nodeName, "settings")){>,
+          \"styles\": [
+          '<rvn_print(getKeywordParameters(nodeName)["settings"])>
+          ']
+          '<}>
+          '}  ";
+    end note
+    component "Data Type Definition" as dtd
+    note right
+          //<<Example>>//
+           public data RavenNode =
+           | ravenLabel(str text,list[Setting] settings = [])
+    end note
+    component "Dispatcher \n Component" as lwbDispatcher
+    component "Transporter \n Function" as lwbSendFunc
+
+}
+
+@enduml

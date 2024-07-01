@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+
+frame "Language Agnostic" {
+rectangle "Godot View" as godotView
+rectangle "Raven Generic Backend" as genericPart
+}
+frame "Rascal Implementation" {
+rectangle "Raven LWB Implementation" as lwbPart
+}
+frame "LiveSML" {
+rectangle "DSL" as dsl
+}
+
+godotView --> genericPart : callback \n string
+genericPart --> godotView : scene tree
+genericPart --> lwbPart : callback \n string
+lwbPart --> dsl : execute \n callback \n function
+lwbPart <-- dsl  : pass \n updated view
+lwbPart --> genericPart : send \n JSON
+
+
+@enduml
