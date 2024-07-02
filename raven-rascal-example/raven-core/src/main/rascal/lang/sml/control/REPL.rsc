@@ -134,11 +134,11 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
                 ravenButton("Delete Machine", "MachDelete(<mid>)", settings=hboxContainerHorizontalExpand +buttonDanger)
                 ], settings=hboxContainerHorizontalExpand),
                 ravenHBox([
-                ravenLabel("Machine Name", settings=bodyFontSize + hboxContainerHorizontalExpand),
-                ravenTextEdit(machine.name, "MachSetName(<mid>, %text)", settings=textEditSettings +hboxContainerHorizontalExpand)
-                ], settings=hboxContainerHorizontalExpand),
+                ravenLabel("Machine Name", settings=bodyFontSize + hboxContainerHorizontalExpand)
+                // ravenTextEdit(machine.name, "MachSetName(<mid>, %text)", settings=textEditSettings +hboxContainerHorizontalExpand)
+                ], settings=hboxContainerHorizontalExpand), 
                 
-                lang::raven::RavenNode::ravenButton("Create State", "StateCreate(<nextID(env)>, <mid>)", settings=buttonCreate),
+               // lang::raven::RavenNode::ravenButton("Create State", "StateCreate(<nextID(env)>, <mid>)", settings=buttonCreate),
                 lang::raven::RavenNode::ravenButton("Run Instance of this Machine", "MachInstCreate(<nextID(env)>,<mid>)", settings=buttonCreate),
                 ravenMarginContainer([
                 ravenLabel("Available Editors", settings=h2FontSize)], settings=marginContainer5),
