@@ -3,7 +3,7 @@ app:
   name: raven-protocol
   version: 0.0.1
   # Adjust the path here to the raven-core project
-  rascal-search-path: ["/Users/<YOUR-USERNAME>/raven-project/raven-rascal-example/raven-core/src/main/rascal"]
+  rascal-search-path: ["/Users/ekletsko/raven-project/raven-rascal-example/raven-core/src/main/rascal"]
   imports: ["lang::raven::Core", "lang::Main"]
   main:
     - module: "lang::Main"

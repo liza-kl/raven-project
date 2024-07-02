@@ -72,6 +72,17 @@ public list[Setting] hboxContainerHorizontalExpand = [
   setting("AnchorPreset", [<"set_anchors_preset", "PRESET_FULL_RECT">])
 ];
 
+public list[Setting] hboxContainerHorizontalExpand2 = [
+  setting("SizeFlags", [<"size_flags_horizontal","SIZE_EXPAND">
+                        ])
+        
+                
+] +  [setting("Vector2", [setting("custom_minimum_size",  [
+        <"x",200>,
+        <"y",0>
+      ])])];
+
+
 public list[Setting] marginContainerSetting = [
   setting("Constant", [<"margin_top", 20>])
 ];
@@ -124,9 +135,16 @@ public list[Setting] panelTreeEditorEditState = [
       ])])  
 ];
 
-public list[Setting] panelTableEditor =   [
+public list[Setting] panelTreeMachName =   [
   setting("StyleBoxFlat", [setting("panel",  [
         <"bg_color","DEEP_PINK">
+      ])]) 
+];
+
+
+public list[Setting] panelTableEditor =   [
+  setting("StyleBoxFlat", [setting("panel",  [
+        <"bg_color","ORANGE">
       ])]) 
 ];
 

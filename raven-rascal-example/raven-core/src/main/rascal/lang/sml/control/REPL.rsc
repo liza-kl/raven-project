@@ -134,7 +134,7 @@ public Env eval(Env env, Command cmd: ViewTabSetMachine(UUID vid, UUID mid)) {
                 ravenButton("Delete Machine", "MachDelete(<mid>)", settings=hboxContainerHorizontalExpand +buttonDanger)
                 ], settings=hboxContainerHorizontalExpand),
                 ravenHBox([
-                ravenLabel("Machine Name", settings=bodyFontSize + hboxContainerHorizontalExpand)
+              //  ravenLabel("Machine Name", settings=bodyFontSize + hboxContainerHorizontalExpand)
                 // ravenTextEdit(machine.name, "MachSetName(<mid>, %text)", settings=textEditSettings +hboxContainerHorizontalExpand)
                 ], settings=hboxContainerHorizontalExpand), 
                 

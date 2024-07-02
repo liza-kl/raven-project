@@ -37,7 +37,7 @@ public RavenNode render(Env env, Model m: mach(UUID mid, str name, list[UUID] st
   ravenHBox([
                 ravenLabel("Machine", settings=bodyFontSize),
                 ravenTextEdit(name, "MachSetName(<mid>, %text)", settings=textEditSettings),
-                ravenButton("X", "MachDelete(<mid>)", settings=buttonDanger)])] settings=panelTableEditor)
+                ravenButton("X", "MachDelete(<mid>)", settings=buttonDanger)])] settings=panelTreeMachName)
                 
                 ], settings=hboxContainerStyles)
         ] +
@@ -90,14 +90,14 @@ public RavenNode render(Env env, Model t: trans(UUID id, UUID src, str trigger, 
   ravenHBox
   (
     [
-      ravenLabel("Transition", settings=bodyFontSize + hboxContainerHorizontalExpand),
-      ravenTextEdit(trigger, "TransSetTrigger(<id>, %text)", settings=textEditSettings + hboxContainerHorizontalExpand),
-      ravenLabel(" =\> " settings=bodyFontSize + hboxContainerHorizontalExpand),
+      ravenLabel("Transition", settings=bodyFontSize + hboxContainerHorizontalExpand2),
+      ravenTextEdit(trigger, "TransSetTrigger(<id>, %text)", settings=textEditSettings + hboxContainerHorizontalExpand2),
+      ravenLabel(" =\> " settings=bodyFontSize + hboxContainerHorizontalExpand2),
       // TODO an adapter View Function?
       ravenOptionButton([name | elem <- env, state(_,mid2,name,_,_,_,_) := env[elem]],   "InterTransSetTarget(<id>,%state)",
       // Getting only the states available for that specific machine.
-      settings= hboxContainerHorizontalExpand + [setting("Primitive", [<"selected", "Int%<List::indexOf([sid | elem <- env, state(sid,mid2,name,_,_,_,_) := env[elem]],tgt)>">, <"allow_reselect", "Boolean%true">])]),
-      ravenButton("X", "TransDelete(<id>)", settings=buttonDanger  + hboxContainerHorizontalExpand)
+      settings= hboxContainerHorizontalExpand2 + [setting("Primitive", [<"selected", "Int%<List::indexOf([sid | elem <- env, state(sid,mid2,name,_,_,_,_) := env[elem]],tgt)>">, <"allow_reselect", "Boolean%true">])]),
+      ravenButton("X", "TransDelete(<id>)", settings=buttonDanger  + hboxContainerHorizontalExpand2)
       //FIXME: should be from the current machine these states are part of
     ]
   ,settings=hboxContainerHorizontalExpand)], settings=panelTreeEditorEditState)], settings=marginContainerTreeEditor2); }

@@ -24,14 +24,13 @@ public class NativeClientReceiver extends Node implements ReceiveCallback {
     @Override
     public void onReceive(String element) {
        // GD.INSTANCE.print("New element received Client: " + element);
-
+        long startTime = System.currentTimeMillis();
         String[] parts = element.split(":", 2);
         if (parts.length != 2) {
             throw new RuntimeException("Invalid message received: " + element);
         }
 
         String messageType = parts[0];
-       // System.out.println(messageType);
         String content = parts[1];
 
         switch (messageType) {
@@ -49,6 +48,7 @@ public class NativeClientReceiver extends Node implements ReceiveCallback {
                 GD.INSTANCE.print("A problem appearead");
             }
         }
-
+        long endTime = System.currentTimeMillis();
+        System.out.println("Total execution time of @onReceive(String element) Godot: " + (endTime-startTime) + "ms");
     }
 }
