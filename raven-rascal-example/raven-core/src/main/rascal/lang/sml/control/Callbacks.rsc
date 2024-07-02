@@ -109,9 +109,9 @@ public void viewControl(Command incomingCallback: TransCreate(UUID tid, UUID src
 }
 
 public void viewControl(Command incomingCallback: TransCreateSource(UUID tid, UUID src)) {
-    println("TransCreateSource(UUID tid, UUID src))");
-    println("env before trans create source");
-    println(env);
+  //  println("TransCreateSource(UUID tid, UUID src))");
+  //  println("env before trans create source");
+  //  println(env);
     env = eval(env, TransCreateSource( tid,src));
 // Fixing
     UUID mid = env_retrieveMIDfromSID(src);

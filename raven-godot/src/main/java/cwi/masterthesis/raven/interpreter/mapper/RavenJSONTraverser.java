@@ -20,6 +20,7 @@ public final class RavenJSONTraverser {
      * @throws JsonProcessingException
      */
     public static void traverse(JsonNode node, Node mainNode) throws JsonProcessingException {
+        long startTime = System.currentTimeMillis();
         if (node.isArray()) {
             int amountOfChildren = node.size();
             for (int i = 0; i < amountOfChildren; i++) {
@@ -43,6 +44,8 @@ public final class RavenJSONTraverser {
                 traverse(childNode, mainNode);
             }
         }
+        long endTime = System.currentTimeMillis();
+        System.out.println("Total execution time of @traverse(JsonNode node, Node mainNode): " + (endTime-startTime) + "ms");
     }
 
     /**
@@ -60,6 +63,7 @@ public final class RavenJSONTraverser {
             attrMap.put(key, value);
         }
         return attrMap;
+
     }
 
 

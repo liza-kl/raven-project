@@ -22,6 +22,8 @@ class ServerReceiver implements ReceiveCallback {
     private static ServerReceiver instance;
 
     public ServerReceiver(PrintWriter output, IValueFactory values) {
+        long startTime = System.currentTimeMillis();
+
         YamlUtil config = new YamlUtil("config.yaml");
         this.output = output;
         this.values = values;
@@ -42,6 +44,9 @@ class ServerReceiver implements ReceiveCallback {
             String func = (String) mainConfig.get(1).get("func");
             this.evaluator.call(null, module, func);
 
+        long endTime = System.currentTimeMillis();
+        System.out.println("Total execution time of @ServerReceiver(PrintWriter output, IValueFactory values) Rascal: " + (endTime-startTime) + "ms");
+
     }
 
     public static synchronized ServerReceiver getInstance(PrintWriter output,IValueFactory values) {
@@ -56,6 +61,7 @@ class ServerReceiver implements ReceiveCallback {
     @Override
     public void onReceive(String element) {
         //System.out.println("Server received: " + element);
+        long startTime = System.currentTimeMillis();
 
         element = element.startsWith("\"") ?  element.substring(1, element.length() -1) : element;
         element = element.endsWith("\"") ?  element.substring(0, element.length() -1) : element;
@@ -96,5 +102,8 @@ class ServerReceiver implements ReceiveCallback {
         else {
             System.out.println("Invalid message received: " + element);
         }
+
+        long endTime = System.currentTimeMillis();
+        System.out.println("Total execution time of @onReceive(String element) Rascal: " + (endTime-startTime) + "ms");
     }
 }
