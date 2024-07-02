@@ -87,6 +87,17 @@ public list[Setting] marginContainerEven = [
     <"margin_top", 5>,
     <"margin_bottom", 5>])] + hboxContainerStyles;
 
+public list[Setting] marginContainerTreeEditor = [
+   setting("Constant",
+    [<"margin_left", 30>
+   ])];
+
+public list[Setting] marginContainerTreeEditor2 = [
+   setting("Constant",
+    [<"margin_left", 60>
+   ])];
+
+
 public list[Setting] panelStyles = [
   setting("SizeFlags", [<"size_flags_horizontal","SIZE_EXPAND_FILL">,
                         <"size_flags_vertical", "SIZE_EXPAND_FILL">
@@ -101,6 +112,18 @@ public list[Setting] panelTreeEditor =   [
       ])]) 
 ];
 
+public list[Setting] panelTreeEditorState = [
+  setting("StyleBoxFlat", [setting("panel",  [
+        <"bg_color","ORANGE">
+      ])])
+];
+
+public list[Setting] panelTreeEditorEditState = [
+ setting("StyleBoxFlat", [setting("panel",  [
+        <"bg_color","DARK_VIOLET">
+      ])])  
+];
+
 public list[Setting] panelTableEditor =   [
   setting("StyleBoxFlat", [setting("panel",  [
         <"bg_color","DEEP_PINK">
@@ -110,6 +133,14 @@ public list[Setting] panelTableEditor =   [
 public list[Setting] vboxContainerStyles = [
   setting("SizeFlags", [<"size_flags_horizontal","SIZE_EXPAND_FILL">,
                         <"size_flags_vertical", "SIZE_EXPAND_FILL">
+                        ]),
+                
+  setting("AnchorPreset", [<"set_anchors_preset", "PRESET_FULL_RECT">])
+];
+
+public list[Setting] vBoxContainerCenter = [
+  setting("SizeFlags", [<"size_flags_horizontal","SIZE_EXPAND_FILL">,
+                        <"size_flags_vertical", "SIZE_SHRINK_CENTER">
                         ]),
                 
   setting("AnchorPreset", [<"set_anchors_preset", "PRESET_FULL_RECT">])
@@ -145,10 +176,8 @@ public list[Setting] buttonDanger = bodyFontSize +  [
       ])])];
 
 public list[Setting] buttonBlue = bodyFontSize +  [
-    setting("Color", [<"font_color", "GHOST_WHITE">]),
-    setting("StyleBoxFlat", [setting("normal",  [
-        <"bg_color","MEDIUM_SEA_BLUE"> 
-      ])])];
+    setting("Color", [<"font_color", "GHOST_WHITE">])
+    ];
 
 
 public list[Setting] runtimeTabelLabel = h2FontSize + setting("Color", [<"font_color","DARK_BLUE">]);

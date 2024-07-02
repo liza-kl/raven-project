@@ -43,9 +43,9 @@ public RavenNode render(Env env, Model s: state(UUID sid, UUID mid, str name, li
       ravenHBox
       (
         [
-          ravenPanelContainer([ravenLabel("Edit State Name", settings=bodyFontSize + hboxContainerHorizontalExpand)],settings=panelTableEditor + bodyFontSize + hboxContainerHorizontalExpand),
+          ravenPanelContainer([ravenLabel("State", settings=bodyFontSize + hboxContainerHorizontalExpand)],settings=panelTableEditor + bodyFontSize + hboxContainerHorizontalExpand),
           ravenPanelContainer([ravenTextEdit(name, "StateSetName(<sid>, %text)",  settings=textEditSettings + hboxContainerHorizontalExpand)], settings =  bodyFontSize + hboxContainerHorizontalExpand),
-          ravenPanelContainer([ravenButton("Delete State", "StateDelete(<sid>)", settings=buttonDanger + hboxContainerHorizontalExpand)],settings=panelTableEditor + bodyFontSize + hboxContainerHorizontalExpand)
+          ravenPanelContainer([ravenButton("X", "StateDelete(<sid>)", settings=buttonDanger + hboxContainerHorizontalExpand)],settings=panelTableEditor + bodyFontSize + hboxContainerHorizontalExpand)
         ],settings=hboxContainerHorizontalExpand
       );
 
