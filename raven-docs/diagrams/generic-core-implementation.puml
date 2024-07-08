@@ -1,0 +1,28 @@
+@startuml
+
+left to right direction
+
+frame "Language Agnostic" {
+
+node "Interpreter" as interpreter {
+    component "JSON Traverser" as traverser
+    component "Interpreter" as interpreter2
+}
+node "Godot View" as godotView
+
+
+traverser --> interpreter2 :calls
+interpreter2 --> godotView :send \nscene \ntree
+
+node "Communication Unit" as genericPart {
+    component Receiver
+    component Sender
+    component SharedBuffer
+
+}
+Sender --> SharedBuffer : write on \n VIEW_UPDATE
+Receiver --> SharedBuffer : read JSON
+Receiver --> traverser : call with JSON
+}
+
+@enduml

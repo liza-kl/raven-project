@@ -1,0 +1,642 @@
+Last login: Mon Jul  1 12:10:36 on ttys011 
+You have new mail. 
+COLORFGBG='7;0' 
+COLORTERM=truecolor 
+COMMAND_MODE=unix2003 
+HOME=/Users/ekletsko 
+HOMEBREW_CELLAR=/opt/homebrew/Cellar 
+HOMEBREW_PREFIX=/opt/homebrew 
+HOMEBREW_REPOSITORY=/opt/homebrew 
+INFOPATH=/opt/homebrew/share/info: 
+ITERM_PROFILE=Default 
+ITERM_SESSION_ID=w0t0p0:612916D0-5352-40FE-B812-EA160D86E4C9 
+JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home 
+LC_CTYPE=UTF-8 
+LC_TERMINAL=iTerm2 
+LC_TERMINAL_VERSION=3.4.23 
+LESS=-R 
+LOGNAME=ekletsko 
+LSCOLORS=Gxfxcxdxbxegedabagacad 
+LS_COLORS='di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43' 
+MANPATH=/opt/homebrew/share/man:: 
+NVM_CD_FLAGS=-q 
+NVM_DIR=/Users/ekletsko/.nvm 
+OLDPWD=/Users/ekletsko 
+PAGER=less 
+PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/coTMUX_PANE=%0 
+TMUX_PLUGIN_MANAGER_PATH=/Users/ekletsko/.config/tmux/plugins/ 
+TOLGEE_API_KEY=tgpak_gfpweolsneyxezrumvxgoy3igbwxizbsnr3he4jxnr2gg 
+USER=ekletsko 
+VSCODE_GIT_ASKPASS_EXTRA_ARGS='' 
+VSCODE_GIT_ASKPASS_MAIN='/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js' 
+Godot Engine v4.2.2.stable.custom_build.15073afe3 - https://godotengine.org 
+Vulkan API 1.2.280 - Forward+ - Using Vulkan Device #0: Apple - Apple M1 Pro 
+  
+Godot-JVM: Starting JVM ... 
+Godot-JVM: Using jvm type: jvm 
+Godot-JVM: Loading bootstrap jar: /Applications/Godot.app/Contents/MacOS/godot-bootstrap.jar 
+Godot-JVM: Starting GC thread 
+main Node in NativeClientroot:<Window#26675774229> 
+Starting Sender Thread 
+Starting Receiver Thread 
+main Node in Main Classroot:<Window#26675774229> 
+Total execution time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". 
+SLF4J: Defaulting to no-operation (NOP) logger implementation 
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details. 
+Total execution time of @traverse(JsonNode node, Node mainNode): 26ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 28ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 29ms 
+ven-protocol-1.0-SNAPSHOT.jar 
+Server started, waiting for connections... 
+Client connected: /127.0.0.1:62308 
+INFO: detected |lib://rascal| at |jar+file:///Users/ekletsko/raven-project/raven-rascal-example/raven-protocol/target/raven-protocol-1.0-SNAPSHOT.jar!/| 
+Total execution time of @ServerReceiver(PrintWriter output, IValueFactory values) Rascal: 3418ms 
+Client connected: /127.0.0.1:62309 
+Traverse JSON is called 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 6ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 5ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 5ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 11ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 12ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 12ms 
+Total execution time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 9ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 9ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 5ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 6ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 7ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 7ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 15ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 19ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 20ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 20ms 
+Total execution time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 5ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 8ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 8ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 6ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 6ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 11ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 11ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 11ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 11ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 20ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 27ms 
+30 
+Total execution time of @messageType.equals("CALLBACK"): 30ms 
+Total execution time of @onReceive(String element) raven-protocol: 30ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 1ms 
+Client connected: /127.0.0.1:62371 
+Execution of  @dispatch in Rascal  
+Execution of  @dispatch in Rascal  
+30 
+Total execution time of @messageType.equals("CALLBACK"): 30ms 
+Total execution time of @onReceive(String element) raven-protocol: 30ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 1ms 
+Client connected: /127.0.0.1:62371 
+Total execution time of @traverse(JsonNode node, Node mainNode): 26ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 27ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 27ms 
+ERROR: Caller thread can't call this function in this node (/root). Use call_deferred() or call_thread_group() instead. 
+   at: get_child (scene/main/node.cpp:1529) 
+Total execution time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 8ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 8ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 6ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 6ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 5ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 5ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 6ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 8ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 9ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 22ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 22ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 22ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 22ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 30ms 
+Execution of  @dispatch in Rascal  
+53 
+Total execution time of @messageType.equals("CALLBACK"): 53ms 
+Total execution time of @onReceive(String element) raven-protocol: 53ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 1ms 
+Total execution time of @onReceive(String element) raven-protocol: 2ms 
+Client connected: /127.0.0.1:62484 
+ERROR: Caller thread can't call this function in this node (/root). Use call_deferred() or call_thread_group() instead. 
+   at: get_child (scene/main/node.cpp:1529) 
+Total execution time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+Total execution time of @traverse(JsonNode node, Node mainNode): 14ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 20ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 9ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 10ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 5ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 10ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 10ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 19ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 19ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 19ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 19ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 29ms 
+Execution of  @dispatch in Rascal  
+92 
+Total execution time of @messageType.equals("CALLBACK"): 92ms 
+Total execution time of @onReceive(String element) raven-protocol: 92ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 1ms 
+Client connected: /127.0.0.1:62509 
+Total execution time of @onReceive(String element) Godot: 1ms 
+Traverse JSON is called 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 7ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 7ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 7ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 7ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 7ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 7ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 18ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 18ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 18ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 18ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 25ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 29ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 30ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 30ms 
+ERROR: Caller thread can't call this function in this node (/root). Use call_deferred() or call_thread_group() instead. 
+   at: get_child (scene/main/node.cpp:1529) 
+Execution of  @dispatch in Rascal  
+78 
+Total execution time of @messageType.equals("CALLBACK"): 80ms 
+Total execution time of @onReceive(String element) raven-protocol: 81ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 1ms 
+Client connected: /127.0.0.1:62572 
+Total execution time of @onReceive(String element) Godot: 1ms 
+Traverse JSON is called 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 6ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 6ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 5ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 9ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 9ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 8ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 8ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 20ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 20ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 20ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 20ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 27ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 31ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 31ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 31ms 
+Total execution time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 6ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 6ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 8ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 8ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 12ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 12ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 23ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 23ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 24ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 24ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 30ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 33ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 34ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 34ms 
+81 
+Total execution time of @messageType.equals("CALLBACK"): 81ms 
+Total execution time of @onReceive(String element) raven-protocol: 82ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 1ms 
+Client connected: /127.0.0.1:62662 
+Execution of  @dispatch in Rascal  
+94 
+Total execution time of @messageType.equals("CALLBACK"): 96ms 
+Total execution time of @onReceive(String element) raven-protocol: 96ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 1ms 
+Client connected: /127.0.0.1:62675 
+Execution of  @dispatch in Rascal  
+Total execution time of @onReceive(String element) raven-protocol: 94ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 2ms 
+Client connected: /127.0.0.1:62639 
+Execution of  @dispatch in Rascal  
+101 
+Total execution time of @messageType.equals("CALLBACK"): 103ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 34ms 
+Total execution time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 5ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 5ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 6ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 9ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 6ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 5ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 12ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 29ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 36ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 7ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 8ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 49ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 51ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 51ms 
+Total execution time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 6ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 6ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 5ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 7ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 14ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 24ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 30ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 8ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 10ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 43ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 44ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 44ms 
+Total execution time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 3ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 5ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 6ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 4ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 5ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 2ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 5ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 12ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 19ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 25ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 1ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @traverse(JsonNode node, Node mainNode): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 97ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 1ms 
+Client connected: /127.0.0.1:62679 
+Execution of  @dispatch in Rascal  
+90 
+Total execution time of @messageType.equals("CALLBACK"): 91ms 
+Total execution time of @onReceive(String element) raven-protocol: 91ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 1ms 
+Client connected: /127.0.0.1:62693 
+Execution of  @dispatch in Rascal  
+103 
+Total execution time of @messageType.equals("CALLBACK"): 103ms 
+Total execution time of @onReceive(String element) raven-protocol: 104ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 2ms 
+Client connected: /127.0.0.1:62694 
+Execution of  @dispatch in Rascal  
+90 
+Total execution time of @messageType.equals("CALLBACK"): 90ms 
+Total execution time of @onReceive(String element) raven-protocol: 90ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 2ms 
+Client connected: /127.0.0.1:62709 
+Execution of  @dispatch in Rascal  
+78 
+Total execution time of @messageType.equals("CALLBACK"): 79ms 
+Total execution time of @onReceive(String element) raven-protocol: 79ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 1ms 
+Client connected: /127.0.0.1:62721 
+Execution of  @dispatch in Rascal  
+133 
+Total execution time of @messageType.equals("CALLBACK"): 135ms 
+Total execution time of @onReceive(String element) raven-protocol: 135ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 2ms 
+Client connected: /127.0.0.1:62722 
+Execution of  @dispatch in Rascal  
+95 
+Total execution time of @messageType.equals("CALLBACK"): 95ms 
+Total execution time of @onReceive(String element) raven-protocol: 95ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 2ms 
+Client connected: /127.0.0.1:62798 
+Execution of  @dispatch in Rascal  
+103 
+Total execution time of @messageType.equals("CALLBACK"): 107ms 
+Total execution time of @onReceive(String element) raven-protocol: 108ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 2ms 
+Client connected: /127.0.0.1:62804 
+Execution of  @dispatch in Rascal  
+87 
+Total execution time of @messageType.equals("CALLBACK"): 87ms 
+Total execution time of @onReceive(String element) raven-protocol: 88ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 3ms 
+Client connected: /127.0.0.1:62806 
+Execution of  @dispatch in Rascal  
+114 
+Total execution time of @messageType.equals("CALLBACK"): 114ms 
+Total execution time of @onReceive(String element) raven-protocol: 114ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 2ms 
+Client connected: /127.0.0.1:62807 
+Execution of  @dispatch in Rascal  
+76 
+Total execution time of @messageType.equals("CALLBACK"): 76ms 
+Total execution time of @onReceive(String element) raven-protocol: 77ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 2ms 
+Client connected: /127.0.0.1:62823 
+Execution of  @dispatch in Rascal  
+66 
+Total execution time of @messageType.equals("CALLBACK"): 69ms 
+Total execution time of @onReceive(String element) raven-protocol: 70ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 2ms 
+Client connected: /127.0.0.1:62824 
+Execution of  @dispatch in Rascal  
+16 
+Total execution time of @messageType.equals("CALLBACK"): 17ms 
+Total execution time of @onReceive(String element) raven-protocol: 17ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 0ms 
+Total execution time of @onReceive(String element) raven-protocol: 1ms 
+ 
+session: r1:Java* 2:Godot-                                                                                                                                        "MacBook-Pro-von-Elisa" 06:21 03-Jul-24

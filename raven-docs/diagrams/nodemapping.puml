@@ -1,0 +1,29 @@
+@startuml
+
+
+rectangle RavenNode {
+
+rectangle rect [
+This is a <b>folder
+----
+You can use separator
+====
+of different kind
+....
+and style
+]
+
+
+}
+
+rectangle "JSON-Mapper" {
+}
+
+rectangle "JSON" {
+}
+RavenNode -> "JSON-Mapper"
+
+"JSON-Mapper" -> "JSON"
+@enduml
+
+

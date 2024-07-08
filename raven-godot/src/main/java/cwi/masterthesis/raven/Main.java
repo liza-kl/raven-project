@@ -8,9 +8,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import cwi.masterthesis.raven.application.client.ClientFactory;
 import cwi.masterthesis.raven.application.client.NativeClient;
-import cwi.masterthesis.raven.application.client.StandardClientFactory;
 import cwi.masterthesis.raven.interpreter.mapper.RavenJSONTraverser;
 import cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.ColorStrategy;
 import cwi.masterthesis.raven.interpreter.mapper.stylingstrategy.FontSizeStrategy;
@@ -68,10 +66,6 @@ public class Main extends Node {
      traverseJSON(jsonSpec, this.mainNode.getChild(0));
     }
 
-
-
-        ClientFactory clientFactory = new StandardClientFactory();
-  //  Client client = clientFactory.createClientFromType("native");
     NativeClient client;
     @RegisterFunction
     @Override

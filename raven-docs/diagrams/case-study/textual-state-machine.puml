@@ -1,0 +1,10 @@
+@startuml
+
+left to right direction
+frame "sm: doors" {
+  circle closed #111
+  circle "opened    " as opened
+  closed --> opened: open \t
+  opened --> closed : close \t
+  }
+@enduml

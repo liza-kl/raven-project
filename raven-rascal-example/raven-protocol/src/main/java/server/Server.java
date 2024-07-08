@@ -77,18 +77,6 @@ public class Server extends Thread {
         }
     }
 
-
-    public void stopServer() {
-        this.setRunning(false);
-        try {
-            if (serverSocket != null) {
-                serverSocket.close();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public static void main(String[] args) throws InterruptedException {
         IValueFactory values = ValueFactory.getInstance();
         Server server = new Server(values);
