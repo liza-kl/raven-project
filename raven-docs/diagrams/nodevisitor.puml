@@ -6,7 +6,6 @@ interface RavenNode {
 
 class RavenButton {
     + acceptVisitor(v: Visitor)
-    + operationA()
 }
 
 interface Visitor {

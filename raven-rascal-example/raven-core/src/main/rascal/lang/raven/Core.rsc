@@ -1,9 +1,15 @@
 module lang::raven::Core
+import util::Benchmark;
+import IO;
 
 
 
 void dispatch(str callback) {
+    int startTime =  getMilliTime();
     instance[0](callback);
+    int endTime = getMilliTime();
+    println("Execution of  @dispatch in Rascal ");
+    println(endTime-startTime);
 }
 
 // Define a type alias for the dispatcher map

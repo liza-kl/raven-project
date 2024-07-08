@@ -1,0 +1,29 @@
+@startuml
+autonumber "<b>[000]"
+actor       User        as user
+participant "DSL Program" as dsl
+participant "LWB\n Implementation" as rascal
+participant "Communication\n Unit" as server
+participant "Godot \n Interpreter" as godot
+participant "Godot \n View" as client
+
+user -> client : <<click button>>
+alt #Gold #White Alter runtime state
+    client -> server : change detected \n (<<node information with callback>>)
+    server -> rascal:  send callback \ninformation string
+    activate rascal
+    rascal -> rascal: evaluate callback string
+    rascal -> dsl: Execute \nevaluated callback
+    dsl -> rascal: Return new program state
+    rascal -> rascal: generate JSON
+    rascal -> server : send updated JSON
+    deactivate rascal
+    activate server
+    server -> godot : Call scene tree \ninterpreter
+
+    deactivate godot
+    deactivate server
+
+    godot -> client: updateScene
+
+@enduml

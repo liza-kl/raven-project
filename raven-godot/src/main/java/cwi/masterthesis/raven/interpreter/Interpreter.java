@@ -79,25 +79,6 @@ public class Interpreter extends Node implements Visitor {
     }
 
     @Override
-    public void visitGraphNode(RavenGraphNode ravenGraphNode) {
-       // System.out.println("Creating GraphNode");
-        GraphNode graphNode = new GraphNode();
-        graphNode.setTheme(Main.mainTheme);
-        graphNode.setName(StringNameUtils.asStringName(ravenGraphNode.getNodeID()));
-        Objects.requireNonNull(ravenGraphNode.getParentNode()).addChild(graphNode);
-    }
-
-    @Override
-    public void visitGraphEditNode(RavenGraphEditNode ravenGraphEditNode) {
-       // System.out.println("Creating GraphEditNode");
-        GraphEdit graphEditNode = new GraphEdit();
-        graphEditNode.setTheme(Main.mainTheme);
-        graphEditNode.setSize(new Vector2(500,600));
-        graphEditNode.setName(StringNameUtils.asStringName(ravenGraphEditNode.getNodeID()));
-        Objects.requireNonNull(ravenGraphEditNode.getParentNode()).addChild(graphEditNode);
-    }
-
-    @Override
     public void visitTextEdit(RavenTextEdit ravenTextEditNode) {
         //System.out.println("Creating TextEdit Node");
         ravenTextEditNode.setTheme(Main.mainTheme);

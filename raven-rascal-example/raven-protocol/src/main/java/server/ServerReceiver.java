@@ -84,8 +84,13 @@ class ServerReceiver implements ReceiveCallback {
 
         /* This plainly sends a message to Godot to update the whole view.*/
         if (messageType.equals("VIEW_UPDATE")) {
+            long viewUpdatestartTime = System.currentTimeMillis();
             output.println("VIEW_UPDATE:" + content);
             output.flush();
+            long viewUpdateendTime = System.currentTimeMillis();
+            System.out.println("Total execution time of @messageType.equals(\"VIEW_UPDATE\"): "
+                    + (viewUpdateendTime-viewUpdatestartTime) + "ms");
+
         }
 
         else if (messageType.equals("THEME_INIT")) {
@@ -95,8 +100,12 @@ class ServerReceiver implements ReceiveCallback {
 
         /* This tells the server to call a Rascal callback */
         else if (messageType.equals("CALLBACK")) {
+            long callbackStartTime = System.currentTimeMillis();
             IString callback = this.values.string(content); // Also includes arguments
             this.evaluator.call(null, "lang::raven::Core", "dispatch", callback);
+            long callbackEndTime = System.currentTimeMillis();
+            System.out.println("Total execution time of @messageType.equals(\"CALLBACK\"): "
+                    + (callbackEndTime-callbackStartTime) + "ms");
         }
 
         else {
@@ -104,6 +113,6 @@ class ServerReceiver implements ReceiveCallback {
         }
 
         long endTime = System.currentTimeMillis();
-        System.out.println("Total execution time of @onReceive(String element) Rascal: " + (endTime-startTime) + "ms");
+        System.out.println("Total execution time of @onReceive(String element) raven-protocol: " + (endTime-startTime) + "ms");
     }
 }

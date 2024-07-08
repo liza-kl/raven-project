@@ -5,6 +5,8 @@ frame "Language Agnostic" {
 rectangle "Game Engine View" as godotView
 rectangle "Raven Generic \nInterpreter Backend" as genericPart
 }
+
+
 frame "Specific LWB Implementation" {
 rectangle "Specific Raven \nLWB Implementation" as lwbPart
 }

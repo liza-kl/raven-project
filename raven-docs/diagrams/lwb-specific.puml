@@ -1,0 +1,31 @@
+@startuml
+
+
+frame "LWB Specific Implementation" {
+
+node "Rascal LWB Implementation" as interpreter {
+    component "JSON Generator" as traverser
+    component "Dispatcher" as dispatcher
+    note top : Calls registered \n DSL Controller
+    component "Sending Utils" as sendingUtils
+    note bottom : Used to send \n generated JSON
+    component "Data Type Definition"  as dtd
+}
+
+sendingUtils -[hidden]-> dtd
+traverser ..> dtd :uses
+
+node "Communication Unit" as genericPart {
+    component Receiver
+    component Sender
+    component SharedBuffer
+}
+
+
+Sender --> SharedBuffer : write on \n CALLBACK
+Receiver --> SharedBuffer : read CALLBACK\n string
+Receiver --> dispatcher : call with\n CALLBACK\n string
+}
+
+
+@enduml
