@@ -13,7 +13,6 @@ public interface Visitor {
     void visitHBoxContainer(RavenHBoxContainer ravenHBoxContainer);
     void visitVBoxContainer(RavenVBoxContainer ravenVBoxContainer);
     void visitGridContainer(RavenGridContainer ravenGridContainer);
-    void visitControl(RavenControl ravenControl);
     void visitTabContainer(RavenTabContainer ravenTabContainer);
     void visitOptionButton(RavenOptionButton ravenOptionButton);
 

@@ -1,0 +1,45 @@
+@startuml
+skinparam defaultFontSize 20
+
+component "DSL Interpreter" as dsl
+component "Raven Application"  as raven
+
+frame "Raven LWB Integration" as lwb {
+    node "Raven Rascal Utilities\n" as interpreter {
+        component "JSON Generator" as traverser
+        component "Registered Dispatcher" as dispatcher
+        /' note top : Calls registered \n DSL Controller'/
+        component "Sending Utils" as sendingUtils
+        /' note bottom : Used to send \n generated JSON  '/
+        component "Data Type Definition"  as dtd
+
+    }
+    node "Communication Unit" as genericPart {
+        component Receiver
+        component Sender
+        component SharedBuffer
+    }
+ node "Raven Rascal Setup" as setup {
+        component "General Configuration File" as file
+    }
+    sendingUtils -[hidden]-> genericPart
+    setup -[hidden]r-> genericPart
+    sendingUtils -[hidden]> dispatcher
+
+    Receiver ..> file : use
+    Sender -left-> SharedBuffer : [001] Write on message type \n **CALLBACK**
+    Receiver .down.> SharedBuffer : [002] Read callback string
+    Receiver --> dispatcher : [003] Pass callback string
+    dispatcher --> dispatcher: [004] Parse callback string
+    dispatcher --> dsl : [005] Call callback
+    dsl --> dsl : [006] Update\n Model
+
+    dsl .down.> traverser : [007] Gets JSON of\nupdated view
+    dsl -down-> sendingUtils : [008] Pass \nupdated JSON
+    sendingUtils -right-> raven : [009] Send message \n**VIEW_UPDATE**:<<JSON>>
+}
+
+traverser .up.> dtd : uses
+traverser -[hidden]-> dispatcher 
+
+@enduml

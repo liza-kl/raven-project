@@ -175,15 +175,6 @@ public class Interpreter extends Node implements Visitor {
     }
 
     @Override
-    public void visitControl(RavenControl ravenControl) {
-        System.out.println("Creating Control");
-        Control control = new Control();
-        control.setTheme(Main.mainTheme);
-        control.setName(StringNameUtils.asStringName(ravenControl.getNodeID()));
-        Objects.requireNonNull(ravenControl.getParentNode()).addChild(control);
-    }
-
-    @Override
     public void visitTabContainer(RavenTabContainer ravenTabContainer) {
         System.out.println("Creating TabContainer");
         // TODO everyone could just customize this I guess.

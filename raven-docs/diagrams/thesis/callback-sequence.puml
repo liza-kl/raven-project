@@ -1,0 +1,30 @@
+    @startuml
+autonumber "<b>[000]"
+actor       User        as user
+participant "DSL Interpreter" as dsl
+participant "Raven-specific-LWB\n Integration" as rascal
+participant "Raven-LWB Integration\nCommunication Peer" as server
+participant "JSON \n Interpreter" as godot
+participant "Visual Editor \n (Godot)" as client
+legend right
+    LWB = Language Workbench
+end legend
+user -> client : <<click button>>
+    client -> server : Change detected, send message\n "**CALLBACK**:<<callback function\nwith args>>"
+    server -> rascal:  Send callback \ninformation string
+    activate rascal
+    rascal -> rascal: determine callback\nto execute
+    rascal -> dsl: Execute \nevaluated callback
+    dsl -> dsl: Generate JSON based\non programming state
+    dsl -> rascal: Return new program state\n in JSON format
+    rascal -> server : Send updated JSON\n"**VIEW_UPDATE:**<<json>>
+    deactivate rascal
+    activate server
+    server -> godot : Call JSON \ninterpreter
+
+    deactivate godot
+    deactivate server
+
+    godot -> client: Construct\nscene tree
+
+@enduml

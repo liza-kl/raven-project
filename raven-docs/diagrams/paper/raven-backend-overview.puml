@@ -1,0 +1,34 @@
+@startuml
+
+left to right direction
+
+frame "Raven Application" {
+
+node "Editor View \n(Godot)" as godotView
+
+    node "Rendering Engine" {
+
+    component "JSON Traverser" as traverser
+    component "RavenNode" as ravennode
+    node "Interpreter" as interpreter2
+}
+traverser --> interpreter2 : 5. call
+traverser --> ravennode : 4. create
+interpreter2 ..> ravennode :use
+interpreter2 --> godotView : 6. sends \nscene \ntree
+
+node "Communication" as genericPart {
+    component Sender
+    component Receiver
+    component SharedBuffer
+}
+
+
+Sender --> SharedBuffer : 1. writes on \n **VIEW_UPDATE**
+Receiver --> SharedBuffer : 2. reads buffer content
+Receiver --> traverser : 3. calls
+Receiver -[hidden]> traverser
+traverser -[hidden]> Receiver
+}
+
+@enduml

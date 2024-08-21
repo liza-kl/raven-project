@@ -1,0 +1,28 @@
+@startuml
+
+!theme plain
+left to right direction
+skinparam linetype ortho
+
+class AnchorPresetOverrideStrategy
+class ColorOverrideStrategy
+class ConstantOverrideStrategy
+class FontSizeOverrideStrategy
+class GodotOverrideStrategy
+class PrimitiveOverrideStrategy
+class SizeFlagsOverrideStrategy
+class StyleBoxFlatOverrideStrategy
+interface StylingStrategy << interface >>
+class Vector2OverrideStrategy
+
+AnchorPresetOverrideStrategy  -[#008200,dashed]-^  StylingStrategy
+ColorOverrideStrategy         -[#008200,dashed]-^  StylingStrategy
+ConstantOverrideStrategy      -[#008200,dashed]-^  StylingStrategy
+FontSizeOverrideStrategy      -[#008200,dashed]-^  StylingStrategy
+GodotOverrideStrategy         -[#008200,dashed]-^  StylingStrategy
+PrimitiveOverrideStrategy     -[#595959,dashed]->  PrimitiveTypeConverter       : "«create»"
+PrimitiveOverrideStrategy     -[#008200,dashed]-^  StylingStrategy
+SizeFlagsOverrideStrategy     -[#008200,dashed]-^  StylingStrategy
+StyleBoxFlatOverrideStrategy  -[#008200,dashed]-^  StylingStrategy
+Vector2OverrideStrategy       -[#008200,dashed]-^  StylingStrategy
+@enduml

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cos06k77euvu0"]
+
+[ext_resource type="Script" path="res://scenes/Callback.gd" id="1_e8p54"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+anchors_preset = -1
+anchor_right = 1.012
+anchor_bottom = 0.989
+offset_right = 1.60789
+offset_bottom = 15.264
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+text = "Create Machine"
+script = ExtResource("1_e8p54")

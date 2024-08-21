@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   contentStyleType="text/css"
+   height="243px"
+   preserveAspectRatio="none"
+   style="width:512px;height:243px;background:#FFFFFF;"
+   version="1.1"
+   viewBox="0 0 512 243"
+   width="512px"
+   zoomAndPan="magnify"
+   id="svg16"
+   sodipodi:docname="raven-workflow-paper.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview16"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.5954448"
+     inkscape:cx="252.90753"
+     inkscape:cy="68.946292"
+     inkscape:window-width="1512"
+     inkscape:window-height="945"
+     inkscape:window-x="526"
+     inkscape:window-y="1477"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g16" />
+  <defs
+     id="defs1" />
+  <g
+     id="g16">
+    <!--cluster Raven Framework -->
+    <g
+       id="cluster_Raven Framework ">
+      <rect
+         fill="none"
+         height="230.98"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:1.0;"
+         width="308"
+         x="7"
+         y="7"
+         id="rect1" />
+      <path
+         d="M150,7 L150,16.4883 L140,26.4883 L7,26.4883 "
+         fill="none"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="path1" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         font-weight="bold"
+         lengthAdjust="spacing"
+         textLength="128"
+         x="10"
+         y="21.5352"
+         id="text1">Raven Framework</text>
+    </g>
+    <!--entity godotView-->
+    <g
+       id="elem_godotView">
+      <rect
+         fill="#F1F1F1"
+         height="36.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="98"
+         x="49"
+         y="185.49"
+         id="rect2" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="78"
+         x="59"
+         y="209.0252"
+         id="text2">Godot View</text>
+    </g>
+    <!--entity genericPart-->
+    <g
+       id="elem_genericPart">
+      <rect
+         fill="#F1F1F1"
+         height="36.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="61"
+         x="137.5"
+         y="42"
+         id="rect3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="41"
+         x="147.5"
+         y="65.5352"
+         id="text3">Raven</text>
+    </g>
+    <!--entity lwbPart-->
+    <g
+       id="elem_lwbPart">
+      <rect
+         fill="#F1F1F1"
+         height="36.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="127"
+         x="331.5"
+         y="42"
+         id="rect4" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="107"
+         x="341.5"
+         y="65.5352"
+         id="text4">LWB Integration</text>
+    </g>
+    <!--entity dsl-->
+    <g
+       id="elem_dsl">
+      <rect
+         fill="#F1F1F1"
+         height="36.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="45"
+         x="408.5"
+         y="185.49"
+         id="rect5" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="25"
+         x="418.5"
+         y="209.0252"
+         id="text5">DSL</text>
+    </g>
+    <!--link godotView to genericPart-->
+    <g
+       id="link_godotView_genericPart">
+      <path
+         d="M135.5,184.99 C147.01,177.57 158.38,167.77 165,155.49 C177.97,131.42 176.3073,104.5631 172.8873,84.6831 "
+         fill="none"
+         id="godotView-to-genericPart"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="171.87,78.77,169.4538,88.3179,172.7177,83.6976,177.338,86.9615,171.87,78.77"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon5" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="93"
+         x="175"
+         y="137.0584"
+         id="text6">callback string</text>
+    </g>
+    <!--link genericPart to godotView-->
+    <g
+       id="link_genericPart_godotView">
+      <path
+         d="M137.25,71.56 C120.36,78.98 100.88,90.84 91,108.49 C77.62,132.4 82.8018,159.5182 89.3318,179.4482 "
+         fill="none"
+         id="genericPart-to-godotView"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="91.2,185.15,92.1989,175.3519,89.6432,180.3985,84.5966,177.8428,91.2,185.15"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon6" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="64"
+         x="92"
+         y="137.0584"
+         id="text7">scene tree</text>
+    </g>
+    <!--reverse link genericPart to godotView-->
+    <!--link lwbPart to dsl-->
+    <g
+       id="link_lwbPart_dsl">
+      <path
+         d="M385.65,78.67 C376.53,98.16 365.57,130.31 377,155.49 C383.43,169.67 391.5436,177.8306 403.1936,185.9806 "
+         fill="none"
+         id="lwbPart-to-dsl"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="408.11,189.42,403.0283,180.9834,404.013,186.5539,398.4425,187.5386,408.11,189.42"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon7" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="49"
+         x="381.5"
+         y="122.0584"
+         id="text8">execute</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="52"
+         x="382"
+         y="137.3689"
+         id="text9">callback</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="53"
+         x="383.5"
+         y="152.6795"
+         id="text10">function</text>
+    </g>
+    <!--reverse link lwbPart to dsl-->
+    <g
+       id="g12">
+      <path
+         d="M424.4576,82.8486 C433.5076,90.7586 438.17,96.95 443,108.49 C453.51,133.59 445.49,165.49 438.46,184.99 "
+         fill="none"
+         id="lwbPart-backto-dsl"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="419.94,78.9,424.0841,87.8346,423.7047,82.1905,429.3488,81.8111,419.94,78.9"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon10" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="51"
+         x="449"
+         y="129.5584"
+         id="text11">updated</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="28"
+         x="462.5"
+         y="144.8689"
+         id="text12">view</text>
+    </g>
+    <!--link lwbPart to genericPart-->
+    <g
+       id="link_lwbPart_genericPart">
+      <path
+         d="m 325.08933,59.825955 c -44.47601,0 -97.71697,0 -126.84,0"
+         fill="none"
+         id="lwbPart-to-genericPart"
+         style="stroke:#181818;stroke-width:1"
+         sodipodi:nodetypes="cc" />
+      <polygon
+         fill="#181818"
+         points="207.61,64.25 203.61,60.25 207.61,56.25 198.61,60.25 "
+         style="stroke:#181818;stroke-width:1"
+         id="polygon12"
+         transform="translate(1.0601114,9.3289804)" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13px"
+         lengthAdjust="spacing"
+         textLength="65"
+         x="230.5"
+         y="38.818401"
+         id="text13"
+         transform="translate(1.7857008,46.071081)">send JSON</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="4"
+         x="263"
+         y="54.1289"
+         id="text14"> </text>
+    </g>
+    <!--link genericPart to lwbPart-->
+    <g
+       id="link_genericPart_lwbPart">
+      <path
+         d="m 201.8616,69.736789 c 42.28,0 146.55733,0 126.84,0"
+         fill="none"
+         id="genericPart-to-lwbPart"
+         style="stroke:#181818;stroke-width:1"
+         sodipodi:nodetypes="cc" />
+      <polygon
+         fill="#181818"
+         points="322.45,56.25 326.45,60.25 322.45,64.25 331.45,60.25 "
+         style="stroke:#181818;stroke-width:1"
+         id="polygon14"
+         transform="translate(-0.84808913,-0.63606685)" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="4"
+         x="263"
+         y="38.8184"
+         id="text15"> </text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="93"
+         x="220.5"
+         y="54.1289"
+         id="text16">callback string</text>
+    </g>
+    <!--reverse link genericPart to lwbPart-->
+    <!--SRC=[TP31JiCm44Jl_efHxlc127505GXK0Q9IEG07nzwcLbsxSZOD4kBViHtQnaBSl9etCxjcVm1xj9xPxw5D8CN6Ex49Sa-eNkIH76xJCFgmGuKl8H8ZNMUZVkUrPwmDZHLaZowDQPepEMEIoL4mwba65jz5plBr1lUEgGiorMVQZcqcPzXYjSoIxgqGvpBKzVKy6msKjBQLQeUUWt6TcAkPFdiRz2gAu40aVYip4ZkYI9-a1YQykqjcV6y6D_tJoN5LrzaHBSD1IoOTiMCgA4BBBNjo6W-hfyV8_bdnP6kAxkaU5DU_ROtMv3viMN0f_W_u0G00]-->
+  </g>
+</svg>

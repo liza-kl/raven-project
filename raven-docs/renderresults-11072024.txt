@@ -1,0 +1,478 @@
+ ekletsko@sp-byods-145-109-29-201  ~  tmux  a -t raven-session  
+[exited] 
+ ekletsko@sp-byods-145-109-29-201  ~  clear 
+ORIGINAL_XDG_CURRENT_DESKTOP=undefined 
+PAGER=less 
+PATH='/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/TeX/texbin:/usr/local/go/bin:/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/bin:/Users/ekletsko/.sdkman/candidates/java/current/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin' 
+PWD=/Users/ekletsko/raven-project/raven-godot 
+SDKMAN_CANDIDATES_API=https://api.sdkman.io/2 
+SDKMAN_CANDIDATES_DIR=/Users/ekletsko/.sdkman/candidates 
+SDKMAN_DIR=/Users/ekletsko/.sdkman 
+SDKMAN_PLATFORM=darwinarm64 
+SECURITYSESSIONID=186b4 
+SHELL=/bin/zsh 
+SHLVL=3 
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.yeKudg21y5/Listeners 
+TERM=tmux-256color 
+TERM_PROGRAM=tmux 
+TERM_PROGRAM_VERSION=3.4 
+TMPDIR=/var/folders/1d/m0bt44sn5bb0pgm6k745llmh0000gn/T/ 
+TMUX=/private/tmp/tmux-501/default,91123,0 
+TMUX_PANE=%1 
+TMUX_PLUGIN_MANAGER_PATH=/Users/ekletsko/.config/tmux/plugins/ 
+TOLGEE_API_KEY=tgpak_gfpweolsneyxezrumvxgoy3igbwxizbsnr3he4jxnr2gg 
+USER=ekletsko 
+VSCODE_GIT_ASKPASS_EXTRA_ARGS='' 
+VSCODE_GIT_ASKPASS_MAIN='/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js' 
+VSCODE_GIT_ASKPASS_NODE='/Applications/Visual Studio Code.app/Contents/Frameworks/Code Helper (Plugin).app/Contents/MacOS/Code Helper (Plugin)' 
+VSCODE_GIT_IPC_HANDLE=/var/folders/1d/m0bt44sn5bb0pgm6k745llmh0000gn/T/vscode-git-1a79de304b.sock 
+XPC_FLAGS=0x0 
+XPC_SERVICE_NAME=0 
+ZSH=/Users/ekletsko/.oh-my-zsh 
+__CFBundleIdentifier=com.microsoft.VSCode 
+__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0 
+Reverting to nvm default version 
+N/A: version "default -> N/A" is not yet installed. 
+ 
+You need to run "nvm install default" to install it before using it. 
+ ✘ ekletsko@MacBook-Pro-von-Elisabeth  ~/raven-project/raven-godot   main ±✚  "/Applications/Godot.app/Contents/MacOS/Godot" 
+Godot Engine v4.2.2.stable.custom_build.15073afe3 - https://godotengine.org 
+Vulkan API 1.2.280 - Forward+ - Using Vulkan Device #0: Apple - Apple M1 Pro 
+  
+Godot-JVM: Starting JVM ... 
+Godot-JVM: Using jvm type: jvm 
+Godot-JVM: Loading bootstrap jar: /Applications/Godot.app/Contents/MacOS/godot-bootstrap.jar 
+Godot-JVM: Starting GC thread 
+main Node in NativeClientroot:<Window#26675774229> 
+Starting Sender Thread 
+Starting Receiver Thread 
+main Node in Main Classroot:<Window#26675774229> 
+Total Rendering time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". 
+SLF4J: Defaulting to no-operation (NOP) logger implementation 
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details. 
+Total Rendering time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+^C 
+session: r1:Java- 2:Godot*                                                                                                                                                     "MacBook-Pro-von-Elisa" 22:38 11-Jul-24
+MAKELEVEL=2 
+MANPATH=/opt/homebrew/share/man:/usr/share/man:/usr/local/share/man:/Library/TeX/Distributions/.DefaultTeX/Contents/Man:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/share/man:/Library/Developer/CommandLineTools/usr/share/man:/Library/Developer/CommandLineTools/Toolchains/XcodeDefault.xctoolchain/usr/share/man:/opt/homebrew/share/man:: 
+MFLAGS='' 
+MallocNanoZone=0 
+NVM_CD_FLAGS=-q 
+NVM_DIR=/Users/ekletsko/.nvm 
+PATH='/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/TeX/texbin:/usr/local/go/bin:/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/bin:/Users/ekletsko/.sdkman/candidates/java/current/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin' 
+PWD=/Users/ekletsko/raven-project/raven-godot 
+SDKMAN_CANDIDATES_API=https://api.sdkman.io/2 
+SDKMAN_CANDIDATES_DIR=/Users/ekletsko/.sdkman/candidates 
+SDKMAN_DIR=/Users/ekletsko/.sdkman 
+SDKMAN_PLATFORM=darwinarm64 
+SECURITYSESSIONID=186b4 
+SHELL=/bin/zsh 
+SHLVL=3 
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.yeKudg21y5/Listeners 
+TERM=tmux-256color 
+TERM_PROGRAM=tmux 
+TERM_PROGRAM_VERSION=3.4 
+TMPDIR=/var/folders/1d/m0bt44sn5bb0pgm6k745llmh0000gn/T/ 
+TMUX=/private/tmp/tmux-501/default,92857,0 
+TMUX_PANE=%1 
+TMUX_PLUGIN_MANAGER_PATH=/Users/ekletsko/.config/tmux/plugins/ 
+TOLGEE_API_KEY=tgpak_gfpweolsneyxezrumvxgoy3igbwxizbsnr3he4jxnr2gg 
+USER=ekletsko 
+VSCODE_GIT_ASKPASS_EXTRA_ARGS='' 
+VSCODE_GIT_ASKPASS_MAIN='/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js' 
+VSCODE_GIT_ASKPASS_NODE='/Applications/Visual Studio Code.app/Contents/Frameworks/Code Helper (Plugin).app/Contents/MacOS/Code Helper (Plugin)' 
+VSCODE_GIT_IPC_HANDLE=/var/folders/1d/m0bt44sn5bb0pgm6k745llmh0000gn/T/vscode-git-1a79de304b.sock 
+XPC_FLAGS=0x0 
+XPC_SERVICE_NAME=0 
+ZSH=/Users/ekletsko/.oh-my-zsh 
+__CFBundleIdentifier=com.microsoft.VSCode 
+__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0 
+Reverting to nvm default version 
+N/A: version "default -> N/A" is not yet installed. 
+ 
+You need to run "nvm install default" to install it before using it. 
+ ✘ ekletsko@MacBook-Pro-von-Elisabeth  ~/raven-project/raven-godot   main ±✚  "/Applications/Godot.app/Contents/MacOS/Godot" 
+Godot Engine v4.2.2.stable.custom_build.15073afe3 - https://godotengine.org 
+Vulkan API 1.2.280 - Forward+ - Using Vulkan Device #0: Apple - Apple M1 Pro 
+  
+Godot-JVM: Starting JVM ... 
+Godot-JVM: Using jvm type: jvm 
+Godot-JVM: Loading bootstrap jar: /Applications/Godot.app/Contents/MacOS/godot-bootstrap.jar 
+Godot-JVM: Starting GC thread 
+main Node in NativeClientroot:<Window#26675774229> 
+Starting Sender Thread 
+Starting Receiver Thread 
+main Node in Main Classroot:<Window#26675774229> 
+Total Rendering time of @onReceive(String element) Godot: 1ms 
+Traverse JSON is called 
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". 
+SLF4J: Defaulting to no-operation (NOP) logger implementation 
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details. 
+Total Rendering time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 0ms 
+Traverse JSON is called 
+ERROR: Caller thread can't call this function in this node (/root). Use call_deferred() or call_thread_group() instead. 
+   at: propagate_notification (scene/main/node.cpp:2249) 
+ 
+================================================================ 
+handle_crash: Program crashed with signal 11 
+Engine version: Godot Engine v4.2.2.stable.custom_build (15073afe3856abd2aa1622492fe50026c7d63dc1) 
+Dumping the backtrace. Please include this when reporting the bug to the project developer. 
+Warning: SIGSEGV handler modified! 
+Warning: SIGILL handler modified! 
+Warning: SIGFPE handler modified! 
+Signal Handlers: 
+   SIGSEGV: SIG_DFL, mask=00000000000000000000000000000000, flags=SA_RESTART, unblocked 
+  *** Handler was modified! 
+  *** Expected: javaSignalHandler in libjvm.dylib, mask=11100110100111111111111111111111, flags=SA_ONSTACK|SA_RESTART|SA_SIGINFO 
+  chained to: SIG_DFL, mask=00000000000000000000000000000000, flags=SA_RESTART 
+    SIGBUS: javaSignalHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, unblocked 
+    SIGFPE: SIG_DFL, mask=00000000000000000000000000000000, flags=SA_RESTART, unblocked 
+  *** Handler was modified! 
+  *** Expected: javaSignalHandler in libjvm.dylib, mask=11100110100111111111111111111111, flags=SA_RESTART|SA_SIGINFO 
+  chained to: SIG_DFL, mask=00000000000000000000000000000000, flags=SA_RESTART 
+   SIGPIPE: javaSignalHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, unblocked 
+   SIGXFSZ: javaSignalHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, unblocked 
+    SIGILL: SIG_DFL, mask=00000000000000000000000000000000, flags=SA_RESTART, unblocked 
+  *** Handler was modified! 
+  *** Expected: javaSignalHandler in libjvm.dylib, mask=11100110100111111111111111111111, flags=SA_RESTART|SA_SIGINFO 
+  chained to: SIG_DFL, mask=00000000000000000000000000000000, flags=SA_RESTART 
+   SIGUSR2: SR_handler in libjvm.dylib, mask=00000000000000000000000000000000, flags=SA_RESTART|SA_SIGINFO, unblocked 
+    SIGHUP: UserHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, unblocked 
+    SIGINT: UserHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, unblocked 
+   SIGTERM: UserHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, unblocked 
+   SIGQUIT: UserHandler in libjvm.dylib, mask=11100110000111110111111111111111, flags=SA_RESTART|SA_SIGINFO, unblocked 
+   SIGTRAP: SIG_DFL, mask=00000000000000000000000000000000, flags=SA_RESTART, unblocked 
+Consider using jsig library. 
+[1] PosixSignals::chained_handler(int, __siginfo*, void*) 
+[2] 2   libjvm.dylib                        0x000000013e8c165c JVM_handle_bsd_signal + 428 
+[3] 3   libsystem_platform.dylib            0x00000001889b3584 _sigtramp + 56 
+[4] ObjectDB::cleanup() 
+[5] ObjectDB::cleanup() 
+[6] ObjectDB::cleanup() 
+[7] TransferContext::icall(JNIEnv_*, _jobject*, long, long, int) (in Godot) + 376 
+[8] 8   ???                                 0x0000000173b24e5c 0x0 + 6236032604 
+[9] 9   ???                                 0x000000016c20e5ec 0x0 + 6109062636 
+[10] 10  ???                                 0x0000000173514f70 0x0 + 6229675888 
+[11] 11  ???                                 0x000000017351517c 0x0 + 6229676412 
+[12] 12  ???                                 0x000000017351562c 0x0 + 6229677612 
+[13] 13  ???                                 0x0000000173515420 0x0 + 6229677088 
+[14] 14  ???                                 0x000000017351517c 0x0 + 6229676412 
+[15] 15  ???                                 0x000000017351562c 0x0 + 6229677612 
+[16] 16  ???                                 0x000000017351517c 0x0 + 6229676412 
+[17] 17  ???                                 0x000000017351562c 0x0 + 6229677612 
+[18] 18  ???                                 0x000000017351517c 0x0 + 6229676412 
+[19] 19  ???                                 0x0000000173510140 0x0 + 6229655872 
+[20] JavaCalls::call_helper(JavaValue*, methodHandle const&, JavaCallArguments*, JavaThread*) 
+[21] JavaCalls::call_virtual(JavaValue*, Klass*, Symbol*, Symbol*, JavaCallArguments*, JavaThread*) 
+[22] JavaCalls::call_virtual(JavaValue*, Handle, Klass*, Symbol*, Symbol*, JavaThread*) 
+[23] thread_entry(JavaThread*, JavaThread*) 
+[24] JavaThread::thread_main_inner() 
+[25] Thread::call_run() 
+[26] thread_native_entry(Thread*) 
+[27] 27  libsystem_pthread.dylib             0x0000000188982f94 _pthread_start + 136 
+[28] 28  libsystem_pthread.dylib             0x000000018897dd34 thread_start + 8 
+-- END OF BACKTRACE -- 
+================================================================ 
+[1]    94201 abort      "/Applications/Godot.app/Contents/MacOS/Godot" 
+ ✘ ekletsko@MacBook-Pro-von-Elisabeth  ~/raven-project/raven-godot   main ±✚   
+                                                                                                                                                                                                                      
+session: r1:Java- 2:Godot*                                                                                                                                                     "MacBook-Pro-von-Elisa" 22:44 11-Jul-24
+ORIGINAL_XDG_CURRENT_DESKTOP=undefined 
+PAGER=less 
+PATH='/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/TeX/texbin:/usr/local/go/bin:/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/bin:/Users/ekletsko/.sdkman/candidates/java/current/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin' 
+PWD=/Users/ekletsko/raven-project/raven-godot 
+SDKMAN_CANDIDATES_API=https://api.sdkman.io/2 
+SDKMAN_CANDIDATES_DIR=/Users/ekletsko/.sdkman/candidates 
+SDKMAN_DIR=/Users/ekletsko/.sdkman 
+SDKMAN_PLATFORM=darwinarm64 
+SECURITYSESSIONID=186b4 
+SHELL=/bin/zsh 
+SHLVL=3 
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.yeKudg21y5/Listeners 
+        at org.rascalmpl.interpreter.result.RascalFunction.call(RascalFunction.java:326) 
+        at org.rascalmpl.interpreter.result.OverloadedFunction.callWith(OverloadedFunction.java:409) 
+        at org.rascalmpl.interpreter.result.OverloadedFunction.call(OverloadedFunction.java:369) 
+        at org.rascalmpl.semantics.dynamic.Expression$CallOrTree.interpret(Expression.java:540) 
+        at org.rascalmpl.semantics.dynamic.Declarator$Default.interpret(Declarator.java:52) 
+        at org.rascalmpl.semantics.dynamic.LocalVariableDeclaration$Default.interpret(LocalVariableDeclaration.java:36) 
+        at org.rascalmpl.semantics.dynamic.Statement$VariableDeclaration.interpret(Statement.java:1003) 
+        at org.rascalmpl.interpreter.result.RascalFunction.runBody(RascalFunction.java:385) 
+        at org.rascalmpl.interpreter.result.RascalFunction.call(RascalFunction.java:326) 
+        at org.rascalmpl.interpreter.result.OverloadedFunction.callWith(OverloadedFunction.java:409) 
+        at org.rascalmpl.interpreter.result.OverloadedFunction.call(OverloadedFunction.java:369) 
+        at org.rascalmpl.semantics.dynamic.Expression$CallOrTree.interpret(Expression.java:540) 
+        at org.rascalmpl.semantics.dynamic.Statement$Expression.interpret(Statement.java:365) 
+        at org.rascalmpl.semantics.dynamic.Statement$Assignment.interpret(Statement.java:205) 
+        at org.rascalmpl.semantics.dynamic.Statement$NonEmptyBlock.interpret(Statement.java:759) 
+        at org.rascalmpl.semantics.dynamic.Statement$IfThen.interpret(Statement.java:604) 
+        at org.rascalmpl.interpreter.result.RascalFunction.runBody(RascalFunction.java:385) 
+        at org.rascalmpl.interpreter.result.RascalFunction.call(RascalFunction.java:326) 
+        at org.rascalmpl.interpreter.result.OverloadedFunction.callWith(OverloadedFunction.java:409) 
+        at org.rascalmpl.interpreter.result.OverloadedFunction.call(OverloadedFunction.java:369) 
+        at org.rascalmpl.semantics.dynamic.Expression$CallOrTree.interpret(Expression.java:540) 
+        at org.rascalmpl.semantics.dynamic.Statement$Expression.interpret(Statement.java:365) 
+        at org.rascalmpl.semantics.dynamic.Statement$Assignment.interpret(Statement.java:205) 
+        at org.rascalmpl.interpreter.result.RascalFunction.runBody(RascalFunction.java:385) 
+        at org.rascalmpl.interpreter.result.RascalFunction.call(RascalFunction.java:326) 
+        at org.rascalmpl.interpreter.result.AbstractPatternDispatchedFunction.call(AbstractPatternDispatchedFunction.java:186) 
+        at org.rascalmpl.interpreter.result.OverloadedFunction.callWith(OverloadedFunction.java:409) 
+        at org.rascalmpl.interpreter.result.OverloadedFunction.call(OverloadedFunction.java:369) 
+        at org.rascalmpl.semantics.dynamic.Expression$CallOrTree.interpret(Expression.java:540) 
+        at org.rascalmpl.semantics.dynamic.Statement$Expression.interpret(Statement.java:365) 
+        at org.rascalmpl.semantics.dynamic.Statement$NonEmptyBlock.interpret(Statement.java:759) 
+        at org.rascalmpl.semantics.dynamic.Statement$IfThenElse.interpret(Statement.java:679) 
+        at org.rascalmpl.semantics.dynamic.Statement$IfThenElse.interpret(Statement.java:711) 
+        at org.rascalmpl.interpreter.result.RascalFunction.runBody(RascalFunction.java:385) 
+        at org.rascalmpl.interpreter.result.RascalFunction.call(RascalFunction.java:326) 
+        at org.rascalmpl.semantics.dynamic.Expression$CallOrTree.interpret(Expression.java:540) 
+        at org.rascalmpl.semantics.dynamic.Statement$Expression.interpret(Statement.java:365) 
+        at org.rascalmpl.interpreter.result.RascalFunction.runBody(RascalFunction.java:385) 
+        at org.rascalmpl.interpreter.result.RascalFunction.call(RascalFunction.java:326) 
+        at org.rascalmpl.interpreter.result.AbstractFunction.call(AbstractFunction.java:199) 
+        at org.rascalmpl.interpreter.Evaluator.call(Evaluator.java:743) 
+        at org.rascalmpl.interpreter.Evaluator.call(Evaluator.java:726) 
+        at org.rascalmpl.interpreter.Evaluator.call(Evaluator.java:549) 
+        at server.ServerReceiver.onReceive(ServerReceiver.java:105) 
+        at server.Receiver.run(Receiver.java:18) 
+        at java.base/java.lang.Thread.run(Thread.java:1583) 
+Client connected: /127.0.0.1:60519 
+Execution of  @dispatch in Rascal  
+81 
+Total execution time of @messageType.equals("CALLBACK"): 84ms 
+Total execution time of @onReceive(String element) raven-protocol: 85ms 
+Total execution time of @messageType.equals("VIEW_UPDATE"): 1ms 
+Total execution time of @onReceive(String element) raven-protocol: 2ms 
+^C 
+session: r1:Java* 2:Godot-                                                                                                                                                     "MacBook-Pro-von-Elisa" 22:49 11-Jul-24
+MFLAGS='' 
+MallocNanoZone=0 
+NVM_CD_FLAGS=-q 
+NVM_DIR=/Users/ekletsko/.nvm 
+OLDPWD=/Users/ekletsko/raven-project/raven-godot 
+ORIGINAL_XDG_CURRENT_DESKTOP=undefined 
+PAGER=less 
+neTools/usr/share/man:/Library/Developer/CommandLineTools/Toolchains/XcodeDefault.xctoolchain/usr/share/man:/opt/homebrew/share/man:: 
+MFLAGS='' 
+MallocNanoZone=0 
+NVM_CD_FLAGS=-q 
+/Contents/Home/bin:/Users/ekletsko/.sdkman/candidates/java/current/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin' 
+PWD=/Users/ekletsko/raven-project/raven-godot 
+PATH='/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/TeX/texbin:/usr/local/go/bin:/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/bin:/Users/ekletsko/.sdkman/candidates/java/current/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin' 
+PWD=/Users/ekletsko/raven-project/raven-godot 
+SDKMAN_CANDIDATES_API=https://api.sdkman.io/2 
+SDKMAN_CANDIDATES_DIR=/Users/ekletsko/.sdkman/candidates 
+SDKMAN_DIR=/Users/ekletsko/.sdkman 
+SDKMAN_PLATFORM=darwinarm64 
+SHLVL=3 
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.yeKudg21y5/Listeners 
+TERM=tmux-256color 
+TERM_PROGRAM=tmux 
+TERM_PROGRAM_VERSION=3.4 
+TMPDIR=/var/folders/1d/m0bt44sn5bb0pgm6k745llmh0000gn/T/ 
+TMUX=/private/tmp/tmux-501/default,96467,0 
+TMUX_PANE=%1 
+USER=ekletsko 
+VSCODE_GIT_ASKPASS_EXTRA_ARGS='' 
+VSCODE_GIT_ASKPASS_MAIN='/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js' 
+VSCODE_GIT_ASKPASS_NODE='/Applications/Visual Studio Code.app/Contents/Frameworks/Code Helper (Plugin).app/Contents/MacOS/Code Helper (Plugin)' 
+VSCODE_GIT_ASKPASS_MAIN='/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js' 
+VSCODE_GIT_ASKPASS_NODE='/Applications/Visual Studio Code.app/Contents/Frameworks/Code Helper (Plugin).app/Contents/MacOS/Code Helper (Plugin)' 
+__CFBundleIdentifier=com.microsoft.VSCode 
+__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0 
+Reverting to nvm default version 
+N/A: version "default -> N/A" is not yet installed. 
+__CFBundleIdentifier=com.microsoft.VSCode 
+__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0 
+Server started, waiting for connections... 
+Client connected: /127.0.0.1:60557 
+INFO: detected |lib://rascal| at |jar+file:///Users/ekletsko/raven-project/raven-rascal-example/raven-protocol/target/raven-protocol-1.0-SNAPSHOT.jar!/| 
+Total execution time of @ServerReceiver(PrintWriter output, IValueFactory values) Rascal: 3185ms 
+ 
+You need to run "nvm install default" to install it before using it. 
+ ✘ ekletsko@MacBook-Pro-von-Elisabeth  ~/raven-project/raven-godot   main ±✚  "/Applications/Godot.app/Contents/MacOS/Godot" 
+Godot Engine v4.2.2.stable.custom_build.15073afe3 - https://godotengine.org 
+Total execution time of @messageType.equals("CALLBACK"): 104ms 
+Client connected: /127.0.0.1:60666 
+Execution of  @dispatch in Rascal  
+103 
+Godot-JVM: Starting JVM ... 
+Godot-JVM: Using jvm type: jvm 
+Total execution time of @messageType.equals("CALLBACK"): 64ms 
+Client connected: /127.0.0.1:60681 
+Execution of  @dispatch in Rascal  
+75 
+main Node in NativeClientroot:<Window#26675774229> 
+Starting Sender Thread 
+Total execution time of @messageType.equals("CALLBACK"): 70ms 
+Client connected: /127.0.0.1:60770 
+Execution of  @dispatch in Rascal  
+69 
+Traverse JSON is called 
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". 
+Total execution time of @messageType.equals("CALLBACK"): 74ms 
+Client connected: /127.0.0.1:60795 
+Execution of  @dispatch in Rascal  
+75 
+Total Rendering time of @onReceive(String element) Godot: 216ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 23ms 
+Traverse JSON is called 
+Total execution time of @messageType.equals("CALLBACK"): 76ms 
+Client connected: /127.0.0.1:60801 
+Execution of  @dispatch in Rascal  
+100 
+        at org.rascalmpl.semantics.dynamic.Expression$CallOrTree.interpret(Expression.java:540) 
+        at org.rascalmpl.semantics.dynamic.Declarator$Default.interpret(Declarator.java:52) 
+        at org.rascalmpl.semantics.dynamic.LocalVariableDeclaration$Default.interpret(LocalVariableDeclaration.java:36) 
+        at org.rascalmpl.semantics.dynamic.Statement$VariableDeclaration.interpret(Statement.java:1003) 
+        at org.rascalmpl.semantics.dynamic.Statement$NonEmptyBlock.interpret(Statement.java:759) 
+        at org.rascalmpl.semantics.dynamic.Statement$For.interpret(Statement.java:468) 
+        at org.rascalmpl.interpreter.result.RascalFunction.runBody(RascalFunction.java:385) 
+        at org.rascalmpl.interpreter.result.RascalFunction.call(RascalFunction.java:326) 
+        at org.rascalmpl.interpreter.result.OverloadedFunction.callWith(OverloadedFunction.java:409) 
+        at org.rascalmpl.interpreter.result.OverloadedFunction.call(OverloadedFunction.java:369) 
+        at org.rascalmpl.semantics.dynamic.Expression$CallOrTree.interpret(Expression.java:540) 
+        at org.rascalmpl.semantics.dynamic.Statement$Expression.interpret(Statement.java:365) 
+        at org.rascalmpl.semantics.dynamic.Statement$Assignment.interpret(Statement.java:205) 
+        at org.rascalmpl.interpreter.result.RascalFunction.runBody(RascalFunction.java:385) 
+        at org.rascalmpl.interpreter.result.RascalFunction.call(RascalFunction.java:326) 
+        at org.rascalmpl.interpreter.result.OverloadedFunction.callWith(OverloadedFunction.java:409) 
+        at org.rascalmpl.interpreter.result.OverloadedFunction.call(OverloadedFunction.java:369) 
+        at org.rascalmpl.semantics.dynamic.Expression$CallOrTree.interpret(Expression.java:540) 
+        at org.rascalmpl.semantics.dynamic.Statement$Expression.interpret(Statement.java:365) 
+        at org.rascalmpl.semantics.dynamic.Statement$Assignment.interpret(Statement.java:205) 
+        at org.rascalmpl.semantics.dynamic.Statement$NonEmptyBlock.interpret(Statement.java:759) 
+        at org.rascalmpl.semantics.dynamic.Statement$For.interpret(Statement.java:468) 
+        at org.rascalmpl.interpreter.result.RascalFunction.runBody(RascalFunction.java:385) 
+        at org.rascalmpl.interpreter.result.RascalFunction.call(RascalFunction.java:326) 
+        at org.rascalmpl.interpreter.result.OverloadedFunction.callWith(OverloadedFunction.java:409) 
+        at org.rascalmpl.interpreter.result.OverloadedFunction.call(OverloadedFunction.java:369) 
+        at org.rascalmpl.semantics.dynamic.Expression$CallOrTree.interpret(Expression.java:540) 
+        at org.rascalmpl.semantics.dynamic.Statement$Expression.interpret(Statement.java:365) 
+        at org.rascalmpl.semantics.dynamic.Statement$Assignment.interpret(Statement.java:205) 
+        at org.rascalmpl.interpreter.result.RascalFunction.runBody(RascalFunction.java:385) 
+        at org.rascalmpl.interpreter.result.RascalFunction.call(RascalFunction.java:326) 
+        at org.rascalmpl.interpreter.result.AbstractPatternDispatchedFunction.call(AbstractPatternDispatchedFunction.java:186) 
+        at org.rascalmpl.interpreter.result.OverloadedFunction.callWith(OverloadedFunction.java:409) 
+        at org.rascalmpl.interpreter.result.OverloadedFunction.call(OverloadedFunction.java:369) 
+        at org.rascalmpl.semantics.dynamic.Expression$CallOrTree.interpret(Expression.java:540) 
+        at org.rascalmpl.semantics.dynamic.Statement$Expression.interpret(Statement.java:365) 
+        at org.rascalmpl.semantics.dynamic.Statement$NonEmptyBlock.interpret(Statement.java:759) 
+        at org.rascalmpl.semantics.dynamic.Statement$IfThenElse.interpret(Statement.java:711) 
+        at org.rascalmpl.semantics.dynamic.Statement$IfThenElse.interpret(Statement.java:711) 
+        at org.rascalmpl.semantics.dynamic.Statement$IfThenElse.interpret(Statement.java:711) 
+        at org.rascalmpl.interpreter.result.RascalFunction.runBody(RascalFunction.java:385) 
+        at org.rascalmpl.interpreter.result.RascalFunction.call(RascalFunction.java:326) 
+        at org.rascalmpl.semantics.dynamic.Expression$CallOrTree.interpret(Expression.java:540) 
+        at org.rascalmpl.semantics.dynamic.Statement$Expression.interpret(Statement.java:365) 
+        at org.rascalmpl.interpreter.result.RascalFunction.runBody(RascalFunction.java:385) 
+        at org.rascalmpl.interpreter.result.RascalFunction.call(RascalFunction.java:326) 
+        at org.rascalmpl.interpreter.result.AbstractFunction.call(AbstractFunction.java:199) 
+        at org.rascalmpl.interpreter.Evaluator.call(Evaluator.java:743) 
+        at org.rascalmpl.interpreter.Evaluator.call(Evaluator.java:726) 
+        at org.rascalmpl.interpreter.Evaluator.call(Evaluator.java:549) 
+        at server.ServerReceiver.onReceive(ServerReceiver.java:97) 
+        at server.Receiver.run(Receiver.java:18) 
+        at java.base/java.lang.Thread.run(Thread.java:1583) 
+Client connected: /127.0.0.1:60870 
+Execution of  @dispatch in Rascal  
+84 
+Total execution time of @messageType.equals("CALLBACK"): 86ms 
+Exception in thread "Receiver Thread of Server" org.rascalmpl.exceptions.Throw: /Users/ekletsko/raven-project/raven-rascal-example/raven-core/src/main/rascal/lang/sml/Environment.rsc:37,15: NoSuchKey(11) 
+        at org.rascalmpl.interpreter.control_exceptions.ControlException.reallyFillInStackTrace(ControlException.java:42) 
+        at org.rascalmpl.exceptions.Throw.fillInStackTrace(Throw.java:138) 
+        at java.base/java.lang.Throwable.<init>(Throwable.java:273) 
+        at java.base/java.lang.Exception.<init>(Exception.java:67) 
+        at java.base/java.lang.RuntimeException.<init>(RuntimeException.java:63) 
+        at org.rascalmpl.interpreter.control_exceptions.ControlException.<init>(ControlException.java:25) 
+        at org.rascalmpl.exceptions.Throw.<init>(Throw.java:51) 
+        at org.rascalmpl.exceptions.RuntimeExceptionFactory.noSuchKey(RuntimeExceptionFactory.java:621) 
+        at org.rascalmpl.interpreter.result.MapResult.subscript(MapResult.java:77) 
+        at org.rascalmpl.semantics.dynamic.Expression$Subscript.interpret(Expression.java:2644) 
+        at org.rascalmpl.semantics.dynamic.Declarator$Default.interpret(Declarator.java:52) 
+        at org.rascalmpl.semantics.dynamic.LocalVariableDeclaration$Default.interpret(LocalVariableDeclaration.java:36) 
+        at org.rascalmpl.semantics.dynamic.Statement$VariableDeclaration.interpret(Statement.java:1003) 
+        at org.rascalmpl.interpreter.result.RascalFunction.runBody(RascalFunction.java:385) 
+        at org.rascalmpl.interpreter.result.RascalFunction.call(RascalFunction.java:326) 
+        at org.rascalmpl.semantics.dynamic.Expression$CallOrTree.interpret(Expression.java:540) 
+        at org.rascalmpl.semantics.dynamic.Declarator$Default.interpret(Declarator.java:52) 
+        at org.rascalmpl.semantics.dynamic.LocalVariableDeclaration$Default.interpret(LocalVariableDeclaration.java:36) 
+        at org.rascalmpl.semantics.dynamic.Statement$VariableDeclaration.interpret(Statement.java:1003) 
+        at org.rascalmpl.interpreter.result.RascalFunction.runBody(RascalFunction.java:385) 
+        at org.rascalmpl.interpreter.result.RascalFunction.call(RascalFunction.java:326) 
+        at org.rascalmpl.semantics.dynamic.Expression$CallOrTree.interpret(Expression.java:540) 
+        at org.rascalmpl.semantics.dynamic.Declarator$Default.interpret(Declarator.java:52) 
+        at org.rascalmpl.semantics.dynamic.LocalVariableDeclaration$Default.interpret(LocalVariableDeclaration.java:36) 
+        at org.rascalmpl.semantics.dynamic.Statement$VariableDeclaration.interpret(Statement.java:1003) 
+Total Rendering time of @onReceive(String element) Godot: 31ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 22ms 
+ERROR: Caller thread can't call this function in this node (/root). Use call_deferred() or call_thread_group() instead. 
+   at: get_child (scene/main/node.cpp:1529) 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 22ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 35ms 
+ERROR: Caller thread can't call this function in this node (/root). Use call_deferred() or call_thread_group() instead. 
+   at: get_child (scene/main/node.cpp:1529) 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 32ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 28ms 
+ERROR: Caller thread can't call this function in this node (/root). Use call_deferred() or call_thread_group() instead. 
+   at: get_child (scene/main/node.cpp:1529) 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 56ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 28ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 30ms 
+ERROR: Caller thread can't call this function in this node (/root). Use call_deferred() or call_thread_group() instead. 
+   at: get_child (scene/main/node.cpp:1529) 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 64ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 35ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 73ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 30ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 27ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 38ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 58ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 41ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 66ms 
+ERROR: Index p_current = 2 is out of bounds (get_tab_count() = 2). 
+   at: set_current_tab (scene/gui/tab_bar.cpp:639) 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 44ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 37ms 
+Traverse JSON is called 
+Total Rendering time of @onReceive(String element) Godot: 6ms 
+ERROR: Index p_current = 1 is out of bounds (get_tab_count() = 1). 
+   at: set_current_tab (scene/gui/tab_bar.cpp:639) 
+ 
+session: r1:Java- 2:Godot*                                                                                                                                                     "MacBook-Pro-von-Elisa" 23:27 11-Jul-24

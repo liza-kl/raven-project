@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   contentStyleType="text/css"
+   height="219px"
+   preserveAspectRatio="none"
+   style="width:818px;height:219px;background:#FFFFFF;"
+   version="1.1"
+   viewBox="0 0 818 219"
+   width="818px"
+   zoomAndPan="magnify"
+   id="svg11"
+   sodipodi:docname="visitor.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview11"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.00978"
+     inkscape:cx="409"
+     inkscape:cy="109.92494"
+     inkscape:window-width="1312"
+     inkscape:window-height="449"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg11" />
+  <defs
+     id="defs1" />
+  <g
+     id="g11">
+    <!--class RavenNode-->
+    <g
+       id="elem_RavenNode">
+      <rect
+         codeLine="1"
+         fill="#F1F1F1"
+         height="64.4883"
+         id="RavenNode"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="220"
+         x="591.5"
+         y="7" />
+      <ellipse
+         cx="658.75"
+         cy="23"
+         fill="#B4A7E5"
+         rx="11"
+         ry="11"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="ellipse1" />
+      <path
+         d="M654.6777,18.7651 L654.6777,16.6069 L662.0571,16.6069 L662.0571,18.7651 L659.5918,18.7651 L659.5918,26.8418 L662.0571,26.8418 L662.0571,29 L654.6777,29 L654.6777,26.8418 L657.1431,26.8418 L657.1431,18.7651 Z "
+         fill="#000000"
+         id="path1" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         font-style="italic"
+         lengthAdjust="spacing"
+         textLength="77"
+         x="679.25"
+         y="28.291"
+         id="text1">RavenNode</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="592.5"
+         x2="810.5"
+         y1="39"
+         y2="39"
+         id="line1" />
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="592.5"
+         x2="810.5"
+         y1="47"
+         y2="47"
+         id="line2" />
+      <ellipse
+         cx="602.5"
+         cy="60.7441"
+         fill="#84BE84"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1.0;"
+         id="ellipse2" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="194"
+         x="611.5"
+         y="64.5352"
+         id="text2">void acceptVisitor(v: Visitor);</text>
+    </g>
+    <!--class RavenButton-->
+    <g
+       id="elem_RavenButton">
+      <rect
+         codeLine="6"
+         fill="#F1F1F1"
+         height="64.4883"
+         id="RavenButton"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="183"
+         x="336"
+         y="148.49" />
+      <ellipse
+         cx="380.25"
+         cy="164.49"
+         fill="#ADD1B2"
+         rx="11"
+         ry="11"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="ellipse3" />
+      <path
+         d="M383.2231,170.1331 Q382.6421,170.4319 382.0029,170.5813 Q381.3638,170.7307 380.6582,170.7307 Q378.1514,170.7307 376.8315,169.0789 Q375.5117,167.427 375.5117,164.3059 Q375.5117,161.1765 376.8315,159.5247 Q378.1514,157.8728 380.6582,157.8728 Q381.3638,157.8728 382.0112,158.0222 Q382.6587,158.1716 383.2231,158.4705 L383.2231,161.1931 Q382.5923,160.6121 381.9988,160.3423 Q381.4053,160.0725 380.7744,160.0725 Q379.4297,160.0725 378.7449,161.1392 Q378.0601,162.2058 378.0601,164.3059 Q378.0601,166.3977 378.7449,167.4644 Q379.4297,168.531 380.7744,168.531 Q381.4053,168.531 381.9988,168.2612 Q382.5923,167.9915 383.2231,167.4104 Z "
+         fill="#000000"
+         id="path3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="86"
+         x="400.75"
+         y="169.781"
+         id="text3">RavenButton</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="337"
+         x2="518"
+         y1="180.49"
+         y2="180.49"
+         id="line3" />
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="337"
+         x2="518"
+         y1="188.49"
+         y2="188.49"
+         id="line4" />
+      <ellipse
+         cx="347"
+         cy="202.2341"
+         fill="#84BE84"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1.0;"
+         id="ellipse4" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="157"
+         x="356"
+         y="206.0252"
+         id="text4">acceptVisitor(v: Visitor)</text>
+    </g>
+    <!--class Visitor-->
+    <g
+       id="elem_Visitor">
+      <rect
+         codeLine="10"
+         fill="#F1F1F1"
+         height="64.4883"
+         id="Visitor"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="257"
+         x="7"
+         y="7" />
+      <ellipse
+         cx="109.25"
+         cy="23"
+         fill="#B4A7E5"
+         rx="11"
+         ry="11"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="ellipse5" />
+      <path
+         d="M105.1777,18.7651 L105.1777,16.6069 L112.5571,16.6069 L112.5571,18.7651 L110.0918,18.7651 L110.0918,26.8418 L112.5571,26.8418 L112.5571,29 L105.1777,29 L105.1777,26.8418 L107.6431,26.8418 L107.6431,18.7651 Z "
+         fill="#000000"
+         id="path5" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         font-style="italic"
+         lengthAdjust="spacing"
+         textLength="44"
+         x="129.75"
+         y="28.291"
+         id="text5">Visitor</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="8"
+         x2="263"
+         y1="39"
+         y2="39"
+         id="line5" />
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="8"
+         x2="263"
+         y1="47"
+         y2="47"
+         id="line6" />
+      <ellipse
+         cx="18"
+         cy="60.7441"
+         fill="#84BE84"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1.0;"
+         id="ellipse6" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="231"
+         x="27"
+         y="64.5352"
+         id="text6">visitButton(element: RavenButton)</text>
+    </g>
+    <!--class Interpreter-->
+    <g
+       id="elem_Interpreter">
+      <rect
+         codeLine="14"
+         fill="#F1F1F1"
+         height="64.4883"
+         id="Interpreter"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="257"
+         x="299"
+         y="7" />
+      <ellipse
+         cx="386.25"
+         cy="23"
+         fill="#ADD1B2"
+         rx="11"
+         ry="11"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="ellipse7" />
+      <path
+         d="M389.2231,28.6431 Q388.6421,28.9419 388.0029,29.0913 Q387.3638,29.2407 386.6582,29.2407 Q384.1514,29.2407 382.8315,27.5889 Q381.5117,25.937 381.5117,22.8159 Q381.5117,19.6865 382.8315,18.0347 Q384.1514,16.3828 386.6582,16.3828 Q387.3638,16.3828 388.0112,16.5322 Q388.6587,16.6816 389.2231,16.9805 L389.2231,19.7031 Q388.5923,19.1221 387.9988,18.8523 Q387.4053,18.5825 386.7744,18.5825 Q385.4297,18.5825 384.7449,19.6492 Q384.0601,20.7158 384.0601,22.8159 Q384.0601,24.9077 384.7449,25.9744 Q385.4297,27.041 386.7744,27.041 Q387.4053,27.041 387.9988,26.7712 Q388.5923,26.5015 389.2231,25.9204 Z "
+         fill="#000000"
+         id="path7" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="74"
+         x="406.75"
+         y="28.291"
+         id="text7">Interpreter</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="300"
+         x2="555"
+         y1="39"
+         y2="39"
+         id="line7" />
+      <line
+         style="stroke:#181818;stroke-width:0.5;"
+         x1="300"
+         x2="555"
+         y1="47"
+         y2="47"
+         id="line8" />
+      <ellipse
+         cx="310"
+         cy="60.7441"
+         fill="#84BE84"
+         rx="3"
+         ry="3"
+         style="stroke:#038048;stroke-width:1.0;"
+         id="ellipse8" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="231"
+         x="319"
+         y="64.5352"
+         id="text8">visitButton(element: RavenButton)</text>
+    </g>
+    <!--reverse link RavenNode to RavenButton-->
+    <g
+       id="link_RavenNode_RavenButton">
+      <path
+         codeLine="19"
+         d="M632.8205,80.9227 C607.4305,95.6527 591.99,104.04 563.5,118.49 C543.52,128.63 521.52,138.9 501.14,148.07 "
+         fill="none"
+         id="RavenNode-backto-RavenButton"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="none"
+         points="648.39,71.89,629.8096,75.7328,635.8313,86.1125,648.39,71.89"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon8" />
+    </g>
+    <!--reverse link Visitor to Interpreter-->
+    <g
+       id="link_Visitor_Interpreter">
+      <path
+         codeLine="21"
+         d="M282.43,39.25 C293.88,39.25 287.48,39.25 298.94,39.25 "
+         fill="none"
+         id="Visitor-backto-Interpreter"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="none"
+         points="264.43,39.25,282.43,45.25,282.43,33.25,264.43,39.25"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon9" />
+    </g>
+    <!--reverse link Visitor to Interpreter-->
+    <!--link RavenButton to Visitor-->
+    <g
+       id="link_RavenButton_Visitor">
+      <path
+         codeLine="23"
+         d="M361.25,148.09 C313.55,125.3 254.8738,97.2766 207.1738,74.4866 "
+         fill="none"
+         id="RavenButton-to-Visitor"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="201.76,71.9,208.1563,79.3891,206.2715,74.0555,211.6051,72.1707,201.76,71.9"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon10" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="56"
+         x="300.5"
+         y="115.0584"
+         id="text10">accept(v)</text>
+    </g>
+    <!--link Interpreter to RavenButton-->
+    <g
+       id="link_Interpreter_RavenButton">
+      <path
+         codeLine="24"
+         d="M427.5,71.9 C427.5,94.73 427.5,119.41 427.5,142.21 "
+         fill="none"
+         id="Interpreter-to-RavenButton"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="427.5,148.21,431.5,139.21,427.5,143.21,423.5,139.21,427.5,148.21"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon11" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="126"
+         x="428.5"
+         y="115.0584"
+         id="text11">visitButton(element)</text>
+    </g>
+    <!--SRC=[bO-z3i8W4CVtUueRImmlWCR1pSN1mSKu43WZIOM6KXRrtIqMAJ4wo420u_V_C3QGFqj5k9UHxCvfmXlWk1Q8qHcDKYdgmi7q9ZZVH87vo9O03m3LohwVuCqGWhC5_macp1JV_5gmcEwJL4CjNSa6KUkpsNMRH3fFu_uV3dFPrPtpUWxm3lIQL1QPoYqvNvVe8dTj8eCwK_fJC-9REbOvSd-y6At9dZwidm00]-->
+  </g>
+</svg>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   contentStyleType="text/css"
+   height="243.6px"
+   preserveAspectRatio="none"
+   style="width:300px;height:243px;background:#FFFFFF;"
+   version="1.1"
+   viewBox="0 0 300 243"
+   width="300px"
+   zoomAndPan="magnify"
+   id="svg15"
+   sodipodi:docname="rascalgenerator.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview15"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.7673713"
+     inkscape:cx="44.982059"
+     inkscape:cy="118.53763"
+     inkscape:window-width="1512"
+     inkscape:window-height="790"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="link_RavenNode_JSON-Mapper" />
+  <defs
+     id="defs1" />
+  <g
+     id="g15">
+    <!--cluster RavenNode-->
+    <g
+       id="cluster_RavenNode"
+       transform="translate(-25.850116,13.74826)">
+      <rect
+         fill="none"
+         height="91.314003"
+         rx="1.5"
+         ry="1.5"
+         style="stroke:#181818;stroke-width:0.6"
+         width="181.8"
+         x="30.6"
+         y="4.1999998"
+         id="rect1" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="8.4px"
+         font-weight="bold"
+         lengthAdjust="spacing"
+         textLength="48"
+         x="97.5"
+         y="13.5211"
+         id="text1">RavenNode</text>
+    </g>
+    <!--cluster JSON-->
+    <g
+       id="cluster_JSON">
+      <rect
+         fill="none"
+         height="120.648"
+         rx="1.5"
+         ry="1.5"
+         style="stroke:#181818;stroke-width:0.6;"
+         width="263.4"
+         x="4.2"
+         y="119.514"
+         id="rect2" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="8.4"
+         font-weight="bold"
+         lengthAdjust="spacing"
+         textLength="22.2"
+         x="124.8"
+         y="128.8351"
+         id="text2">JSON</text>
+    </g>
+    <!--entity rect-->
+    <g
+       id="elem_rect"
+       transform="translate(-26.163672,10.476005)">
+      <rect
+         fill="#f1f1f1"
+         height="51.112499"
+         rx="1.5"
+         ry="1.5"
+         style="stroke:#181818;stroke-width:0.3"
+         width="141.60001"
+         x="45"
+         y="30"
+         id="rect3" />
+      <text
+         fill="#000000"
+         font-family="monospace"
+         font-size="8.4px"
+         lengthAdjust="spacing"
+         textLength="57.599998"
+         x="51"
+         y="43.7971"
+         id="text3">ravenButton(</text>
+      <text
+         fill="#000000"
+         font-family="monospace"
+         font-size="8.4px"
+         lengthAdjust="spacing"
+         textLength="67.199997"
+         x="60.599998"
+         y="53.575199"
+         id="text4">&quot;Button Text&quot;,</text>
+      <text
+         fill="#000000"
+         font-family="monospace"
+         font-size="8.4px"
+         lengthAdjust="spacing"
+         textLength="120"
+         x="60.599998"
+         y="63.353298"
+         id="text5">&quot;println('Hello World')&quot;,</text>
+      <text
+         fill="#000000"
+         font-family="monospace"
+         font-size="8.4px"
+         lengthAdjust="spacing"
+         textLength="57.599998"
+         x="60.599998"
+         y="73.131401"
+         id="text6">settings=[])</text>
+    </g>
+    <!--entity JSON-Mapper-->
+    <g
+       id="elem_JSON-Mapper"
+       transform="translate(2.898166,11.283034)">
+      <rect
+         fill="#f1f1f1"
+         height="21.893"
+         rx="1.5"
+         ry="1.5"
+         style="stroke:#181818;stroke-width:0.3"
+         width="67.800003"
+         x="196.4621"
+         y="44.918171"
+         id="rect6" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="8.4px"
+         lengthAdjust="spacing"
+         textLength="55.799999"
+         x="234.89999"
+         y="58.731098"
+         id="text7"
+         transform="translate(-32.437889)">JSON-Mapper</text>
+    </g>
+    <!--entity react2-->
+    <g
+       id="elem_react2">
+      <rect
+         fill="#F1F1F1"
+         height="80.4469"
+         rx="1.5"
+         ry="1.5"
+         style="stroke:#181818;stroke-width:0.3;"
+         width="223.2"
+         x="18.6"
+         y="145.314"
+         id="rect7" />
+      <text
+         fill="#000000"
+         font-family="monospace"
+         font-size="8.4"
+         lengthAdjust="spacing"
+         textLength="48"
+         x="24.6"
+         y="159.1111"
+         id="text8">{&quot;Button&quot;:</text>
+      <text
+         fill="#000000"
+         font-family="monospace"
+         font-size="8.4"
+         lengthAdjust="spacing"
+         textLength="4.8"
+         x="43.8"
+         y="168.8892"
+         id="text9">{</text>
+      <text
+         fill="#000000"
+         font-family="monospace"
+         font-size="8.4"
+         lengthAdjust="spacing"
+         textLength="48"
+         x="58.2"
+         y="178.6673"
+         id="text10">&quot;id&quot;: &quot;1&quot;,</text>
+      <text
+         fill="#000000"
+         font-family="monospace"
+         font-size="8.4"
+         lengthAdjust="spacing"
+         textLength="81.6"
+         x="58.2"
+         y="188.4454"
+         id="text11">&quot;text&quot;: &quot;Button&quot;,</text>
+      <text
+         fill="#000000"
+         font-family="monospace"
+         font-size="8.4"
+         lengthAdjust="spacing"
+         textLength="177.6"
+         x="58.2"
+         y="198.2236"
+         id="text12">&quot;callback&quot;: &quot;println('Hello World')&quot;,</text>
+      <text
+         fill="#000000"
+         font-family="monospace"
+         font-size="8.4"
+         lengthAdjust="spacing"
+         textLength="28.8"
+         x="58.2"
+         y="208.0017"
+         id="text13">// ...</text>
+      <text
+         fill="#000000"
+         font-family="monospace"
+         font-size="8.4"
+         lengthAdjust="spacing"
+         textLength="28.8"
+         x="24.6"
+         y="217.7798"
+         id="text14">}    }</text>
+    </g>
+    <!--link RavenNode to JSON-Mapper-->
+    <g
+       id="link_RavenNode_JSON-Mapper"
+       transform="matrix(0.29926869,0,0,1.0589466,130.59352,8.6975065)">
+      <path
+         codeLine="33"
+         d="m 212.4098,55.56 h 0.1621 -25.61064 31.44774 6.777"
+         fill="none"
+         id="RavenNode-to-JSON-Mapper"
+         style="stroke:#181818;stroke-width:0.6"
+         sodipodi:nodetypes="ccccc" />
+      <polygon
+         fill="#181818"
+         points="228.786,55.56 223.386,53.16 225.786,55.56 223.386,57.96 "
+         style="stroke:#181818;stroke-width:0.6"
+         id="polygon14"
+         transform="matrix(3,0.06583778,0,1,-456.40642,-14.902333)" />
+    </g>
+    <!--link JSON-Mapper to JSON-->
+    <g
+       id="link_JSON-Mapper_JSON"
+       transform="matrix(1.015432,0,0,0.77361306,-37.729149,26.489036)">
+      <path
+         codeLine="35"
+         d="m 262.8,66.696 c 0,7.569 0,18.5737 0,30.8648 0,6.1456 0,12.6127 0,19.1328 0,0.815 0,-1.9692 0,-1.1531"
+         fill="none"
+         id="JSON-Mapper-to-JSON"
+         style="stroke:#181818;stroke-width:0.6" />
+      <polygon
+         fill="#181818"
+         points="260.4,113.7405 262.8,119.1405 265.2,113.7405 262.8,116.1405 "
+         style="stroke:#181818;stroke-width:0.6"
+         id="polygon15" />
+    </g>
+    <!--SRC=[VP712i8m38RlVOhGYmfkGuz3FNWIGGKLF8Y7sXKfrdRKA8BuxYxTfbF17aho9_pzagBB0Hti7Q8xGQQzagYTPOm2OGz6mL9SbPsxJC6zALC4MmOma4Ljn3orZI-5ZsqNAW0l4rYh6_9kAULUMpIstPeeOnnid3TPgrDLpmfHsyDvkDrro3SfZNViqNoNJrUBUJGJUQuyBv1-YwG6moQiaDWFk2zW2kyL94z36gHNHC0wuodmNaLOgqWZfVM4NqKfZDaBUQI6l_DM9qaWZkEWFC9LGYPlIjh0-nUYqUSE6FjSILGty2S0]-->
+  </g>
+</svg>

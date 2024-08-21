@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   contentStyleType="text/css"
+   height="335px"
+   preserveAspectRatio="none"
+   style="width:875px;height:335px;background:#FFFFFF;"
+   version="1.1"
+   viewBox="0 0 875 335"
+   width="875px"
+   zoomAndPan="magnify"
+   id="svg43"
+   sodipodi:docname="lwb-specific.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview43"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.70447761"
+     inkscape:cx="437.20339"
+     inkscape:cy="167.5"
+     inkscape:window-width="2560"
+     inkscape:window-height="1387"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg43" />
+  <defs
+     id="defs1" />
+  <g
+     id="g43">
+    <!--cluster LWB Specific Implementation-->
+    <g
+       id="cluster_LWB Specific Implementation">
+      <rect
+         fill="none"
+         height="322.98"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:1.0;"
+         width="862"
+         x="7"
+         y="7"
+         id="rect1" />
+      <path
+         d="M227,7 L227,16.4883 L217,26.4883 L7,26.4883 "
+         fill="none"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="path1" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         font-weight="bold"
+         lengthAdjust="spacing"
+         textLength="210"
+         x="10"
+         y="21.5352"
+         id="text1">LWB Specific Implementation</text>
+    </g>
+    <!--cluster interpreter-->
+    <g
+       id="cluster_interpreter">
+      <polygon
+         fill="none"
+         points="31,60,41,50,545,50,545,295.98,535,305.98,31,305.98,31,60"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon1" />
+      <line
+         style="stroke:#181818;stroke-width:1.0;"
+         x1="535"
+         x2="545"
+         y1="60"
+         y2="50"
+         id="line1" />
+      <line
+         style="stroke:#181818;stroke-width:1.0;"
+         x1="31"
+         x2="535"
+         y1="60"
+         y2="60"
+         id="line2" />
+      <line
+         style="stroke:#181818;stroke-width:1.0;"
+         x1="535"
+         x2="535"
+         y1="60"
+         y2="305.98"
+         id="line3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         font-weight="bold"
+         lengthAdjust="spacing"
+         textLength="201"
+         x="183.5"
+         y="76.5352"
+         id="text3">Rascal LWB Implementation</text>
+    </g>
+    <!--cluster genericPart-->
+    <g
+       id="cluster_genericPart">
+      <polygon
+         fill="none"
+         points="569,60,579,50,845,50,845,295.98,835,305.98,569,305.98,569,60"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon3" />
+      <line
+         style="stroke:#181818;stroke-width:1.0;"
+         x1="835"
+         x2="845"
+         y1="60"
+         y2="50"
+         id="line4" />
+      <line
+         style="stroke:#181818;stroke-width:1.0;"
+         x1="569"
+         x2="835"
+         y1="60"
+         y2="60"
+         id="line5" />
+      <line
+         style="stroke:#181818;stroke-width:1.0;"
+         x1="835"
+         x2="835"
+         y1="60"
+         y2="305.98"
+         id="line6" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         font-weight="bold"
+         lengthAdjust="spacing"
+         textLength="149"
+         x="628.5"
+         y="76.5352"
+         id="text6">Communication Unit</text>
+    </g>
+    <!--entity traverser-->
+    <g
+       id="elem_traverser">
+      <rect
+         fill="#F1F1F1"
+         height="46.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="146"
+         x="60"
+         y="90"
+         id="rect6" />
+      <rect
+         fill="#F1F1F1"
+         height="10"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="15"
+         x="186"
+         y="95"
+         id="rect7" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="184"
+         y="97"
+         id="rect8" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="184"
+         y="101"
+         id="rect9" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="106"
+         x="75"
+         y="123.5352"
+         id="text9">JSON Generator</text>
+    </g>
+    <!--entity dispatcher-->
+    <g
+       id="elem_dispatcher">
+      <rect
+         fill="#F1F1F1"
+         height="46.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="113"
+         x="416.5"
+         y="243.49"
+         id="rect10" />
+      <rect
+         fill="#F1F1F1"
+         height="10"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="15"
+         x="509.5"
+         y="248.49"
+         id="rect11" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="507.5"
+         y="250.49"
+         id="rect12" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="507.5"
+         y="254.49"
+         id="rect13" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="73"
+         x="431.5"
+         y="277.0252"
+         id="text13">Dispatcher</text>
+    </g>
+    <g
+       id="elem_GMN6">
+      <path
+         d="M406.5,92.94 L406.5,133.5611 A0,0 0 0 0 406.5,133.5611 L464.65,133.5611 L472.26,243.21 L472.65,133.5611 L529.5,133.5611 A0,0 0 0 0 529.5,133.5611 L529.5,102.94 L519.5,92.94 L406.5,92.94 A0,0 0 0 0 406.5,92.94 "
+         fill="#FEFFDD"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="path13" />
+      <path
+         d="M519.5,92.94 L519.5,102.94 L529.5,102.94 L519.5,92.94 "
+         fill="#FEFFDD"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="path14" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="98"
+         x="412.5"
+         y="110.5084"
+         id="text14">Calls registered</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="91"
+         x="416.5"
+         y="125.8189"
+         id="text15">DSL Controller</text>
+    </g>
+    <!--entity sendingUtils-->
+    <g
+       id="elem_sendingUtils">
+      <rect
+         fill="#F1F1F1"
+         height="46.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="130"
+         x="241"
+         y="90"
+         id="rect15" />
+      <rect
+         fill="#F1F1F1"
+         height="10"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="15"
+         x="351"
+         y="95"
+         id="rect16" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="349"
+         y="97"
+         id="rect17" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="349"
+         y="101"
+         id="rect18" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="90"
+         x="256"
+         y="123.5352"
+         id="text18">Sending Utils</text>
+    </g>
+    <g
+       id="elem_GMN10">
+      <path
+         d="M260,246.43 L260,287.0511 A0,0 0 0 0 260,287.0511 L382,287.0511 A0,0 0 0 0 382,287.0511 L382,256.43 L372,246.43 L323.07,246.43 L308.25,136.93 L315.07,246.43 L260,246.43 A0,0 0 0 0 260,246.43 "
+         fill="#FEFFDD"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="path18" />
+      <path
+         d="M372,246.43 L372,256.43 L382,256.43 L372,246.43 "
+         fill="#FEFFDD"
+         style="stroke:#181818;stroke-width:0.5;"
+         id="path19" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="82"
+         x="266"
+         y="263.9984"
+         id="text19">Used to send</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="97"
+         x="270"
+         y="279.3089"
+         id="text20">generated JSON</text>
+    </g>
+    <!--entity dtd-->
+    <g
+       id="elem_dtd">
+      <rect
+         fill="#F1F1F1"
+         height="46.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="179"
+         x="46.5"
+         y="243.49"
+         id="rect20" />
+      <rect
+         fill="#F1F1F1"
+         height="10"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="15"
+         x="205.5"
+         y="248.49"
+         id="rect21" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="203.5"
+         y="250.49"
+         id="rect22" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="203.5"
+         y="254.49"
+         id="rect23" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="139"
+         x="61.5"
+         y="277.0252"
+         id="text23">Data Type Definition</text>
+    </g>
+    <!--entity Receiver-->
+    <g
+       id="elem_Receiver">
+      <rect
+         fill="#F1F1F1"
+         height="46.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="97"
+         x="584.5"
+         y="90"
+         id="rect24" />
+      <rect
+         fill="#F1F1F1"
+         height="10"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="15"
+         x="661.5"
+         y="95"
+         id="rect25" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="659.5"
+         y="97"
+         id="rect26" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="659.5"
+         y="101"
+         id="rect27" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="57"
+         x="599.5"
+         y="123.5352"
+         id="text27">Receiver</text>
+    </g>
+    <!--entity Sender-->
+    <g
+       id="elem_Sender">
+      <rect
+         fill="#F1F1F1"
+         height="46.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="88"
+         x="716"
+         y="90"
+         id="rect28" />
+      <rect
+         fill="#F1F1F1"
+         height="10"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="15"
+         x="784"
+         y="95"
+         id="rect29" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="782"
+         y="97"
+         id="rect30" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="782"
+         y="101"
+         id="rect31" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="48"
+         x="731"
+         y="123.5352"
+         id="text31">Sender</text>
+    </g>
+    <!--entity SharedBuffer-->
+    <g
+       id="elem_SharedBuffer">
+      <rect
+         fill="#F1F1F1"
+         height="46.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="129"
+         x="639.5"
+         y="243.49"
+         id="rect32" />
+      <rect
+         fill="#F1F1F1"
+         height="10"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="15"
+         x="748.5"
+         y="248.49"
+         id="rect33" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="746.5"
+         y="250.49"
+         id="rect34" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="746.5"
+         y="254.49"
+         id="rect35" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="89"
+         x="654.5"
+         y="277.0252"
+         id="text35">SharedBuffer</text>
+    </g>
+    <!--link sendingUtils to dtd-->
+    <!--link traverser to dtd-->
+    <g
+       id="link_traverser_dtd">
+      <path
+         d="M133.45,136.93 C134.02,165.65 134.8703,208.8312 135.4403,237.4012 "
+         fill="none"
+         id="traverser-to-dtd"
+         style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;" />
+      <polygon
+         fill="#181818"
+         points="135.56,243.4,139.3797,234.322,135.4603,238.401,131.3813,234.4816,135.56,243.4"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon35" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="29"
+         x="135"
+         y="195.0584"
+         id="text36">uses</text>
+    </g>
+    <!--link Sender to SharedBuffer-->
+    <g
+       id="link_Sender_SharedBuffer">
+      <path
+         d="M751.62,136.93 C741,165.65 724.9002,209.2021 714.3402,237.7721 "
+         fill="none"
+         id="Sender-to-SharedBuffer"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="712.26,243.4,719.1322,236.345,713.9935,238.7101,711.6283,233.5714,712.26,243.4"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon36" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="51"
+         x="748"
+         y="187.5584"
+         id="text37">write on</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="65"
+         x="745"
+         y="202.8689"
+         id="text38">CALLBACK</text>
+    </g>
+    <!--link Receiver to SharedBuffer-->
+    <g
+       id="link_Receiver_SharedBuffer">
+      <path
+         d="M621.62,136.6 C612.58,157.72 603.5,189.65 617,213.49 C623.94,225.76 629.962,232.264 641.942,239.804 "
+         fill="none"
+         id="Receiver-to-SharedBuffer"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="647.02,243,641.5337,234.8207,642.7884,240.3367,637.2724,241.5913,647.02,243"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon38" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="96"
+         x="618"
+         y="187.5584"
+         id="text39">read CALLBACK</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="37"
+         x="649.5"
+         y="202.8689"
+         id="text40">string</text>
+    </g>
+    <!--link Receiver to dispatcher-->
+    <g
+       id="link_Receiver_dispatcher">
+      <path
+         d="M584.24,132.35 C566.06,140.77 546.18,152.14 531,166.49 C507.95,188.3 493.5326,215.789 484.1126,237.669 "
+         fill="none"
+         id="Receiver-to-dispatcher"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="481.74,243.18,488.9729,236.4953,483.7172,238.5875,481.625,233.3318,481.74,243.18"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon40" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="53"
+         x="540"
+         y="180.0584"
+         id="text41">call with</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="65"
+         x="536"
+         y="195.3689"
+         id="text42">CALLBACK</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="37"
+         x="550"
+         y="210.6795"
+         id="text43">string</text>
+    </g>
+    <!--SRC=[RPBFJiCm3CRlVGfhz-q1Ta3QEWa15Q2LYGDm28cxMagJAF4s8SIxuwRQ7rPwY5Jdy-VFlxQ9gaEOLAzBg0DgQaZ3NHSiTkXOCNatWU-YSDw8QgsILXPwyRL69I3764D4EQK5vD6-2zw922RtzTCZtAB3gDZ7hEUezXWJncljYb9Gh5iSTERqceNECmBx07CebRK98cufoL0qyEvWLLTGUiVHMpkshj4PSblOCDcKtTDGoOMp_wTdzfsCs2InPPzblVrsM46A_KQZv8eLl7m5X1Ksv6XWavTWK_mKnUKqcBwrP0owZ-bDlZy1WTaiLs2-IvYEz4lVTJj7EXE7ZRZd1N8YqiygyWZx6ZNIVeIXfp0kjaeGBdTD8rSIjHXKC9LqbtS2vH1964a80L8kgcgvA1-Auwp_6Y8gSr9AK-8e5Fwsd3-pDCXlPk50t5vCEFT9kby0]-->
+  </g>
+</svg>

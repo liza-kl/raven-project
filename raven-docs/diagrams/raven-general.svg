@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   contentStyleType="text/css"
+   height="603px"
+   preserveAspectRatio="none"
+   style="width:531px;height:603px;background:#FFFFFF;"
+   version="1.1"
+   viewBox="0 0 531 603"
+   width="531px"
+   zoomAndPan="magnify"
+   id="svg37"
+   sodipodi:docname="raven-general.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview37"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.4357677"
+     inkscape:cx="422.77033"
+     inkscape:cy="310.28695"
+     inkscape:window-width="2560"
+     inkscape:window-height="1440"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g37" />
+  <defs
+     id="defs1" />
+  <g
+     id="g37">
+    <!--cluster Raven Framework -->
+    <g
+       id="cluster_Raven Framework "
+       inkscape:export-filename="../../../../../../Users/ekletsko/raven-project/raven-docs/diagrams/raven_framework_general .png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300">
+      <rect
+         fill="none"
+         height="386.44269"
+         rx="2.5009227"
+         ry="1.6348366"
+         style="stroke:#181818;stroke-width:0.808811"
+         width="518.19116"
+         x="6.9044056"
+         y="6.9044056"
+         id="rect1" />
+      <path
+         d="M150,7 L150,16.4883 L140,26.4883 L7,26.4883 "
+         fill="none"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="path1" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         font-weight="bold"
+         lengthAdjust="spacing"
+         textLength="128"
+         x="10"
+         y="21.5352"
+         id="text1">Raven Framework</text>
+    </g>
+    <!--cluster interpreter-->
+    <g
+       id="cluster_interpreter"
+       transform="translate(1.1877353,-166.87681)">
+      <polygon
+         fill="none"
+         points="337,214.49 501,214.49 501,432.46 491,442.46 327,442.46 327,224.49 "
+         style="stroke:#181818;stroke-width:1"
+         id="polygon1" />
+      <line
+         style="stroke:#181818;stroke-width:1"
+         x1="491"
+         x2="501"
+         y1="224.49001"
+         y2="214.49001"
+         id="line1" />
+      <line
+         style="stroke:#181818;stroke-width:1"
+         x1="327"
+         x2="491"
+         y1="224.49001"
+         y2="224.49001"
+         id="line2" />
+      <line
+         style="stroke:#181818;stroke-width:1"
+         x1="491"
+         x2="491"
+         y1="224.49001"
+         y2="442.45999"
+         id="line3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         font-weight="bold"
+         lengthAdjust="spacing"
+         textLength="77"
+         x="371.5"
+         y="241.02521"
+         id="text3">Interpreter</text>
+    </g>
+    <!--cluster genericPart-->
+    <g
+       id="cluster_genericPart"
+       transform="translate(0,-2.7735188)">
+      <polygon
+         fill="none"
+         points="41,50 303,50 303,306.97 293,316.97 31,316.97 31,60 "
+         style="stroke:#181818;stroke-width:1"
+         id="polygon3" />
+      <line
+         style="stroke:#181818;stroke-width:1"
+         x1="293"
+         x2="303"
+         y1="60"
+         y2="50"
+         id="line4" />
+      <line
+         style="stroke:#181818;stroke-width:1"
+         x1="31"
+         x2="293"
+         y1="60"
+         y2="60"
+         id="line5" />
+      <line
+         style="stroke:#181818;stroke-width:1"
+         x1="293"
+         x2="293"
+         y1="60"
+         y2="316.97"
+         id="line6" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         font-weight="bold"
+         lengthAdjust="spacing"
+         textLength="149"
+         x="88.5"
+         y="76.535202"
+         id="text6">Communication Unit</text>
+    </g>
+    <!--entity godotView-->
+    <g
+       id="elem_godotView"
+       transform="translate(-0.92400342,-205.89415)">
+      <polygon
+         fill="#f1f1f1"
+         points="473,571.9483 463,581.9483 355,581.9483 355,545.46 365,535.46 473,535.46 "
+         style="stroke:#181818;stroke-width:0.5"
+         id="polygon6" />
+      <line
+         style="stroke:#181818;stroke-width:0.5"
+         x1="463"
+         x2="473"
+         y1="545.46002"
+         y2="535.46002"
+         id="line7" />
+      <line
+         style="stroke:#181818;stroke-width:0.5"
+         x1="355"
+         x2="463"
+         y1="545.46002"
+         y2="545.46002"
+         id="line8" />
+      <line
+         style="stroke:#181818;stroke-width:0.5"
+         x1="463"
+         x2="463"
+         y1="545.46002"
+         y2="581.9483"
+         id="line9" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="78"
+         x="370"
+         y="568.99518"
+         id="text9">Godot View</text>
+    </g>
+    <!--entity traverser-->
+    <g
+       id="elem_traverser"
+       transform="translate(1.1877353,-166.87681)">
+      <rect
+         fill="#f1f1f1"
+         height="46.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5"
+         width="142"
+         x="343"
+         y="254.49001"
+         id="rect9" />
+      <rect
+         fill="#f1f1f1"
+         height="10"
+         style="stroke:#181818;stroke-width:0.5"
+         width="15"
+         x="465"
+         y="259.48999"
+         id="rect10" />
+      <rect
+         fill="#f1f1f1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5"
+         width="4"
+         x="463"
+         y="261.48999"
+         id="rect11" />
+      <rect
+         fill="#f1f1f1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5"
+         width="4"
+         x="463"
+         y="265.48999"
+         id="rect12" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="102"
+         x="358"
+         y="288.02521"
+         id="text12">JSON Traverser</text>
+    </g>
+    <!--entity interpreter2-->
+    <g
+       id="elem_interpreter2"
+       transform="translate(1.1877353,-166.87681)">
+      <rect
+         fill="#f1f1f1"
+         height="46.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5"
+         width="114"
+         x="357"
+         y="379.97"
+         id="rect13" />
+      <rect
+         fill="#f1f1f1"
+         height="10"
+         style="stroke:#181818;stroke-width:0.5"
+         width="15"
+         x="451"
+         y="384.97"
+         id="rect14" />
+      <rect
+         fill="#f1f1f1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5"
+         width="4"
+         x="449"
+         y="386.97"
+         id="rect15" />
+      <rect
+         fill="#f1f1f1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5"
+         width="4"
+         x="449"
+         y="390.97"
+         id="rect16" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="74"
+         x="372"
+         y="413.50519"
+         id="text16">Interpreter</text>
+    </g>
+    <!--entity Receiver-->
+    <g
+       id="elem_Receiver">
+      <rect
+         fill="#F1F1F1"
+         height="46.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="97"
+         x="190.5"
+         y="90"
+         id="rect17" />
+      <rect
+         fill="#F1F1F1"
+         height="10"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="15"
+         x="267.5"
+         y="95"
+         id="rect18" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="265.5"
+         y="97"
+         id="rect19" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="265.5"
+         y="101"
+         id="rect20" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="57"
+         x="205.5"
+         y="123.5352"
+         id="text20">Receiver</text>
+    </g>
+    <!--entity Sender-->
+    <g
+       id="elem_Sender">
+      <rect
+         fill="#F1F1F1"
+         height="46.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="88"
+         x="47"
+         y="90"
+         id="rect21" />
+      <rect
+         fill="#F1F1F1"
+         height="10"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="15"
+         x="115"
+         y="95"
+         id="rect22" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="113"
+         y="97"
+         id="rect23" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="113"
+         y="101"
+         id="rect24" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="48"
+         x="62"
+         y="123.5352"
+         id="text24">Sender</text>
+    </g>
+    <!--entity SharedBuffer-->
+    <g
+       id="elem_SharedBuffer">
+      <rect
+         fill="#F1F1F1"
+         height="46.4883"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="129"
+         x="102.5"
+         y="254.49"
+         id="rect25" />
+      <rect
+         fill="#F1F1F1"
+         height="10"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="15"
+         x="211.5"
+         y="259.49"
+         id="rect26" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="209.5"
+         y="261.49"
+         id="rect27" />
+      <rect
+         fill="#F1F1F1"
+         height="2"
+         style="stroke:#181818;stroke-width:0.5;"
+         width="4"
+         x="209.5"
+         y="265.49"
+         id="rect28" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14"
+         lengthAdjust="spacing"
+         textLength="89"
+         x="117.5"
+         y="288.0252"
+         id="text28">SharedBuffer</text>
+    </g>
+    <!--link traverser to interpreter2-->
+    <g
+       id="link_traverser_interpreter2"
+       transform="translate(1.1877353,-166.87681)">
+      <path
+         d="m 414,301.38 c 0,22.28 0,50.1 0,72.33"
+         fill="none"
+         id="traverser-to-interpreter2"
+         style="stroke:#181818;stroke-width:1" />
+      <polygon
+         fill="#181818"
+         points="418,370.71 414,374.71 410,370.71 414,379.71 "
+         style="stroke:#181818;stroke-width:1"
+         id="polygon28" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13px"
+         lengthAdjust="spacing"
+         textLength="29"
+         x="415"
+         y="346.53839"
+         id="text29">calls</text>
+    </g>
+    <!--link interpreter2 to godotView-->
+    <g
+       id="link_interpreter2_godotView"
+       transform="translate(-1.7816029,-149.65464)">
+      <path
+         d="m 368.92207,426.27613 c 0,13.14867 0,33.10057 0,46.27644"
+         fill="none"
+         id="interpreter2-to-godotView"
+         style="stroke:#181818;stroke-width:0.673236" />
+      <polygon
+         fill="#181818"
+         points="410,525.97 414,534.97 418,525.97 414,529.97 "
+         style="stroke:#181818;stroke-width:1"
+         id="polygon29"
+         transform="translate(-45.363203,-56.510701)" />
+      <text
+         xml:space="preserve"
+         style="fill:#000000"
+         x="373.01923"
+         y="439.11508"
+         id="text38"><tspan
+           sodipodi:role="line"
+           id="tspan38"
+           x="373.01923"
+           y="439.11508">send scene tree</tspan></text>
+    </g>
+    <!--link Sender to SharedBuffer-->
+    <g
+       id="link_Sender_SharedBuffer">
+      <path
+         d="M87.62,136.97 C85.99,154.46 85.87,178.88 94,198.49 C103.11,220.45 116.858,236.0436 132.828,250.1136 "
+         fill="none"
+         id="Sender-to-SharedBuffer"
+         style="stroke:#181818;stroke-width:1.0;" />
+      <polygon
+         fill="#181818"
+         points="137.33,254.08,133.2213,245.1291,133.5783,250.7747,127.9328,251.1318,137.33,254.08"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon32" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="51"
+         x="117"
+         y="180.0584"
+         id="text33">write on</text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="4"
+         x="95"
+         y="195.3689"
+         id="text34"> </text>
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         font-weight="bold"
+         lengthAdjust="spacing"
+         textLength="95"
+         x="99"
+         y="195.3689"
+         id="text35">VIEW_UPDATE</text>
+    </g>
+    <!--link Receiver to SharedBuffer-->
+    <g
+       id="link_Receiver_SharedBuffer">
+      <path
+         d="M228.99,136.83 C215.27,167.79 193.2112,217.5847 179.4712,248.5847 "
+         fill="none"
+         id="Receiver-to-SharedBuffer"
+         style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;" />
+      <polygon
+         fill="#181818"
+         points="177.04,254.07,184.3438,247.4628,179.066,249.4989,177.03,244.2211,177.04,254.07"
+         style="stroke:#181818;stroke-width:1.0;"
+         id="polygon35" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="13"
+         lengthAdjust="spacing"
+         textLength="62"
+         x="216"
+         y="187.5584"
+         id="text36">read JSON</text>
+    </g>
+    <!--link Receiver to traverser-->
+    <g
+       id="link_Receiver_traverser"
+       transform="matrix(0.25544591,-0.68897826,0.20273108,0.73874438,192.20891,192.95471)">
+      <path
+         d="m 263.33,136.83 c 33.34,30.96 88.4835,82.157 121.8635,113.157"
+         fill="none"
+         id="Receiver-to-traverser"
+         style="stroke:#181818;stroke-width:1" />
+      <polygon
+         fill="#181818"
+         points="385.9263,250.6675 380.2733,250.8765 389.59,254.07 385.7173,245.0145 "
+         style="stroke:#181818;stroke-width:1"
+         id="polygon36"
+         transform="matrix(1.5746558,0.53594365,0.45606756,1.4253442,-336.67905,-313.99839)" />
+      <text
+         xml:space="preserve"
+         style="font-size:20.9406px;fill:#000000;stroke-width:1.74505"
+         x="198.60367"
+         y="-147.05069"
+         id="text37"
+         transform="matrix(1.2891443,1.2023,-0.35377542,0.44576532,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan37"
+           style="stroke-width:1.74505"
+           x="198.60367"
+           y="-147.05069">call</tspan></text>
+    </g>
+    <!--link Receiver to traverser-->
+    <!--SRC=[VL6xJWCn4Epz5QChJqeAoYkGU0GK2eZoeY08EVOUiSYjepqdAL3-7JllS0XBjZNUcPtTTIcw8cHzlIB6Gm9hBr_8yAqG_29kJ7q8le9rGYOupugzZP8k1vA5K3mpw1hkXADO8IxZguLdue3iQV3oZA546wdtWd10lxd_PBvIcxtzexS-OEnelULy9fYGKkgO6AtMzOKQXT7pUQqktXBfA4TH4rjCk3R45EyWH6hlUUUhQidEw3G6ZDY5dNTaYZCzBQ7PUPyCkLMZoK5qQJxEj92zNPPb3CLETwHjWUSX55YB2uHOn8IHv-Dkv_LZrBk_6NRoN1qSqMutT4BQ8lt5YPModoPM84r8dONVPivQudVx9s-ZVW00]-->
+  </g>
+</svg>

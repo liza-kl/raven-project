@@ -1,0 +1,23 @@
+@startuml
+top to bottom direction
+frame "Raven Framework " {
+
+rectangle "Godot View" as godotView
+rectangle "Raven" as genericPart
+rectangle "LWB Integration" as lwbPart
+
+}
+
+rectangle "DSL" as dsl
+
+godotView --> genericPart : callback string
+genericPart --> godotView : scene tree
+lwbPart --> dsl : execute \n callback \n function
+lwbPart <-- dsl  : updated \nview
+lwbPart --> genericPart : send JSON \n
+genericPart --> lwbPart : \n callback string
+
+godotView -[hidden]l-> genericPart
+lwbPart -[hidden]l-> genericPart
+
+@enduml
